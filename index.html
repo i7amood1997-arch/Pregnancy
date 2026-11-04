@@ -1,0 +1,1367 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="متتبع حمل باللغة العربية: عمر الحمل، موعد الولادة، الأسابيع والأشهر، التقويم، المواعيد والقوائم.">
+<meta name="theme-color" content="#F1F4F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1412" media="(prefers-color-scheme: dark)">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>مسار الحمل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600&family=Reem+Kufi:wght@500;600;700&display=swap">
+<style>
+/* Layout: mobile-first app shell. Bottom tab bar under 960px, right-side rail (inline-start) above.
+   Thesis element: the 280-day ring, split into three trimester arcs with 40 week ticks. */
+:root{
+  /* neutrals: cool sage-tinted porcelain, never cream */
+  --bg:#F1F4F1; --surface:#FAFBF9; --surface-2:#E6EBE6; --line:#D3DAD4; --line-strong:#B7C1BA;
+  --ink:#14201B; --ink-2:#43514B; --ink-3:#56635D;
+  /* single accent: pine */
+  --accent:#1D5A48; --accent-ink:#F3FAF6; --accent-soft:#D7E7DF; --accent-hover:#164A3B;
+  /* trimester hues (data colors, separate from accent) */
+  --t1:#325F7C; --t1-soft:#D5E5EE; --t2:#7A510A; --t2-soft:#F2E2BC; --t3:#A13C57; --t3-soft:#F3D5DC;
+  /* semantic */
+  --danger:#B42318; --danger-soft:#FBE3E0; --warn:#7E4C00; --warn-soft:#F8E8C8; --ok:#256C43;
+  --scrim:rgb(10 22 17 / .48);
+  --shadow:0 1px 2px rgb(20 40 30 / .06), 0 10px 28px -12px rgb(20 40 30 / .18);
+  --shadow-lg:0 -10px 40px -12px rgb(10 25 18 / .32);
+  --focus:#1D5A48;
+
+  --f-display:"Reem Kufi","Readex Pro","Noto Kufi Arabic",Tahoma,sans-serif;
+  --f-body:"Readex Pro","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
+
+  /* type scale, ratio 1.2 */
+  --fs-xs:.75rem; --fs-sm:.875rem; --fs-md:1rem; --fs-lg:1.1875rem; --fs-xl:1.4375rem; --fs-2xl:1.75rem; --fs-3xl:2.125rem; --fs-4xl:3rem;
+  /* spacing, 4pt */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px;
+  /* radius rule: surfaces 20, controls 12, pills full */
+  --r-surface:20px; --r-control:12px; --r-pill:999px;
+  /* motion */
+  --ease-out:cubic-bezier(.23,1,.32,1); --ease-drawer:cubic-bezier(.32,.72,0,1); --ease-exit:cubic-bezier(.4,0,1,1);
+  --tabbar-h:68px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1412; --surface:#151D1A; --surface-2:#1D2723; --line:#29352F; --line-strong:#3A4842;
+    --ink:#E6EEEA; --ink-2:#B4C2BB; --ink-3:#97A59F;
+    --accent:#8DD2B5; --accent-ink:#0A1F17; --accent-soft:#18362C; --accent-hover:#A6E0C7;
+    --t1:#93C4E2; --t1-soft:#1B2F3C; --t2:#E8BE69; --t2-soft:#372C14; --t3:#F2A3B7; --t3-soft:#3B2028;
+    --danger:#F4877E; --danger-soft:#3A1A17; --warn:#EDBE63; --warn-soft:#332711; --ok:#7DD3A0;
+    --scrim:rgb(0 0 0 / .6);
+    --shadow:0 1px 2px rgb(0 0 0 / .3), 0 10px 28px -12px rgb(0 0 0 / .5);
+    --shadow-lg:0 -10px 40px -12px rgb(0 0 0 / .6);
+    --focus:#8DD2B5;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1412; --surface:#151D1A; --surface-2:#1D2723; --line:#29352F; --line-strong:#3A4842;
+  --ink:#E6EEEA; --ink-2:#B4C2BB; --ink-3:#97A59F;
+  --accent:#8DD2B5; --accent-ink:#0A1F17; --accent-soft:#18362C; --accent-hover:#A6E0C7;
+  --t1:#93C4E2; --t1-soft:#1B2F3C; --t2:#E8BE69; --t2-soft:#372C14; --t3:#F2A3B7; --t3-soft:#3B2028;
+  --danger:#F4877E; --danger-soft:#3A1A17; --warn:#EDBE63; --warn-soft:#332711; --ok:#7DD3A0;
+  --scrim:rgb(0 0 0 / .6);
+  --shadow:0 1px 2px rgb(0 0 0 / .3), 0 10px 28px -12px rgb(0 0 0 / .5);
+  --shadow-lg:0 -10px 40px -12px rgb(0 0 0 / .6);
+  --focus:#8DD2B5;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--fs-md);line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;touch-action:manipulation}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.3;margin:0;text-wrap:balance}
+p{margin:0}
+.num,.tnum{font-variant-numeric:tabular-nums}
+.i{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.i-sm{width:18px;height:18px}
+[dir="rtl"] .flip{transform:scaleX(-1)}
+:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px;border-radius:8px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;inset-inline-start:16px;top:-60px;z-index:100;background:var(--accent);color:var(--accent-ink);padding:10px 16px;border-radius:var(--r-control);text-decoration:none}
+.skip:focus{top:calc(8px + env(safe-area-inset-top,0px))}
+
+/* ---------- shell ---------- */
+.shell{display:block;min-height:100%}
+main{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:var(--s4) calc(var(--tabbar-h) + 32px + env(safe-area-inset-bottom,0px));max-width:1120px;margin-inline:auto;outline:none}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding-block:var(--s2) var(--s4)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:var(--fs-lg);color:var(--ink);text-decoration:none}
+.brand-mark{width:30px;height:30px;flex:none}
+.today-line{font-size:var(--fs-xs);color:var(--ink-3);text-align:end;line-height:1.5}
+.today-line strong{display:block;color:var(--ink-2);font-weight:500;font-size:var(--fs-sm)}
+
+.rail{display:none}
+.tabbar{position:fixed;inset-inline:0;bottom:0;z-index:30;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px))}
+.tabbar ul{list-style:none;margin:0 auto;padding:6px 0;display:grid;grid-template-columns:repeat(5,1fr);max-width:560px}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;padding:4px 2px;border:0;background:none;color:var(--ink-3);text-decoration:none;font-size:var(--fs-xs);font-weight:500;border-radius:14px;width:100%;transition:color 160ms ease, transform 140ms var(--ease-out)}
+.tab .pill{display:grid;place-items:center;width:52px;height:28px;border-radius:var(--r-pill);transition:background-color 200ms ease}
+.tab[aria-current="page"]{color:var(--accent)}
+.tab[aria-current="page"] .pill{background:var(--accent-soft)}
+.tab:active{transform:scale(.96)}
+
+@media (min-width:960px){
+  .shell{display:grid;grid-template-columns:248px minmax(0,1fr)}
+  .rail{display:flex;flex-direction:column;gap:var(--s5);position:sticky;top:env(safe-area-inset-top,0px);height:100vh;height:100dvh;padding:var(--s5) var(--s4);border-inline-end:1px solid var(--line);background:var(--surface)}
+  .rail ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+  .rail a{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:var(--r-control);color:var(--ink-2);text-decoration:none;font-weight:500;transition:background-color 160ms ease,color 160ms ease}
+  .rail a:hover{background:var(--surface-2);color:var(--ink)}
+  .rail a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+  .rail .rail-foot{margin-top:auto;font-size:var(--fs-xs);color:var(--ink-3);line-height:1.6}
+  .tabbar{display:none}
+  .topbar .brand{visibility:hidden}
+  main{padding-block:var(--s5) var(--s7);padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}
+}
+
+/* ---------- generic ---------- */
+.view{display:flex;flex-direction:column;gap:var(--s6)}
+.view-head{display:flex;flex-direction:column;gap:var(--s1)}
+.view-head h1{font-size:var(--fs-2xl)}
+.view-head p{color:var(--ink-2);max-width:62ch}
+.section-title{font-size:var(--fs-lg);display:flex;align-items:center;gap:var(--s2)}
+.muted{color:var(--ink-3)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-surface);padding:var(--s5)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:var(--r-control);border:1px solid transparent;font-weight:500;font-size:var(--fs-sm);text-decoration:none;white-space:nowrap;transition:background-color 160ms ease,border-color 160ms ease,transform 140ms var(--ease-out)}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn-ghost:hover{background:var(--surface-2)}
+.btn-danger{background:var(--danger);color:#fff}
+:root[data-theme="dark"] .btn-danger{color:#1A0705}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-danger{color:#1A0705}}
+.btn-text{background:none;border:0;color:var(--accent);padding:0 10px;min-height:44px}
+.icon-btn{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:var(--r-control);border:1px solid transparent;background:none;color:var(--ink-2);transition:background-color 160ms ease,transform 140ms var(--ease-out)}
+.icon-btn:hover{background:var(--surface-2);color:var(--ink)}
+.icon-btn:active{transform:scale(.94)}
+.icon-btn:disabled{opacity:.4;cursor:not-allowed}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:2px 12px;border-radius:var(--r-pill);font-size:var(--fs-xs);font-weight:500;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.chip.t1{background:var(--t1-soft);color:var(--t1)}
+.chip.t2{background:var(--t2-soft);color:var(--t2)}
+.chip.t3{background:var(--t3-soft);color:var(--t3)}
+.chip.accent{background:var(--accent-soft);color:var(--accent)}
+.chip.example{background:var(--warn-soft);color:var(--warn)}
+.note{display:flex;gap:var(--s3);align-items:flex-start;color:var(--ink-3);font-size:var(--fs-sm);line-height:1.8;max-width:70ch}
+.note .i{margin-top:3px;color:var(--ink-3)}
+
+/* ---------- state messages ---------- */
+.state{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3);padding:var(--s6) var(--s5);border-radius:var(--r-surface);background:var(--surface);border:1px solid var(--line)}
+.state .state-icon{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--warn-soft);color:var(--warn)}
+.state.info .state-icon{background:var(--accent-soft);color:var(--accent)}
+.state h2{font-size:var(--fs-xl)}
+.state p{color:var(--ink-2);max-width:56ch}
+.banner{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s4);border-radius:var(--r-control);background:var(--warn-soft);color:var(--ink)}
+.banner .i{color:var(--warn);margin-top:2px}
+
+/* ---------- home ---------- */
+.hero{display:grid;gap:var(--s5);align-items:center}
+.ring-box{position:relative;width:min(232px,70vw);aspect-ratio:1;max-width:100%;justify-self:center}
+.ring{width:100%;height:100%;display:block;overflow:visible}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
+.ring-center .lbl{font-size:var(--fs-sm);color:var(--ink-3)}
+.ring-center .big{font-family:var(--f-display);font-weight:700;font-size:4rem;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.ring-center .sub{font-size:var(--fs-xs);color:var(--ink-3);margin-top:6px}
+.ring-mark{fill:var(--surface);stroke:var(--ink);stroke-width:3}
+.hero-text{display:flex;flex-direction:column;gap:var(--s4);min-width:0}
+.hero-text h1{font-size:var(--fs-3xl);font-weight:700;letter-spacing:0}
+.hero-chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4) var(--s5);margin:0;padding-top:var(--s4);border-top:1px solid var(--line)}
+.facts div{min-width:0}
+.facts dt{font-size:var(--fs-xs);color:var(--ink-3);margin-bottom:2px}
+.facts dd{margin:0;font-weight:500;line-height:1.5}
+.facts dd .h{display:block;font-size:var(--fs-xs);font-weight:400;color:var(--ink-3);margin-top:2px}
+.facts dd .big-n{font-family:var(--f-display);font-size:var(--fs-2xl);font-weight:700;line-height:1.1}
+@media (min-width:640px){
+  .hero{grid-template-columns:auto minmax(0,1fr);gap:var(--s6)}
+  .ring-box{width:240px}
+}
+@media (min-width:1100px){.ring-box{width:268px}}
+
+.home-grid{display:grid;gap:var(--s5)}
+@media (min-width:900px){.home-grid{grid-template-columns:1.25fr 1fr}}
+.baby{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-surface);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s4)}
+.baby .lead{font-family:var(--f-display);font-size:var(--fs-xl);font-weight:600;line-height:1.4}
+.baby .lead em{font-style:normal;color:var(--accent)}
+.measures{display:flex;flex-wrap:wrap;gap:var(--s5)}
+.measure{display:flex;align-items:center;gap:var(--s2);color:var(--ink-2);font-size:var(--fs-sm)}
+.measure b{color:var(--ink);font-weight:600}
+.ruler{position:relative;padding-top:var(--s2)}
+.ruler-track{position:relative;height:10px;border-radius:var(--r-pill);background:var(--surface-2);overflow:hidden}
+.ruler-fill{position:absolute;inset-block:0;inset-inline-start:0;border-radius:var(--r-pill);background:var(--accent);transform-origin:right center;transition:transform 900ms var(--ease-out)}
+[dir="ltr"] .ruler-fill{transform-origin:left center}
+.ruler-ticks{display:flex;justify-content:space-between;margin-top:6px;font-size:var(--fs-xs);color:var(--ink-3)}
+.ruler-cap{font-size:var(--fs-xs);color:var(--ink-3);margin-top:var(--s1)}
+.tip{display:flex;flex-direction:column;gap:var(--s3);padding:var(--s5);border-radius:var(--r-surface);background:var(--accent-soft);color:var(--ink)}
+.tip .tip-h{display:flex;align-items:center;gap:var(--s2);color:var(--accent);font-weight:600;font-size:var(--fs-sm)}
+.tip p{font-size:var(--fs-lg);line-height:1.7}
+.tip .more{display:flex;flex-direction:column;gap:var(--s2);margin:0;padding:0;list-style:none;color:var(--ink-2);font-size:var(--fs-sm)}
+
+.timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:var(--s3);align-items:start;padding-block:var(--s3);position:relative}
+.tl::before{content:"";position:absolute;inset-inline-start:13px;top:34px;bottom:-10px;width:2px;background:var(--line)}
+.tl:last-child::before{display:none}
+.tl .dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--line-strong);color:var(--ink-3)}
+.tl.done .dot{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tl.now .dot{border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.tl .t{font-weight:500;line-height:1.5}
+.tl .d{font-size:var(--fs-sm);color:var(--ink-3)}
+.tl .when{font-size:var(--fs-xs);color:var(--ink-3);white-space:nowrap;padding-top:3px}
+.tl.now .when{color:var(--accent);font-weight:600}
+.next-appt{display:flex;gap:var(--s4);align-items:center}
+.datebox{display:flex;flex-direction:column;align-items:center;justify-content:center;width:60px;min-height:64px;border-radius:14px;background:var(--surface-2);flex:none;line-height:1.2}
+.datebox b{font-family:var(--f-display);font-size:var(--fs-xl);font-variant-numeric:tabular-nums}
+.datebox span{font-size:var(--fs-xs);color:var(--ink-2)}
+
+/* ---------- weeks ---------- */
+.tri-group{display:flex;flex-direction:column;gap:var(--s3)}
+.tri-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--s1) var(--s3)}
+.tri-head h2{font-size:var(--fs-lg);display:flex;align-items:center;gap:10px}
+.tri-head h2 .sw{width:12px;height:12px;border-radius:4px}
+.tri-head .r{font-size:var(--fs-sm);color:var(--ink-3)}
+.week-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:8px}
+.wk{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:62px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-family:var(--f-display);font-size:var(--fs-xl);font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink-2);transition:transform 140ms var(--ease-out),background-color 160ms ease,border-color 160ms ease}
+.wk:active{transform:scale(.95)}
+.wk .st{position:absolute;top:5px;inset-inline-end:6px;line-height:0}
+.wk .st .i{width:14px;height:14px;stroke-width:2.25}
+.wk.past.t1{background:var(--t1-soft);border-color:transparent;color:var(--t1)}
+.wk.past.t2{background:var(--t2-soft);border-color:transparent;color:var(--t2)}
+.wk.past.t3{background:var(--t3-soft);border-color:transparent;color:var(--t3)}
+.wk.future.t1{box-shadow:inset 0 -3px 0 var(--t1-soft)}
+.wk.future.t2{box-shadow:inset 0 -3px 0 var(--t2-soft)}
+.wk.future.t3{box-shadow:inset 0 -3px 0 var(--t3-soft)}
+.wk.current{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 6px 18px -8px var(--accent)}
+.wk.current .now{font-family:var(--f-body);font-size:10px;font-weight:500;line-height:1;margin-top:3px}
+@media (hover:hover) and (pointer:fine){.wk:hover{border-color:var(--line-strong)}.wk.current:hover{border-color:var(--accent)}}
+.legend{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);font-size:var(--fs-sm);color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:16px;height:16px;border-radius:5px;display:inline-block;border:1px solid var(--line)}
+
+/* ---------- months ---------- */
+.month-grid{display:grid;gap:var(--s3);grid-template-columns:1fr}
+@media (min-width:640px){.month-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.month-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.mcard{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s4) var(--s5);border-radius:var(--r-surface);background:var(--surface);border:1px solid var(--line);min-width:0}
+.mcard .top{display:flex;align-items:center;justify-content:space-between;gap:var(--s2)}
+.mcard h2{font-size:var(--fs-lg)}
+.mcard .wr{font-weight:500}
+.mcard .dr{font-size:var(--fs-sm);color:var(--ink-2)}
+.mcard .hj{font-size:var(--fs-xs);color:var(--ink-3)}
+.mcard.past{background:transparent}
+.mcard.past h2,.mcard.past .wr{color:var(--ink-2)}
+.mcard.current{border:2px solid var(--accent);box-shadow:var(--shadow)}
+.mprog{height:6px;border-radius:var(--r-pill);background:var(--surface-2);overflow:hidden;margin-top:var(--s1)}
+.mprog i{display:block;height:100%;background:var(--accent);border-radius:inherit}
+
+/* ---------- calendar ---------- */
+.cal-wrap{display:grid;gap:var(--s5)}
+@media (min-width:1100px){.cal-wrap{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:start}}
+.cal{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-surface);padding:var(--s3)}
+@media (min-width:640px){.cal{padding:var(--s4)}}
+.cal-head{display:flex;align-items:center;gap:var(--s1);margin-bottom:var(--s3)}
+.cal-head h2{font-size:var(--fs-lg);flex:1;text-align:center}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.cal-dow{text-align:center;font-size:var(--fs-xs);color:var(--ink-3);padding-block:4px;font-weight:500}
+.cd{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:2px;min-height:52px;padding:5px 2px 4px;border:1px solid transparent;border-radius:10px;background:transparent;font-variant-numeric:tabular-nums;color:var(--ink);transition:transform 140ms var(--ease-out)}
+.cd:active{transform:scale(.94)}
+.cd .dn{font-weight:500;font-size:var(--fs-sm);line-height:1.4}
+.cd.out{color:var(--ink-3);opacity:.55}
+.cd.p1{background:color-mix(in srgb,var(--t1-soft) 70%,transparent)}
+.cd.p2{background:color-mix(in srgb,var(--t2-soft) 70%,transparent)}
+.cd.p3{background:color-mix(in srgb,var(--t3-soft) 70%,transparent)}
+.cd.today{border-color:var(--ink)}
+.cd.today .dn{font-weight:700}
+.cd.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.cd.edd{background:var(--accent);color:var(--accent-ink)}
+.cd .wkn{font-size:10px;line-height:1;padding:2px 5px;border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);font-weight:600}
+.cd.edd .wkn{background:var(--accent-ink);color:var(--accent)}
+.cd .marks{display:flex;gap:3px;align-items:center;height:8px;margin-top:auto}
+.cd .mk{width:6px;height:6px;border-radius:50%;background:var(--ink-2)}
+.cd .mk.ms{border-radius:1px;transform:rotate(45deg);background:var(--t3);width:6px;height:6px}
+.cd .mk.ap{background:var(--accent)}
+.cd.edd .mk{background:var(--accent-ink)}
+@media (min-width:640px){.cd{min-height:68px}.cd .dn{font-size:var(--fs-md)}}
+.cal-legend{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);margin-top:var(--s3);font-size:var(--fs-xs);color:var(--ink-2)}
+.cal-legend span{display:inline-flex;align-items:center;gap:6px}
+.cal-legend .mk{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+.cal-legend .mk.ms{border-radius:1px;transform:rotate(45deg);background:var(--t3)}
+.cal-legend .sq{width:14px;height:14px;border-radius:4px;display:inline-block}
+.day-detail{display:flex;flex-direction:column;gap:var(--s4)}
+.day-detail h2{font-size:var(--fs-xl)}
+.day-detail .hj{color:var(--ink-3);font-size:var(--fs-sm)}
+.dd-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
+.dd-list li{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s3);border-radius:var(--r-control);background:var(--surface-2)}
+.dd-list li .i{margin-top:2px;color:var(--ink-2)}
+.dd-list li.ms .i{color:var(--t3)}
+.dd-list li.ap .i{color:var(--accent)}
+
+/* ---------- notes ---------- */
+.notes-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--s3)}
+.form{display:flex;flex-direction:column;gap:var(--s4)}
+.form[hidden]{display:none}
+.form h2{font-size:var(--fs-lg)}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label,.field .lbl{font-weight:500;font-size:var(--fs-sm);color:var(--ink)}
+.field .opt{color:var(--ink-3);font-weight:400}
+.field .help{font-size:var(--fs-xs);color:var(--ink-3)}
+.field .err{font-size:var(--fs-sm);color:var(--danger);display:flex;gap:6px;align-items:center}
+.field .err:empty{display:none}
+.input{min-height:48px;width:100%;padding:10px 14px;border-radius:var(--r-control);border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font-size:var(--fs-md);transition:border-color 160ms ease,box-shadow 160ms ease}
+.input::placeholder{color:var(--ink-3)}
+.input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.input[aria-invalid="true"]{border-color:var(--danger);box-shadow:0 0 0 3px var(--danger-soft)}
+textarea.input{min-height:96px;resize:vertical;line-height:1.7}
+input[type="date"].input,input[type="time"].input{direction:rtl;text-align:right}
+.row{display:grid;gap:var(--s4);grid-template-columns:1fr}
+@media (min-width:560px){.row.two{grid-template-columns:1fr 1fr}.row.three{grid-template-columns:2fr 1fr 1fr}}
+.seg{display:inline-flex;padding:4px;gap:4px;border-radius:14px;background:var(--surface-2);flex-wrap:wrap}
+.seg label{position:relative;display:inline-flex}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:10px;font-size:var(--fs-sm);font-weight:500;color:var(--ink-2);transition:background-color 160ms ease,color 160ms ease}
+.seg input:checked+span{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0 / .12)}
+.seg input:focus-visible+span{outline:2.5px solid var(--focus);outline-offset:1px}
+.form-actions{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
+.item{display:flex;gap:var(--s4);align-items:flex-start;padding:var(--s4);border-radius:var(--r-surface);background:var(--surface);border:1px solid var(--line)}
+.item.past{background:transparent}
+.item .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.item .title{font-weight:600;line-height:1.5;overflow-wrap:anywhere}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px var(--s3);font-size:var(--fs-sm);color:var(--ink-3)}
+.item .meta span{display:inline-flex;align-items:center;gap:4px}
+.item .txt{color:var(--ink-2);font-size:var(--fs-sm);white-space:pre-wrap;overflow-wrap:anywhere}
+.item .acts{display:flex;gap:2px;flex:none;margin-inline-start:auto}
+@media (max-width:559px){.item{gap:var(--s3);padding:var(--s3)}.item .acts{flex-direction:column;margin-inline-end:-6px}}
+.nw{white-space:nowrap}
+.empty{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);padding:var(--s5);border:1.5px dashed var(--line-strong);border-radius:var(--r-surface);color:var(--ink-2)}
+.empty b{color:var(--ink)}
+.sub-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s3)}
+.sub-head h2{font-size:var(--fs-lg)}
+.sub-head .c{font-size:var(--fs-sm);color:var(--ink-3)}
+
+/* ---------- lists ---------- */
+.lists-wrap{display:grid;gap:var(--s6)}
+@media (min-width:1000px){.lists-wrap{grid-template-columns:1fr 1fr;align-items:start}}
+.cl-group{display:flex;flex-direction:column;gap:var(--s2)}
+.cl-group+.cl-group{margin-top:var(--s4)}
+.cl-group h3{font-family:var(--f-body);font-weight:600;font-size:var(--fs-sm);color:var(--ink-3)}
+.check{display:flex;align-items:center;gap:var(--s3);min-height:48px;padding:6px var(--s3);border-radius:var(--r-control);cursor:pointer;transition:background-color 160ms ease}
+.check:hover{background:var(--surface-2)}
+.check input{position:absolute;opacity:0;width:1px;height:1px}
+.check .box{width:24px;height:24px;flex:none;border-radius:8px;border:2px solid var(--line-strong);display:grid;place-items:center;color:transparent;background:var(--surface);transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease}
+.check .box .i{width:16px;height:16px;stroke-width:2.75}
+.check input:checked+.box{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.check input:focus-visible+.box{outline:2.5px solid var(--focus);outline-offset:2px}
+.check .lt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.5}
+.check .lt small{color:var(--ink-3);font-size:var(--fs-xs)}
+.check input:checked~.lt>span{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--line-strong)}
+.count-bar{display:flex;align-items:center;gap:var(--s3);font-size:var(--fs-sm);color:var(--ink-2)}
+.count-bar .track{flex:1;height:6px;border-radius:var(--r-pill);background:var(--surface-2);overflow:hidden}
+.count-bar .track i{display:block;height:100%;background:var(--accent);border-radius:inherit;transition:width 300ms var(--ease-out)}
+
+/* ---------- settings ---------- */
+.prefs{display:grid;gap:var(--s5)}
+@media (min-width:1000px){.prefs{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:start}}
+.mode-cards{display:grid;gap:var(--s2)}
+@media (min-width:640px){.mode-cards{grid-template-columns:repeat(3,1fr)}}
+.mode{position:relative;display:flex}
+.mode input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.mode span{display:flex;flex-direction:column;gap:2px;width:100%;padding:var(--s3) var(--s4);border-radius:var(--r-control);border:1.5px solid var(--line);background:var(--surface);font-weight:500;transition:border-color 160ms ease,background-color 160ms ease}
+.mode span small{font-weight:400;color:var(--ink-3);font-size:var(--fs-xs)}
+.mode input:checked+span{border-color:var(--accent);background:var(--accent-soft)}
+.mode input:focus-visible+span{outline:2.5px solid var(--focus);outline-offset:2px}
+.stepper{display:flex;align-items:stretch;gap:0;border:1px solid var(--line-strong);border-radius:var(--r-control);overflow:hidden;width:max-content;max-width:100%;background:var(--surface)}
+.stepper button{width:48px;border:0;background:var(--surface-2);color:var(--ink);display:grid;place-items:center}
+.stepper button:active{background:var(--line)}
+.stepper input{width:72px;border:0;text-align:center;min-height:48px;background:transparent;font-size:var(--fs-lg);font-weight:600;-moz-appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.stepper input:focus{outline:none;background:var(--accent-soft)}
+.preview{display:flex;flex-direction:column;gap:4px;padding:var(--s4);border-radius:var(--r-control);background:var(--surface-2)}
+.preview .k{font-size:var(--fs-xs);color:var(--ink-3)}
+.preview .v{font-weight:600}
+.preview.bad{background:var(--danger-soft)}
+.preview.bad .v{color:var(--danger);font-weight:500}
+.danger-zone{border-color:color-mix(in srgb,var(--danger) 35%,var(--line))}
+.danger-zone h2{color:var(--danger)}
+
+/* ---------- sheets, dialog ---------- */
+.scrim{position:fixed;inset:0;z-index:40;background:var(--scrim);opacity:0;visibility:hidden;transition:opacity 220ms ease,visibility 0s 220ms}
+.scrim.on{opacity:1;visibility:visible;transition:opacity 280ms ease}
+.sheet{position:fixed;z-index:50;left:0;right:0;bottom:0;max-height:min(90dvh,90vh);display:flex;flex-direction:column;background:var(--surface);border-radius:24px 24px 0 0;box-shadow:var(--shadow-lg);transform:translateY(105%);visibility:hidden;transition:transform 240ms var(--ease-exit),visibility 0s 240ms;padding-bottom:env(safe-area-inset-bottom,0px);outline:none}
+.sheet.open{transform:translateY(0);visibility:visible;transition:transform 440ms var(--ease-drawer),visibility 0s}
+.sheet.dragging{transition:none}
+.grab{display:flex;justify-content:center;padding:10px 0 4px;cursor:grab;touch-action:none}
+.grab i{width:40px;height:5px;border-radius:var(--r-pill);background:var(--line-strong)}
+.sheet-head{display:flex;align-items:flex-start;gap:var(--s3);padding:var(--s2) max(16px,env(safe-area-inset-right,0px)) var(--s3) max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
+.sheet-head .ttl{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.sheet-head h2{font-size:var(--fs-2xl)}
+.sheet-head .rng{font-size:var(--fs-sm);color:var(--ink-2)}
+.sheet-body{overflow-y:auto;overscroll-behavior:contain;padding:var(--s4) max(16px,env(safe-area-inset-right,0px)) var(--s5) max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:var(--s5);touch-action:pan-y}
+.sheet-body.swap{animation:swapIn 220ms var(--ease-out)}
+@keyframes swapIn{from{opacity:.2;transform:translateX(var(--swap-x,0))}to{opacity:1;transform:none}}
+.sheet-foot{display:flex;gap:var(--s2);justify-content:space-between;padding:var(--s3) max(16px,env(safe-area-inset-right,0px)) var(--s3) max(16px,env(safe-area-inset-left,0px));border-top:1px solid var(--line)}
+.sheet-foot .btn{flex:1;max-width:200px}
+.wsize{display:flex;flex-direction:column;gap:var(--s3);padding:var(--s4);border-radius:var(--r-control);background:var(--surface-2)}
+.wsize .lead{font-family:var(--f-display);font-size:var(--fs-lg);font-weight:600}
+.blk{display:flex;flex-direction:column;gap:var(--s2)}
+.blk h3{font-family:var(--f-body);font-size:var(--fs-sm);font-weight:600;color:var(--ink-3)}
+.blist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
+.blist li{display:flex;gap:var(--s3);align-items:flex-start;line-height:1.75}
+.blist li::before{content:"";flex:none;width:7px;height:7px;margin-top:.7em;border-radius:50%;background:var(--accent)}
+.blist.tips li::before{background:var(--t2)}
+.chk-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
+.chk-list li{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s3);border-radius:var(--r-control);border:1px solid var(--line)}
+.chk-list li .i{color:var(--accent);margin-top:2px}
+.chk-list li small{display:block;color:var(--ink-3);font-size:var(--fs-xs)}
+.more-list{list-style:none;margin:0;padding:var(--s2) max(16px,env(safe-area-inset-right,0px)) var(--s4) max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:2px}
+.more-list a{display:flex;align-items:center;gap:var(--s3);min-height:56px;padding:0 var(--s3);border-radius:var(--r-control);color:var(--ink);text-decoration:none;font-weight:500}
+.more-list a:hover,.more-list a:focus-visible{background:var(--surface-2)}
+.more-list a .chev{margin-inline-start:auto;color:var(--ink-3)}
+.more-list a[aria-current="page"]{color:var(--accent);background:var(--accent-soft)}
+@media (min-width:960px){
+  .sheet.side{top:0;bottom:0;left:0;right:auto;width:min(460px,92vw);max-height:none;border-radius:0 24px 24px 0;transform:translateX(-105%);box-shadow:20px 0 60px -20px rgb(0 0 0 / .35)}
+  [dir="ltr"] .sheet.side{left:auto;right:0;border-radius:24px 0 0 24px;transform:translateX(105%)}
+  .sheet.side.open{transform:translateX(0)}
+  .sheet.side .grab{display:none}
+  .sheet.side .sheet-head{padding-top:var(--s5)}
+  .sheet.side .sheet-body{flex:1}
+}
+.dialog{position:fixed;z-index:60;left:50%;top:50%;width:min(420px,calc(100vw - 32px));transform:translate(-50%,-50%) scale(.96);opacity:0;visibility:hidden;background:var(--surface);border-radius:var(--r-surface);padding:var(--s5);box-shadow:0 30px 80px -20px rgb(0 0 0 / .45);display:flex;flex-direction:column;gap:var(--s3);transition:transform 160ms var(--ease-exit),opacity 160ms ease,visibility 0s 160ms}
+.dialog.open{transform:translate(-50%,-50%) scale(1);opacity:1;visibility:visible;transition:transform 240ms var(--ease-out),opacity 200ms ease}
+.dialog h2{font-size:var(--fs-xl)}
+.dialog p{color:var(--ink-2)}
+.dialog .form-actions{margin-top:var(--s2)}
+.toast{position:fixed;z-index:70;left:50%;bottom:calc(var(--tabbar-h) + 16px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;visibility:hidden;display:flex;align-items:center;gap:var(--s3);max-width:calc(100vw - 32px);padding:10px 10px 10px 18px;padding-inline-start:18px;border-radius:14px;background:var(--ink);color:var(--bg);font-size:var(--fs-sm);box-shadow:0 12px 30px -10px rgb(0 0 0 / .4);transition:transform 200ms var(--ease-exit),opacity 160ms ease,visibility 0s 200ms}
+.toast.on{transform:translate(-50%,0);opacity:1;visibility:visible;transition:transform 300ms var(--ease-out),opacity 200ms ease}
+.toast button{background:none;border:0;color:var(--bg);font-weight:600;min-height:40px;padding:0 10px;border-radius:10px;text-decoration:underline;text-underline-offset:3px}
+@media (min-width:960px){.toast{bottom:24px}}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+  .sheet,.sheet.open,.dialog,.dialog.open,.toast,.toast.on{transition:opacity 160ms ease,visibility 0s!important}
+  .sheet{transform:none;opacity:0}.sheet.open{opacity:1}
+  .dialog{transform:translate(-50%,-50%)}
+  .toast{transform:translate(-50%,0)}
+  .ruler-fill{transition:none}
+  .btn:active,.icon-btn:active,.wk:active,.cd:active,.tab:active{transform:none}
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M5 12H3l9-9 9 9h-2"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/><path d="M9.5 21v-5a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></symbol>
+  <symbol id="i-stack" viewBox="0 0 24 24"><path d="M12 4 4 8l8 4 8-4-8-4"/><path d="m4 12 8 4 8-4"/><path d="m4 16 8 4 8-4"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4M8 3v4M4 11h16"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12h6M9 16h4"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="m3.5 5.5 1.5 1.5 2.5-2.5M3.5 11.5 5 13l2.5-2.5M3.5 17.5 5 19l2.5-2.5M11 6h9M11 12h9M11 18h9"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h8M16 6h4M4 12h2M10 12h10M4 18h11M19 18h1"/><circle cx="14" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+  <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-chev-back" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L18.5 9.5a2.83 2.83 0 0 0-4-4L4 16v4"/><path d="m13.5 6.5 4 4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3 8.5 8.5 3 21 15.5 15.5 21z"/><path d="m7 7 1.5 1.5M10 10l2 2M13 13l1.5 1.5"/></symbol>
+  <symbol id="i-weight" viewBox="0 0 24 24"><path d="M6.5 8h11l2 12h-15z"/><circle cx="12" cy="5" r="2"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 16a5 5 0 1 1 6 0 3.5 3.5 0 0 0-1 3 2 2 0 0 1-4 0 3.5 3.5 0 0 0-1-3"/><path d="M9.7 17h4.6"/></symbol>
+  <symbol id="i-steth" viewBox="0 0 24 24"><path d="M6 4H5a1 1 0 0 0-1 1v3.5a5.5 5.5 0 0 0 11 0V5a1 1 0 0 0-1-1h-1"/><path d="M8 15a6 6 0 1 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 5a5 5 0 0 1 7 0 5 5 0 0 0 7 0v9a5 5 0 0 1-7 0 5 5 0 0 0-7 0zM5 21v-7"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v4M12 16.5h.01"/><path d="M10.24 3.96 2.47 17.5a2 2 0 0 0 1.73 3h15.6a2 2 0 0 0 1.73-3L13.76 3.96a2 2 0 0 0-3.52 0z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.6 5.6l1 1M17.4 17.4l1 1M5.6 18.4l1-1M17.4 6.6l1-1"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/></symbol>
+  <symbol id="i-device" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M13 20H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7z"/><path d="M13 20v-5a2 2 0 0 1 2-2h5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 12h16"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M20 11A8.1 8.1 0 0 0 4.5 9M4 5v4h4M4 13a8.1 8.1 0 0 0 15.5 2M20 19v-4h-4"/></symbol>
+</svg>
+
+<div dir="rtl" lang="ar" id="app">
+<a class="skip" href="#main">تخطَّي إلى المحتوى</a>
+<div class="shell">
+  <nav class="rail" aria-label="التنقل الرئيسي">
+    <a class="brand" href="#home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="none" stroke="var(--line-strong)" stroke-width="3.5"/><path d="M16 4a12 12 0 1 0 11.4 15.7" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round"/></svg>
+      مسار الحمل
+    </a>
+    <ul id="railLinks"></ul>
+    <p class="rail-foot">التواريخ والمقاسات تقديرية. الطبيبة والسونار هما المرجع.</p>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <div class="topbar">
+      <a class="brand" href="#home" aria-label="مسار الحمل، الرئيسية">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="none" stroke="var(--line-strong)" stroke-width="3.5"/><path d="M16 4a12 12 0 1 0 11.4 15.7" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round"/></svg>
+        مسار الحمل
+      </a>
+      <p class="today-line" id="todayLine"></p>
+    </div>
+    <div id="view" aria-live="off"></div>
+  </main>
+</div>
+
+<nav class="tabbar" aria-label="التنقل السفلي"><ul id="tabLinks"></ul></nav>
+
+<div class="scrim" id="scrim"></div>
+
+<section class="sheet side" id="weekSheet" role="dialog" aria-modal="true" aria-labelledby="wsTitle" tabindex="-1">
+  <div class="grab" id="wsGrab" aria-hidden="true"><i></i></div>
+  <div class="sheet-head">
+    <div class="ttl"><h2 id="wsTitle"></h2><p class="rng tnum" id="wsRange"></p></div>
+    <button class="icon-btn" data-action="close-sheet" aria-label="إغلاق"><svg class="i"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="sheet-body" id="wsBody"></div>
+  <div class="sheet-foot">
+    <button class="btn btn-ghost" data-action="week-prev" id="wsPrev"><svg class="i i-sm flip"><use href="#i-chev-back"/></svg><span></span></button>
+    <button class="btn btn-ghost" data-action="week-next" id="wsNext"><span></span><svg class="i i-sm flip"><use href="#i-chev"/></svg></button>
+  </div>
+</section>
+
+<section class="sheet" id="moreSheet" role="dialog" aria-modal="true" aria-labelledby="moreTitle" tabindex="-1">
+  <div class="grab" aria-hidden="true"><i></i></div>
+  <div class="sheet-head">
+    <div class="ttl"><h2 id="moreTitle" style="font-size:var(--fs-xl)">المزيد</h2></div>
+    <button class="icon-btn" data-action="close-sheet" aria-label="إغلاق"><svg class="i"><use href="#i-x"/></svg></button>
+  </div>
+  <ul class="more-list" id="moreLinks"></ul>
+</section>
+
+<div class="dialog" id="resetDialog" role="alertdialog" aria-modal="true" aria-labelledby="rdTitle" aria-describedby="rdDesc" tabindex="-1">
+  <h2 id="rdTitle">مسح كل البيانات؟</h2>
+  <p id="rdDesc">سيُحذف تاريخ الحمل والمواعيد والملاحظات وحالة القوائم من هذا الجهاز، وتعود الإعدادات الافتراضية. لا يمكن التراجع عن هذه الخطوة.</p>
+  <div class="form-actions">
+    <button class="btn btn-danger" data-action="reset-confirm"><svg class="i i-sm"><use href="#i-trash"/></svg>مسح البيانات</button>
+    <button class="btn btn-ghost" data-action="reset-cancel">إلغاء</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span><button id="toastBtn" hidden></button></div>
+</div>
+
+<script>
+(function(){
+'use strict';
+document.documentElement.lang='ar';
+document.documentElement.dir='rtl';
+
+/* =========================================================
+   1. Date core (pure). Days are integers since the Unix epoch, UTC only.
+   ========================================================= */
+var DAY=86400000;
+function isoToDay(s){
+  if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s)) return null;
+  var p=s.split('-').map(Number), t=Date.UTC(p[0],p[1]-1,p[2]), d=new Date(t);
+  if(d.getUTCFullYear()!==p[0]||d.getUTCMonth()!==p[1]-1||d.getUTCDate()!==p[2]) return null;
+  return Math.round(t/DAY);
+}
+function dayParts(n){var d=new Date(n*DAY);return {y:d.getUTCFullYear(),m:d.getUTCMonth(),d:d.getUTCDate(),wd:d.getUTCDay()};}
+function dayToISO(n){var p=dayParts(n);return p.y+'-'+String(p.m+1).padStart(2,'0')+'-'+String(p.d).padStart(2,'0');}
+function ymdToDay(y,m,d){return Math.round(Date.UTC(y,m,d)/DAY);}
+function todayDay(){var n=new Date();return ymdToDay(n.getFullYear(),n.getMonth(),n.getDate());}
+
+/* =========================================================
+   2. Pregnancy math (pure)
+   ========================================================= */
+var TERM=280, FULL_TERM=259, MAX_DAY=293;
+var MONTHS=[[1,4],[5,8],[9,13],[14,17],[18,22],[23,27],[28,31],[32,35],[36,40]];
+var TRIS=[[1,13],[14,27],[28,40]];
+
+function referenceDay(s, today){
+  var e={};
+  if(s.mode==='edd'){
+    var edd=isoToDay(s.edd);
+    if(edd==null){e.edd='أدخلي تاريخ الولادة المتوقع بصيغة صحيحة.';return {ok:false,errors:e};}
+    return {ok:true,ref:edd-TERM};
+  }
+  if(s.mode==='us'){
+    var u=isoToDay(s.usDate), w=Number(s.usW), d=Number(s.usD);
+    if(u==null) e.usDate='أدخلي تاريخ السونار بصيغة صحيحة.';
+    else if(today!=null && u>today) e.usDate='تاريخ السونار في المستقبل. اختاري تاريخ فحص تمّ بالفعل.';
+    if(String(s.usW).trim()===''||!Number.isInteger(w)||w<0||w>42) e.usW='عدد الأسابيع من 0 إلى 42.';
+    if(String(s.usD).trim()===''||!Number.isInteger(d)||d<0||d>6) e.usD='عدد الأيام من 0 إلى 6.';
+    if(Object.keys(e).length) return {ok:false,errors:e};
+    return {ok:true,ref:u-(w*7+d)};
+  }
+  var l=isoToDay(s.lmp), c=Number(s.cycle);
+  if(l==null) e.lmp='أدخلي تاريخ أول يوم من آخر دورة بصيغة صحيحة.';
+  else if(today!=null && l>today) e.lmp='هذا التاريخ في المستقبل. اختاري أول يوم من آخر دورة حدثت فعلًا.';
+  if(String(s.cycle).trim()===''||!Number.isInteger(c)||c<21||c>40) e.cycle='طول الدورة رقم صحيح من 21 إلى 40 يومًا.';
+  if(Object.keys(e).length) return {ok:false,errors:e};
+  return {ok:true,ref:l+(c-28)};
+}
+function weekOfGA(ga){return Math.floor(ga/7)+1;}
+function triOfWeek(w){return w<=13?1:(w<=27?2:3);}
+function monthOfWeek(w){if(w>40)return 9;for(var i=0;i<9;i++){if(w>=MONTHS[i][0]&&w<=MONTHS[i][1])return i+1;}return 1;}
+function weekRange(ref,n){return [ref+7*(n-1),ref+7*n-1];}
+function monthRange(ref,i){var m=MONTHS[i-1];return [ref+7*(m[0]-1), i===9?ref+TERM:ref+7*m[1]-1];}
+function triRange(ref,i){var t=TRIS[i-1];return [ref+7*(t[0]-1), i===3?ref+TERM-1:ref+7*t[1]-1];}
+function summarize(ref,today){
+  var ga=today-ref, st=ga<0?'before':(ga<TERM?'active':(ga<=MAX_DAY?'overdue':'beyond'));
+  var week=ga>=0?weekOfGA(ga):0;
+  return {ref:ref,today:today,ga:ga,status:st,w:Math.floor(ga/7),d:((ga%7)+7)%7,week:week,
+    tri:week?triOfWeek(Math.min(week,40)):0, month:week?monthOfWeek(week):0,
+    edd:ref+TERM, left:ref+TERM-today};
+}
+function milestones(ref){
+  return [
+    {k:'t1end',t:'نهاية الثلث الأول',d:'آخر يوم في الأسبوع 13',a:ref+90},
+    {k:'anomaly',t:'نافذة السونار التفصيلي',d:'من الأسبوع 18 إلى 22',a:ref+119,b:ref+153},
+    {k:'glucose',t:'فحص سكر الحمل',d:'من الأسبوع 24 إلى 28',a:ref+161,b:ref+195},
+    {k:'t3',t:'بداية الثلث الثالث',d:'أول يوم في الأسبوع 28',a:ref+189},
+    {k:'term',t:'اكتمال مدة الحمل',d:'37 أسبوعًا بالضبط',a:ref+FULL_TERM},
+    {k:'edd',t:'موعد الولادة المتوقع',d:'40 أسبوعًا بالضبط',a:ref+TERM},
+    {k:'w42',t:'نهاية الأسبوع 42',d:'تواصلي مع طبيبتكِ قبل هذا اليوم',a:ref+MAX_DAY}
+  ];
+}
+
+/* =========================================================
+   3. Formatting
+   ========================================================= */
+var MONTH_AR=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+var DAY_AR=['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+var ORD_AR=['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع'];
+var TRI_AR=['الثلث الأول','الثلث الثاني','الثلث الثالث'];
+var hijriFmt=null;
+try{hijriFmt=new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura-nu-latn',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});}catch(err){hijriFmt=null;}
+function hijri(n){if(!hijriFmt)return '';try{return '<span class="nw">'+hijriFmt.format(new Date(n*DAY))+'</span>';}catch(err){return '';}}
+function fmt(n,o){o=o||{};var p=dayParts(n);return (o.wd?DAY_AR[p.wd]+'، ':'')+p.d+' '+MONTH_AR[p.m]+(o.y===false?'':' '+p.y);}
+function fmtRange(a,b){var A=dayParts(a),B=dayParts(b);return 'من '+A.d+' '+MONTH_AR[A.m]+(A.y!==B.y?' '+A.y:'')+' إلى '+B.d+' '+MONTH_AR[B.m]+' '+B.y;}
+function gaText(ga){var w=Math.floor(ga/7),d=ga%7;return d===0?(w+' أسبوع بالضبط'):(w+' أسبوع و '+d+' يوم');}
+function countAr(n,f){ // f=[one,two,few,many]
+  if(n===1)return f[0]; if(n===2)return f[1];
+  var r=n%100; if(r>=3&&r<=10)return n+' '+f[2]; if(r>=11)return n+' '+f[3]; return n+' '+f[4];
+}
+var DAYS_F=['يوم واحد','يومان','أيام','يومًا','يوم'];
+var WEEKS_F=['أسبوع واحد','أسبوعان','أسابيع','أسبوعًا','أسبوع'];
+function fmtTime(t){if(!t)return '';var a=t.split(':').map(Number),h=a[0],pm=h>=12;h=h%12||12;return h+':'+String(a[1]).padStart(2,'0')+' '+(pm?'مساءً':'صباحًا');}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function ic(id,cls){return '<svg class="i'+(cls?' '+cls:'')+'" aria-hidden="true"><use href="#i-'+id+'"/></svg>';}
+
+/* =========================================================
+   4. Content (general, approximate; no medication advice)
+   [size, length, weight, development[], tips[]]
+   ========================================================= */
+var WEEKS=[null,
+[null,null,null,['يبدأ حساب الحمل من أول يوم في آخر دورة شهرية، لذلك لا يوجد جنين بعد في هذا الأسبوع.','يستعد الجسم لإطلاق بويضة جديدة.'],['إن كنتِ تخططين للحمل فاسألي طبيبتكِ عن الفيتامينات المناسبة لكِ قبل الحمل.','سجّلي تاريخ بداية الدورة بدقة، فهو أساس حساب كل التواريخ.']],
+[null,null,null,['يحدث التبويض غالبًا قرب نهاية هذا الأسبوع في الدورة المنتظمة.','تزداد سماكة بطانة الرحم استعدادًا لاستقبال البويضة المخصبة.'],['حافظي على نوم منتظم وغذاء متوازن.','قلّلي من الكافيين وابتعدي عن التدخين، بما فيه التدخين السلبي.']],
+['رأس دبوس','أقل من 1 مم',null,['يحدث الإخصاب وتبدأ الخلية الأولى بالانقسام بسرعة.','تتحرك الكرة الخلوية الصغيرة نحو الرحم.'],['قد لا تشعرين بأي تغيير بعد، وهذا طبيعي تمامًا.']],
+['بذرة خشخاش','نحو 1 مم',null,['تنغرس الكرة الخلوية في بطانة الرحم.','يبدأ تكوّن المشيمة وكيس الحمل.'],['قد يظهر اختبار الحمل المنزلي إيجابيًا في نهاية هذا الأسبوع.','لا تتناولي أي دواء قبل استشارة طبيبتكِ.']],
+['بذرة سمسم','نحو 2 مم',null,['يبدأ تكوّن الأنبوب العصبي الذي يصبح الدماغ والحبل الشوكي.','يتشكّل القلب البدائي في صورة أنبوب صغير.'],['احجزي موعد زيارتكِ الأولى لمتابعة الحمل.','تناولي وجبات صغيرة متكررة إن شعرتِ بالغثيان.']],
+['حبة عدس','نحو 5 مم',null,['قد يُرى نبض القلب في السونار المهبلي.','تظهر براعم صغيرة ستصبح الذراعين والساقين.'],['الغثيان والتعب شائعان الآن، فاستريحي متى استطعتِ.','اشربي الماء على دفعات صغيرة طوال اليوم.']],
+['حبة توت أزرق','نحو 1.3 سم',null,['ينمو الدماغ بسرعة كبيرة.','تبدأ ملامح الوجه الأولى بالظهور.'],['ارتدي ملابس مريحة وحمّالة صدر داعمة.','أخبري طبيبتكِ عن أي أدوية تتناولينها بانتظام.']],
+['حبة توت العليق','نحو 1.6 سم','نحو 1 غ',['تتكوّن أصابع اليدين والقدمين بشكل أولي.','يبدأ الجنين بحركات صغيرة لا يمكنكِ الإحساس بها بعد.'],['قد تزعجكِ الروائح القوية، فاحرصي على تهوية المكان.']],
+['حبة عنب','نحو 2.3 سم','نحو 2 غ',['يصبح شكل الجنين أقرب إلى الإنسان.','تتكوّن الجفون وتبقى مغلقة لأسابيع طويلة.'],['قد تُطلب منكِ تحاليل الدم الأولى وفصيلة الدم.']],
+['تمرة','نحو 3 سم','نحو 4 غ',['اكتملت الأعضاء الأساسية وبدأت بالنمو والنضج.','تبدأ الأظافر الصغيرة بالتكوّن.'],['أدخلي المشي الخفيف في يومكِ إن سمحت الطبيبة.']],
+['حبة تين','نحو 4 سم','نحو 7 غ',['يستطيع الجنين فتح يديه وإغلاقهما.','تتطور العظام وتصبح أقوى.'],['اسألي عن فحص الشفافية القفوية المتاح من الأسبوع 11 إلى 14.']],
+['ليمونة صغيرة','نحو 5.4 سم','نحو 14 غ',['تبدأ الكليتان بإنتاج البول.','تنتقل الأمعاء إلى مكانها داخل البطن.'],['يخف الغثيان عند كثير من الحوامل في هذه الفترة.']],
+['ليمونة','نحو 7.4 سم','نحو 23 غ',['تتكوّن بصمات الأصابع.','ينتهي الثلث الأول مع نهاية هذا الأسبوع.'],['هذا وقت مناسب لمشاركة الخبر إن رغبتِ بذلك.']],
+['حبة خوخ','نحو 8.7 سم','نحو 43 غ',['بداية الثلث الثاني، وتعود الطاقة عند كثير من الحوامل.','يبدأ نمو شعر ناعم يغطي الجسم.'],['ابدئي التفكير في ملابس حمل مريحة.']],
+['تفاحة','نحو 10 سم','نحو 70 غ',['يستطيع الجنين الإحساس بالضوء من خلال جفونه المغلقة.','تتحرك المفاصل بحرية أكبر.'],['اعتني بصحة فمكِ وأسنانكِ، فاللثة تصبح أكثر حساسية.']],
+['حبة أفوكادو','نحو 11.6 سم','نحو 100 غ',['تقوى عضلات الظهر والرقبة فيرفع رأسه أكثر.','تبدأ العينان بحركات بطيئة.'],['قد تلاحظين احتقان الأنف، وهو شائع في الحمل.']],
+['رمانة','نحو 13 سم','نحو 140 غ',['تبدأ الدهون بالتراكم تحت الجلد.','يتدرب الجنين على المص والبلع.'],['نامي على جانبكِ مع وسادة بين الركبتين لراحة أكبر.']],
+['فلفلة حلوة','نحو 14 سم','نحو 190 غ',['تتشكّل الأذن وقد يبدأ بسماع أصوات خافتة.','قد تشعرين بأولى الحركات كرفرفة خفيفة.'],['احجزي السونار التفصيلي بين الأسبوع 18 و22.']],
+['حبة مانجو','نحو 15 سم','نحو 240 غ',['تغطي الجلد طبقة واقية بيضاء تحميه داخل السائل.','تتطور الحواس بسرعة.'],['تحدّثي إلى جنينكِ، فصوتكِ يصل إليه تدريجيًا.']],
+['موزة','نحو 25 سم','نحو 300 غ',['مضى نصف مدة الحمل تقريبًا.','يُقاس الطول من الآن من الرأس إلى الكعب.'],['دوّني أسئلتكِ قبل موعد السونار التفصيلي.']],
+['جزرة','نحو 27 سم','نحو 360 غ',['تصبح الحركات أوضح وأكثر انتظامًا.','يبتلع الجنين السائل المحيط به ويتذوق بعض نكهاته.'],['نوّعي الأطعمة الملونة في وجباتكِ.']],
+['حبة بابايا','نحو 28 سم','نحو 430 غ',['تكتمل الشفتان والحاجبان.','يتطور الإحساس باللمس.'],['ارفعي قدميكِ عند الجلوس إن لاحظتِ تورّمًا خفيفًا.']],
+['حبة جريب فروت','نحو 29 سم','نحو 500 غ',['تنمو الرئتان وتستعدان للتنفس لاحقًا.','يصبح السمع أوضح للأصوات القوية.'],['تعرّفي على علامات الولادة المبكرة واسألي طبيبتكِ عنها.']],
+['كوز ذرة','نحو 30 سم','نحو 600 غ',['تبدأ الرئتان بإنتاج مادة تساعدهما على التمدد لاحقًا.','تتكوّن خطوط الكفين والقدمين.'],['فحص سكر الحمل يُجرى عادة بين الأسبوع 24 و28.']],
+['رأس قرنبيط','نحو 35 سم','نحو 660 غ',['يزداد وزن الجنين بسرعة.','يتجاوب مع الأصوات المألوفة.'],['خذي فترات راحة قصيرة إن كنتِ تقفين طويلًا.']],
+['رأس خس','نحو 36 سم','نحو 760 غ',['تبدأ العينان بالانفتاح تدريجيًا.','يتطور نمط النوم والاستيقاظ.'],['لاحظي نمط حركة جنينكِ اليومي.']],
+['رأس ملفوف','نحو 37 سم','نحو 875 غ',['هذا آخر أسبوع في الثلث الثاني.','ينشط الدماغ بشكل ملحوظ.'],['فكّري في خطة الولادة وناقشيها مع طبيبتكِ.']],
+['باذنجانة','نحو 38 سم','نحو 1 كغ',['بداية الثلث الثالث.','يستطيع الجنين الرمش، وتظهر الرموش.'],['انتبهي لحركة الجنين، وتواصلي مع طبيبتكِ إن قلّت بوضوح.','قد تُطلب منكِ تحاليل دم للمتابعة في هذه الفترة.']],
+['قرعة عسلية','نحو 39 سم','نحو 1.15 كغ',['تقوى العظام وتحتاج إلى الكالسيوم.','يتحكم الجنين في حرارة جسمه بشكل أفضل.'],['أكثري من الأطعمة الغنية بالكالسيوم مثل الألبان والسمسم.']],
+['ملفوفة كبيرة','نحو 40 سم','نحو 1.3 كغ',['يتراجع الشعر الناعم الذي يغطي الجسم.','ينمو الدماغ وتزداد تعرّجاته.'],['الحموضة شائعة الآن، فتناولي وجبات أصغر ولا تستلقي بعد الأكل مباشرة.']],
+['جوزة هند','نحو 41 سم','نحو 1.5 كغ',['تتحسن حركة العينين ويتابع الضوء.','تزداد قوة الركلات.'],['ابدئي تجهيز حقيبة المستشفى بهدوء.']],
+['أناناسة','نحو 42 سم','نحو 1.7 كغ',['تكتمل أظافر اليدين والقدمين.','يتدرب الجنين على التنفس بحركات منتظمة.','يتخذ كثير من الأجنة وضعية الرأس إلى الأسفل في الأسابيع القادمة.'],['خذي قسطًا من الراحة واستلقي على جانبكِ.','راجعي قائمة حقيبة المستشفى وأكملي ما ينقص.']],
+['شمّامة صغيرة','نحو 44 سم','نحو 1.9 كغ',['تتصلب العظام عدا عظام الجمجمة التي تبقى مرنة.','تنتقل إليه بعض الأجسام المضادة منكِ.'],['جهّزي أرقام الطوارئ وطريق المستشفى.']],
+['شمّامة','نحو 45 سم','نحو 2.1 كغ',['تنضج الرئتان بشكل كبير.','تتراكم المزيد من الدهون تحت الجلد.'],['تدرّبي على تمارين التنفس للاسترخاء.']],
+['بطيخة صفراء','نحو 46 سم','نحو 2.4 كغ',['تكاد الكليتان تكتملان.','تقلّ المساحة فتتغير طبيعة الحركة.'],['قد تُطلب مسحة المجموعة ب العقدية بين الأسبوع 35 و37.']],
+['خسّة رومانية','نحو 47 سم','نحو 2.6 كغ',['قد ينزل الجنين نحو الحوض.','يتحسن المص استعدادًا للرضاعة.'],['تصبح المتابعة غالبًا أسبوعية من الآن.']],
+['حزمة سلق','نحو 49 سم','نحو 2.9 كغ',['يكتمل الحمل في نهاية هذا الأسبوع.','تواصل الرئتان والدماغ النضج.'],['تعرّفي على علامات بدء المخاض ومتى تتوجهين إلى المستشفى.']],
+['كرّاثة طويلة','نحو 50 سم','نحو 3.1 كغ',['أصبح الحمل مكتمل المدة.','يتساقط معظم الشعر الناعم والطبقة البيضاء الواقية.'],['ضعي الحقيبة قرب الباب لتكون جاهزة.']],
+['بطيخة صغيرة','نحو 51 سم','نحو 3.3 كغ',['الجنين مستعد للحياة خارج الرحم.','يواصل اكتساب الوزن حتى الولادة.'],['استريحي قدر الإمكان واطلبي المساعدة من المقربين.']],
+['يقطينة صغيرة','نحو 51 سم','نحو 3.5 كغ',['يحلّ موعد الولادة المتوقع بعد نهاية هذا الأسبوع مباشرة.','قليل من الأطفال يولدون في يوم الموعد بالضبط، وهذا طبيعي.'],['تابعي مع طبيبتكِ إن تجاوزتِ الموعد لوضع خطة مناسبة.']]
+];
+var LEN_CM=[0,0,0,0,.1,.2,.5,1.3,1.6,2.3,3.1,4.1,5.4,7.4,8.7,10.1,11.6,13,14.2,15.3,25.6,26.7,27.8,28.9,30,34.6,35.6,36.6,37.6,38.6,39.9,41.1,42.4,43.7,45,46.2,47.4,48.6,49.8,50.7,51.2];
+var CHECKUPS=[
+  {id:'c1',t:'زيارة الحمل الأولى وتأكيد النبض',a:6,b:10},
+  {id:'c2',t:'تحاليل الدم الأولية وفصيلة الدم',a:8,b:12},
+  {id:'c3',t:'فحص الشفافية القفوية',a:11,b:14},
+  {id:'c4',t:'السونار التفصيلي',a:18,b:22},
+  {id:'c5',t:'فحص سكر الحمل',a:24,b:28},
+  {id:'c6',t:'تحليل الدم ومتابعة الهيموجلوبين',a:28,b:28},
+  {id:'c7',t:'متابعة نمو الجنين ووضعيته',a:32,b:34},
+  {id:'c8',t:'مسحة المجموعة ب العقدية',a:35,b:37},
+  {id:'c9',t:'متابعة أسبوعية حتى الولادة',a:36,b:40}
+];
+var BAG=[
+  {g:'للأم',items:[['b1','ملابس مريحة وواسعة'],['b2','ثوب نوم بفتحة أمامية للرضاعة'],['b3','حمّالات صدر للرضاعة'],['b4','فوط ما بعد الولادة'],['b5','أدوات العناية الشخصية'],['b6','شبشب وجوارب دافئة'],['b7','شاحن الهاتف بسلك طويل'],['b8','ماء ووجبات خفيفة']]},
+  {g:'للمولود',items:[['b9','ملابس قطنية بمقاسين'],['b10','قبعة وجوارب صغيرة'],['b11','بطانية خفيفة'],['b12','حفاضات للمولود الجديد'],['b13','مناديل مبللة لطيفة'],['b14','مقعد السيارة مثبّت مسبقًا']]},
+  {g:'الأوراق',items:[['b15','الهوية الشخصية'],['b16','بطاقة التأمين أو الملف الطبي'],['b17','ملف متابعة الحمل والتحاليل'],['b18','خطة الولادة إن وُجدت']]}
+];
+function checkupWhen(c){return c.a===c.b?('في الأسبوع '+c.a):('من الأسبوع '+c.a+' إلى '+c.b);}
+
+/* =========================================================
+   5. Store (localStorage, always guarded)
+   ========================================================= */
+var KEY='masar-alhaml.v1';
+var DEFAULT_SETTINGS={mode:'lmp',lmp:'2026-04-01',cycle:28,edd:'2027-01-06',usDate:'',usW:'',usD:''};
+function seedItems(ref){
+  return [
+    {id:'ex1',kind:'appt',title:'متابعة نمو الجنين',date:dayToISO(ref+7*32+1),time:'10:30',body:'سؤال الطبيبة عن وضعية الجنين وتمارين التنفس.',example:true},
+    {id:'ex2',kind:'appt',title:'السونار التفصيلي',date:dayToISO(ref+7*19+2),time:'09:00',body:'القياسات ضمن المعدل الطبيعي.',example:true},
+    {id:'ex3',kind:'note',title:'أول ركلة واضحة',date:dayToISO(ref+7*19+5),time:'',body:'شعرتُ بها بعد العشاء أثناء الاستلقاء على الجانب الأيسر.',example:true}
+  ];
+}
+function loadState(){
+  var raw=null;
+  try{raw=localStorage.getItem(KEY);}catch(err){raw=null;}
+  if(raw){try{var s=JSON.parse(raw);if(s&&s.settings)return s;}catch(err){}}
+  var r=referenceDay(DEFAULT_SETTINGS,null);
+  return {settings:Object.assign({},DEFAULT_SETTINGS),theme:'system',items:seedItems(r.ref),checks:{}};
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(err){}}
+var state=loadState();
+if(!state.items)state.items=[];
+if(!state.checks)state.checks={};
+
+/* =========================================================
+   6. Theme
+   ========================================================= */
+function applyTheme(t){
+  var r=document.documentElement;
+  if(t==='light'||t==='dark')r.setAttribute('data-theme',t);else r.removeAttribute('data-theme');
+}
+applyTheme(state.theme);
+
+/* =========================================================
+   7. Navigation
+   ========================================================= */
+var VIEWS=[
+  {id:'home',t:'الرئيسية',i:'home'},
+  {id:'weeks',t:'الأسابيع',i:'grid'},
+  {id:'months',t:'الأشهر',i:'stack'},
+  {id:'calendar',t:'التقويم',i:'cal'},
+  {id:'notes',t:'المواعيد والملاحظات',short:'المواعيد',i:'clip'},
+  {id:'lists',t:'القوائم',i:'list'},
+  {id:'prefs',t:'الإعدادات',i:'sliders'}
+];
+var TAB_IDS=['home','weeks','calendar','notes'];
+var MORE_IDS=['months','lists','prefs'];
+function viewById(id){for(var i=0;i<VIEWS.length;i++)if(VIEWS[i].id===id)return VIEWS[i];return null;}
+function buildNav(){
+  document.getElementById('railLinks').innerHTML=VIEWS.map(function(v){
+    return '<li><a href="#'+v.id+'" data-nav="'+v.id+'">'+ic(v.i)+'<span>'+v.t+'</span></a></li>';}).join('');
+  document.getElementById('tabLinks').innerHTML=TAB_IDS.map(function(id){var v=viewById(id);
+    return '<li><a class="tab" href="#'+id+'" data-nav="'+id+'"><span class="pill">'+ic(v.i)+'</span><span>'+(v.short||v.t)+'</span></a></li>';}).join('')+
+    '<li><button class="tab" type="button" data-action="open-more" id="moreBtn" aria-haspopup="dialog"><span class="pill">'+ic('dots')+'</span><span>المزيد</span></button></li>';
+  document.getElementById('moreLinks').innerHTML=MORE_IDS.map(function(id){var v=viewById(id);
+    return '<li><a href="#'+id+'" data-nav="'+id+'" data-action="more-go">'+ic(v.i)+'<span>'+v.t+'</span>'+ic('chev','flip chev')+'</a></li>';}).join('');
+}
+function markNav(id){
+  document.querySelectorAll('[data-nav]').forEach(function(a){
+    if(a.getAttribute('data-nav')===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+  var mb=document.getElementById('moreBtn');
+  if(mb){if(MORE_IDS.indexOf(id)>=0)mb.setAttribute('aria-current','page');else mb.removeAttribute('aria-current');}
+}
+
+/* =========================================================
+   8. Rendering
+   ========================================================= */
+var cur='home', firstRender=true;
+var calView=null, calSel=null;
+var viewEl=document.getElementById('view');
+
+function ctx(){
+  var today=todayDay(), r=referenceDay(state.settings,null);
+  if(!r.ok)return {ok:false,today:today};
+  var s=summarize(r.ref,today); s.ok=true; return s;
+}
+function guardHTML(c){
+  if(!c.ok)return stateBox('alert','بيانات الحمل غير مكتملة','لم نتمكن من حساب التواريخ من البيانات المحفوظة. افتحي الإعدادات وأدخلي تاريخ آخر دورة أو موعد الولادة المتوقع.','تعديل البيانات');
+  if(c.status==='before'){
+    var msg=state.settings.mode==='lmp'?'تاريخ أول يوم من آخر دورة يقع بعد تاريخ اليوم، لذلك لا يمكن حساب عمر الحمل. راجعي التاريخ في الإعدادات.':'وفق البيانات المدخلة لم يبدأ الحمل بعد، فموعد الولادة يبعد أكثر من 40 أسبوعًا. راجعي البيانات في الإعدادات.';
+    return stateBox('alert','التاريخ في المستقبل',msg,'تعديل البيانات');
+  }
+  return '';
+}
+function stateBox(icon,title,text,btn){
+  return '<div class="state"><div class="state-icon">'+ic(icon)+'</div><h2>'+title+'</h2><p>'+text+'</p>'+
+    (btn?'<a class="btn btn-primary" href="#prefs">'+ic('sliders','i-sm')+btn+'</a>':'')+'</div>';
+}
+function disclaimer(){return '<p class="note">'+ic('info','i-sm')+'<span>كل التواريخ والمقاسات هنا تقديرية وتختلف من حمل إلى آخر. طبيبتكِ والسونار هما المرجع في تحديد عمر الحمل وموعد الولادة.</span></p>';}
+
+/* ---------- ring ---------- */
+var R=104,C=2*Math.PI*R,SEG=[[0,91],[91,189],[189,280]],GAP=2.5;
+function ringSVG(c){
+  var segs='',prog='',ticks='';
+  SEG.forEach(function(s,i){
+    var a=s[0]/TERM*C+GAP/2,len=(s[1]-s[0])/TERM*C-GAP;
+    segs+='<circle cx="120" cy="120" r="'+R+'" fill="none" stroke="var(--t'+(i+1)+'-soft)" stroke-width="18" stroke-dasharray="'+len.toFixed(2)+' '+C.toFixed(2)+'" stroke-dashoffset="'+(-a).toFixed(2)+'"/>';
+    prog+='<circle class="rp" data-i="'+i+'" cx="120" cy="120" r="'+R+'" fill="none" stroke="var(--t'+(i+1)+')" stroke-width="18" stroke-dasharray="0 '+C.toFixed(2)+'" stroke-dashoffset="'+(-a).toFixed(2)+'"/>';
+  });
+  for(var w=1;w<40;w++){
+    var ang=w*7/TERM*2*Math.PI, r1=R-15, r2=R-(w%4===0?22:19);
+    ticks+='<line x1="'+(120+r1*Math.cos(ang)).toFixed(2)+'" y1="'+(120+r1*Math.sin(ang)).toFixed(2)+'" x2="'+(120+r2*Math.cos(ang)).toFixed(2)+'" y2="'+(120+r2*Math.sin(ang)).toFixed(2)+'" stroke="var(--line-strong)" stroke-width="'+(w%4===0?1.6:1)+'" stroke-linecap="round"/>';
+  }
+  var label='تقدّم الحمل: '+Math.min(c.ga,TERM)+' يومًا من 280 يومًا';
+  return '<svg class="ring" viewBox="0 0 240 240" role="img" aria-label="'+label+'"><g transform="translate(240 0) scale(-1 1)"><g transform="rotate(-90 120 120)">'+segs+prog+ticks+
+    '<circle id="ringMark" class="ring-mark" cx="'+(120+R)+'" cy="120" r="8"/></g></g></svg>';
+}
+function setRing(v){
+  var arcs=document.querySelectorAll('.rp');
+  arcs.forEach(function(el){
+    var i=+el.getAttribute('data-i'),s=SEG[i],f=Math.max(0,Math.min(v,s[1])-s[0]);
+    var len=f>0?Math.max(0,f/TERM*C-(v>=s[1]?GAP:GAP/2)):0;
+    el.setAttribute('stroke-dasharray',len.toFixed(2)+' '+C.toFixed(2));
+  });
+  var m=document.getElementById('ringMark');
+  if(m){var ang=Math.min(v,TERM)/TERM*2*Math.PI;m.setAttribute('cx',(120+R*Math.cos(ang)).toFixed(2));m.setAttribute('cy',(120+R*Math.sin(ang)).toFixed(2));}
+}
+var reduceMotion=false;
+try{reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(err){}
+function animateRing(target,animate){
+  target=Math.max(0,Math.min(target,TERM));
+  if(!animate||reduceMotion){setRing(target);return;}
+  var t0=null,dur=1100;
+  function step(ts){if(t0==null)t0=ts;var p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,4);setRing(target*e);if(p<1)requestAnimationFrame(step);}
+  setRing(0);requestAnimationFrame(step);
+}
+
+/* ---------- home ---------- */
+function renderHome(c){
+  var g=guardHTML(c); if(g)return '<div class="view">'+g+disclaimer()+'</div>';
+  var wk=Math.min(c.week,40), W=WEEKS[wk], h='';
+  if(c.status==='overdue')h+='<div class="banner" role="note">'+ic('info')+'<span>تجاوزتِ موعد الولادة المتوقع بمقدار '+countAr(-c.left,DAYS_F)+'. تواصلي مع طبيبتكِ لمتابعة الخطة المناسبة لكِ.</span></div>';
+  if(c.status==='beyond')h+='<div class="banner" role="note">'+ic('alert')+'<span>مضى أكثر من 42 أسبوعًا وفق البيانات المدخلة. إن وُلد طفلكِ فمبارك لكِ، وإن لم يحدث بعد فتواصلي مع طبيبتكِ اليوم. يمكنكِ تحديث البيانات من <a href="#prefs">الإعدادات</a>.</span></div>';
+  var tri=c.tri, gaLine=gaText(c.ga);
+  var leftTxt=c.left>0?countAr(c.left,DAYS_F):(c.left===0?'اليوم هو الموعد':'تجاوزتِ الموعد');
+  var leftSub=c.left>0?('نحو '+countAr(Math.floor(c.left/7),WEEKS_F)+(c.left%7?' و'+countAr(c.left%7,DAYS_F):'')):'';
+  if(c.left>0&&c.left<7)leftSub='';
+  h+='<section class="hero" aria-labelledby="gaTitle">'+
+    '<div class="ring-box">'+ringSVG(c)+'<div class="ring-center"><span class="lbl">الأسبوع</span><span class="big">'+c.week+'</span><span class="sub tnum">اليوم '+Math.min(c.ga,TERM)+' من 280</span></div></div>'+
+    '<div class="hero-text"><div><p class="muted" style="font-size:var(--fs-sm)">عمر حملكِ اليوم</p><h1 id="gaTitle" class="tnum">'+gaLine+'</h1></div>'+
+    '<div class="hero-chips"><span class="chip accent">'+ic('grid','i-sm')+'الأسبوع '+c.week+'</span><span class="chip">الشهر '+ORD_AR[c.month-1]+'</span><span class="chip t'+tri+'">'+TRI_AR[tri-1]+'</span></div>'+
+    '<dl class="facts"><div><dt>موعد الولادة المتوقع</dt><dd class="tnum">'+fmt(c.edd,{wd:true})+'<span class="h">'+hijri(c.edd)+'</span></dd></div>'+
+    '<div><dt>المتبقي على الموعد</dt><dd><span class="big-n tnum">'+leftTxt+'</span>'+(leftSub?'<span class="h">'+leftSub+'</span>':'')+'</dd></div></dl></div></section>';
+
+  // baby + tip
+  var babyHTML;
+  if(!W[0]){
+    babyHTML='<div class="baby"><h2 class="section-title">حجم الجنين هذا الأسبوع</h2><p class="lead">لم يتكوّن الجنين بعد في هذا الأسبوع.</p><p class="muted">يُحسب الحمل من أول يوم في آخر دورة، ويبدأ الإخصاب عادة قرب نهاية الأسبوع الثاني.</p></div>';
+  }else{
+    var cm=LEN_CM[wk], pct=Math.max(1,cm/52*100);
+    babyHTML='<div class="baby"><h2 class="section-title">حجم الجنين هذا الأسبوع</h2>'+
+      '<p class="lead">بحجم <em>'+W[0]+'</em> تقريبًا</p>'+
+      '<div class="measures"><span class="measure">'+ic('ruler','i-sm')+'الطول <b class="tnum">'+W[1]+'</b></span>'+(W[2]?'<span class="measure">'+ic('weight','i-sm')+'الوزن <b class="tnum">'+W[2]+'</b></span>':'')+'</div>'+
+      '<div class="ruler" aria-hidden="true"><div class="ruler-track"><span class="ruler-fill" style="width:100%;transform:scaleX('+(pct/100).toFixed(3)+')"></span></div>'+
+      '<div class="ruler-ticks tnum"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50 سم</span></div></div>'+
+      '<p class="ruler-cap">'+(wk<20?'يُقاس الطول حتى الأسبوع 19 من الرأس إلى المقعدة.':'يُقاس الطول من الرأس إلى الكعب.')+'</p>'+
+      '<button class="btn btn-ghost" style="align-self:flex-start" data-action="open-week" data-week="'+wk+'">تفاصيل الأسبوع '+wk+ic('chev','i-sm flip')+'</button></div>';
+  }
+  var tips=W[4];
+  var tipHTML='<div class="tip"><span class="tip-h">'+ic('bulb','i-sm')+'نصيحة الأسبوع</span><p>'+tips[0]+'</p>'+
+    (tips.length>1?'<ul class="more">'+tips.slice(1).map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>':'')+'</div>';
+
+  // milestones timeline
+  var ms=milestones(c.ref).map(function(m){
+    var end=m.b!=null?m.b:m.a, stt=c.today>end?'done':(c.today>=m.a?'now':'up');
+    var when=stt==='done'?'تمّ':(stt==='now'?(m.b!=null?'الآن':'اليوم'):('بعد '+countAr(m.a-c.today,DAYS_F)));
+    var dates=m.b!=null?fmtRange(m.a,m.b):fmt(m.a,{wd:true});
+    return '<li class="tl '+stt+'"><span class="dot">'+(stt==='done'?ic('check','i-sm'):ic('flag','i-sm'))+'</span><div><p class="t">'+m.t+'</p><p class="d tnum">'+dates+'</p><p class="d">'+m.d+(m.b==null?'، '+hijri(m.a):'')+'</p></div><span class="when">'+when+'</span></li>';
+  }).join('');
+
+  // next appointment
+  var next=state.items.filter(function(it){return it.kind==='appt'&&isoToDay(it.date)!=null&&isoToDay(it.date)>=c.today;})
+    .sort(function(a,b){return (a.date+(a.time||'')).localeCompare(b.date+(b.time||''));})[0];
+  var apptHTML;
+  if(next){
+    var nd=isoToDay(next.date),np=dayParts(nd);
+    apptHTML='<div class="next-appt"><div class="datebox"><b>'+np.d+'</b><span>'+MONTH_AR[np.m]+'</span></div><div style="min-width:0"><p style="font-weight:600">'+esc(next.title)+(next.example?' <span class="chip example">مثال</span>':'')+'</p><p class="muted tnum" style="font-size:var(--fs-sm)">'+fmt(nd,{wd:true})+(next.time?'، '+fmtTime(next.time):'')+'</p><p class="muted" style="font-size:var(--fs-sm)">'+(nd===c.today?'اليوم':'بعد '+countAr(nd-c.today,DAYS_F))+'</p></div></div>';
+  }else{
+    apptHTML='<div class="empty"><b>لا توجد مواعيد قادمة</b><span>أضيفي موعد المتابعة القادم ليظهر هنا وفي التقويم.</span><a class="btn btn-ghost" href="#notes" data-action="go-add">'+ic('plus','i-sm')+'إضافة موعد</a></div>';
+  }
+
+  h+='<div class="home-grid">'+babyHTML+tipHTML+'</div>'+
+    '<div class="home-grid"><section aria-labelledby="msT"><h2 id="msT" class="section-title" style="margin-bottom:var(--s3)">محطات الحمل</h2><ol class="timeline">'+ms+'</ol></section>'+
+    '<section aria-labelledby="naT" style="display:flex;flex-direction:column;gap:var(--s3)"><div class="sub-head" style="margin:0"><h2 id="naT" class="section-title">موعدكِ القادم</h2><a class="btn-text btn" href="#notes">كل المواعيد</a></div>'+apptHTML+disclaimer()+'</section></div>';
+  return '<div class="view">'+h+'</div>';
+}
+
+/* ---------- weeks ---------- */
+function renderWeeks(c){
+  var g=guardHTML(c);
+  var head='<div class="view-head"><h1>الأسابيع</h1><p>اختاري أي أسبوع لمعرفة حجم الجنين وتطوره ونصائح لكِ. استخدمي الأسهم أو السحب للتنقل بين الأسابيع.</p></div>';
+  if(g)return '<div class="view">'+head+g+'</div>';
+  var out=head+'<div class="legend" aria-hidden="true"><span><i style="background:var(--t1-soft)"></i>مضى</span><span><i style="background:var(--accent);border-color:var(--accent)"></i>الأسبوع الحالي</span><span><i style="background:var(--surface)"></i>قادم</span></div>';
+  TRIS.forEach(function(t,ti){
+    var tr=triRange(c.ref,ti+1), cells='';
+    for(var n=t[0];n<=t[1];n++){
+      var stt=n<c.week?'past':(n===c.week?'current':'future'), rg=weekRange(c.ref,n);
+      var lbl='الأسبوع '+n+'، '+(stt==='past'?'مضى':(stt==='current'?'الأسبوع الحالي':'قادم'))+'، '+fmtRange(rg[0],rg[1]);
+      cells+='<button class="wk t'+(ti+1)+' '+stt+'" data-action="open-week" data-week="'+n+'" aria-label="'+lbl+'"'+(stt==='current'?' aria-current="step"':'')+'>'+
+        (stt==='past'?'<span class="st">'+ic('check')+'</span>':'')+n+(stt==='current'?'<span class="now">الآن</span>':'')+'</button>';
+    }
+    out+='<section class="tri-group" aria-labelledby="tri'+ti+'"><div class="tri-head"><h2 id="tri'+ti+'"><span class="sw" style="background:var(--t'+(ti+1)+')"></span>'+TRI_AR[ti]+'</h2><span class="r tnum">من الأسبوع '+t[0]+' إلى '+t[1]+'، '+fmtRange(tr[0],tr[1])+'</span></div><div class="week-grid">'+cells+'</div></section>';
+  });
+  return '<div class="view">'+out+disclaimer()+'</div>';
+}
+
+/* ---------- months ---------- */
+function renderMonths(c){
+  var g=guardHTML(c);
+  var head='<div class="view-head"><h1>الأشهر</h1><p>تُقسَم الأسابيع الأربعون إلى تسعة أشهر، وينتهي الشهر التاسع بموعد الولادة المتوقع.</p></div>';
+  if(g)return '<div class="view">'+head+g+'</div>';
+  var cards='';
+  for(var i=1;i<=9;i++){
+    var m=MONTHS[i-1], rg=monthRange(c.ref,i), stt=c.today>rg[1]?'past':(c.today>=rg[0]?'current':'future');
+    var tri=triOfWeek(m[0]), triEnd=triOfWeek(m[1]);
+    var prog=stt==='current'?Math.round((c.today-rg[0]+1)/(rg[1]-rg[0]+1)*100):0;
+    cards+='<article class="mcard '+stt+'"'+(stt==='current'?' aria-current="step"':'')+'><div class="top"><h2>الشهر '+ORD_AR[i-1]+'</h2>'+
+      (stt==='current'?'<span class="chip accent">الشهر الحالي</span>':(stt==='past'?'<span class="chip">'+ic('check','i-sm')+'مضى</span>':'<span class="chip t'+tri+'">'+TRI_AR[tri-1]+(triEnd!==tri?' والثاني':'')+'</span>'))+'</div>'+
+      '<p class="wr tnum">من الأسبوع '+m[0]+' إلى '+m[1]+'</p><p class="dr tnum">'+fmtRange(rg[0],rg[1])+'</p><p class="hj">'+hijri(rg[0])+' إلى '+hijri(rg[1])+'</p>'+
+      (stt==='current'?'<div class="mprog" role="progressbar" aria-label="التقدم في الشهر الحالي" aria-valuenow="'+prog+'" aria-valuemin="0" aria-valuemax="100"><i style="width:'+prog+'%"></i></div>':'')+'</article>';
+  }
+  return '<div class="view">'+head+'<div class="month-grid">'+cards+'</div>'+disclaimer()+'</div>';
+}
+
+/* ---------- calendar ---------- */
+var DOW=[['سبت','السبت'],['أحد','الأحد'],['إثنين','الإثنين'],['ثلاثاء','الثلاثاء'],['أربعاء','الأربعاء'],['خميس','الخميس'],['جمعة','الجمعة']];
+function dayEvents(c,day){
+  var ev=[];
+  if(c.ok){
+    milestones(c.ref).forEach(function(m){
+      if(m.a===day)ev.push({type:'ms',t:m.b!=null?('بداية '+m.t):m.t});
+      if(m.b!=null&&m.b===day)ev.push({type:'ms',t:'آخر يوم في '+m.t});
+    });
+  }
+  state.items.forEach(function(it){if(isoToDay(it.date)===day)ev.push({type:it.kind==='appt'?'ap':'nt',t:it.title,it:it});});
+  return ev;
+}
+function renderCalendar(c){
+  var head='<div class="view-head"><h1>التقويم</h1><p>يظهر على التقويم بداية كل أسبوع حمل، والمحطات المهمة، ومواعيدكِ.</p></div>';
+  if(!c.ok)return '<div class="view">'+head+guardHTML(c)+'</div>';
+  if(!calView){var tp=dayParts(c.today);calView={y:tp.y,m:tp.m};}
+  if(calSel==null)calSel=c.today;
+  var first=ymdToDay(calView.y,calView.m,1), off=(dayParts(first).wd+1)%7, start=first-off;
+  var grid='';
+  DOW.forEach(function(d){grid+='<div class="cal-dow" role="columnheader"><abbr title="'+d[1]+'" style="text-decoration:none">'+d[0]+'</abbr></div>';});
+  for(var k=0;k<42;k++){
+    var day=start+k, p=dayParts(day), ga=day-c.ref, cls='cd', inner='', lbl=fmt(day,{wd:true});
+    if(p.m!==calView.m)cls+=' out';
+    if(ga>=0&&ga<TERM){var tw=weekOfGA(ga);cls+=' p'+triOfWeek(tw);}
+    if(day===c.ref+TERM)cls+=' edd';
+    if(day===c.today)cls+=' today';
+    if(day===calSel)cls+=' sel';
+    inner='<span class="dn">'+p.d+'</span>';
+    if(ga>=0&&ga<=MAX_DAY&&ga%7===0){inner+='<span class="wkn">'+weekOfGA(ga)+'</span>';lbl+='، بداية الأسبوع '+weekOfGA(ga);}
+    var ev=dayEvents(c,day), mk='';
+    if(ev.some(function(e){return e.type==='ms';})){mk+='<span class="mk ms"></span>';}
+    if(ev.some(function(e){return e.type==='ap';})){mk+='<span class="mk ap"></span>';}
+    if(ev.some(function(e){return e.type==='nt';})){mk+='<span class="mk"></span>';}
+    if(ev.length)lbl+='، '+ev.map(function(e){return e.t;}).join('، ');
+    if(day===c.today)lbl+='، اليوم';
+    inner+='<span class="marks">'+mk+'</span>';
+    grid+='<button class="'+cls+'" role="gridcell" data-action="cal-day" data-day="'+day+'" aria-label="'+esc(lbl)+'"'+(day===calSel?' aria-selected="true"':'')+(day===c.today?' aria-current="date"':'')+' tabindex="'+(day===calSel?'0':'-1')+'">'+inner+'</button>';
+  }
+  var cal='<div class="cal"><div class="cal-head">'+
+    '<button class="icon-btn" data-action="cal-prev" aria-label="الشهر السابق">'+ic('chev-back','flip')+'</button>'+
+    '<h2 id="calTitle" class="tnum" aria-live="polite">'+MONTH_AR[calView.m]+' '+calView.y+'</h2>'+
+    '<button class="icon-btn" data-action="cal-next" aria-label="الشهر التالي">'+ic('chev','flip')+'</button>'+
+    '<button class="btn btn-ghost" data-action="cal-today" style="min-height:40px;padding:0 12px">اليوم</button></div>'+
+    '<div class="cal-grid" role="grid" aria-labelledby="calTitle" id="calGrid">'+grid+'</div>'+
+    '<div class="cal-legend" aria-hidden="true"><span><i class="sq" style="background:var(--t1-soft)"></i>الثلث الأول</span><span><i class="sq" style="background:var(--t2-soft)"></i>الثلث الثاني</span><span><i class="sq" style="background:var(--t3-soft)"></i>الثلث الثالث</span><span><i class="sq" style="background:var(--accent)"></i>موعد الولادة</span><span><i class="mk ms"></i>محطة</span><span><i class="mk"></i>موعد</span></div></div>';
+  return '<div class="view">'+head+'<div class="cal-wrap">'+cal+'<section class="panel day-detail" id="dayDetail" aria-live="polite">'+dayDetailHTML(c,calSel)+'</section></div></div>';
+}
+function dayDetailHTML(c,day){
+  var ga=day-c.ref, h='<div><h2 class="tnum">'+fmt(day,{wd:true})+'</h2><p class="hj">'+hijri(day)+'</p></div>';
+  if(ga<0)h+='<p class="muted">قبل بداية الحمل وفق البيانات المدخلة.</p>';
+  else if(ga>MAX_DAY)h+='<p class="muted">بعد نهاية الأسبوع 42.</p>';
+  else{
+    var w=weekOfGA(ga);
+    h+='<div class="hero-chips"><span class="chip accent tnum">'+gaText(ga)+'</span><span class="chip">الأسبوع '+w+'</span>'+(w<=40?'<span class="chip t'+triOfWeek(w)+'">'+TRI_AR[triOfWeek(w)-1]+'</span>':'')+'</div>';
+  }
+  var ev=dayEvents(c,day);
+  if(ev.length){
+    h+='<ul class="dd-list">'+ev.map(function(e){
+      if(e.type==='ms')return '<li class="ms">'+ic('flag')+'<span>'+e.t+'</span></li>';
+      var it=e.it;
+      return '<li class="ap">'+ic(it.kind==='appt'?'clock':'note')+'<span style="flex:1;min-width:0"><b>'+esc(it.title)+'</b>'+(it.time?'<br><span class="muted tnum">'+fmtTime(it.time)+'</span>':'')+'</span><button class="icon-btn" data-action="edit-item" data-id="'+esc(it.id)+'" aria-label="تعديل '+esc(it.title)+'">'+ic('edit')+'</button></li>';
+    }).join('')+'</ul>';
+  }else h+='<p class="muted">لا مواعيد أو محطات في هذا اليوم.</p>';
+  h+='<button class="btn btn-primary" style="align-self:flex-start" data-action="add-on-day" data-day="'+day+'">'+ic('plus','i-sm')+'إضافة موعد في هذا اليوم</button>';
+  if(ga>=0&&ga<TERM)h+='<button class="btn btn-ghost" style="align-self:flex-start" data-action="open-week" data-week="'+weekOfGA(ga)+'">تفاصيل الأسبوع '+weekOfGA(ga)+ic('chev','i-sm flip')+'</button>';
+  return h;
+}
+
+/* ---------- notes ---------- */
+var editing=null, formOpen=false, formPrefill=null, lastDeleted=null;
+function renderNotes(c){
+  var today=c.today, ref=c.ok?c.ref:null;
+  var appts=state.items.filter(function(i){return i.kind==='appt';}), notes=state.items.filter(function(i){return i.kind==='note';});
+  function key(i){return (i.date||'')+(i.time||'');}
+  var up=appts.filter(function(i){return isoToDay(i.date)>=today;}).sort(function(a,b){return key(a).localeCompare(key(b));});
+  var past=appts.filter(function(i){return isoToDay(i.date)<today;}).sort(function(a,b){return key(b).localeCompare(key(a));});
+  notes.sort(function(a,b){return key(b).localeCompare(key(a));});
+  function row(it,isPast){
+    var d=isoToDay(it.date), p=d!=null?dayParts(d):null, ga=(d!=null&&ref!=null)?d-ref:null;
+    return '<li class="item'+(isPast?' past':'')+'">'+(p?'<div class="datebox"><b>'+p.d+'</b><span>'+MONTH_AR[p.m]+'</span></div>':'')+
+      '<div class="body"><p class="title">'+esc(it.title)+(it.example?' <span class="chip example">مثال</span>':'')+'</p>'+
+      '<p class="meta">'+(d!=null?'<span class="tnum">'+fmt(d,{wd:true})+'</span>':'')+(it.time?'<span class="tnum">'+ic('clock','i-sm')+fmtTime(it.time)+'</span>':'')+
+      (ga!=null&&ga>=0&&ga<=MAX_DAY?'<span>الأسبوع '+weekOfGA(ga)+'</span>':'')+'</p>'+(it.body?'<p class="txt">'+esc(it.body)+'</p>':'')+'</div>'+
+      '<div class="acts"><button class="icon-btn" data-action="edit-item" data-id="'+esc(it.id)+'" aria-label="تعديل '+esc(it.title)+'">'+ic('edit')+'</button><button class="icon-btn" data-action="delete-item" data-id="'+esc(it.id)+'" aria-label="حذف '+esc(it.title)+'">'+ic('trash')+'</button></div></li>';
+  }
+  function list(arr,isPast,emptyB,emptyT){
+    return arr.length?'<ul class="items">'+arr.map(function(i){return row(i,isPast);}).join('')+'</ul>':'<div class="empty"><b>'+emptyB+'</b><span>'+emptyT+'</span></div>';
+  }
+  var hasEx=state.items.some(function(i){return i.example;});
+  var h='<div class="notes-head"><div class="view-head"><h1>المواعيد والملاحظات</h1><p>دوّني مواعيد المتابعة وما تشعرين به. تُحفظ البيانات على هذا الجهاز فقط.</p></div>'+
+    '<button class="btn btn-primary" data-action="add-item" id="addBtn" aria-expanded="'+formOpen+'" aria-controls="itemForm">'+ic('plus','i-sm')+'إضافة</button></div>';
+  if(hasEx)h+='<p class="note">'+ic('info','i-sm')+'<span>العناصر الموسومة بكلمة «مثال» توضيحية فقط، يمكنكِ تعديلها أو حذفها.</span></p>';
+  h+=formHTML();
+  h+='<section><div class="sub-head"><h2>المواعيد القادمة</h2><span class="c tnum">'+up.length+'</span></div>'+list(up,false,'لا توجد مواعيد قادمة','اضغطي «إضافة» لتسجيل موعدكِ القادم مع الطبيبة.')+'</section>';
+  h+='<section><div class="sub-head"><h2>الملاحظات</h2><span class="c tnum">'+notes.length+'</span></div>'+list(notes,false,'لا توجد ملاحظات بعد','سجّلي أول ركلة، أو سؤالًا تودين طرحه في الموعد القادم.')+'</section>';
+  if(past.length)h+='<section><div class="sub-head"><h2>مواعيد سابقة</h2><span class="c tnum">'+past.length+'</span></div>'+list(past,true,'','')+'</section>';
+  return '<div class="view">'+h+'</div>';
+}
+function formHTML(){
+  var it=editing?state.items.find(function(i){return i.id===editing;}):null;
+  var v=it||formPrefill||{kind:'appt',title:'',date:dayToISO(todayDay()),time:'',body:''};
+  return '<form class="panel form" id="itemForm" novalidate'+(formOpen?'':' hidden')+'>'+
+    '<h2 id="formTitle">'+(it?'تعديل':'إضافة موعد أو ملاحظة')+'</h2>'+
+    '<div class="field"><span class="lbl" id="kindLbl">النوع</span><div class="seg" role="radiogroup" aria-labelledby="kindLbl">'+
+      '<label><input type="radio" name="kind" id="kindAppt" value="appt"'+(v.kind==='appt'?' checked':'')+'><span>'+ic('clock','i-sm')+'موعد</span></label>'+
+      '<label><input type="radio" name="kind" id="kindNote" value="note"'+(v.kind==='note'?' checked':'')+'><span>'+ic('note','i-sm')+'ملاحظة</span></label></div></div>'+
+    '<div class="field"><label for="fTitle">العنوان</label><input class="input" id="fTitle" name="title" maxlength="80" value="'+esc(v.title)+'" placeholder="مثل: متابعة مع الطبيبة" aria-describedby="eTitle"><p class="err" id="eTitle" aria-live="polite"></p></div>'+
+    '<div class="row two"><div class="field"><label for="fDate">التاريخ</label><input class="input" type="date" id="fDate" name="date" value="'+esc(v.date)+'" aria-describedby="eDate"><p class="err" id="eDate" aria-live="polite"></p></div>'+
+    '<div class="field"><label for="fTime">الوقت <span class="opt">(اختياري)</span></label><input class="input" type="time" id="fTime" name="time" value="'+esc(v.time||'')+'"></div></div>'+
+    '<div class="field"><label for="fBody">التفاصيل <span class="opt">(اختياري)</span></label><textarea class="input" id="fBody" name="body" maxlength="600" placeholder="أسئلة للطبيبة، نتائج، أو ما تشعرين به">'+esc(v.body||'')+'</textarea></div>'+
+    '<div class="form-actions"><button class="btn btn-primary" type="submit">'+ic('check','i-sm')+(it?'حفظ التعديلات':'حفظ')+'</button><button class="btn btn-ghost" type="button" data-action="cancel-form">إلغاء</button></div></form>';
+}
+
+/* ---------- lists ---------- */
+function renderLists(c){
+  var bagTotal=0,bagDone=0;
+  BAG.forEach(function(g){g.items.forEach(function(x){bagTotal++;if(state.checks[x[0]])bagDone++;});});
+  var ckDone=CHECKUPS.filter(function(x){return state.checks[x.id];}).length;
+  function box(id,label,sub){
+    return '<label class="check"><input type="checkbox" id="ck-'+id+'" data-check="'+id+'"'+(state.checks[id]?' checked':'')+'><span class="box">'+ic('check')+'</span><span class="lt"><span>'+label+'</span>'+(sub?'<small class="tnum">'+sub+'</small>':'')+'</span></label>';
+  }
+  function bar(done,total,label){var p=Math.round(done/total*100);return '<div class="count-bar"><span class="tnum">'+done+' من '+total+'</span><span class="track" role="progressbar" aria-label="'+label+'" aria-valuenow="'+done+'" aria-valuemin="0" aria-valuemax="'+total+'"><i style="width:'+p+'%"></i></span></div>';}
+  var bag='<section class="panel" aria-labelledby="bagT" style="display:flex;flex-direction:column;gap:var(--s3)"><h2 id="bagT" class="section-title">'+ic('bag')+'حقيبة المستشفى</h2><p class="muted" style="font-size:var(--fs-sm)">يُفضَّل تجهيزها بين الأسبوع 32 و36.</p>'+bar(bagDone,bagTotal,'تقدّم تجهيز الحقيبة')+
+    BAG.map(function(g){return '<div class="cl-group"><h3>'+g.g+'</h3>'+g.items.map(function(x){return box(x[0],x[1]);}).join('')+'</div>';}).join('')+'</section>';
+  var ck='<section class="panel" aria-labelledby="ckT" style="display:flex;flex-direction:column;gap:var(--s3)"><h2 id="ckT" class="section-title">'+ic('steth')+'الفحوصات</h2><p class="muted" style="font-size:var(--fs-sm)">مواعيد تقريبية شائعة، وقد تختلف حسب طبيبتكِ وحالتكِ.</p>'+bar(ckDone,CHECKUPS.length,'تقدّم الفحوصات')+
+    '<div class="cl-group">'+CHECKUPS.map(function(x){
+      var sub=checkupWhen(x);
+      if(c.ok){var a=weekRange(c.ref,x.a)[0],b=weekRange(c.ref,x.b)[1];sub+='، '+fmtRange(a,b);}
+      return box(x.id,x.t,sub);}).join('')+'</div></section>';
+  return '<div class="view"><div class="view-head"><h1>القوائم</h1><p>علّمي ما أنجزتِه، وتُحفظ العلامات تلقائيًا على هذا الجهاز.</p></div><div class="lists-wrap">'+bag+ck+'</div></div>';
+}
+
+/* ---------- settings ---------- */
+function renderPrefs(){
+  var s=state.settings;
+  function mode(v,t,sub){return '<label class="mode"><input type="radio" name="mode" id="mode-'+v+'" value="'+v+'"'+(s.mode===v?' checked':'')+'><span>'+t+'<small>'+sub+'</small></span></label>';}
+  function th(v,t,i){return '<label><input type="radio" name="theme" id="theme-'+v+'" value="'+v+'"'+(state.theme===v?' checked':'')+'><span>'+ic(i,'i-sm')+t+'</span></label>';}
+  var h='<div class="view-head"><h1>الإعدادات</h1><p>غيّري طريقة حساب الحمل أو مظهر التطبيق. تُحفظ البيانات على هذا الجهاز فقط.</p></div><div class="prefs">'+
+  '<form class="panel form" id="prefsForm" novalidate><h2>بيانات الحمل</h2>'+
+  '<fieldset class="field" style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:6px">طريقة الحساب</legend><div class="mode-cards">'+
+    mode('lmp','آخر دورة شهرية','تاريخ أول يوم وطول الدورة')+mode('edd','موعد الولادة','إن كنتِ تعرفينه من الطبيبة')+mode('us','فحص السونار','تاريخ الفحص وعمر الحمل فيه')+'</div></fieldset>'+
+  '<div data-mode="lmp"'+(s.mode==='lmp'?'':' hidden')+' class="row two">'+
+    '<div class="field"><label for="pLmp">أول يوم من آخر دورة</label><input class="input" type="date" id="pLmp" value="'+esc(s.lmp)+'" aria-describedby="ePLmp"><p class="err" id="ePLmp"></p></div>'+
+    '<div class="field"><label for="pCycle">طول الدورة بالأيام</label><div class="stepper"><button type="button" data-action="cycle-dec" aria-label="إنقاص يوم">'+ic('minus','i-sm')+'</button><input id="pCycle" type="number" inputmode="numeric" min="21" max="40" step="1" value="'+esc(s.cycle)+'" aria-describedby="ePCycle hPCycle"><button type="button" data-action="cycle-inc" aria-label="زيادة يوم">'+ic('plus','i-sm')+'</button></div><p class="help" id="hPCycle">من 21 إلى 40 يومًا، والمعتاد 28.</p><p class="err" id="ePCycle"></p></div></div>'+
+  '<div data-mode="edd"'+(s.mode==='edd'?'':' hidden')+' class="field"><label for="pEdd">موعد الولادة المتوقع</label><input class="input" type="date" id="pEdd" value="'+esc(s.edd)+'" aria-describedby="ePEdd"><p class="err" id="ePEdd"></p></div>'+
+  '<div data-mode="us"'+(s.mode==='us'?'':' hidden')+' class="row three">'+
+    '<div class="field"><label for="pUs">تاريخ السونار</label><input class="input" type="date" id="pUs" value="'+esc(s.usDate)+'" aria-describedby="ePUs"><p class="err" id="ePUs"></p></div>'+
+    '<div class="field"><label for="pUsW">الأسابيع</label><input class="input" type="number" inputmode="numeric" min="0" max="42" id="pUsW" value="'+esc(s.usW)+'" placeholder="12" aria-describedby="ePUsW"><p class="err" id="ePUsW"></p></div>'+
+    '<div class="field"><label for="pUsD">الأيام</label><input class="input" type="number" inputmode="numeric" min="0" max="6" id="pUsD" value="'+esc(s.usD)+'" placeholder="3" aria-describedby="ePUsD"><p class="err" id="ePUsD"></p></div></div>'+
+  '<div class="preview" id="pPreview" aria-live="polite"></div>'+
+  '<div class="form-actions"><button class="btn btn-primary" type="submit">'+ic('check','i-sm')+'حفظ التغييرات</button></div></form>'+
+  '<div style="display:flex;flex-direction:column;gap:var(--s5)">'+
+  '<section class="panel" style="display:flex;flex-direction:column;gap:var(--s3)" aria-labelledby="thT"><h2 id="thT" class="section-title">المظهر</h2><div class="seg" role="radiogroup" aria-labelledby="thT">'+th('system','حسب الجهاز','device')+th('light','فاتح','sun')+th('dark','داكن','moon')+'</div></section>'+
+  '<section class="panel danger-zone" style="display:flex;flex-direction:column;gap:var(--s3)" aria-labelledby="dzT"><h2 id="dzT" class="section-title">مسح البيانات</h2><p class="muted" style="font-size:var(--fs-sm)">يحذف كل ما حفظتِه على هذا الجهاز ويعيد الإعدادات الافتراضية.</p><button class="btn btn-ghost" style="align-self:flex-start;color:var(--danger);border-color:var(--danger)" data-action="reset-open" id="resetBtn">'+ic('reset','i-sm')+'مسح كل البيانات</button></section>'+
+  disclaimer()+'</div></div>';
+  return '<div class="view">'+h+'</div>';
+}
+function readPrefsForm(){
+  var f=function(id){var e=document.getElementById(id);return e?e.value:'';};
+  var m=document.querySelector('input[name="mode"]:checked');
+  return {mode:m?m.value:'lmp',lmp:f('pLmp'),cycle:f('pCycle')===''?'':Number(f('pCycle')),edd:f('pEdd'),usDate:f('pUs'),usW:f('pUsW')===''?'':Number(f('pUsW')),usD:f('pUsD')===''?'':Number(f('pUsD'))};
+}
+var ERR_MAP={lmp:'ePLmp',cycle:'ePCycle',edd:'ePEdd',usDate:'ePUs',usW:'ePUsW',usD:'ePUsD'};
+var INPUT_MAP={lmp:'pLmp',cycle:'pCycle',edd:'pEdd',usDate:'pUs',usW:'pUsW',usD:'pUsD'};
+function updatePreview(showErrors){
+  var s=readPrefsForm(), today=todayDay(), r=referenceDay(s,today), pv=document.getElementById('pPreview');
+  if(!pv)return r;
+  Object.keys(ERR_MAP).forEach(function(k){var e=document.getElementById(ERR_MAP[k]),inp=document.getElementById(INPUT_MAP[k]);
+    var msg=(!r.ok&&r.errors[k]&&showErrors)?r.errors[k]:'';
+    if(e)e.innerHTML=msg?ic('alert','i-sm')+'<span>'+msg+'</span>':'';
+    if(inp){if(msg)inp.setAttribute('aria-invalid','true');else inp.removeAttribute('aria-invalid');}});
+  if(!r.ok){pv.className='preview bad';pv.innerHTML='<span class="k">النتيجة</span><span class="v">أكملي البيانات بشكل صحيح لعرض موعد الولادة المتوقع.</span>';return r;}
+  var sm=summarize(r.ref,today);
+  if(sm.status==='before'){pv.className='preview bad';pv.innerHTML='<span class="k">النتيجة</span><span class="v">وفق هذه البيانات لم يبدأ الحمل بعد. راجعي التاريخ.</span>';return r;}
+  pv.className='preview';
+  pv.innerHTML='<span class="k">موعد الولادة المتوقع بهذه البيانات</span><span class="v tnum">'+fmt(sm.edd,{wd:true})+'، '+hijri(sm.edd)+'</span><span class="k tnum">عمر الحمل اليوم: '+gaText(sm.ga)+(sm.status==='beyond'?'، أي بعد نهاية الأسبوع 42':'')+'</span>';
+  return r;
+}
+
+/* ---------- router ---------- */
+function render(focus){
+  var c=ctx();
+  var t=document.getElementById('todayLine');
+  t.innerHTML='<strong class="tnum">'+fmt(c.today,{wd:true})+'</strong>'+hijri(c.today);
+  var html='';
+  switch(cur){
+    case 'weeks':html=renderWeeks(c);break;
+    case 'months':html=renderMonths(c);break;
+    case 'calendar':html=renderCalendar(c);break;
+    case 'notes':html=renderNotes(c);break;
+    case 'lists':html=renderLists(c);break;
+    case 'prefs':html=renderPrefs();break;
+    default:html=renderHome(c);
+  }
+  viewEl.innerHTML=html;
+  markNav(cur);
+  if(cur==='home'&&c.ok&&c.status!=='before')animateRing(c.ga,firstRender);
+  if(cur==='prefs')updatePreview(false);
+  if(focus){var h1=viewEl.querySelector('h1');if(h1){h1.setAttribute('tabindex','-1');h1.focus({preventScroll:true});}window.scrollTo(0,0);}
+  firstRender=false;
+}
+function route(){
+  var id=(location.hash||'').replace('#','');
+  if(!viewById(id))id='home';
+  var changed=id!==cur; cur=id;
+  render(changed&&!firstRender);
+}
+
+/* =========================================================
+   9. Week sheet
+   ========================================================= */
+var sheetWeek=1, lastFocus=null, openLayer=null;
+var scrim=document.getElementById('scrim'), ws=document.getElementById('weekSheet'), ms=document.getElementById('moreSheet'), rd=document.getElementById('resetDialog');
+function fillWeek(n,dir){
+  var c=ctx(); if(!c.ok)return;
+  sheetWeek=n;
+  var W=WEEKS[n], rg=weekRange(c.ref,n), tri=triOfWeek(n), mo=monthOfWeek(n);
+  var stt=n<c.week?'past':(n===c.week?'current':'future');
+  document.getElementById('wsTitle').textContent='الأسبوع '+n;
+  document.getElementById('wsRange').textContent=fmtRange(rg[0],rg[1]);
+  var body='<div class="hero-chips">'+(stt==='current'?'<span class="chip accent">الأسبوع الحالي</span>':(stt==='past'?'<span class="chip">'+ic('check','i-sm')+'مضى</span>':'<span class="chip">قادم</span>'))+
+    '<span class="chip">الشهر '+ORD_AR[mo-1]+'</span><span class="chip t'+tri+'">'+TRI_AR[tri-1]+'</span></div>'+
+    '<p class="muted tnum" style="font-size:var(--fs-sm);margin-top:calc(var(--s3) * -1)">'+hijri(rg[0])+' إلى '+hijri(rg[1])+'</p>';
+  if(W[0]){
+    body+='<div class="wsize"><p class="lead">بحجم '+W[0]+' تقريبًا</p><div class="measures"><span class="measure">'+ic('ruler','i-sm')+'الطول <b class="tnum">'+W[1]+'</b></span>'+(W[2]?'<span class="measure">'+ic('weight','i-sm')+'الوزن <b class="tnum">'+W[2]+'</b></span>':'')+'</div></div>';
+  }else body+='<div class="wsize"><p class="lead">لا يوجد جنين بعد</p><p class="muted" style="font-size:var(--fs-sm)">يُحسب هذا الأسبوع ضمن مدة الحمل وإن لم يحدث الإخصاب بعد.</p></div>';
+  body+='<div class="blk"><h3>تطوّر الجنين</h3><ul class="blist">'+W[3].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>';
+  body+='<div class="blk"><h3>نصائح لكِ</h3><ul class="blist tips">'+W[4].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>';
+  var cks=CHECKUPS.filter(function(x){return n>=x.a&&n<=x.b;});
+  var mss=milestones(c.ref).filter(function(m){var e=m.b!=null?m.b:m.a;return !(e<rg[0]||m.a>rg[1]);});
+  if(cks.length||mss.length){
+    body+='<div class="blk"><h3>فحوصات ومحطات</h3><ul class="chk-list">'+
+      cks.map(function(x){return '<li>'+ic('steth')+'<span>'+x.t+'<small>'+checkupWhen(x)+'</small></span></li>';}).join('')+
+      mss.map(function(m){return '<li>'+ic('flag')+'<span>'+m.t+'<small class="tnum">'+(m.b!=null?fmtRange(m.a,m.b):fmt(m.a,{wd:true}))+'</small></span></li>';}).join('')+'</ul></div>';
+  }
+  body+=disclaimer();
+  var b=document.getElementById('wsBody');
+  b.innerHTML=body; b.scrollTop=0;
+  b.classList.remove('swap');
+  if(dir&&!reduceMotion){b.style.setProperty('--swap-x',(dir>0?'-16px':'16px'));void b.offsetWidth;b.classList.add('swap');}
+  var pv=document.getElementById('wsPrev'),nx=document.getElementById('wsNext');
+  pv.disabled=n<=1; nx.disabled=n>=40;
+  pv.querySelector('span').textContent=n>1?'الأسبوع '+(n-1):'السابق';
+  nx.querySelector('span').textContent=n<40?'الأسبوع '+(n+1):'التالي';
+  pv.setAttribute('aria-label','الأسبوع السابق'+(n>1?'، '+(n-1):''));
+  nx.setAttribute('aria-label','الأسبوع التالي'+(n<40?'، '+(n+1):''));
+}
+function openLayerEl(el){
+  lastFocus=document.activeElement; openLayer=el;
+  scrim.classList.add('on'); el.classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(function(){var f=el.querySelector('.sheet-head .icon-btn')||el;(el===rd?el.querySelector('.btn-ghost'):f).focus({preventScroll:true});},30);
+}
+function closeLayer(){
+  if(!openLayer)return;
+  var el=openLayer; openLayer=null;
+  el.classList.remove('open'); el.style.transform='';
+  scrim.classList.remove('on'); document.body.style.overflow='';
+  if(lastFocus&&document.contains(lastFocus))lastFocus.focus({preventScroll:true});
+}
+function openWeek(n){fillWeek(n,0);openLayerEl(ws);}
+function stepWeek(d,animate){var n=sheetWeek+d;if(n<1||n>40)return;fillWeek(n,animate?d:0);}
+
+// swipe between weeks (RTL: finger moves right reveals the next week) and drag-down to close on the handle
+(function(){
+  var b=document.getElementById('wsBody'),sx=0,sy=0,st=0,active=false;
+  b.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse')return;active=true;sx=e.clientX;sy=e.clientY;st=Date.now();});
+  b.addEventListener('pointerup',function(e){
+    if(!active)return;active=false;var dx=e.clientX-sx,dy=e.clientY-sy,dt=Date.now()-st;
+    if(Math.abs(dx)>Math.abs(dy)*1.4&&(Math.abs(dx)>56||Math.abs(dx)/dt>.45)){stepWeek(dx>0?1:-1,true);}
+  });
+  b.addEventListener('pointercancel',function(){active=false;});
+  var g=document.getElementById('wsGrab'),gy=0,gt=0,drag=false;
+  g.addEventListener('pointerdown',function(e){drag=true;gy=e.clientY;gt=Date.now();ws.classList.add('dragging');g.setPointerCapture(e.pointerId);});
+  g.addEventListener('pointermove',function(e){if(!drag)return;var dy=e.clientY-gy;ws.style.transform='translateY('+(dy>0?dy:dy*.2)+'px)';});
+  function end(e){if(!drag)return;drag=false;ws.classList.remove('dragging');var dy=e.clientY-gy,v=dy/(Date.now()-gt);
+    if(dy>110||v>.5)closeLayer();else ws.style.transform='';}
+  g.addEventListener('pointerup',end);g.addEventListener('pointercancel',end);
+})();
+
+/* =========================================================
+   10. Toast
+   ========================================================= */
+var toastTimer=null;
+function toast(msg,btn,fn){
+  var t=document.getElementById('toast'),m=document.getElementById('toastMsg'),b=document.getElementById('toastBtn');
+  m.textContent=msg;
+  if(btn){b.hidden=false;b.textContent=btn;b.onclick=function(){fn();hideToast();};}else{b.hidden=true;b.onclick=null;}
+  t.classList.add('on');clearTimeout(toastTimer);toastTimer=setTimeout(hideToast,btn?6000:3200);
+}
+function hideToast(){document.getElementById('toast').classList.remove('on');}
+
+/* =========================================================
+   11. Events
+   ========================================================= */
+function openForm(prefill,id){
+  editing=id||null; formPrefill=prefill||null; formOpen=true;
+  if(cur!=='notes'){location.hash='notes';return;}
+  render(false);
+  var f=document.getElementById('itemForm');
+  if(f){f.scrollIntoView({block:'start',behavior:reduceMotion?'auto':'smooth'});setTimeout(function(){document.getElementById('fTitle').focus({preventScroll:true});},reduceMotion?0:250);}
+}
+var pendingFormOpen=false;
+document.addEventListener('click',function(e){
+  var a=e.target.closest('[data-action]'); if(!a)return;
+  var act=a.getAttribute('data-action');
+  switch(act){
+    case 'open-week':e.preventDefault();openWeek(+a.getAttribute('data-week'));break;
+    case 'close-sheet':closeLayer();break;
+    case 'week-prev':stepWeek(-1,false);break;
+    case 'week-next':stepWeek(1,false);break;
+    case 'open-more':fillMore();openLayerEl(ms);break;
+    case 'more-go':closeLayer();break;
+    case 'cal-prev':calView.m--;if(calView.m<0){calView.m=11;calView.y--;}render(false);break;
+    case 'cal-next':calView.m++;if(calView.m>11){calView.m=0;calView.y++;}render(false);break;
+    case 'cal-today':{var td=todayDay(),tp=dayParts(td);calView={y:tp.y,m:tp.m};calSel=td;render(false);focusCalSel();break;}
+    case 'cal-day':{var d=+a.getAttribute('data-day'),p=dayParts(d);calSel=d;if(p.m!==calView.m||p.y!==calView.y){calView={y:p.y,m:p.m};}render(false);focusCalSel();break;}
+    case 'add-on-day':openForm({kind:'appt',title:'',date:dayToISO(+a.getAttribute('data-day')),time:'',body:''});break;
+    case 'go-add':e.preventDefault();openForm(null);break;
+    case 'add-item':
+      if(formOpen&&!editing){formOpen=false;render(false);document.getElementById('addBtn').focus();}
+      else openForm(null);break;
+    case 'cancel-form':formOpen=false;editing=null;formPrefill=null;render(false);var ab=document.getElementById('addBtn');if(ab)ab.focus();break;
+    case 'edit-item':openForm(null,a.getAttribute('data-id'));break;
+    case 'delete-item':{
+      var id=a.getAttribute('data-id'),idx=state.items.findIndex(function(i){return i.id===id;});
+      if(idx<0)break;
+      lastDeleted={item:state.items[idx],idx:idx};state.items.splice(idx,1);
+      if(editing===id){editing=null;formOpen=false;}
+      save();render(false);
+      var ab2=document.getElementById('addBtn');if(ab2)ab2.focus();
+      toast('حُذف «'+lastDeleted.item.title+'»','تراجع',function(){if(!lastDeleted)return;state.items.splice(Math.min(lastDeleted.idx,state.items.length),0,lastDeleted.item);lastDeleted=null;save();render(false);toast('تمت استعادة العنصر');});
+      break;}
+    case 'cycle-dec':case 'cycle-inc':{
+      var inp=document.getElementById('pCycle'),v=parseInt(inp.value,10);if(isNaN(v))v=28;
+      v=Math.max(21,Math.min(40,v+(act==='cycle-inc'?1:-1)));inp.value=v;updatePreview(true);break;}
+    case 'reset-open':openLayerEl(rd);break;
+    case 'reset-cancel':closeLayer();break;
+    case 'reset-confirm':
+      try{localStorage.removeItem(KEY);}catch(err){}
+      var r0=referenceDay(DEFAULT_SETTINGS,null);
+      state={settings:Object.assign({},DEFAULT_SETTINGS),theme:'system',items:seedItems(r0.ref),checks:{}};
+      applyTheme('system');calView=null;calSel=null;editing=null;formOpen=false;
+      closeLayer();save();render(false);toast('تم مسح البيانات وإعادة الإعدادات الافتراضية');break;
+  }
+});
+scrim.addEventListener('click',closeLayer);
+function fillMore(){markNav(cur);}
+function focusCalSel(){var el=document.querySelector('.cd[aria-selected="true"]');if(el)el.focus({preventScroll:true});}
+
+document.addEventListener('submit',function(e){
+  var f=e.target; e.preventDefault();
+  if(f.id==='itemForm'){
+    var kind=(f.querySelector('input[name="kind"]:checked')||{}).value||'appt';
+    var title=f.title.value.trim(), date=f.date.value, time=f.time.value, body=f.body.value.trim(), ok=true, first=null;
+    var eT=document.getElementById('eTitle'),eD=document.getElementById('eDate');
+    eT.innerHTML='';eD.innerHTML='';f.title.removeAttribute('aria-invalid');f.date.removeAttribute('aria-invalid');
+    if(!title){ok=false;eT.innerHTML=ic('alert','i-sm')+'<span>اكتبي عنوانًا قصيرًا للتعرّف عليه لاحقًا.</span>';f.title.setAttribute('aria-invalid','true');first=first||f.title;}
+    if(isoToDay(date)==null){ok=false;eD.innerHTML=ic('alert','i-sm')+'<span>اختاري تاريخًا صحيحًا.</span>';f.date.setAttribute('aria-invalid','true');first=first||f.date;}
+    if(!ok){first.focus();return;}
+    if(editing){var it=state.items.find(function(i){return i.id===editing;});if(it){it.kind=kind;it.title=title;it.date=date;it.time=time;it.body=body;delete it.example;}}
+    else state.items.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),kind:kind,title:title,date:date,time:time,body:body});
+    var wasEdit=!!editing; editing=null;formOpen=false;formPrefill=null;save();render(false);
+    var ab=document.getElementById('addBtn');if(ab)ab.focus();
+    toast(wasEdit?'تم حفظ التعديلات':(kind==='appt'?'تمت إضافة الموعد':'تمت إضافة الملاحظة'));
+  }
+  if(f.id==='prefsForm'){
+    var r=updatePreview(true);
+    if(!r.ok){var k=Object.keys(r.errors)[0],el=document.getElementById(INPUT_MAP[k]);if(el)el.focus();return;}
+    var ns=readPrefsForm();
+    state.settings=Object.assign({},state.settings,ns);
+    calView=null;calSel=null;save();
+    toast('تم حفظ بيانات الحمل');
+    firstRender=true; render(false); firstRender=false;
+  }
+});
+document.addEventListener('input',function(e){
+  if(e.target.closest&&e.target.closest('#prefsForm'))updatePreview(true);
+});
+document.addEventListener('change',function(e){
+  var t=e.target;
+  if(t.matches('[data-check]')){state.checks[t.getAttribute('data-check')]=t.checked;save();
+    var keep=t.id;render(false);var el=document.getElementById(keep);if(el)el.focus({preventScroll:true});return;}
+  if(t.name==='theme'){state.theme=t.value;applyTheme(t.value);save();toast(t.value==='system'?'المظهر يتبع إعداد الجهاز':(t.value==='dark'?'تم تفعيل المظهر الداكن':'تم تفعيل المظهر الفاتح'));return;}
+  if(t.name==='mode'){document.querySelectorAll('#prefsForm [data-mode]').forEach(function(d){d.hidden=d.getAttribute('data-mode')!==t.value;});
+    if(t.value==='edd'&&!document.getElementById('pEdd').value){var rr=referenceDay(state.settings,null);if(rr.ok)document.getElementById('pEdd').value=dayToISO(rr.ref+TERM);}
+    updatePreview(false);}
+});
+
+document.addEventListener('keydown',function(e){
+  if(openLayer){
+    if(e.key==='Escape'){e.preventDefault();closeLayer();return;}
+    if(e.key==='Tab'){
+      var f=[].slice.call(openLayer.querySelectorAll('button:not([disabled]),a[href],input,[tabindex]:not([tabindex="-1"])')).filter(function(x){return x.offsetParent!==null||x===document.activeElement;});
+      if(!f.length)return;var a=f[0],z=f[f.length-1];
+      if(e.shiftKey&&(document.activeElement===a||document.activeElement===openLayer)){e.preventDefault();z.focus();}
+      else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}
+      return;
+    }
+    if(openLayer===ws&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){
+      if(e.key==='ArrowLeft'){e.preventDefault();stepWeek(1,false);}
+      else if(e.key==='ArrowRight'){e.preventDefault();stepWeek(-1,false);}
+      else if(e.key==='Home'){e.preventDefault();fillWeek(1,0);}
+      else if(e.key==='End'){e.preventDefault();fillWeek(40,0);}
+    }
+    return;
+  }
+  var el=document.activeElement;
+  if(el&&el.classList&&el.classList.contains('cd')){
+    var dmap={ArrowLeft:1,ArrowRight:-1,ArrowDown:7,ArrowUp:-7};
+    if(dmap[e.key]!=null){e.preventDefault();var nd=+el.getAttribute('data-day')+dmap[e.key],p=dayParts(nd);calSel=nd;
+      if(p.m!==calView.m||p.y!==calView.y)calView={y:p.y,m:p.m};render(false);focusCalSel();}
+  }
+  if(el&&el.classList&&el.classList.contains('wk')){
+    var list=[].slice.call(document.querySelectorAll('.wk')),i=list.indexOf(el),cols=Math.round(el.parentElement.offsetWidth/(el.offsetWidth+8))||5;
+    var m={ArrowLeft:1,ArrowRight:-1,ArrowDown:cols,ArrowUp:-cols}[e.key];
+    if(m!=null){var nx=list[i+m];if(nx){e.preventDefault();nx.focus();}}
+  }
+});
+
+window.addEventListener('hashchange',route);
+// keep "today" honest if the tab stays open past midnight
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&!openLayer)render(false);});
+
+buildNav();
+route();
+})();
+</script>
+
+</body>
+</html>
