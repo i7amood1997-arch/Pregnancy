@@ -2,63 +2,63 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600&family=Reem+Kufi:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap">
 <style>
 /* Layout: mobile-first app shell. Bottom tab bar under 960px, right-side rail (inline-start) above.
    Thesis element: the 280-day ring, split into three trimester arcs with 40 week ticks. */
 :root{
-  /* neutrals: cool sage-tinted porcelain, never cream */
-  --bg:#F1F4F1; --surface:#FAFBF9; --surface-2:#E6EBE6; --line:#D3DAD4; --line-strong:#B7C1BA;
-  --ink:#14201B; --ink-2:#43514B; --ink-3:#56635D;
-  /* single accent: pine */
-  --accent:#1D5A48; --accent-ink:#F3FAF6; --accent-soft:#D7E7DF; --accent-hover:#164A3B;
+  /* neutrals: white page, soft cool-grey cards */
+  --bg:#FFFFFF; --surface:#F4F7F8; --surface-2:#E9EEF0; --line:#E1E7E9; --line-strong:#C3CDD1;
+  --ink:#0F1B1F; --ink-2:#45545A; --ink-3:#5A696E;
+  /* single accent: teal */
+  --accent:#0B6F68; --accent-ink:#FFFFFF; --accent-soft:#E3F1EF; --accent-hover:#095A54;
   /* trimester hues (data colors, separate from accent) */
-  --t1:#325F7C; --t1-soft:#D5E5EE; --t2:#7A510A; --t2-soft:#F2E2BC; --t3:#A13C57; --t3-soft:#F3D5DC;
+  --t1:#3B5B9A; --t1-soft:#E2E8F6; --t2:#7A510A; --t2-soft:#F4E6C4; --t3:#A13C57; --t3-soft:#F5DCE2;
   /* semantic */
   --danger:#B42318; --danger-soft:#FBE3E0; --warn:#7E4C00; --warn-soft:#F8E8C8; --ok:#256C43;
-  --scrim:rgb(10 22 17 / .48);
-  --shadow:0 1px 2px rgb(20 40 30 / .06), 0 10px 28px -12px rgb(20 40 30 / .18);
-  --shadow-lg:0 -10px 40px -12px rgb(10 25 18 / .32);
-  --focus:#1D5A48;
+  --scrim:rgb(12 22 26 / .45);
+  --shadow:0 1px 2px rgb(15 27 31 / .05), 0 8px 24px -12px rgb(15 27 31 / .16);
+  --shadow-lg:0 -10px 40px -12px rgb(15 27 31 / .28);
+  --focus:#0B6F68;
 
-  --f-display:"Reem Kufi","Readex Pro","Noto Kufi Arabic",Tahoma,sans-serif;
-  --f-body:"Readex Pro","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-display:"IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-body:"IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
 
   /* type scale, ratio 1.2 */
   --fs-xs:.75rem; --fs-sm:.875rem; --fs-md:1rem; --fs-lg:1.1875rem; --fs-xl:1.4375rem; --fs-2xl:1.75rem; --fs-3xl:2.125rem; --fs-4xl:3rem;
   /* spacing, 4pt */
   --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px;
-  /* radius rule: surfaces 20, controls 12, pills full */
-  --r-surface:20px; --r-control:12px; --r-pill:999px;
+  /* radius rule: surfaces 14, controls 10, chips full */
+  --r-surface:14px; --r-control:10px; --r-pill:999px;
   /* motion */
   --ease-out:cubic-bezier(.23,1,.32,1); --ease-drawer:cubic-bezier(.32,.72,0,1); --ease-exit:cubic-bezier(.4,0,1,1);
   --tabbar-h:68px;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0E1412; --surface:#151D1A; --surface-2:#1D2723; --line:#29352F; --line-strong:#3A4842;
-    --ink:#E6EEEA; --ink-2:#B4C2BB; --ink-3:#97A59F;
-    --accent:#8DD2B5; --accent-ink:#0A1F17; --accent-soft:#18362C; --accent-hover:#A6E0C7;
-    --t1:#93C4E2; --t1-soft:#1B2F3C; --t2:#E8BE69; --t2-soft:#372C14; --t3:#F2A3B7; --t3-soft:#3B2028;
+    --bg:#0E1416; --surface:#162024; --surface-2:#1E2A2F; --line:#27353A; --line-strong:#3A4A50;
+    --ink:#E8EEF0; --ink-2:#B5C3C7; --ink-3:#93A3A8;
+    --accent:#5CC8BC; --accent-ink:#04201D; --accent-soft:#123A37; --accent-hover:#7AD6CB;
+    --t1:#9DB4EA; --t1-soft:#1D2740; --t2:#E8BE69; --t2-soft:#372C14; --t3:#F2A3B7; --t3-soft:#3B2028;
     --danger:#F4877E; --danger-soft:#3A1A17; --warn:#EDBE63; --warn-soft:#332711; --ok:#7DD3A0;
     --scrim:rgb(0 0 0 / .6);
     --shadow:0 1px 2px rgb(0 0 0 / .3), 0 10px 28px -12px rgb(0 0 0 / .5);
     --shadow-lg:0 -10px 40px -12px rgb(0 0 0 / .6);
-    --focus:#8DD2B5;
+    --focus:#5CC8BC;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0E1412; --surface:#151D1A; --surface-2:#1D2723; --line:#29352F; --line-strong:#3A4842;
-  --ink:#E6EEEA; --ink-2:#B4C2BB; --ink-3:#97A59F;
-  --accent:#8DD2B5; --accent-ink:#0A1F17; --accent-soft:#18362C; --accent-hover:#A6E0C7;
-  --t1:#93C4E2; --t1-soft:#1B2F3C; --t2:#E8BE69; --t2-soft:#372C14; --t3:#F2A3B7; --t3-soft:#3B2028;
-  --danger:#F4877E; --danger-soft:#3A1A17; --warn:#EDBE63; --warn-soft:#332711; --ok:#7DD3A0;
-  --scrim:rgb(0 0 0 / .6);
-  --shadow:0 1px 2px rgb(0 0 0 / .3), 0 10px 28px -12px rgb(0 0 0 / .5);
-  --shadow-lg:0 -10px 40px -12px rgb(0 0 0 / .6);
-  --focus:#8DD2B5;
-  color-scheme:dark;
+  --bg:#0E1416; --surface:#162024; --surface-2:#1E2A2F; --line:#27353A; --line-strong:#3A4A50;
+    --ink:#E8EEF0; --ink-2:#B5C3C7; --ink-3:#93A3A8;
+    --accent:#5CC8BC; --accent-ink:#04201D; --accent-soft:#123A37; --accent-hover:#7AD6CB;
+    --t1:#9DB4EA; --t1-soft:#1D2740; --t2:#E8BE69; --t2-soft:#372C14; --t3:#F2A3B7; --t3-soft:#3B2028;
+    --danger:#F4877E; --danger-soft:#3A1A17; --warn:#EDBE63; --warn-soft:#332711; --ok:#7DD3A0;
+    --scrim:rgb(0 0 0 / .6);
+    --shadow:0 1px 2px rgb(0 0 0 / .3), 0 10px 28px -12px rgb(0 0 0 / .5);
+    --shadow-lg:0 -10px 40px -12px rgb(0 0 0 / .6);
+    --focus:#5CC8BC;
+    color-scheme:dark;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -429,6 +429,23 @@ input[type="date"].input,input[type="time"].input{direction:rtl;text-align:right
 .toast button{background:none;border:0;color:var(--bg);font-weight:600;min-height:40px;padding:0 10px;border-radius:10px;text-decoration:underline;text-underline-offset:3px}
 @media (min-width:960px){.toast{bottom:24px}}
 
+
+/* style B: flat filled cards, white elevated layers */
+.panel,.baby,.mcard:not(.current),.item:not(.past),.cal,.state{border-color:transparent}
+.sheet,.dialog,.tabbar,.rail{background:var(--bg)}
+.tabbar{background:color-mix(in srgb,var(--bg) 94%,transparent)}
+.input,.stepper{background:var(--bg)}
+.seg input:checked+span{background:var(--bg)}
+.ring-mark{fill:var(--bg)}
+.wk{border-radius:10px}
+.datebox,.seg,.state .state-icon{border-radius:12px}
+.seg span{border-radius:8px}
+.sheet{border-radius:20px 20px 0 0}
+h1,h2,h3{font-weight:600}
+.hero-text h1,.ring-center .big{font-weight:700}
+.tip{border-radius:var(--r-surface)}
+@media (min-width:960px){.sheet.side{border-radius:0 20px 20px 0}}
+
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
   .sheet,.sheet.open,.dialog,.dialog.open,.toast,.toast.on{transition:opacity 160ms ease,visibility 0s!important}
@@ -795,11 +812,11 @@ function ringSVG(c){
   var segs='',prog='',ticks='';
   SEG.forEach(function(s,i){
     var a=s[0]/TERM*C+GAP/2,len=(s[1]-s[0])/TERM*C-GAP;
-    segs+='<circle cx="120" cy="120" r="'+R+'" fill="none" stroke="var(--t'+(i+1)+'-soft)" stroke-width="18" stroke-dasharray="'+len.toFixed(2)+' '+C.toFixed(2)+'" stroke-dashoffset="'+(-a).toFixed(2)+'"/>';
-    prog+='<circle class="rp" data-i="'+i+'" cx="120" cy="120" r="'+R+'" fill="none" stroke="var(--t'+(i+1)+')" stroke-width="18" stroke-dasharray="0 '+C.toFixed(2)+'" stroke-dashoffset="'+(-a).toFixed(2)+'"/>';
+    segs+='<circle cx="120" cy="120" r="'+R+'" fill="none" stroke="var(--surface-2)" stroke-width="14" stroke-dasharray="'+len.toFixed(2)+' '+C.toFixed(2)+'" stroke-dashoffset="'+(-a).toFixed(2)+'"/>';
+    prog+='<circle class="rp" data-i="'+i+'" cx="120" cy="120" r="'+R+'" fill="none" stroke="var(--accent)" stroke-width="14" stroke-linecap="butt" stroke-dasharray="0 '+C.toFixed(2)+'" stroke-dashoffset="'+(-a).toFixed(2)+'"/>';
   });
   for(var w=1;w<40;w++){
-    var ang=w*7/TERM*2*Math.PI, r1=R-15, r2=R-(w%4===0?22:19);
+    var ang=w*7/TERM*2*Math.PI, r1=R-13, r2=R-(w%4===0?20:17);
     ticks+='<line x1="'+(120+r1*Math.cos(ang)).toFixed(2)+'" y1="'+(120+r1*Math.sin(ang)).toFixed(2)+'" x2="'+(120+r2*Math.cos(ang)).toFixed(2)+'" y2="'+(120+r2*Math.sin(ang)).toFixed(2)+'" stroke="var(--line-strong)" stroke-width="'+(w%4===0?1.6:1)+'" stroke-linecap="round"/>';
   }
   var label='تقدّم الحمل: '+Math.min(c.ga,TERM)+' يومًا من 280 يومًا';
