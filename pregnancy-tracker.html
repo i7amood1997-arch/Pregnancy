@@ -452,6 +452,82 @@ h1,h2,h3{font-weight:600}
 .tip{border-radius:var(--r-surface)}
 @media (min-width:960px){.sheet.side{border-radius:0 20px 20px 0}}
 
+/* ---------- v4: subtabs, this week, tools, urgent ---------- */
+.subtabs{display:inline-flex;gap:4px;padding:4px;border-radius:12px;background:var(--surface-2);align-self:flex-start;max-width:100%}
+.subtabs a{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 16px;border-radius:8px;color:var(--ink-2);text-decoration:none;font-weight:500;font-size:var(--fs-sm)}
+.subtabs a[aria-current="page"]{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0 / .12)}
+.week-now{display:flex;flex-direction:column;gap:var(--s3)}
+.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
+.todo li{display:flex;gap:var(--s3);align-items:center;padding:var(--s2) var(--s2) var(--s2) var(--s4);padding-inline-start:var(--s4);border-radius:var(--r-surface);background:var(--surface)}
+.todo li>.i{color:var(--accent)}
+.todo li .tx{flex:1;min-width:0;line-height:1.5;font-weight:500}
+.todo li .tx small{display:block;color:var(--ink-3);font-size:var(--fs-xs);font-weight:400}
+.todo li.warn{background:var(--warn-soft)}
+.todo li.warn>.i{color:var(--warn)}
+.quick{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--s2)}
+.qbtn{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 14px;border-radius:var(--r-control);border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none;font-weight:500;font-size:var(--fs-sm);transition:background-color 160ms ease,transform 140ms var(--ease-out)}
+.qbtn .i{color:var(--accent)}
+.qbtn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.qbtn:hover{background:var(--surface)}}
+.urgent-link{display:flex;align-items:center;gap:var(--s3);min-height:56px;padding:var(--s2) var(--s4);border-radius:var(--r-surface);background:var(--danger-soft);color:var(--ink);text-decoration:none;font-weight:600}
+.urgent-link>.i{color:var(--danger)}
+.urgent-link .chev{margin-inline-start:auto;color:var(--ink-3)}
+.view-tools{max-width:820px}
+.tool-pick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s2)}
+@media (max-width:560px){.tool-pick{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tp{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:76px;padding:var(--s3);border-radius:var(--r-surface);border:1.5px solid transparent;background:var(--surface);color:var(--ink);font-weight:600;text-align:start;transition:border-color 160ms ease,background-color 160ms ease,transform 140ms var(--ease-out)}
+.tp .i{color:var(--accent);margin-bottom:2px}
+.tp small{font-weight:400;color:var(--ink-3);font-size:var(--fs-xs)}
+.tp[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.tp:active{transform:scale(.97)}
+.tool{display:flex;flex-direction:column;gap:var(--s5)}
+.big-tap{align-self:center;width:min(200px,58vw);aspect-ratio:1;max-width:100%;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-weight:600;font-size:var(--fs-lg);box-shadow:0 14px 34px -14px var(--accent);transition:transform 110ms var(--ease-out),background-color 200ms ease;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+.big-tap:active{transform:scale(.95)}
+.big-tap b{font-size:3.5rem;line-height:1;font-variant-numeric:tabular-nums}
+.big-tap span{font-size:var(--fs-sm);font-weight:500;padding:0 18px;text-align:center;line-height:1.5}
+.big-tap .i{width:34px;height:34px}
+.big-tap.on{background:var(--ink);color:var(--bg);box-shadow:none}
+.stat-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s2)}
+.stat{padding:var(--s3) var(--s2);border-radius:var(--r-control);background:var(--surface);text-align:center;min-width:0}
+.stat b{display:block;font-size:var(--fs-xl);font-variant-numeric:tabular-nums;line-height:1.3}
+.stat span{font-size:var(--fs-xs);color:var(--ink-3)}
+.tool-guide{display:flex;flex-direction:column;gap:var(--s3)}
+.hist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.hist li{display:flex;align-items:center;gap:var(--s3);padding:var(--s2) 0;border-bottom:1px solid var(--line);font-size:var(--fs-sm);line-height:1.6}
+.hist li:last-child{border-bottom:0}
+.hist .grow{flex:1;min-width:0}
+.chips-sel{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.tog,.tog-r span{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line-strong);background:var(--bg);color:var(--ink-2);font-size:var(--fs-sm);font-weight:500;transition:background-color 160ms ease,color 160ms ease,border-color 160ms ease}
+.tog[aria-pressed="true"],.tog-r input:checked+span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tog-r{position:relative;display:inline-flex}
+.tog-r input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.tog-r input:focus-visible+span{outline:2.5px solid var(--focus);outline-offset:2px}
+.chart-wrap{position:relative;margin:0;display:flex;flex-direction:column;gap:var(--s2)}
+.chart-wrap svg{display:block;width:100%;height:auto;overflow:visible}
+.chart-wrap .hit{cursor:pointer;outline:none}
+.chart-wrap .hit:focus-visible+.pt{stroke:var(--focus);stroke-width:3}
+.chart-tip{position:absolute;z-index:2;pointer-events:none;background:var(--ink);color:var(--bg);font-size:var(--fs-xs);line-height:1.5;padding:6px 10px;border-radius:8px;white-space:nowrap;transform:translate(-50%,calc(-100% - 12px))}
+.inline-add{display:flex;gap:var(--s2);margin-top:var(--s1)}
+.inline-add .input{min-height:44px;flex:1;min-width:0}
+.check-row{display:flex;align-items:center;gap:2px}
+.check-row .check{flex:1;min-width:0}
+.check-row .icon-btn{color:var(--ink-3)}
+.qs{margin-top:var(--s2);padding:var(--s1) var(--s3);border-radius:var(--r-control);background:var(--bg)}
+.item.past .qs{background:var(--surface)}
+.qs-h{font-size:var(--fs-xs);color:var(--ink-3);font-weight:600;padding-top:4px}
+.check.sm{min-height:40px;padding:2px 0;gap:var(--s2)}
+.check.sm .box{width:20px;height:20px;border-radius:6px}
+.check.sm .box .i{width:13px;height:13px}
+.cal-add{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s2)}
+.danger-panel{background:var(--danger-soft)!important}
+.danger-panel h2{color:var(--danger)}
+.blist.red li::before{background:var(--danger)}
+.contact{display:flex;flex-direction:column;gap:6px}
+.contact .acts-row{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.input.ltr{direction:ltr;text-align:right}
+details.paste summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--accent);font-weight:500}
+details.paste[open]{display:flex;flex-direction:column;gap:var(--s2)}
+
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
   .sheet,.sheet.open,.dialog,.dialog.open,.toast,.toast.on{transition:opacity 160ms ease,visibility 0s!important}
@@ -459,7 +535,7 @@ h1,h2,h3{font-weight:600}
   .dialog{transform:translate(-50%,-50%)}
   .toast{transform:translate(-50%,0)}
   .ruler-fill{transition:none}
-  .btn:active,.icon-btn:active,.wk:active,.cd:active,.tab:active{transform:none}
+  .btn:active,.icon-btn:active,.wk:active,.cd:active,.tab:active,.big-tap:active,.tp:active,.qbtn:active{transform:none}
 }
 </style>
 
@@ -493,6 +569,16 @@ h1,h2,h3{font-weight:600}
   <symbol id="i-device" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
   <symbol id="i-note" viewBox="0 0 24 24"><path d="M13 20H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7z"/><path d="M13 20v-5a2 2 0 0 1 2-2h5"/></symbol>
   <symbol id="i-bag" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 12h16"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></symbol>
+  <symbol id="i-aid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></symbol>
+  <symbol id="i-cal-plus" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4M8 3v4M4 11h16M12 14v4M10 16h4"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4M7 9l5-5 5 5M5 20h14"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19.5 12.57 12 20l-7.5-7.43A5 5 0 1 1 12 6a5 5 0 1 1 7.5 6.57"/></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M10 2h4"/></symbol>
+  <symbol id="i-mood" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 0 0 5 0"/></symbol>
   <symbol id="i-reset" viewBox="0 0 24 24"><path d="M20 11A8.1 8.1 0 0 0 4.5 9M4 5v4h4M4 13a8.1 8.1 0 0 0 15.5 2M20 19v-4h-4"/></symbol>
 </svg>
 
@@ -550,7 +636,7 @@ h1,h2,h3{font-weight:600}
   <h2 id="rdTitle">مسح كل البيانات؟</h2>
   <p id="rdDesc">سيُحذف تاريخ الحمل والمواعيد والملاحظات وحالة القوائم من هذا الجهاز، وتعود الإعدادات الافتراضية. لا يمكن التراجع عن هذه الخطوة.</p>
   <div class="form-actions">
-    <button class="btn btn-danger" data-action="reset-confirm"><svg class="i i-sm"><use href="#i-trash"/></svg>مسح البيانات</button>
+    <button class="btn btn-danger" id="dlgOk" data-action="dlg-ok"><svg class="i i-sm"><use href="#i-trash"/></svg>مسح البيانات</button>
     <button class="btn btn-ghost" data-action="reset-cancel">إلغاء</button>
   </div>
 </div>
@@ -654,7 +740,7 @@ function countAr(n,f,gen){ // f=[one,two,few,many,hundreds,two-genitive]
 var DAYS_F=['يوم واحد','يومان','أيام','يومًا','يوم','يومين'];
 function inDays(n){return n===1?'غدًا':'بعد '+countAr(n,DAYS_F,true);}
 var WEEKS_F=['أسبوع واحد','أسبوعان','أسابيع','أسبوعًا','أسبوع','أسبوعين'];
-function fmtTime(t){if(!t)return '';var a=t.split(':').map(Number),h=a[0],pm=h>=12;h=h%12||12;return h+':'+String(a[1]).padStart(2,'0')+' '+(pm?'مساءً':'صباحًا');}
+function fmtTime(t){if(!t)return '';var a=t.split(':').map(Number),h=a[0],per=h<12?'صباحًا':(h<15?'ظهرًا':'مساءً');h=h%12||12;return h+':'+String(a[1]).padStart(2,'0')+' '+per;}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function ic(id,cls){return '<svg class="i'+(cls?' '+cls:'')+'" aria-hidden="true"><use href="#i-'+id+'"/></svg>';}
 
@@ -717,12 +803,12 @@ var CHECKUPS=[
   {id:'c9',t:'متابعة أسبوعية حتى الولادة',a:36,b:40}
 ];
 var BAG=[
-  {g:'للأم',items:[['b1','ملابس مريحة وواسعة'],['b2','ثوب نوم بفتحة أمامية للرضاعة'],['b3','حمّالات صدر للرضاعة'],['b4','فوط ما بعد الولادة'],['b5','أدوات العناية الشخصية'],['b6','شبشب وجوارب دافئة'],['b7','شاحن الهاتف بسلك طويل'],['b8','ماء ووجبات خفيفة']]},
+  {k:'mom',g:'للأم',items:[['b1','ملابس مريحة وواسعة'],['b2','ثوب نوم بفتحة أمامية للرضاعة'],['b3','حمّالات صدر للرضاعة'],['b4','فوط ما بعد الولادة'],['b5','أدوات العناية الشخصية'],['b6','شبشب وجوارب دافئة'],['b7','شاحن الهاتف بسلك طويل'],['b8','ماء ووجبات خفيفة']]},
   {g:'للمولود',items:[['b9','ملابس قطنية بمقاسين'],['b10','قبعة وجوارب صغيرة'],['b11','بطانية خفيفة'],['b12','حفاضات للمولود الجديد'],['b13','مناديل مبللة لطيفة'],['b14','مقعد السيارة مثبّت مسبقًا']]},
   {g:'الأوراق',items:[['b15','الهوية الشخصية'],['b16','بطاقة التأمين أو الملف الطبي'],['b17','ملف متابعة الحمل والتحاليل'],['b18','خطة الولادة إن وُجدت']]}
 ];
 function echoDate(id){var i=document.getElementById(id),o=document.getElementById(id+'Echo');if(!i||!o)return;var d=isoToDay(i.value);o.innerHTML=d!=null?(fmt(d,{wd:true})+'، '+hijri(d)):'';}
-function echoAll(){['fDate','pLmp','pEdd','pUs'].forEach(echoDate);}
+function echoAll(){['fDate','pLmp','pEdd','pUs','wDate','logDate'].forEach(echoDate);}
 function checkupWhen(c){return c.a===c.b?('في الأسبوع '+c.a):('من الأسبوع '+c.a+' إلى '+c.b);}
 
 /* =========================================================
@@ -737,12 +823,31 @@ function seedItems(ref){
     {id:'ex3',kind:'note',title:'أول ركلة واضحة',date:dayToISO(ref+7*19+5),time:'',body:'شعرتُ بها بعد العشاء أثناء الاستلقاء على الجانب الأيسر.',example:true}
   ];
 }
+function normalize(s){
+  s=(s&&typeof s==='object')?s:{};
+  s.settings=Object.assign({},DEFAULT_SETTINGS,(s.settings&&typeof s.settings==='object')?s.settings:{});
+  if(['system','light','dark'].indexOf(s.theme)<0)s.theme='system';
+  ['items','kicks','contr','weights'].forEach(function(k){if(!Array.isArray(s[k]))s[k]=[];});
+  ['checks','logs','bagCustom','bagHidden','contacts'].forEach(function(k){if(!s[k]||typeof s[k]!=='object'||Array.isArray(s[k]))s[k]={};});
+  if(!s.kickActive||typeof s.kickActive!=='object'||typeof s.kickActive.start!=='number')s.kickActive=null;
+  if(typeof s.contrActive!=='number')s.contrActive=null;
+  if(s.preWeight==null||isNaN(parseFloat(s.preWeight)))s.preWeight='';
+  if(typeof s.lastBackup!=='number')s.lastBackup=null;
+  if(['kicks','contr','weight','log'].indexOf(s.toolTab)<0)s.toolTab=null;
+  s.items=s.items.filter(function(i){return i&&typeof i==='object'&&typeof i.title==='string'&&isoToDay(i.date)!=null;})
+    .map(function(i){if(!i.id)i.id=uid();if(!Array.isArray(i.qs))i.qs=[];return i;});
+  s.kicks=s.kicks.filter(function(k){return k&&typeof k.start==='number'&&typeof k.end==='number';});
+  s.contr=s.contr.filter(function(k){return k&&typeof k.s==='number'&&typeof k.e==='number';});
+  s.weights=s.weights.filter(function(w){return w&&isoToDay(w.date)!=null&&!isNaN(parseFloat(w.kg));});
+  return s;
+}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
 function loadState(){
   var raw=null;
   try{raw=localStorage.getItem(KEY);}catch(err){raw=null;}
-  if(raw){try{var s=JSON.parse(raw);if(s&&s.settings)return s;}catch(err){}}
+  if(raw){try{var s=JSON.parse(raw);if(s&&s.settings)return normalize(s);}catch(err){}}
   var r=referenceDay(DEFAULT_SETTINGS,null);
-  return {settings:Object.assign({},DEFAULT_SETTINGS),theme:'system',items:seedItems(r.ref),checks:{}};
+  return normalize({settings:Object.assign({},DEFAULT_SETTINGS),theme:'system',items:seedItems(r.ref),checks:{}});
 }
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(err){}}
 var state=loadState();
@@ -767,17 +872,19 @@ applyTheme(state.theme);
 var VIEWS=[
   {id:'home',t:'الرئيسية',i:'home'},
   {id:'weeks',t:'الأسابيع',i:'grid'},
-  {id:'months',t:'الأشهر',i:'stack'},
-  {id:'calendar',t:'التقويم',i:'cal'},
+  {id:'months',t:'الأشهر',i:'stack',parent:'weeks'},
   {id:'notes',t:'المواعيد والملاحظات',short:'المواعيد',i:'clip'},
+  {id:'calendar',t:'التقويم',i:'cal',parent:'notes'},
+  {id:'tools',t:'الأدوات',i:'activity'},
   {id:'lists',t:'القوائم',i:'list'},
+  {id:'urgent',t:'علامات الطوارئ',i:'aid'},
   {id:'prefs',t:'الإعدادات',i:'sliders'}
 ];
-var TAB_IDS=['home','weeks','calendar','notes'];
-var MORE_IDS=['months','lists','prefs'];
+var TAB_IDS=['home','weeks','notes','tools'];
+var MORE_IDS=['lists','urgent','prefs'];
 function viewById(id){for(var i=0;i<VIEWS.length;i++)if(VIEWS[i].id===id)return VIEWS[i];return null;}
 function buildNav(){
-  document.getElementById('railLinks').innerHTML=VIEWS.map(function(v){
+  document.getElementById('railLinks').innerHTML=VIEWS.filter(function(v){return !v.parent;}).map(function(v){
     return '<li><a href="#'+v.id+'" data-nav="'+v.id+'">'+ic(v.i)+'<span>'+v.t+'</span></a></li>';}).join('');
   document.getElementById('tabLinks').innerHTML=TAB_IDS.map(function(id){var v=viewById(id);
     return '<li><a class="tab" href="#'+id+'" data-nav="'+id+'"><span class="pill">'+ic(v.i)+'</span><span>'+(v.short||v.t)+'</span></a></li>';}).join('')+
@@ -786,6 +893,7 @@ function buildNav(){
     return '<li><a href="#'+id+'" data-nav="'+id+'" data-action="more-go">'+ic(v.i)+'<span>'+v.t+'</span>'+ic('chev','flip chev')+'</a></li>';}).join('');
 }
 function markNav(id){
+  var vw=viewById(id); if(vw&&vw.parent)id=vw.parent;
   document.querySelectorAll('[data-nav]').forEach(function(a){
     if(a.getAttribute('data-nav')===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   var mb=document.getElementById('moreBtn');
@@ -899,27 +1007,17 @@ function renderHome(c){
     return '<li class="tl '+stt+'"><span class="dot">'+(stt==='done'?ic('check','i-sm'):ic('flag','i-sm'))+'</span><div><p class="t">'+m.t+'</p><p class="d tnum">'+dates+'</p><p class="d">'+m.d+(m.b==null?'، '+hijri(m.a):'')+'</p></div><span class="when">'+when+'</span></li>';
   }).join('');
 
-  // next appointment
-  var next=state.items.filter(function(it){return it.kind==='appt'&&isoToDay(it.date)!=null&&isoToDay(it.date)>=c.today;})
-    .sort(function(a,b){return (a.date+(a.time||'')).localeCompare(b.date+(b.time||''));})[0];
-  var apptHTML;
-  if(next){
-    var nd=isoToDay(next.date),np=dayParts(nd);
-    apptHTML='<div class="next-appt"><div class="datebox"><b>'+np.d+'</b><span>'+MONTH_AR[np.m]+'</span></div><div style="min-width:0"><p style="font-weight:600">'+esc(next.title)+(next.example?' <span class="chip example">مثال</span>':'')+'</p><p class="muted tnum" style="font-size:var(--fs-sm)">'+fmt(nd,{wd:true})+(next.time?'، '+fmtTime(next.time):'')+'</p><p class="muted" style="font-size:var(--fs-sm)">'+(nd===c.today?'اليوم':inDays(nd-c.today))+'</p></div></div>';
-  }else{
-    apptHTML='<div class="empty"><b>لا توجد مواعيد قادمة</b><span>أضيفي موعد المتابعة القادم ليظهر هنا وفي التقويم.</span><a class="btn btn-ghost" href="#notes" data-action="go-add">'+ic('plus','i-sm')+'إضافة موعد</a></div>';
-  }
-
+  h+=weekNowHTML(c);
   h+='<div class="home-grid">'+babyHTML+tipHTML+'</div>'+
     '<div class="home-grid"><section aria-labelledby="msT"><h2 id="msT" class="section-title" style="margin-bottom:var(--s3)">محطات الحمل</h2><ol class="timeline">'+ms+'</ol></section>'+
-    '<section class="appt-sec" aria-labelledby="naT" style="display:flex;flex-direction:column;gap:var(--s3)"><div class="sub-head" style="margin:0"><h2 id="naT" class="section-title">موعدكِ القادم</h2><a class="btn-text btn" href="#notes">كل المواعيد</a></div>'+apptHTML+disclaimer()+'</section></div>';
+    '<div style="display:flex;flex-direction:column;gap:var(--s4)"><a class="urgent-link" href="#urgent">'+ic('aid')+'<span>متى أراجع الطبيبة فورًا؟</span>'+ic('chev','flip chev')+'</a>'+disclaimer()+'</div></div>';
   return '<div class="view">'+h+'</div>';
 }
 
 /* ---------- weeks ---------- */
 function renderWeeks(c){
   var g=guardHTML(c);
-  var head='<div class="view-head"><h1>الأسابيع</h1><p>اختاري أي أسبوع لمعرفة حجم الجنين وتطوره ونصائح لكِ. استخدمي الأسهم أو السحب للتنقل بين الأسابيع.</p></div>';
+  var head=subW()+'<div class="view-head"><h1>الأسابيع</h1><p>اختاري أي أسبوع لمعرفة حجم الجنين وتطوره ونصائح لكِ. استخدمي الأسهم أو السحب للتنقل بين الأسابيع.</p></div>';
   if(g)return '<div class="view">'+head+g+'</div>';
   var out=head+'<div class="legend" aria-hidden="true"><span><i style="background:var(--t1-soft)"></i>مضى</span><span><i style="background:var(--accent);border-color:var(--accent)"></i>الأسبوع الحالي</span><span><i style="background:var(--surface)"></i>قادم</span></div>';
   TRIS.forEach(function(t,ti){
@@ -938,7 +1036,7 @@ function renderWeeks(c){
 /* ---------- months ---------- */
 function renderMonths(c){
   var g=guardHTML(c);
-  var head='<div class="view-head"><h1>الأشهر</h1><p>تُقسَم الأسابيع الأربعون إلى تسعة أشهر، وينتهي الشهر التاسع بموعد الولادة المتوقع.</p></div>';
+  var head=subW()+'<div class="view-head"><h1>الأشهر</h1><p>تُقسَم الأسابيع الأربعون إلى تسعة أشهر، وينتهي الشهر التاسع بموعد الولادة المتوقع.</p></div>';
   if(g)return '<div class="view">'+head+g+'</div>';
   var cards='';
   for(var i=1;i<=9;i++){
@@ -967,7 +1065,7 @@ function dayEvents(c,day){
   return ev;
 }
 function renderCalendar(c){
-  var head='<div class="view-head"><h1>التقويم</h1><p>يظهر على التقويم بداية كل أسبوع حمل، والمحطات المهمة، ومواعيدكِ.</p></div>';
+  var head=subN()+'<div class="view-head"><h1>التقويم</h1><p>يظهر على التقويم بداية كل أسبوع حمل، والمحطات المهمة، ومواعيدكِ.</p></div>';
   if(!c.ok)return '<div class="view">'+head+guardHTML(c)+'</div>';
   if(!calView){var tp=dayParts(c.today);calView={y:tp.y,m:tp.m};}
   if(calSel==null)calSel=c.today;
@@ -1036,14 +1134,14 @@ function renderNotes(c){
     return '<li class="item'+(isPast?' past':'')+'">'+(p?'<div class="datebox"><b>'+p.d+'</b><span>'+MONTH_AR[p.m]+'</span></div>':'')+
       '<div class="body"><p class="title">'+esc(it.title)+(it.example?' <span class="chip example">مثال</span>':'')+'</p>'+
       '<p class="meta">'+(d!=null?'<span class="tnum">'+fmt(d,{wd:true})+'</span>':'')+(it.time?'<span class="tnum">'+ic('clock','i-sm')+fmtTime(it.time)+'</span>':'')+
-      (ga!=null&&ga>=0&&ga<=MAX_DAY?'<span>الأسبوع '+weekOfGA(ga)+'</span>':'')+'</p>'+(it.body?'<p class="txt">'+esc(it.body)+'</p>':'')+'</div>'+
-      '<div class="acts"><button class="icon-btn" data-action="edit-item" data-id="'+esc(it.id)+'" aria-label="تعديل '+esc(it.title)+'">'+ic('edit')+'</button><button class="icon-btn" data-action="delete-item" data-id="'+esc(it.id)+'" aria-label="حذف '+esc(it.title)+'">'+ic('trash')+'</button></div></li>';
+      (ga!=null&&ga>=0&&ga<=MAX_DAY?'<span>الأسبوع '+weekOfGA(ga)+'</span>':'')+'</p>'+(it.body?'<p class="txt">'+esc(it.body)+'</p>':'')+qsHTML(it)+exportHTML(it,isPast)+'</div>'+
+      '<div class="acts">'+(it.kind==='appt'&&!isPast?'<button class="icon-btn" data-action="cal-export" data-id="'+esc(it.id)+'" aria-expanded="'+(exportOpen===it.id)+'" aria-label="إضافة '+esc(it.title)+' إلى التقويم">'+ic('cal-plus')+'</button>':'')+'<button class="icon-btn" data-action="edit-item" data-id="'+esc(it.id)+'" aria-label="تعديل '+esc(it.title)+'">'+ic('edit')+'</button><button class="icon-btn" data-action="delete-item" data-id="'+esc(it.id)+'" aria-label="حذف '+esc(it.title)+'">'+ic('trash')+'</button></div></li>';
   }
   function list(arr,isPast,emptyB,emptyT){
     return arr.length?'<ul class="items">'+arr.map(function(i){return row(i,isPast);}).join('')+'</ul>':'<div class="empty"><b>'+emptyB+'</b><span>'+emptyT+'</span></div>';
   }
   var hasEx=state.items.some(function(i){return i.example;});
-  var h='<div class="notes-head"><div class="view-head"><h1>المواعيد والملاحظات</h1><p>دوّني مواعيد المتابعة وما تشعرين به. تُحفظ البيانات على هذا الجهاز فقط.</p></div>'+
+  var h=subN()+'<div class="notes-head"><div class="view-head"><h1>المواعيد والملاحظات</h1><p>دوّني مواعيد المتابعة وما تشعرين به. تُحفظ البيانات على هذا الجهاز فقط.</p></div>'+
     '<button class="btn btn-primary" data-action="add-item" id="addBtn" aria-expanded="'+formOpen+'" aria-controls="itemForm">'+ic('plus','i-sm')+'إضافة</button></div>';
   if(hasEx)h+='<p class="note">'+ic('info','i-sm')+'<span>العناصر الموسومة بكلمة «مثال» توضيحية فقط، يمكنكِ تعديلها أو حذفها.</span></p>';
   h+=formHTML();
@@ -1063,28 +1161,32 @@ function formHTML(){
     '<div class="field"><label for="fTitle">العنوان</label><input class="input" id="fTitle" name="title" maxlength="80" value="'+esc(v.title)+'" placeholder="مثل: متابعة مع الطبيبة" aria-describedby="eTitle"><p class="err" id="eTitle" aria-live="polite"></p></div>'+
     '<div class="row two"><div class="field"><label for="fDate">التاريخ</label><input class="input" type="date" id="fDate" name="date" value="'+esc(v.date)+'" aria-describedby="fDateEcho eDate"><p class="help tnum" id="fDateEcho"></p><p class="err" id="eDate" aria-live="polite"></p></div>'+
     '<div class="field"><label for="fTime">الوقت <span class="opt">(اختياري)</span></label><input class="input" type="time" id="fTime" name="time" value="'+esc(v.time||'')+'"></div></div>'+
-    '<div class="field"><label for="fBody">التفاصيل <span class="opt">(اختياري)</span></label><textarea class="input" id="fBody" name="body" maxlength="600" placeholder="أسئلة للطبيبة، نتائج، أو ما تشعرين به">'+esc(v.body||'')+'</textarea></div>'+
+    '<div class="field"><label for="fBody">التفاصيل <span class="opt">(اختياري)</span></label><textarea class="input" id="fBody" name="body" maxlength="600" placeholder="نتائج، تعليمات الطبيبة، أو ما تشعرين به">'+esc(v.body||'')+'</textarea></div>'+
+    '<div class="field" id="qField"'+(v.kind==='appt'?'':' hidden')+'><label for="fQs">أسئلة للطبيبة <span class="opt">(سؤال في كل سطر)</span></label><textarea class="input" id="fQs" name="qs" maxlength="1500" placeholder="مثل: هل وضعية الجنين مناسبة؟">'+esc((v.qs||[]).map(function(q){return q.t;}).join('\n'))+'</textarea></div>'+
     '<div class="form-actions"><button class="btn btn-primary" type="submit">'+ic('check','i-sm')+(it?'حفظ التعديلات':'حفظ')+'</button><button class="btn btn-ghost" type="button" data-action="cancel-form">إلغاء</button></div></form>';
 }
 
 /* ---------- lists ---------- */
 function renderLists(c){
   var bagTotal=0,bagDone=0;
-  BAG.forEach(function(g){g.items.forEach(function(x){bagTotal++;if(state.checks[x[0]])bagDone++;});});
+  BAG.forEach(function(g,gi){bagRows(gi).forEach(function(x){bagTotal++;if(state.checks[x[0]])bagDone++;});});
   var ckDone=CHECKUPS.filter(function(x){return state.checks[x.id];}).length;
   function box(id,label,sub){
     return '<label class="check"><input type="checkbox" id="ck-'+id+'" data-check="'+id+'"'+(state.checks[id]?' checked':'')+'><span class="box">'+ic('check')+'</span><span class="lt"><span>'+label+'</span>'+(sub?'<small class="tnum">'+sub+'</small>':'')+'</span></label>';
   }
   function bar(done,total,label){var p=Math.round(done/total*100);return '<div class="count-bar"><span class="tnum">'+done+' من '+total+'</span><span class="track" role="progressbar" aria-label="'+label+'" aria-valuenow="'+done+'" aria-valuemin="0" aria-valuemax="'+total+'"><i style="width:'+p+'%"></i></span></div>';}
   var bag='<section class="panel" aria-labelledby="bagT" style="display:flex;flex-direction:column;gap:var(--s3)"><h2 id="bagT" class="section-title">'+ic('bag')+'حقيبة المستشفى</h2><p class="muted" style="font-size:var(--fs-sm)">يُفضَّل تجهيزها بين الأسبوع 32 و36.</p>'+bar(bagDone,bagTotal,'تقدّم تجهيز الحقيبة')+
-    BAG.map(function(g){return '<div class="cl-group"><h3>'+g.g+'</h3>'+g.items.map(function(x){return box(x[0],x[1]);}).join('')+'</div>';}).join('')+'</section>';
+    BAG.map(function(g,gi){var k=BAGK[gi],hid=g.items.filter(function(x){return state.bagHidden[x[0]];}).length;
+      return '<div class="cl-group"><h3>'+g.g+'</h3>'+bagRows(gi).map(function(x){return '<div class="check-row">'+box(x[0],esc(x[1]))+'<button class="icon-btn" data-action="bag-remove" data-id="'+esc(x[0])+'" data-g="'+k+'" aria-label="إزالة '+esc(x[1])+' من القائمة">'+ic('x','i-sm')+'</button></div>';}).join('')+
+        '<form class="inline-add" data-g="'+k+'" novalidate><label class="sr" for="add-'+k+'">إضافة غرض إلى قائمة '+g.g+'</label><input class="input" id="add-'+k+'" maxlength="60" placeholder="أضيفي غرضًا"><button class="btn btn-ghost" type="submit">'+ic('plus','i-sm')+'إضافة</button></form>'+
+        (hid?'<button class="btn btn-text" style="align-self:flex-start" data-action="bag-restore" data-g="'+k+'">إظهار المحذوف ('+hid+')</button>':'')+'</div>';}).join('')+'</section>';
   var ck='<section class="panel" aria-labelledby="ckT" style="display:flex;flex-direction:column;gap:var(--s3)"><h2 id="ckT" class="section-title">'+ic('steth')+'الفحوصات</h2><p class="muted" style="font-size:var(--fs-sm)">مواعيد تقريبية شائعة، وقد تختلف حسب طبيبتكِ وحالتكِ.</p>'+bar(ckDone,CHECKUPS.length,'تقدّم الفحوصات')+
     '<div class="cl-group">'+CHECKUPS.map(function(x){
       var sub=checkupWhen(x);
       var lbl=x.t;
       if(c.ok){var a=weekRange(c.ref,x.a)[0],b=weekRange(c.ref,x.b)[1];sub+='، '+fmtRange(a,b);if(c.today>=a&&c.today<=b)lbl+='<span class="chip accent chk-now">موعده الآن</span>';}
       return box(x.id,lbl,sub);}).join('')+'</div></section>';
-  return '<div class="view"><div class="view-head"><h1>القوائم</h1><p>علّمي ما أنجزتِه، وتُحفظ العلامات تلقائيًا على هذا الجهاز.</p></div><div class="lists-wrap">'+bag+ck+'</div></div>';
+  return '<div class="view"><div class="view-head"><h1>القوائم</h1><p>علّمي ما أنجزتِه، وأضيفي أغراضكِ الخاصة أو احذفي ما لا تحتاجينه. يُحفظ كل شيء تلقائيًا على هذا الجهاز.</p></div><div class="lists-wrap">'+bag+ck+'</div></div>';
 }
 
 /* ---------- settings ---------- */
@@ -1108,6 +1210,7 @@ function renderPrefs(){
   '<div class="form-actions"><button class="btn btn-primary" type="submit">'+ic('check','i-sm')+'حفظ التغييرات</button></div></form>'+
   '<div style="display:flex;flex-direction:column;gap:var(--s5)">'+
   '<section class="panel" style="display:flex;flex-direction:column;gap:var(--s3)" aria-labelledby="thT"><h2 id="thT" class="section-title">المظهر</h2><div class="seg full" role="radiogroup" aria-labelledby="thT">'+th('system','تلقائي','device')+th('light','فاتح','sun')+th('dark','داكن','moon')+'</div></section>'+
+  backupPanel()+
   '<section class="panel danger-zone" style="display:flex;flex-direction:column;gap:var(--s3)" aria-labelledby="dzT"><h2 id="dzT" class="section-title">مسح البيانات</h2><p class="muted" style="font-size:var(--fs-sm)">يحذف كل ما حفظتِه على هذا الجهاز ويعيد الإعدادات الافتراضية.</p><button class="btn btn-ghost" style="align-self:flex-start;color:var(--danger);border-color:var(--danger)" data-action="reset-open" id="resetBtn">'+ic('reset','i-sm')+'مسح كل البيانات</button></section>'+
   disclaimer()+'</div></div>';
   return '<div class="view">'+h+'</div>';
@@ -1134,6 +1237,371 @@ function updatePreview(showErrors){
   return r;
 }
 
+
+/* =========================================================
+   12. Tools, urgent signs, backup, calendar export
+   ========================================================= */
+var FRAMED=(function(){try{return window.self!==window.top;}catch(err){return true;}})();
+var MIN_F=['دقيقة واحدة','دقيقتان','دقائق','دقيقة','دقيقة','دقيقتين'];
+var MOV_F=['حركة واحدة','حركتان','حركات','حركة','حركة','حركتين'];
+var BAGK=['mom','baby','docs'];
+var exportOpen=null, logDate=null, noteTimer=null, tick=null, dlgFn=null;
+function pad2(n){return String(n).padStart(2,'0');}
+function mmss(ms){ms=Math.max(0,ms);var x=Math.floor(ms/1000);return Math.floor(x/60)+':'+pad2(x%60);}
+function durText(ms){var m=Math.round(ms/60000);return m<1?'أقل من دقيقة':countAr(m,MIN_F);}
+function localDay(ms){var d=new Date(ms);return ymdToDay(d.getFullYear(),d.getMonth(),d.getDate());}
+function clock(ms){var d=new Date(ms);return fmtTime(pad2(d.getHours())+':'+pad2(d.getMinutes()));}
+function todayISO(){return dayToISO(todayDay());}
+function noteBox(t,icon){return '<p class="note">'+ic(icon||'info','i-sm')+'<span>'+t+'</span></p>';}
+function liList(arr,cls){return '<ul class="blist'+(cls?' '+cls:'')+'">'+arr.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
+function subtabs(list,label){return '<nav class="subtabs" aria-label="'+label+'">'+list.map(function(x){return '<a href="#'+x[0]+'"'+(x[0]===cur?' aria-current="page"':'')+'>'+ic(x[2],'i-sm')+x[1]+'</a>';}).join('')+'</nav>';}
+function subW(){return subtabs([['weeks','الأسابيع','grid'],['months','الأشهر','stack']],'طريقة عرض الأسابيع');}
+function subN(){return subtabs([['notes','القائمة','clip'],['calendar','التقويم','cal']],'طريقة عرض المواعيد');}
+function hasUserData(){return state.items.some(function(i){return !i.example;})||Object.keys(state.logs).length>0||state.weights.length>0||state.kicks.length>0||state.contr.length>0;}
+function nextAppt(today){return state.items.filter(function(it){return it.kind==='appt'&&isoToDay(it.date)>=today;}).sort(function(a,b){return (a.date+(a.time||'')).localeCompare(b.date+(b.time||''));})[0];}
+function focusId(id){var el=document.getElementById(id);if(el)el.focus({preventScroll:true});}
+function vibrate(){try{if(navigator.vibrate)navigator.vibrate(12);}catch(err){}}
+
+/* ---------- home: this week ---------- */
+function weekNowHTML(c){
+  var li=[];
+  CHECKUPS.forEach(function(x){var a=weekRange(c.ref,x.a)[0],b=weekRange(c.ref,x.b)[1];
+    if(c.today>=a&&c.today<=b&&!state.checks[x.id])li.push('<li>'+ic('steth')+'<span class="tx">'+x.t+'<small class="tnum">'+checkupWhen(x)+'، حتى '+fmt(b,{wd:true,y:false})+'</small></span><a class="btn btn-text" href="#lists">القائمة</a></li>');});
+  var nx=nextAppt(c.today);
+  if(nx){var nd=isoToDay(nx.date);li.push('<li>'+ic('clock')+'<span class="tx">'+esc(nx.title)+(nx.example?' <span class="chip example">مثال</span>':'')+'<small class="tnum">'+fmt(nd,{wd:true})+(nx.time?'، '+fmtTime(nx.time):'')+'، '+(nd===c.today?'اليوم':inDays(nd-c.today))+'</small></span><a class="btn btn-text" href="#notes">المواعيد</a></li>');}
+  else li.push('<li>'+ic('clock')+'<span class="tx">لا يوجد موعد قادم<small>أضيفي موعد المتابعة القادم ليظهر هنا.</small></span><a class="btn btn-text" href="#notes" data-action="go-add">إضافة</a></li>');
+  if(!state.logs[todayISO()])li.push('<li>'+ic('mood')+'<span class="tx">لم تسجّلي يومكِ بعد<small>الأعراض والمزاج في ضغطات قليلة.</small></span><button class="btn btn-text" data-action="go-tool" data-tool="log">سجّلي</button></li>');
+  if(hasUserData()&&(state.lastBackup==null||c.today-state.lastBackup>30))li.push('<li class="warn">'+ic('download')+'<span class="tx">'+(state.lastBackup==null?'لا توجد نسخة احتياطية لبياناتكِ':'آخر نسخة احتياطية قبل أكثر من شهر')+'<small>البيانات محفوظة في هذا المتصفح فقط.</small></span><a class="btn btn-text" href="#prefs">احفظي نسخة</a></li>');
+  var q='<a class="qbtn" href="#notes" data-action="go-add">'+ic('plus')+'إضافة موعد</a>';
+  if(c.week>=28)q+='<button class="qbtn" data-action="go-tool" data-tool="kicks">'+ic('heart')+'عدّ الحركة</button>';
+  if(c.week>=36)q+='<button class="qbtn" data-action="go-tool" data-tool="contr">'+ic('timer')+'مؤقت الطلق</button>';
+  q+='<button class="qbtn" data-action="go-tool" data-tool="weight">'+ic('weight')+'تسجيل الوزن</button>';
+  q+='<button class="qbtn" data-action="go-tool" data-tool="log">'+ic('mood')+'سجل اليوم</button>';
+  return '<section class="week-now" aria-labelledby="wnT"><h2 id="wnT" class="section-title">هذا الأسبوع</h2><ul class="todo">'+li.join('')+'</ul><div class="quick">'+q+'</div></section>';
+}
+
+/* ---------- tools ---------- */
+var TOOLS=[
+  {id:'kicks',t:'حركة الجنين',i:'heart',from:28,d:'عدّ الركلات',later:'من الأسبوع 28'},
+  {id:'contr',t:'مؤقت الطلق',i:'timer',from:36,d:'قياس الانقباضات',later:'للأسابيع الأخيرة'},
+  {id:'weight',t:'الوزن',i:'weight',from:0,d:'متابعة التغيّر'},
+  {id:'log',t:'سجل اليوم',i:'mood',from:0,d:'الأعراض والمزاج'}
+];
+function toolById(id){for(var i=0;i<TOOLS.length;i++)if(TOOLS[i].id===id)return TOOLS[i];return TOOLS[3];}
+function curWeek(c){return c.ok&&c.status!=='before'?c.week:0;}
+function toolTab(c){var w=curWeek(c);return state.toolTab||(w>=36?'contr':(w>=28?'kicks':'log'));}
+function renderTools(c){
+  var w=curWeek(c),tab=toolTab(c);
+  var pick='<div class="tool-pick" role="group" aria-label="اختاري الأداة">'+TOOLS.map(function(t){
+    return '<button class="tp" data-action="tool-tab" data-tool="'+t.id+'" aria-pressed="'+(t.id===tab)+'">'+ic(t.i)+'<span>'+t.t+'</span><small>'+(w&&w<t.from?t.later:t.d)+'</small></button>';}).join('')+'</div>';
+  var body=tab==='kicks'?kicksHTML(w):(tab==='contr'?contrHTML(w):(tab==='weight'?weightHTML(c):logHTML()));
+  return '<div class="view view-tools"><div class="view-head"><h1>الأدوات</h1><p>أدوات بسيطة للمتابعة اليومية. تُحفظ البيانات على هذا الجهاز فقط.</p></div>'+pick+
+    '<section class="tool" aria-label="'+toolById(tab).t+'">'+body+'</section></div>';
+}
+function startTick(){
+  clearInterval(tick);tick=null;
+  if(cur!=='tools'||!(state.kickActive||state.contrActive))return;
+  tick=setInterval(function(){
+    var a=document.getElementById('kickTimer');if(a&&state.kickActive)a.textContent=mmss(Date.now()-state.kickActive.start);
+    var b=document.getElementById('contrTimer');if(b&&state.contrActive)b.textContent=mmss(Date.now()-state.contrActive);
+  },1000);
+}
+
+/* kicks */
+function kicksHTML(w){
+  var a=state.kickActive,h='';
+  if(w&&w<28)h+=noteBox('يُستخدم عدّ الحركة عادةً من الأسبوع 28. الحركة قبل ذلك غير منتظمة، فلا تقلقي إن لم تشعري بها كل يوم.');
+  if(a){
+    h+='<button class="big-tap" id="kickBtn" data-action="kick-tap" aria-label="سجّلي حركة، العدد الحالي '+a.count+'"><b id="kickCount">'+a.count+'</b><span>اضغطي مع كل حركة</span></button>'+
+      '<p class="muted tnum" style="text-align:center">مدة الجلسة <span id="kickTimer">'+mmss(Date.now()-a.start)+'</span></p><p class="sr" aria-live="polite" id="kickLive"></p>'+
+      '<div class="form-actions" style="justify-content:center"><button class="btn btn-primary" data-action="kick-stop">'+ic('check','i-sm')+'إنهاء وحفظ</button><button class="btn btn-ghost" data-action="kick-cancel">إلغاء الجلسة</button></div>';
+  }else h+='<button class="big-tap" id="kickBtn" data-action="kick-start">'+ic('heart')+'<span>ابدئي العدّ</span></button>';
+  h+='<div class="banner" role="note">'+ic('alert')+'<span>إذا لاحظتِ قلة واضحة في الحركة أو تغيّرًا في نمطها فتواصلي مع طبيبتكِ أو الطوارئ فورًا، ولا تنتظري لليوم التالي. <a href="#urgent">علامات الطوارئ</a></span></div>';
+  h+='<div class="panel tool-guide"><h2 class="section-title">كيف أعدّ الحركة؟</h2>'+liList(['اختاري وقتًا يكون فيه جنينكِ نشطًا عادةً، مثل بعد الأكل أو في المساء.','استلقي على جانبكِ أو اجلسي بارتياح، وركّزي على الحركة.','اضغطي الزر مع كل حركة: ركلة أو تقلّب أو رفرفة.','يستخدم كثير من الأطباء الوصول إلى 10 حركات مرجعًا، والأهم أن تعرفي النمط المعتاد لجنينكِ.'])+'</div>';
+  var ks=state.kicks.slice().sort(function(x,y){return y.start-x.start;}).slice(0,10);
+  h+='<section><div class="sub-head"><h2>الجلسات السابقة</h2><span class="c tnum">'+state.kicks.length+'</span></div>'+(ks.length?'<ul class="hist">'+ks.map(function(k){
+    return '<li><span class="grow"><b class="tnum">'+countAr(k.count,MOV_F)+'</b> خلال '+durText(k.end-k.start)+'<br><span class="muted tnum">'+fmt(localDay(k.start),{wd:true,y:false})+'، '+clock(k.start)+'</span></span><button class="icon-btn" data-action="kick-del" data-id="'+k.id+'" aria-label="حذف الجلسة">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
+    :'<div class="empty"><b>لا توجد جلسات بعد</b><span>اضغطي «ابدئي العدّ» عندما تكونين مستعدة.</span></div>')+'</section>';
+  return h;
+}
+
+/* contractions */
+function contrHTML(w){
+  var a=state.contrActive,now=Date.now(),h='';
+  if(w&&w<36)h+=noteBox('يفيد المؤقت عادةً في الأسابيع الأخيرة. الانقباضات المنتظمة قبل الأسبوع 37 تستدعي التواصل مع الطبيبة فورًا.','alert');
+  h+='<button class="big-tap'+(a?' on':'')+'" id="contrBtn" data-action="contr-toggle">'+(a?'<b id="contrTimer">'+mmss(now-a)+'</b><span>اضغطي عند انتهاء الانقباضة</span>':ic('timer')+'<span>بدأت الانقباضة</span>')+'</button>';
+  var list=state.contr.slice().sort(function(x,y){return x.s-y.s;});
+  var hr=list.filter(function(x){return x.s>=now-3600000;});
+  var avgD=hr.length?hr.reduce(function(t,x){return t+(x.e-x.s);},0)/hr.length:0, ints=[];
+  for(var i=1;i<hr.length;i++)ints.push(hr[i].s-hr[i-1].s);
+  var avgI=ints.length?ints.reduce(function(t,x){return t+x;},0)/ints.length:0;
+  h+='<div class="stat-row"><div class="stat"><b>'+hr.length+'</b><span>خلال آخر ساعة</span></div><div class="stat"><b>'+mmss(avgD)+'</b><span>متوسط المدة</span></div><div class="stat"><b>'+(ints.length?mmss(avgI):'0:00')+'</b><span>متوسط الفاصل</span></div></div>';
+  var span=hr.length>1?hr[hr.length-1].s-hr[0].s:0;
+  if(hr.length>=6&&span>=45*60000&&avgI<=5.5*60000&&avgD>=45000)h+='<div class="banner" role="alert">'+ic('alert')+'<span>انقباضاتكِ منتظمة ومتقاربة منذ ساعة تقريبًا. تواصلي مع طبيبتكِ أو توجهي إلى المستشفى حسب تعليماتها.</span></div>';
+  h+='<div class="panel tool-guide"><h2 class="section-title">متى أتوجه إلى المستشفى؟</h2>'+liList(['اتبعي تعليمات طبيبتكِ أولًا، فهي تعرف حالتكِ.','قاعدة شائعة: انقباضات كل 5 دقائق أو أقل، تستمر كل منها نحو دقيقة، وبانتظام لمدة ساعة.','توجهي فورًا إذا نزل الماء، أو حدث نزيف، أو قلّت حركة الجنين.'])+'<p class="muted" style="font-size:var(--fs-sm)">اضغطي الزر عند بداية الانقباضة، ثم اضغطيه مرة أخرى عند انتهائها. الفاصل يُحسب من بداية الانقباضة إلى بداية التي تليها.</p></div>';
+  var rev=list.slice().reverse().slice(0,12);
+  h+='<section><div class="sub-head"><h2>السجل</h2>'+(list.length?'<button class="btn btn-text" data-action="contr-clear">'+ic('trash','i-sm')+'مسح السجل</button>':'')+'</div>'+(rev.length?'<ul class="hist">'+rev.map(function(x){
+    var idx=list.indexOf(x),prev=idx>0?list[idx-1]:null;
+    return '<li><span class="grow"><b class="tnum">'+clock(x.s)+'</b><br><span class="muted tnum">المدة '+mmss(x.e-x.s)+(prev?'، الفاصل '+mmss(x.s-prev.s):'، أول انقباضة')+'</span></span><button class="icon-btn" data-action="contr-del" data-id="'+x.id+'" aria-label="حذف الانقباضة">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
+    :'<div class="empty"><b>لا توجد انقباضات مسجّلة</b><span>ابدئي عند أول انقباضة، وسيُحسب المتوسط تلقائيًا.</span></div>')+'</section>';
+  return h;
+}
+
+/* weight */
+function kgTxt(v){return (Math.round(v*10)/10).toString()+' كغ';}
+function diffTxt(v){var r=Math.round(v*10)/10;return '<bdi dir="ltr">'+(r>0?'+':'')+r+'</bdi> كغ';}
+function weightHTML(c){
+  var ws=state.weights.slice().sort(function(x,y){return x.date.localeCompare(y.date);});
+  var last=ws[ws.length-1], pre=state.preWeight!==''?parseFloat(state.preWeight):null;
+  var h='<form class="panel form" id="weightForm" novalidate><h2 class="section-title">تسجيل الوزن</h2><div class="row two">'+
+    '<div class="field"><label for="wDate">التاريخ</label><input class="input" type="date" id="wDate" value="'+todayISO()+'" aria-describedby="wDateEcho"><p class="help tnum" id="wDateEcho"></p></div>'+
+    '<div class="field"><label for="wKg">الوزن بالكيلوغرام</label><input class="input" id="wKg" type="number" inputmode="decimal" step="0.1" min="30" max="250" aria-describedby="eW"><p class="err" id="eW" aria-live="polite"></p></div></div>'+
+    '<div class="form-actions"><button class="btn btn-primary" type="submit">'+ic('check','i-sm')+'حفظ الوزن</button></div></form>';
+  if(last){
+    var base=pre!=null?pre:parseFloat(ws[0].kg), baseLbl=pre!=null?'منذ ما قبل الحمل':'منذ أول تسجيل';
+    h+='<div class="stat-row"><div class="stat"><b>'+kgTxt(parseFloat(last.kg))+'</b><span>آخر وزن</span></div><div class="stat"><b>'+diffTxt(parseFloat(last.kg)-base)+'</b><span>'+baseLbl+'</span></div><div class="stat"><b class="tnum">'+fmt(isoToDay(last.date),{y:false})+'</b><span>آخر تسجيل</span></div></div>';
+  }
+  h+='<figure class="chart-wrap" id="wChart"></figure>';
+  h+='<div class="field"><label for="wPre">وزنكِ قبل الحمل <span class="opt">(اختياري)</span></label><input class="input" id="wPre" type="number" inputmode="decimal" step="0.1" min="30" max="250" value="'+(pre!=null?pre:'')+'" style="max-width:220px" aria-describedby="hPre"><p class="help" id="hPre">يظهر خطًا مرجعيًا في الرسم، ويُحسب منه التغيّر.</p></div>';
+  var rev=ws.slice().reverse();
+  h+='<section><div class="sub-head"><h2>القراءات</h2><span class="c tnum">'+ws.length+'</span></div>'+(rev.length?'<ul class="hist">'+rev.map(function(x,i){
+    var d=isoToDay(x.date),ga=c.ok?d-c.ref:null,prev=rev[i+1];
+    return '<li><span class="grow"><b class="tnum">'+kgTxt(parseFloat(x.kg))+'</b>'+(prev?' <span class="muted">('+diffTxt(parseFloat(x.kg)-parseFloat(prev.kg))+')</span>':'')+'<br><span class="muted tnum">'+fmt(d,{wd:true})+(ga!=null&&ga>=0&&ga<=MAX_DAY?'، الأسبوع '+weekOfGA(ga):'')+'</span></span><button class="icon-btn" data-action="weight-del" data-date="'+x.date+'" aria-label="حذف قراءة '+fmt(d)+'">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
+    :'<div class="empty"><b>لا توجد قراءات بعد</b><span>سجّلي وزنكِ مرة في الأسبوع، في نفس الوقت تقريبًا، ليكون التغيّر أوضح.</span></div>')+'</section>';
+  h+=noteBox('زيادة الوزن المناسبة تختلف من امرأة إلى أخرى حسب وزنها قبل الحمل. اسألي طبيبتكِ عن المعدل المناسب لكِ.');
+  return h;
+}
+function drawWeightChart(){
+  var box=document.getElementById('wChart'); if(!box)return;
+  var c=ctx(); if(!c.ok){box.innerHTML='';return;}
+  var pts=state.weights.map(function(w){var d=isoToDay(w.date);return {d:d,x:(d-c.ref)/7,y:parseFloat(w.kg),date:w.date};})
+    .filter(function(p){return p.d-c.ref>=0&&p.d-c.ref<=MAX_DAY;}).sort(function(a,b){return a.x-b.x;});
+  if(!pts.length){box.innerHTML='<div class="empty"><b>الرسم البياني فارغ</b><span>بعد أول تسجيل يظهر هنا خط يوضح تغيّر وزنكِ خلال أسابيع الحمل.</span></div>';return;}
+  var pre=state.preWeight!==''?parseFloat(state.preWeight):null;
+  var W=Math.max(280,Math.round(box.clientWidth||320)),H=220,ml=10,mr=44,mt=18,mb=30,pw=W-ml-mr,ph=H-mt-mb;
+  var ys=pts.map(function(p){return p.y;}); if(pre!=null)ys.push(pre);
+  var lo=Math.min.apply(null,ys)-1,hi=Math.max.apply(null,ys)+1,span=hi-lo,step=span<=6?1:(span<=12?2:(span<=30?5:10));
+  lo=Math.floor(lo/step)*step;hi=Math.ceil(hi/step)*step;if(hi<=lo)hi=lo+step;
+  var xmax=Math.max(40,Math.ceil(pts[pts.length-1].x));
+  function X(x){return ml+pw-(x/xmax)*pw;}
+  function Y(y){return mt+ph-(y-lo)/(hi-lo)*ph;}
+  var g='',t='font-size="12" fill="var(--ink-3)" font-family="inherit"';
+  for(var v=lo;v<=hi+1e-9;v+=step){g+='<line x1="'+ml+'" x2="'+(ml+pw)+'" y1="'+Y(v).toFixed(1)+'" y2="'+Y(v).toFixed(1)+'" stroke="var(--line)" stroke-width="1"/><text x="'+(ml+pw+8)+'" y="'+(Y(v)+4).toFixed(1)+'" '+t+'>'+v+'</text>';}
+  [0,10,20,30,40].forEach(function(wk){if(wk<=xmax)g+='<text x="'+X(wk).toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle" '+t+'>'+wk+'</text>';});
+  if(pre!=null)g+='<line x1="'+ml+'" x2="'+(ml+pw)+'" y1="'+Y(pre).toFixed(1)+'" y2="'+Y(pre).toFixed(1)+'" stroke="var(--ink-3)" stroke-width="1.5" stroke-dasharray="5 5"/><text x="'+(ml+4)+'" y="'+(Y(pre)-6).toFixed(1)+'" '+t+'>قبل الحمل</text>';
+  var line=pts.map(function(p,i){return (i?'L':'M')+X(p.x).toFixed(1)+' '+Y(p.y).toFixed(1);}).join(' ');
+  var area=line+' L'+X(pts[pts.length-1].x).toFixed(1)+' '+(mt+ph)+' L'+X(pts[0].x).toFixed(1)+' '+(mt+ph)+' Z';
+  g+='<path d="'+area+'" fill="var(--accent)" fill-opacity=".08"/>';
+  if(pts.length>1)g+='<path d="'+line+'" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+  pts.forEach(function(p,i){var lastP=i===pts.length-1,lbl='الأسبوع '+(Math.floor(p.x)+1)+'، '+kgTxt(p.y)+'، '+fmt(p.d);
+    g+='<circle class="hit" data-i="'+i+'" cx="'+X(p.x).toFixed(1)+'" cy="'+Y(p.y).toFixed(1)+'" r="14" fill="transparent" tabindex="0" role="img" aria-label="'+lbl+'"/>'+
+      '<circle class="pt" cx="'+X(p.x).toFixed(1)+'" cy="'+Y(p.y).toFixed(1)+'" r="'+(lastP?6:4)+'" fill="var(--accent)" stroke="var(--bg)" stroke-width="2" pointer-events="none"/>';});
+  var lp=pts[pts.length-1];
+  box.innerHTML='<svg direction="ltr" style="direction:ltr" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="group" aria-label="رسم بياني لتغيّر الوزن خلال الحمل، آخر قراءة '+kgTxt(lp.y)+'">'+g+'</svg><div class="chart-tip" id="wTip" hidden></div><figcaption class="help">المحور الأفقي أسبوع الحمل، والعمودي الوزن بالكيلوغرام.</figcaption>';
+  var tip=document.getElementById('wTip');
+  function show(el){var p=pts[+el.getAttribute('data-i')];tip.textContent='الأسبوع '+(Math.floor(p.x)+1)+'، '+kgTxt(p.y);tip.hidden=false;
+    var x=Math.min(W-60,Math.max(60,X(p.x)));tip.style.left=x+'px';tip.style.top=Y(p.y)+'px';}
+  function hide(){tip.hidden=true;}
+  box.querySelectorAll('.hit').forEach(function(el){el.addEventListener('pointerenter',function(){show(el);});el.addEventListener('focus',function(){show(el);});el.addEventListener('pointerleave',hide);el.addEventListener('blur',hide);el.addEventListener('click',function(){show(el);});});
+}
+var rsT=null;
+window.addEventListener('resize',function(){clearTimeout(rsT);rsT=setTimeout(function(){if(cur==='tools'&&document.getElementById('wChart'))drawWeightChart();},150);});
+
+/* daily log */
+var MOODS=[['great','ممتاز'],['good','جيد'],['ok','عادي'],['tired','متعبة'],['hard','صعب']];
+var SYMS=[['nausea','غثيان'],['vomit','قيء'],['fatigue','تعب'],['headache','صداع'],['heartburn','حموضة'],['constipation','إمساك'],['back','ألم الظهر'],['swelling','تورّم'],['insomnia','أرق'],['cramps','تقلصات خفيفة'],['dizzy','دوخة'],['moodswing','تقلّب المزاج'],['appetite','شهية زائدة'],['breath','ضيق نفس خفيف']];
+function lbl(arr,k){for(var i=0;i<arr.length;i++)if(arr[i][0]===k)return arr[i][1];return '';}
+function curLogDate(){return (logDate&&isoToDay(logDate)!=null)?logDate:todayISO();}
+function setLog(d,patch){var e=Object.assign({},state.logs[d]||{},patch);if(!e.mood&&!(e.sym&&e.sym.length)&&!e.note)delete state.logs[d];else state.logs[d]=e;save();}
+function logHistHTML(){
+  var ds=Object.keys(state.logs).sort().reverse().slice(0,14);
+  if(!ds.length)return '<div class="empty"><b>لا توجد أيام مسجّلة بعد</b><span>اختاري مزاجكِ أو أعراضكِ أعلاه، ويُحفظ اليوم تلقائيًا.</span></div>';
+  return '<ul class="hist">'+ds.map(function(d){var e=state.logs[d],day=isoToDay(d);
+    return '<li><span class="grow"><b class="tnum">'+fmt(day,{wd:true,y:false})+'</b>'+(e.mood?' <span class="chip accent">'+lbl(MOODS,e.mood)+'</span>':'')+'<br><span class="muted">'+((e.sym||[]).map(function(k){return lbl(SYMS,k);}).join('، ')||'بلا أعراض مسجّلة')+(e.note?'، '+esc(e.note.slice(0,60))+(e.note.length>60?'…':''):'')+'</span></span>'+
+      (d!==curLogDate()?'<button class="btn btn-text" data-action="log-open" data-date="'+d+'">فتح</button>':'<span class="chip">مفتوح</span>')+'</li>';}).join('')+'</ul>';
+}
+function updateLogHist(){var el=document.getElementById('logHist');if(el)el.innerHTML=logHistHTML();}
+function logHTML(){
+  var d=curLogDate(),e=state.logs[d]||{},sym=e.sym||[];
+  var h='<div class="panel form"><div class="field"><label for="logDate">اليوم</label><input class="input" type="date" id="logDate" value="'+d+'" max="'+todayISO()+'" style="max-width:240px" aria-describedby="logDateEcho"><p class="help tnum" id="logDateEcho"></p></div>'+
+    '<div class="field"><span class="lbl" id="moodLbl">كيف تشعرين؟</span><div class="chips-sel" role="radiogroup" aria-labelledby="moodLbl">'+MOODS.map(function(m){return '<label class="tog-r"><input type="radio" name="mood" value="'+m[0]+'"'+(e.mood===m[0]?' checked':'')+'><span>'+m[1]+'</span></label>';}).join('')+'</div></div>'+
+    '<div class="field"><span class="lbl" id="symLbl">الأعراض</span><div class="chips-sel" role="group" aria-labelledby="symLbl">'+SYMS.map(function(x){return '<button type="button" class="tog" data-action="sym" data-k="'+x[0]+'" aria-pressed="'+(sym.indexOf(x[0])>=0)+'">'+x[1]+'</button>';}).join('')+'</div>'+
+    '<p class="help">إذا كان العرض شديدًا أو مفاجئًا فراجعي <a href="#urgent">علامات الطوارئ</a>.</p></div>'+
+    '<div class="field"><label for="logNote">ملاحظة <span class="opt">(اختياري)</span></label><textarea class="input" id="logNote" maxlength="400" placeholder="أي شيء تودين تذكّره أو إخبار الطبيبة به">'+esc(e.note||'')+'</textarea></div>'+
+    '<p class="help" style="display:flex;align-items:center;gap:6px">'+ic('check','i-sm')+'يُحفظ تلقائيًا.</p></div>';
+  h+='<section><div class="sub-head"><h2>الأيام السابقة</h2><span class="c tnum">'+Object.keys(state.logs).length+'</span></div><div id="logHist">'+logHistHTML()+'</div></section>';
+  return h;
+}
+
+/* ---------- urgent signs ---------- */
+var CONTACTS=[['doctor','الطبيبة أو العيادة'],['hospital','المستشفى أو قسم الولادة'],['emergency','الإسعاف']];
+function renderUrgent(){
+  var now=['نزيف من المهبل، حتى لو كان قليلًا.','نزول ماء أو سائل من المهبل، فجأة أو بشكل مستمر.','قلة واضحة في حركة الجنين أو تغيّر في نمطها، أو عدم الإحساس بها.','ألم شديد أو مستمر في البطن.','صداع شديد لا يزول، أو تشوّش في الرؤية، أو تورّم مفاجئ في الوجه أو اليدين.','انقباضات منتظمة قبل الأسبوع 37.','حرارة مرتفعة أو قشعريرة.','ضيق في التنفس أو ألم في الصدر.','إغماء أو دوخة شديدة.','تشنجات.','قيء شديد ومستمر يمنعكِ من الأكل والشرب.','ألم أو تورّم أو احمرار في ساق واحدة.','أفكار بإيذاء نفسكِ أو بإيذاء طفلكِ.'];
+  var soon=['حرقة أو ألم عند التبول.','حكة شديدة، خاصة في راحتي اليدين وباطن القدمين.','إفرازات مهبلية غير معتادة أو لها رائحة.','تقلصات أو ضغط في الحوض قبل الأسبوع 37.','حزن أو قلق مستمر يؤثر على يومكِ.','غثيان أو قيء يمنعكِ من شرب السوائل لأكثر من يوم.'];
+  var ct=CONTACTS.map(function(x){var v=state.contacts[x[0]]||'';
+    return '<div class="contact field"><label for="ct-'+x[0]+'">'+x[1]+'</label><input class="input ltr" type="tel" id="ct-'+x[0]+'" data-contact="'+x[0]+'" value="'+esc(v)+'" autocomplete="off" inputmode="tel" maxlength="30" placeholder="'+(x[0]==='emergency'?'رقم الإسعاف في بلدكِ':'اكتبي الرقم')+'">'+
+      (v?'<div class="acts-row"><a class="btn btn-ghost" href="tel:'+esc(v.replace(/[^0-9+]/g,''))+'">'+ic('phone','i-sm')+'اتصال</a><button class="btn btn-ghost" data-action="copy-num" data-num="'+esc(v)+'">'+ic('copy','i-sm')+'نسخ الرقم</button></div>':'')+'</div>';}).join('');
+  return '<div class="view view-notes"><div class="view-head"><h1>متى أراجع الطبيبة فورًا؟</h1><p>معلومات عامة للتوعية. عند الشك لا تترددي في التواصل مع طبيبتكِ أو الطوارئ، فالاطمئنان أفضل من الانتظار.</p></div>'+
+    '<section class="panel danger-panel tool-guide" aria-labelledby="ugT"><h2 id="ugT" class="section-title">'+ic('alert')+'تواصلي فورًا مع الطوارئ أو طبيبتكِ عند:</h2>'+liList(now,'red')+'</section>'+
+    '<section class="panel tool-guide" aria-labelledby="usT"><h2 id="usT" class="section-title">'+ic('steth')+'تواصلي مع طبيبتكِ في أقرب وقت عند:</h2>'+liList(soon)+'</section>'+
+    '<section class="panel form" aria-labelledby="cnT"><h2 id="cnT" class="section-title">'+ic('phone')+'أرقام مهمة</h2><p class="muted" style="font-size:var(--fs-sm)">احفظي الأرقام هنا لتكون جاهزة وقت الحاجة. تُحفظ على هذا الجهاز فقط.</p>'+ct+'</section>'+
+    disclaimer()+'</div>';
+}
+
+/* ---------- appointments: questions + calendar export ---------- */
+function parseQs(f,old){
+  var lines=((f.qs&&f.qs.value)||'').split('\n').map(function(x){return x.trim();}).filter(Boolean);
+  old=old||[];
+  return lines.map(function(t){return {t:t,done:old.some(function(o){return o.t===t&&o.done;})};});
+}
+function qsHTML(it){
+  if(it.kind!=='appt'||!it.qs||!it.qs.length)return '';
+  var done=it.qs.filter(function(q){return q.done;}).length;
+  return '<div class="qs"><p class="qs-h tnum">أسئلة للطبيبة ('+done+' من '+it.qs.length+')</p>'+it.qs.map(function(q,i){
+    return '<label class="check sm"><input type="checkbox" id="q-'+esc(it.id)+'-'+i+'" data-q="'+esc(it.id)+'|'+i+'"'+(q.done?' checked':'')+'><span class="box">'+ic('check')+'</span><span class="lt"><span>'+esc(q.t)+'</span></span></label>';}).join('')+'</div>';
+}
+function icsEsc(x){return String(x).replace(/\\/g,'\\\\').replace(/;/g,'\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n');}
+function evTimes(it){
+  var d=it.date.replace(/-/g,'');
+  if(!it.time){var nd=dayToISO(isoToDay(it.date)+1).replace(/-/g,'');return {allDay:true,s:d,e:nd};}
+  var p=it.date.split('-').map(Number),t=it.time.split(':').map(Number),e=new Date(Date.UTC(p[0],p[1]-1,p[2],t[0],t[1])+3600000);
+  return {allDay:false,s:d+'T'+pad2(t[0])+pad2(t[1])+'00',e:e.getUTCFullYear()+pad2(e.getUTCMonth()+1)+pad2(e.getUTCDate())+'T'+pad2(e.getUTCHours())+pad2(e.getUTCMinutes())+'00'};
+}
+function evDesc(it){var x=it.body||'';if(it.qs&&it.qs.length)x+=(x?'\n\n':'')+'أسئلة للطبيبة:\n'+it.qs.map(function(q){return '- '+q.t;}).join('\n');return x;}
+function icsHref(it){
+  var tm=evTimes(it),stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,'');
+  var L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Masar Alhaml//AR','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+it.id+'@masar-alhaml','DTSTAMP:'+stamp];
+  if(tm.allDay)L.push('DTSTART;VALUE=DATE:'+tm.s,'DTEND;VALUE=DATE:'+tm.e);else L.push('DTSTART:'+tm.s,'DTEND:'+tm.e);
+  L.push('SUMMARY:'+icsEsc(it.title));var ds=evDesc(it);if(ds)L.push('DESCRIPTION:'+icsEsc(ds));
+  L.push('BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+icsEsc(it.title),'TRIGGER:'+(tm.allDay?'-PT15H':'-P1D'),'END:VALARM');
+  if(!tm.allDay)L.push('BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+icsEsc(it.title),'TRIGGER:-PT2H','END:VALARM');
+  L.push('END:VEVENT','END:VCALENDAR');
+  return 'data:text/calendar;charset=utf-8,'+encodeURIComponent(L.join('\r\n'));
+}
+function gcalHref(it){var tm=evTimes(it);return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(it.title)+'&dates='+tm.s+'/'+tm.e+'&details='+encodeURIComponent(evDesc(it));}
+function exportHTML(it,isPast){
+  if(it.kind!=='appt'||isPast||exportOpen!==it.id)return '';
+  return '<div class="cal-add"><a class="btn btn-ghost" href="'+icsHref(it)+'" download="masar-'+it.date+'.ics">'+ic('download','i-sm')+'تقويم الجوال</a><a class="btn btn-ghost" href="'+gcalHref(it)+'" target="_blank" rel="noopener">'+ic('cal','i-sm')+'تقويم جوجل</a></div>'+
+    '<p class="help">'+(FRAMED?'إذا لم يعمل زر «تقويم الجوال» هنا، فافتحي التطبيق من رابط الموقع.':'يُضاف الموعد مع تذكير قبله بيوم'+(it.time?' وقبله بساعتين':'')+'.')+'</p>';
+}
+
+/* ---------- lists ---------- */
+function bagRows(gi){var k=BAGK[gi];
+  return BAG[gi].items.filter(function(x){return !state.bagHidden[x[0]];}).concat((state.bagCustom[k]||[]).map(function(x){return [x.id,x.t];}));}
+
+/* ---------- backup ---------- */
+function backupPanel(){
+  return '<section class="panel form" aria-labelledby="bkT"><h2 id="bkT" class="section-title">'+ic('download')+'النسخة الاحتياطية</h2>'+
+    '<p class="muted" style="font-size:var(--fs-sm)">بياناتكِ محفوظة في هذا المتصفح فقط. احفظي نسخة احتياطية من وقت لآخر، واستخدميها لنقل بياناتكِ إلى جهاز آخر.</p>'+
+    '<p class="help tnum">'+(state.lastBackup!=null?'آخر نسخة: '+fmt(state.lastBackup,{wd:true}):'لم تحفظي نسخة احتياطية بعد.')+'</p>'+
+    '<div class="form-actions"><button class="btn btn-primary" data-action="backup-download">'+ic('download','i-sm')+'حفظ ملف النسخة</button><button class="btn btn-ghost" data-action="backup-copy">'+ic('copy','i-sm')+'نسخ البيانات</button></div>'+
+    '<textarea class="input" id="bkOut" readonly hidden aria-label="بيانات النسخة الاحتياطية"></textarea>'+
+    '<div class="form-actions"><button class="btn btn-ghost" data-action="backup-pick">'+ic('upload','i-sm')+'استرجاع من ملف</button><input type="file" id="bkFile" accept="application/json,.json,text/plain" hidden></div>'+
+    '<details class="paste"><summary>لصق نسخة منسوخة</summary><label class="sr" for="bkPaste">الصقي بيانات النسخة هنا</label><textarea class="input" id="bkPaste" placeholder="الصقي بيانات النسخة هنا"></textarea><button class="btn btn-ghost" style="align-self:flex-start" data-action="backup-paste">'+ic('upload','i-sm')+'استرجاع</button></details>'+
+    (FRAMED?'<p class="help">حفظ الملف لا يعمل داخل هذه المعاينة. استخدمي «نسخ البيانات»، أو افتحي التطبيق من رابط الموقع.</p>':'')+'</section>';
+}
+function backupJSON(){return JSON.stringify({app:'masar-alhaml',version:2,exported:new Date().toISOString(),state:state});}
+function confirmDlg(title,desc,okTxt,danger,fn){
+  document.getElementById('rdTitle').textContent=title;document.getElementById('rdDesc').textContent=desc;
+  var b=document.getElementById('dlgOk');b.className='btn '+(danger?'btn-danger':'btn-primary');b.innerHTML=ic(danger?'trash':'upload','i-sm')+okTxt;
+  dlgFn=fn;openLayerEl(rd);
+}
+function resetAll(){
+  try{localStorage.removeItem(KEY);}catch(err){}
+  var r0=referenceDay(DEFAULT_SETTINGS,null);
+  state=normalize({settings:Object.assign({},DEFAULT_SETTINGS),theme:'system',items:seedItems(r0.ref),checks:{}});
+  applyTheme('system');calView=null;calSel=null;editing=null;formOpen=false;logDate=null;exportOpen=null;
+  save();render(false);toast('تم مسح البيانات وإعادة الإعدادات الافتراضية');
+}
+function importText(txt){
+  var obj=null;try{obj=JSON.parse(txt);}catch(err){obj=null;}
+  var st=obj&&obj.state?obj.state:obj;
+  if(!st||typeof st!=='object'||!st.settings||typeof st.settings!=='object'){toast('تعذّر قراءة النسخة. تأكدي أنها نسخة احتياطية من مسار الحمل.');return;}
+  var when=obj.exported&&isoToDay(String(obj.exported).slice(0,10))!=null?' المحفوظة في '+fmt(isoToDay(String(obj.exported).slice(0,10))):'';
+  confirmDlg('استرجاع النسخة الاحتياطية؟','ستُستبدل البيانات الحالية على هذا الجهاز بالبيانات الموجودة في النسخة'+when+'.','استرجاع البيانات',false,function(){
+    state=normalize(st);applyTheme(state.theme);calView=null;calSel=null;editing=null;formOpen=false;logDate=null;exportOpen=null;
+    save();render(false);toast('تم استرجاع البيانات');});
+}
+
+/* ---------- feature events ---------- */
+function undoable(msg,restore){toast(msg,'تراجع',function(){restore();save();render(false);toast('تمت الاستعادة');});}
+function featureAction(act,a,e){
+  var id=a.getAttribute('data-id');
+  switch(act){
+    case 'go-tool':state.toolTab=a.getAttribute('data-tool');save();if(cur==='tools'){render(false);}else location.hash='tools';break;
+    case 'tool-tab':state.toolTab=a.getAttribute('data-tool');save();render(false);var tb=document.querySelector('.tp[data-tool="'+state.toolTab+'"]');if(tb)tb.focus({preventScroll:true});break;
+    case 'kick-start':state.kickActive={start:Date.now(),count:0};save();render(false);focusId('kickBtn');break;
+    case 'kick-tap':{if(!state.kickActive)break;state.kickActive.count++;save();vibrate();
+      var kc=document.getElementById('kickCount');if(kc)kc.textContent=state.kickActive.count;a.setAttribute('aria-label','سجّلي حركة، العدد الحالي '+state.kickActive.count);
+      var kl=document.getElementById('kickLive');if(kl)kl.textContent=countAr(state.kickActive.count,MOV_F);break;}
+    case 'kick-stop':{var k=state.kickActive;if(!k)break;state.kickActive=null;var end=Date.now();
+      if(k.count>0){state.kicks.push({id:uid(),start:k.start,end:end,count:k.count});toast('حُفظت الجلسة: '+countAr(k.count,MOV_F)+' خلال '+durText(end-k.start));}
+      else toast('لم تُسجَّل أي حركة، فلم تُحفظ الجلسة.');
+      save();render(false);focusId('kickBtn');break;}
+    case 'kick-cancel':state.kickActive=null;save();render(false);focusId('kickBtn');toast('أُلغيت الجلسة');break;
+    case 'kick-del':{var ki=state.kicks.findIndex(function(x){return x.id===id;});if(ki<0)break;var kd=state.kicks.splice(ki,1)[0];save();render(false);undoable('حُذفت الجلسة',function(){state.kicks.push(kd);});break;}
+    case 'contr-toggle':
+      if(state.contrActive){state.contr.push({id:uid(),s:state.contrActive,e:Date.now()});state.contrActive=null;}
+      else state.contrActive=Date.now();
+      vibrate();save();render(false);focusId('contrBtn');break;
+    case 'contr-del':{var ci=state.contr.findIndex(function(x){return x.id===id;});if(ci<0)break;var cd=state.contr.splice(ci,1)[0];save();render(false);undoable('حُذفت الانقباضة',function(){state.contr.push(cd);});break;}
+    case 'contr-clear':{var old=state.contr.slice();state.contr=[];state.contrActive=null;save();render(false);undoable('مُسح سجل الانقباضات',function(){state.contr=old;});break;}
+    case 'weight-del':{var dt=a.getAttribute('data-date'),wi=state.weights.findIndex(function(x){return x.date===dt;});if(wi<0)break;var wd=state.weights.splice(wi,1)[0];save();render(false);undoable('حُذفت القراءة',function(){state.weights.push(wd);});break;}
+    case 'sym':{var d=curLogDate(),en=state.logs[d]||{},sy=(en.sym||[]).slice(),kk=a.getAttribute('data-k'),ix=sy.indexOf(kk);
+      if(ix>=0)sy.splice(ix,1);else sy.push(kk);a.setAttribute('aria-pressed',String(ix<0));setLog(d,{sym:sy});updateLogHist();break;}
+    case 'log-open':logDate=a.getAttribute('data-date');render(false);var ld=document.getElementById('logDate');if(ld){ld.scrollIntoView({block:'center',behavior:reduceMotion?'auto':'smooth'});ld.focus({preventScroll:true});}break;
+    case 'cal-export':exportOpen=exportOpen===id?null:id;render(false);var ce=document.querySelector('[data-action="cal-export"][data-id="'+id+'"]');if(ce)ce.focus({preventScroll:true});break;
+    case 'bag-remove':{var g=a.getAttribute('data-g'),arr=state.bagCustom[g]||[],bi=arr.findIndex(function(x){return x.id===id;}),name=a.getAttribute('aria-label');
+      if(bi>=0){var bd=arr.splice(bi,1)[0];state.bagCustom[g]=arr;save();render(false);undoable('أُزيل «'+bd.t+'»',function(){(state.bagCustom[g]=state.bagCustom[g]||[]).splice(bi,0,bd);});}
+      else{state.bagHidden[id]=true;save();render(false);undoable('أُزيل من القائمة',function(){delete state.bagHidden[id];});}
+      break;}
+    case 'bag-restore':{var gk=a.getAttribute('data-g'),gi=BAGK.indexOf(gk);if(gi>=0)BAG[gi].items.forEach(function(x){delete state.bagHidden[x[0]];});save();render(false);toast('أُعيدت الأغراض المحذوفة');break;}
+    case 'copy-num':{var num=a.getAttribute('data-num');
+      if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(num).then(function(){toast('تم نسخ الرقم');},function(){toast('تعذّر النسخ، انسخي الرقم من الحقل.');});
+      else toast('تعذّر النسخ، انسخي الرقم من الحقل.');break;}
+    case 'backup-download':
+      if(FRAMED){toast('حفظ الملف لا يعمل داخل هذه المعاينة. استخدمي «نسخ البيانات».');break;}
+      try{var blob=new Blob([backupJSON()],{type:'application/json'}),u=URL.createObjectURL(blob),an=document.createElement('a');
+        an.href=u;an.download='masar-alhaml-'+todayISO()+'.json';document.body.appendChild(an);an.click();an.remove();setTimeout(function(){URL.revokeObjectURL(u);},3000);
+        state.lastBackup=todayDay();save();render(false);toast('تم حفظ ملف النسخة الاحتياطية');}catch(err){toast('تعذّر حفظ الملف. جرّبي «نسخ البيانات».');}
+      break;
+    case 'backup-copy':{var txt=backupJSON();
+      function fallback(){var o=document.getElementById('bkOut');if(o){o.hidden=false;o.value=txt;o.focus();o.select();}toast('حدّدنا البيانات لكِ، انسخيها يدويًا.');}
+      if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(function(){state.lastBackup=todayDay();save();render(false);toast('تم نسخ البيانات. الصقيها في ملاحظة أو رسالة لنفسكِ لحفظها.');},fallback);
+      else fallback();break;}
+    case 'backup-pick':var bf=document.getElementById('bkFile');if(bf)bf.click();break;
+    case 'backup-paste':{var bp=document.getElementById('bkPaste');if(!bp||!bp.value.trim()){toast('الصقي بيانات النسخة أولًا.');if(bp)bp.focus();break;}importText(bp.value);break;}
+  }
+}
+function featureSubmit(f){
+  if(f.id==='weightForm'){
+    var kg=parseFloat(document.getElementById('wKg').value),dt=document.getElementById('wDate').value,er=document.getElementById('eW'),inp=document.getElementById('wKg');
+    var msg=isoToDay(dt)==null?'اختاري تاريخًا صحيحًا.':((isNaN(kg)||kg<30||kg>250)?'اكتبي الوزن بالكيلوغرام، مثل 65.5':'');
+    if(msg){er.innerHTML=ic('alert','i-sm')+'<span>'+msg+'</span>';inp.setAttribute('aria-invalid','true');inp.focus();return true;}
+    var ex=state.weights.find(function(x){return x.date===dt;});
+    if(ex)ex.kg=Math.round(kg*10)/10;else state.weights.push({date:dt,kg:Math.round(kg*10)/10});
+    save();render(false);toast(ex?'تم تحديث وزن هذا اليوم':'تم حفظ الوزن');focusId('wKg');return true;
+  }
+  if(f.classList&&f.classList.contains('inline-add')){
+    var g=f.getAttribute('data-g'),inp2=f.querySelector('input'),t=inp2.value.trim();
+    if(!t){inp2.focus();return true;}
+    (state.bagCustom[g]=state.bagCustom[g]||[]).push({id:'c'+uid(),t:t});save();render(false);toast('أُضيف «'+t+'»');focusId('add-'+g);return true;
+  }
+  return false;
+}
+function featureChange(t){
+  if(t.name==='kind'){var qf=document.getElementById('qField');if(qf)qf.hidden=t.value!=='appt';return true;}
+  if(t.name==='mood'){setLog(curLogDate(),{mood:t.value});updateLogHist();return true;}
+  if(t.id==='logNote'){clearTimeout(noteTimer);setLog(curLogDate(),{note:t.value.trim()});updateLogHist();return true;}
+  if(t.id==='logDate'){logDate=isoToDay(t.value)!=null?t.value:null;render(false);focusId('logDate');return true;}
+  if(t.id==='wPre'){var v=t.value.trim(),n=parseFloat(v);if(v===''||(n>=30&&n<=250)){state.preWeight=v===''?'':Math.round(n*10)/10;save();render(false);}else toast('اكتبي الوزن بالكيلوغرام بين 30 و250.');return true;}
+  if(t.getAttribute&&t.getAttribute('data-contact')){state.contacts[t.getAttribute('data-contact')]=t.value.trim();save();render(false);return true;}
+  if(t.getAttribute&&t.getAttribute('data-q')){var pr=t.getAttribute('data-q').split('|'),it=state.items.find(function(x){return x.id===pr[0];});
+    if(it&&it.qs[+pr[1]]){it.qs[+pr[1]].done=t.checked;save();var keep=t.id;render(false);focusId(keep);}return true;}
+  if(t.id==='bkFile'){var file=t.files&&t.files[0];if(!file)return true;var rdr=new FileReader();rdr.onload=function(){importText(String(rdr.result||''));};rdr.onerror=function(){toast('تعذّرت قراءة الملف.');};rdr.readAsText(file);t.value='';return true;}
+  return false;
+}
+
 /* ---------- router ---------- */
 function render(focus){
   var c=ctx();
@@ -1147,6 +1615,8 @@ function render(focus){
     case 'notes':html=renderNotes(c);break;
     case 'lists':html=renderLists(c);break;
     case 'prefs':html=renderPrefs();break;
+    case 'tools':html=renderTools(c);break;
+    case 'urgent':html=renderUrgent();break;
     default:html=renderHome(c);
   }
   viewEl.innerHTML=html;
@@ -1159,6 +1629,8 @@ function render(focus){
   var vv=viewById(cur);document.title=(cur==='home'?'':vv.t+' - ')+'مسار الحمل';
   lastDay=c.today;
   firstRender=false;
+  startTick();
+  if(cur==='tools'&&toolTab(c)==='weight')drawWeightChart();
 }
 function route(){
   var id=(location.hash||'').replace('#','');
@@ -1312,14 +1784,10 @@ document.addEventListener('click',function(e){
     case 'cycle-dec':case 'cycle-inc':{
       var inp=document.getElementById('pCycle'),v=parseInt(inp.value,10);if(isNaN(v))v=28;
       v=Math.max(21,Math.min(40,v+(act==='cycle-inc'?1:-1)));inp.value=v;updatePreview(true);break;}
-    case 'reset-open':openLayerEl(rd);break;
-    case 'reset-cancel':closeLayer();break;
-    case 'reset-confirm':
-      try{localStorage.removeItem(KEY);}catch(err){}
-      var r0=referenceDay(DEFAULT_SETTINGS,null);
-      state={settings:Object.assign({},DEFAULT_SETTINGS),theme:'system',items:seedItems(r0.ref),checks:{}};
-      applyTheme('system');calView=null;calSel=null;editing=null;formOpen=false;
-      closeLayer();save();render(false);toast('تم مسح البيانات وإعادة الإعدادات الافتراضية');break;
+    case 'reset-open':confirmDlg('مسح كل البيانات؟','سيُحذف تاريخ الحمل والمواعيد والملاحظات وسجلات الأدوات وحالة القوائم والأرقام المحفوظة من هذا الجهاز، وتعود الإعدادات الافتراضية. لا يمكن التراجع عن هذه الخطوة.','مسح البيانات',true,resetAll);break;
+    case 'reset-cancel':dlgFn=null;closeLayer();break;
+    case 'dlg-ok':{var fn=dlgFn;dlgFn=null;closeLayer(true);if(fn)fn();break;}
+    default:featureAction(act,a,e);
   }
 });
 scrim.addEventListener('click',closeLayer);
@@ -1336,12 +1804,13 @@ document.addEventListener('submit',function(e){
     if(!title){ok=false;eT.innerHTML=ic('alert','i-sm')+'<span>اكتبي عنوانًا قصيرًا للتعرّف عليه لاحقًا.</span>';f.title.setAttribute('aria-invalid','true');first=first||f.title;}
     if(isoToDay(date)==null){ok=false;eD.innerHTML=ic('alert','i-sm')+'<span>اختاري تاريخًا صحيحًا.</span>';f.date.setAttribute('aria-invalid','true');first=first||f.date;}
     if(!ok){first.focus();return;}
-    if(editing){var it=state.items.find(function(i){return i.id===editing;});if(it){it.kind=kind;it.title=title;it.date=date;it.time=time;it.body=body;delete it.example;}}
-    else state.items.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),kind:kind,title:title,date:date,time:time,body:body});
+    if(editing){var it=state.items.find(function(i){return i.id===editing;});if(it){it.kind=kind;it.title=title;it.date=date;it.time=time;it.body=body;it.qs=kind==='appt'?parseQs(f,it.qs):[];delete it.example;}}
+    else state.items.push({id:uid(),kind:kind,title:title,date:date,time:time,body:body,qs:kind==='appt'?parseQs(f,[]):[]});
     var wasEdit=!!editing; editing=null;formOpen=false;formPrefill=null;save();render(false);
     var ab=document.getElementById('addBtn');if(ab)ab.focus();
     toast(wasEdit?'تم حفظ التعديلات':(kind==='appt'?'تمت إضافة الموعد':'تمت إضافة الملاحظة'));
   }
+  if(featureSubmit(f))return;
   if(f.id==='prefsForm'){
     var r=updatePreview(true);
     if(!r.ok){var k=Object.keys(r.errors)[0],el=document.getElementById(INPUT_MAP[k]);if(el)el.focus();return;}
@@ -1357,10 +1826,12 @@ document.addEventListener('input',function(e){
   var t=e.target;
   if(t.closest&&t.closest('#prefsForm'))updatePreview(false);
   if(t.id&&document.getElementById(t.id+'Echo'))echoDate(t.id);
+  if(t.id==='logNote'){clearTimeout(noteTimer);var nv=t.value;noteTimer=setTimeout(function(){setLog(curLogDate(),{note:nv.trim()});updateLogHist();},400);}
 });
 document.addEventListener('change',function(e){
   var t=e.target;
   if(t.closest&&t.closest('#prefsForm')&&t.name!=='mode'){updatePreview(true);}
+  if(featureChange(t))return;
   if(t.matches('[data-check]')){state.checks[t.getAttribute('data-check')]=t.checked;save();
     var keep=t.id;render(false);var el=document.getElementById(keep);if(el)el.focus({preventScroll:true});return;}
   if(t.name==='theme'){state.theme=t.value;applyTheme(t.value);save();toast(t.value==='system'?'المظهر يتبع إعداد الجهاز':(t.value==='dark'?'تم تفعيل المظهر الداكن':'تم تفعيل المظهر الفاتح'));return;}
