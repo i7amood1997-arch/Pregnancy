@@ -542,6 +542,36 @@ h1,h2,h3{font-weight:600}
 details.paste summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--accent);font-weight:500}
 details.paste[open]{display:flex;flex-direction:column;gap:var(--s2)}
 
+/* ---------- v5: calmer layout ---------- */
+.fold>summary{list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;cursor:pointer;color:var(--accent);font-weight:500;font-size:var(--fs-sm);width:max-content;max-width:100%}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform 160ms ease}
+.fold[open]>summary::after{transform:translateY(2px) rotate(-135deg)}
+.fold[open]{display:flex;flex-direction:column;gap:var(--s3)}
+.hero-meta{color:var(--ink-2);font-size:var(--fs-sm)}
+.baby .meta-line{color:var(--ink-2);font-size:var(--fs-sm)}
+.baby .tip-line{display:flex;gap:10px;align-items:flex-start;padding-top:var(--s3);border-top:1px solid var(--line);line-height:1.75}
+.baby .tip-line .i{color:var(--t2);margin-top:3px}
+.home-grid.calm{align-items:start}
+.home-foot{display:flex;flex-direction:column;gap:var(--s3)}
+.urgent-link{min-height:48px;font-weight:500;font-size:var(--fs-sm)}
+.tool-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:4px;border-radius:14px;background:var(--surface-2)}
+.tt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:56px;padding:4px;border:0;border-radius:10px;background:transparent;color:var(--ink-2);font-size:var(--fs-xs);font-weight:500;transition:background-color 160ms ease,color 160ms ease}
+.tt .i{width:20px;height:20px}
+.tt[aria-pressed="true"]{background:var(--bg);color:var(--accent);box-shadow:0 1px 3px rgb(0 0 0 / .12)}
+.tool{gap:var(--s4)}
+.tool-hint{text-align:center;color:var(--ink-3);font-size:var(--fs-sm)}
+.inline-form{display:flex;gap:var(--s2);align-items:flex-start}
+.inline-form .field{flex:1;min-width:0}
+.stat-row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.item-acts{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s2)}
+.item-acts .btn{min-height:40px;padding:0 12px}
+.item .acts .icon-btn[aria-expanded="true"]{background:var(--surface-2);color:var(--ink)}
+details.qs{margin-top:var(--s2);padding:0 var(--s3)}
+details.qs>summary{min-height:40px;color:var(--ink-2);font-size:var(--fs-xs);font-weight:600}
+.list-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s2)}
+.danger-link{align-self:flex-start;color:var(--danger)!important}
+
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
   .sheet,.sheet.open,.dialog,.dialog.open,.toast,.toast.on{transition:opacity 160ms ease,visibility 0s!important}
@@ -993,49 +1023,27 @@ function renderHome(c){
   h+='<section class="hero" aria-labelledby="gaTitle">'+
     '<div class="ring-box">'+ringSVG(c)+'<div class="ring-center"><span class="lbl">الأسبوع</span><span class="big">'+c.week+'</span><span class="sub tnum">'+(c.ga<TERM?(c.ga+' من 280 يومًا'):'اكتملت 280 يومًا')+'</span></div></div>'+
     '<div class="hero-text"><div><p class="muted" style="font-size:var(--fs-sm)">عمر حملكِ اليوم</p><h1 id="gaTitle" class="tnum">'+gaLine+'</h1></div>'+
-    '<div class="hero-chips"><span class="chip accent">'+ic('grid','i-sm')+'الأسبوع '+c.week+'</span><span class="chip">الشهر '+ORD_AR[c.month-1]+'</span><span class="chip t'+tri+'">'+TRI_AR[tri-1]+'</span></div>'+
+    '<p class="hero-meta">الأسبوع '+c.week+'، الشهر '+ORD_AR[c.month-1]+'، '+TRI_AR[tri-1]+'</p>'+
     '<dl class="facts"><div><dt>موعد الولادة المتوقع</dt><dd class="tnum">'+fmt(c.edd,{wd:true})+'<span class="h">'+hijri(c.edd)+'</span></dd></div>'+
     '<div><dt>المتبقي على الموعد</dt><dd><span class="big-n tnum">'+leftTxt+'</span>'+(leftSub?'<span class="h">'+leftSub+'</span>':'')+'</dd></div></dl></div></section>';
 
-  // baby + tip
-  var babyHTML;
-  if(!W[0]){
-    babyHTML='<div class="baby"><h2 class="section-title">حجم الجنين هذا الأسبوع</h2><p class="lead">لم يتكوّن الجنين بعد في هذا الأسبوع.</p><p class="muted">يُحسب الحمل من أول يوم في آخر دورة، ويبدأ الإخصاب عادة قرب نهاية الأسبوع الثاني.</p></div>';
-  }else{
-    var cm=LEN_CM[wk], pct=Math.max(1,cm/52*100);
-    babyHTML='<div class="baby"><h2 class="section-title">حجم الجنين هذا الأسبوع</h2>'+
-      '<p class="lead">بحجم <em>'+W[0]+'</em> تقريبًا</p>'+
-      '<div class="measures"><span class="measure">'+ic('ruler','i-sm')+'الطول <b class="tnum">'+W[1]+'</b></span>'+(W[2]?'<span class="measure">'+ic('weight','i-sm')+'الوزن <b class="tnum">'+W[2]+'</b></span>':'')+'</div>'+
-      '<div class="ruler" aria-hidden="true"><div class="ruler-track"><span class="ruler-fill" style="width:100%;transform:scaleX('+(pct/100).toFixed(3)+')"></span></div>'+
-      '<div class="ruler-ticks tnum"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50 سم</span></div></div>'+
-      '<p class="ruler-cap">'+(wk<20?'يُقاس الطول حتى الأسبوع 19 من الرأس إلى المقعدة.':'يُقاس الطول من الرأس إلى الكعب.')+'</p>'+
-      '<button class="btn btn-ghost" style="align-self:flex-start" data-action="open-week" data-week="'+wk+'">تفاصيل الأسبوع '+wk+ic('chev','i-sm flip')+'</button></div>';
-  }
-  var tips=W[4];
-  var tipHTML='<div class="tip"><span class="tip-h">'+ic('bulb','i-sm')+'نصيحة الأسبوع</span><p>'+tips[0]+'</p>'+
-    (tips.length>1?'<ul class="more">'+tips.slice(1).map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>':'')+'</div>';
-
-  // milestones timeline
-  var ms=milestones(c.ref).map(function(m){
-    var end=m.b!=null?m.b:m.a, stt=c.today>end?'done':(c.today>=m.a?'now':'up');
-    var when=stt==='done'?'تمّ':(stt==='now'?(m.b!=null?'الآن':'اليوم'):inDays(m.a-c.today));
-    var dates=m.b!=null?fmtRange(m.a,m.b):fmt(m.a,{wd:true});
-    return '<li class="tl '+stt+'"><span class="dot">'+(stt==='done'?ic('check','i-sm'):ic('flag','i-sm'))+'</span><div><p class="t">'+m.t+'</p><p class="d tnum">'+dates+'</p><p class="d">'+m.d+(m.b==null?'، '+hijri(m.a):'')+'</p></div><span class="when">'+when+'</span></li>';
-  }).join('');
-
-  h+=weekNowHTML(c);
-  h+='<div class="home-grid">'+babyHTML+tipHTML+'</div>'+
-    '<div class="home-grid"><section aria-labelledby="msT"><h2 id="msT" class="section-title" style="margin-bottom:var(--s3)">محطات الحمل</h2><ol class="timeline">'+ms+'</ol></section>'+
-    '<div style="display:flex;flex-direction:column;gap:var(--s4)"><a class="urgent-link" href="#urgent">'+ic('aid')+'<span>متى أراجع الطبيبة فورًا؟</span>'+ic('chev','flip chev')+'</a>'+disclaimer()+'</div></div>';
+  // one calm card: size + tip
+  var babyHTML='<section class="baby" aria-labelledby="bbT"><h2 id="bbT" class="section-title">جنينكِ هذا الأسبوع</h2>';
+  if(!W[0])babyHTML+='<p class="lead">لم يتكوّن الجنين بعد.</p><p class="meta-line">يُحسب الحمل من أول يوم في آخر دورة، ويبدأ الإخصاب عادةً قرب نهاية الأسبوع الثاني.</p>';
+  else babyHTML+='<p class="lead">بحجم <em>'+W[0]+'</em> تقريبًا</p><p class="meta-line tnum">الطول '+W[1]+(W[2]?'، والوزن '+W[2]:'')+'</p>';
+  babyHTML+='<p class="tip-line">'+ic('bulb','i-sm')+'<span>'+W[4][0]+'</span></p>'+
+    '<button class="btn btn-ghost" style="align-self:flex-start" data-action="open-week" data-week="'+wk+'">تفاصيل الأسبوع '+wk+ic('chev','i-sm flip')+'</button></section>';
+  h+='<div class="home-grid calm">'+weekNowHTML(c)+babyHTML+'</div>';
+  h+='<div class="home-foot"><a class="urgent-link" href="#urgent">'+ic('aid')+'<span>متى أراجع الطبيبة فورًا؟</span>'+ic('chev','flip chev')+'</a>'+disclaimer()+'</div>';
   return '<div class="view">'+h+'</div>';
 }
 
 /* ---------- weeks ---------- */
 function renderWeeks(c){
   var g=guardHTML(c);
-  var head=subW()+'<div class="view-head"><h1>الأسابيع</h1><p>اختاري أي أسبوع لمعرفة حجم الجنين وتطوره ونصائح لكِ. استخدمي الأسهم أو السحب للتنقل بين الأسابيع.</p></div>';
+  var head=subW()+'<div class="view-head"><h1>الأسابيع</h1></div>';
   if(g)return '<div class="view">'+head+g+'</div>';
-  var out=head+'<div class="legend" aria-hidden="true"><span><i style="background:var(--t1-soft)"></i>مضى</span><span><i style="background:var(--accent);border-color:var(--accent)"></i>الأسبوع الحالي</span><span><i style="background:var(--surface)"></i>قادم</span></div>';
+  var out=head+'<details class="fold"><summary>محطات الحمل</summary>'+msTimelineHTML(c)+'</details><div class="legend" aria-hidden="true"><span><i style="background:var(--t1-soft)"></i>مضى</span><span><i style="background:var(--accent);border-color:var(--accent)"></i>الأسبوع الحالي</span><span><i style="background:var(--surface)"></i>قادم</span></div>';
   TRIS.forEach(function(t,ti){
     var tr=triRange(c.ref,ti+1), cells='';
     for(var n=t[0];n<=t[1];n++){
@@ -1046,13 +1054,13 @@ function renderWeeks(c){
     }
     out+='<section class="tri-group" aria-labelledby="tri'+ti+'"><div class="tri-head"><h2 id="tri'+ti+'"><span class="sw" style="background:var(--t'+(ti+1)+')"></span>'+TRI_AR[ti]+'</h2><span class="r tnum">من الأسبوع '+t[0]+' إلى '+t[1]+'، '+fmtRange(tr[0],tr[1])+'</span></div><div class="week-grid">'+cells+'</div></section>';
   });
-  return '<div class="view">'+out+disclaimer()+'</div>';
+  return '<div class="view">'+out+'</div>';
 }
 
 /* ---------- months ---------- */
 function renderMonths(c){
   var g=guardHTML(c);
-  var head=subW()+'<div class="view-head"><h1>الأشهر</h1><p>تُقسَم الأسابيع الأربعون إلى تسعة أشهر، وينتهي الشهر التاسع بموعد الولادة المتوقع.</p></div>';
+  var head=subW()+'<div class="view-head"><h1>الأشهر</h1></div>';
   if(g)return '<div class="view">'+head+g+'</div>';
   var cards='';
   for(var i=1;i<=9;i++){
@@ -1064,7 +1072,7 @@ function renderMonths(c){
       '<p class="wr tnum">من الأسبوع '+m[0]+' إلى '+m[1]+'</p><p class="dr tnum">'+fmtRange(rg[0],rg[1])+'</p><p class="hj">'+hijri(rg[0])+' إلى '+hijri(rg[1])+'</p>'+
       (stt==='current'?'<div class="mprog" role="progressbar" aria-label="التقدم في الشهر الحالي" aria-valuenow="'+prog+'" aria-valuemin="0" aria-valuemax="100"><i style="width:'+prog+'%"></i></div>':'')+'</article>';
   }
-  return '<div class="view">'+head+'<div class="month-grid">'+cards+'</div>'+disclaimer()+'</div>';
+  return '<div class="view">'+head+'<div class="month-grid">'+cards+'</div></div>';
 }
 
 /* ---------- calendar ---------- */
@@ -1081,7 +1089,7 @@ function dayEvents(c,day){
   return ev;
 }
 function renderCalendar(c){
-  var head=subN()+'<div class="view-head"><h1>التقويم</h1><p>يظهر على التقويم بداية كل أسبوع حمل، والمحطات المهمة، ومواعيدكِ.</p></div>';
+  var head=subN()+'<div class="view-head"><h1>التقويم</h1></div>';
   if(!c.ok)return '<div class="view">'+head+guardHTML(c)+'</div>';
   if(!calView){var tp=dayParts(c.today);calView={y:tp.y,m:tp.m};}
   if(calSel==null)calSel=c.today;
@@ -1150,16 +1158,18 @@ function renderNotes(c){
     return '<li class="item'+(isPast?' past':'')+'">'+(p?'<div class="datebox"><b>'+p.d+'</b><span>'+MONTH_AR[p.m]+'</span></div>':'')+
       '<div class="body"><p class="title">'+esc(it.title)+(it.example?' <span class="chip example">مثال</span>':'')+'</p>'+
       '<p class="meta">'+(d!=null?'<span class="tnum">'+fmt(d,{wd:true})+'</span>':'')+(it.time?'<span class="tnum">'+ic('clock','i-sm')+fmtTime(it.time)+'</span>':'')+
-      (ga!=null&&ga>=0&&ga<=MAX_DAY?'<span>الأسبوع '+weekOfGA(ga)+'</span>':'')+'</p>'+(it.body?'<p class="txt">'+esc(it.body)+'</p>':'')+qsHTML(it)+exportHTML(it,isPast)+'</div>'+
-      '<div class="acts">'+(it.kind==='appt'&&!isPast?'<button class="icon-btn" data-action="cal-export" data-id="'+esc(it.id)+'" aria-expanded="'+(exportOpen===it.id)+'" aria-label="إضافة '+esc(it.title)+' إلى التقويم">'+ic('cal-plus')+'</button>':'')+'<button class="icon-btn" data-action="edit-item" data-id="'+esc(it.id)+'" aria-label="تعديل '+esc(it.title)+'">'+ic('edit')+'</button><button class="icon-btn" data-action="delete-item" data-id="'+esc(it.id)+'" aria-label="حذف '+esc(it.title)+'">'+ic('trash')+'</button></div></li>';
+      (ga!=null&&ga>=0&&ga<=MAX_DAY?'<span>الأسبوع '+weekOfGA(ga)+'</span>':'')+'</p>'+(it.body?'<p class="txt">'+esc(it.body)+'</p>':'')+qsHTML(it)+
+      (actsOpen===it.id?'<div class="item-acts">'+(it.kind==='appt'&&!isPast?'<button class="btn btn-ghost" data-action="cal-export" data-id="'+esc(it.id)+'" aria-expanded="'+(exportOpen===it.id)+'">'+ic('cal-plus','i-sm')+'إضافة للتقويم</button>':'')+
+        '<button class="btn btn-ghost" data-action="edit-item" data-id="'+esc(it.id)+'">'+ic('edit','i-sm')+'تعديل</button><button class="btn btn-ghost" style="color:var(--danger)" data-action="delete-item" data-id="'+esc(it.id)+'">'+ic('trash','i-sm')+'حذف</button></div>':'')+
+      exportHTML(it,isPast)+'</div>'+
+      '<div class="acts"><button class="icon-btn" data-action="item-opts" data-id="'+esc(it.id)+'" aria-expanded="'+(actsOpen===it.id)+'" aria-label="خيارات '+esc(it.title)+'">'+ic('dots')+'</button></div></li>';
   }
   function list(arr,isPast,emptyB,emptyT){
     return arr.length?'<ul class="items">'+arr.map(function(i){return row(i,isPast);}).join('')+'</ul>':'<div class="empty"><b>'+emptyB+'</b><span>'+emptyT+'</span></div>';
   }
   var hasEx=state.items.some(function(i){return i.example;});
-  var h=subN()+'<div class="notes-head"><div class="view-head"><h1>المواعيد والملاحظات</h1><p>دوّني مواعيد المتابعة وما تشعرين به. تُحفظ البيانات على هذا الجهاز فقط.</p></div>'+
+  var h=subN()+'<div class="notes-head"><div class="view-head"><h1>المواعيد والملاحظات</h1></div>'+
     '<button class="btn btn-primary" data-action="add-item" id="addBtn" aria-expanded="'+formOpen+'" aria-controls="itemForm">'+ic('plus','i-sm')+'إضافة</button></div>';
-  if(hasEx)h+='<p class="note">'+ic('info','i-sm')+'<span>العناصر الموسومة بكلمة «مثال» توضيحية فقط، يمكنكِ تعديلها أو حذفها.</span></p>';
   h+=formHTML();
   h+='<section><div class="sub-head"><h2>المواعيد القادمة</h2><span class="c tnum">'+up.length+'</span></div>'+list(up,false,'لا توجد مواعيد قادمة','اضغطي «إضافة» لتسجيل موعدكِ القادم مع الطبيبة.')+'</section>';
   h+='<section><div class="sub-head"><h2>الملاحظات</h2><span class="c tnum">'+notes.length+'</span></div>'+list(notes,false,'لا توجد ملاحظات بعد','سجّلي أول ركلة، أو سؤالًا تودين طرحه في الموعد القادم.')+'</section>';
@@ -1191,18 +1201,18 @@ function renderLists(c){
     return '<label class="check"><input type="checkbox" id="ck-'+id+'" data-check="'+id+'"'+(state.checks[id]?' checked':'')+'><span class="box">'+ic('check')+'</span><span class="lt"><span>'+label+'</span>'+(sub?'<small class="tnum">'+sub+'</small>':'')+'</span></label>';
   }
   function bar(done,total,label){var p=Math.round(done/total*100);return '<div class="count-bar"><span class="tnum">'+done+' من '+total+'</span><span class="track" role="progressbar" aria-label="'+label+'" aria-valuenow="'+done+'" aria-valuemin="0" aria-valuemax="'+total+'"><i style="width:'+p+'%"></i></span></div>';}
-  var bag='<section class="panel" aria-labelledby="bagT" style="display:flex;flex-direction:column;gap:var(--s3)"><h2 id="bagT" class="section-title">'+ic('bag')+'حقيبة المستشفى</h2><p class="muted" style="font-size:var(--fs-sm)">يُفضَّل تجهيزها بين الأسبوع 32 و36.</p>'+bar(bagDone,bagTotal,'تقدّم تجهيز الحقيبة')+
+  var bag='<section class="panel" aria-labelledby="bagT" style="display:flex;flex-direction:column;gap:var(--s3)"><div class="list-head"><h2 id="bagT" class="section-title">'+ic('bag')+'حقيبة المستشفى</h2><button class="btn btn-text" data-action="list-edit" aria-pressed="'+listEdit+'">'+(listEdit?'تم':'تعديل القائمة')+'</button></div><p class="muted" style="font-size:var(--fs-sm)">يُفضَّل تجهيزها بين الأسبوع 32 و36.</p>'+bar(bagDone,bagTotal,'تقدّم تجهيز الحقيبة')+
     BAG.map(function(g,gi){var k=BAGK[gi],hid=g.items.filter(function(x){return state.bagHidden[x[0]];}).length;
-      return '<div class="cl-group"><h3>'+g.g+'</h3>'+bagRows(gi).map(function(x){return '<div class="check-row">'+box(x[0],esc(x[1]))+'<button class="icon-btn" data-action="bag-remove" data-id="'+esc(x[0])+'" data-g="'+k+'" aria-label="إزالة '+esc(x[1])+' من القائمة">'+ic('x','i-sm')+'</button></div>';}).join('')+
-        '<form class="inline-add" data-g="'+k+'" novalidate><label class="sr" for="add-'+k+'">إضافة غرض إلى قائمة '+g.g+'</label><input class="input" id="add-'+k+'" maxlength="60" placeholder="أضيفي غرضًا"><button class="btn btn-ghost" type="submit">'+ic('plus','i-sm')+'إضافة</button></form>'+
-        (hid?'<button class="btn btn-text" style="align-self:flex-start" data-action="bag-restore" data-g="'+k+'">إظهار المحذوف ('+hid+')</button>':'')+'</div>';}).join('')+'</section>';
-  var ck='<section class="panel" aria-labelledby="ckT" style="display:flex;flex-direction:column;gap:var(--s3)"><h2 id="ckT" class="section-title">'+ic('steth')+'الفحوصات</h2><p class="muted" style="font-size:var(--fs-sm)">مواعيد تقريبية شائعة، وقد تختلف حسب طبيبتكِ وحالتكِ.</p>'+bar(ckDone,CHECKUPS.length,'تقدّم الفحوصات')+
+      return '<div class="cl-group"><h3>'+g.g+'</h3>'+bagRows(gi).map(function(x){return '<div class="check-row">'+box(x[0],esc(x[1]))+(listEdit?'<button class="icon-btn" data-action="bag-remove" data-id="'+esc(x[0])+'" data-g="'+k+'" aria-label="إزالة '+esc(x[1])+' من القائمة">'+ic('x','i-sm')+'</button>':'')+'</div>';}).join('')+
+        (listEdit?'<form class="inline-add" data-g="'+k+'" novalidate><label class="sr" for="add-'+k+'">إضافة غرض إلى قائمة '+g.g+'</label><input class="input" id="add-'+k+'" maxlength="60" placeholder="أضيفي غرضًا"><button class="btn btn-ghost" type="submit">'+ic('plus','i-sm')+'إضافة</button></form>'+
+        (hid?'<button class="btn btn-text" style="align-self:flex-start" data-action="bag-restore" data-g="'+k+'">إظهار المحذوف ('+hid+')</button>':''):'')+'</div>';}).join('')+'</section>';
+  var ck='<section class="panel" aria-labelledby="ckT" style="display:flex;flex-direction:column;gap:var(--s3)"><h2 id="ckT" class="section-title">'+ic('steth')+'الفحوصات</h2><p class="muted" style="font-size:var(--fs-sm)">مواعيد تقريبية، وقد تختلف حسب طبيبتكِ.</p>'+bar(ckDone,CHECKUPS.length,'تقدّم الفحوصات')+
     '<div class="cl-group">'+CHECKUPS.map(function(x){
       var sub=checkupWhen(x);
       var lbl=x.t;
       if(c.ok){var a=weekRange(c.ref,x.a)[0],b=weekRange(c.ref,x.b)[1];sub+='، '+fmtRange(a,b);if(c.today>=a&&c.today<=b)lbl+='<span class="chip accent chk-now">موعده الآن</span>';}
       return box(x.id,lbl,sub);}).join('')+'</div></section>';
-  return '<div class="view"><div class="view-head"><h1>القوائم</h1><p>علّمي ما أنجزتِه، وأضيفي أغراضكِ الخاصة أو احذفي ما لا تحتاجينه. يُحفظ كل شيء تلقائيًا على هذا الجهاز.</p></div><div class="lists-wrap">'+bag+ck+'</div></div>';
+  return '<div class="view"><div class="view-head"><h1>القوائم</h1></div><div class="lists-wrap">'+bag+ck+'</div></div>';
 }
 
 /* ---------- settings ---------- */
@@ -1210,7 +1220,7 @@ function renderPrefs(){
   var s=state.settings;
   function mode(v,t,sub){return '<label class="mode"><input type="radio" name="mode" id="mode-'+v+'" value="'+v+'"'+(s.mode===v?' checked':'')+'><span>'+t+'<small>'+sub+'</small></span></label>';}
   function th(v,t,i){return '<label><input type="radio" name="theme" id="theme-'+v+'" value="'+v+'"'+(state.theme===v?' checked':'')+'><span>'+ic(i,'i-sm')+t+'</span></label>';}
-  var h='<div class="view-head"><h1>الإعدادات</h1><p>غيّري طريقة حساب الحمل أو مظهر التطبيق. تُحفظ البيانات على هذا الجهاز فقط.</p></div><div class="prefs">'+
+  var h='<div class="view-head"><h1>الإعدادات</h1></div><div class="prefs">'+
   '<form class="panel form" id="prefsForm" novalidate><h2>بيانات الحمل</h2>'+
   '<fieldset class="field" style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:6px">طريقة الحساب</legend><div class="mode-cards">'+
     mode('lmp','آخر دورة شهرية','تاريخ أول يوم وطول الدورة')+mode('edd','موعد الولادة','إن كنتِ تعرفينه من الطبيبة')+mode('us','فحص السونار','تاريخ الفحص وعمر الحمل فيه')+'</div></fieldset>'+
@@ -1227,8 +1237,8 @@ function renderPrefs(){
   '<div style="display:flex;flex-direction:column;gap:var(--s5)">'+
   '<section class="panel" style="display:flex;flex-direction:column;gap:var(--s3)" aria-labelledby="thT"><h2 id="thT" class="section-title">المظهر</h2><div class="seg full" role="radiogroup" aria-labelledby="thT">'+th('system','تلقائي','device')+th('light','فاتح','sun')+th('dark','داكن','moon')+'</div></section>'+
   backupPanel()+
-  '<section class="panel danger-zone" style="display:flex;flex-direction:column;gap:var(--s3)" aria-labelledby="dzT"><h2 id="dzT" class="section-title">مسح البيانات</h2><p class="muted" style="font-size:var(--fs-sm)">يحذف كل ما حفظتِه على هذا الجهاز ويعيد الإعدادات الافتراضية.</p><button class="btn btn-ghost" style="align-self:flex-start;color:var(--danger);border-color:var(--danger)" data-action="reset-open" id="resetBtn">'+ic('reset','i-sm')+'مسح كل البيانات</button></section>'+
-  disclaimer()+'</div></div>';
+  '<button class="btn btn-text danger-link" data-action="reset-open" id="resetBtn">'+ic('reset','i-sm')+'مسح كل البيانات</button>'+
+  '</div></div>';
   return '<div class="view">'+h+'</div>';
 }
 function readPrefsForm(){
@@ -1261,7 +1271,7 @@ var FRAMED=(function(){try{return window.self!==window.top;}catch(err){return tr
 var MIN_F=['دقيقة واحدة','دقيقتان','دقائق','دقيقة','دقيقة','دقيقتين'];
 var MOV_F=['حركة واحدة','حركتان','حركات','حركة','حركة','حركتين'];
 var BAGK=['mom','baby','docs'];
-var exportOpen=null, logDate=null, noteTimer=null, tick=null, dlgFn=null;
+var actsOpen=null, qsOpen=null, listEdit=false, symMore=false, exportOpen=null, logDate=null, noteTimer=null, tick=null, dlgFn=null;
 function pad2(n){return String(n).padStart(2,'0');}
 function mmss(ms){ms=Math.max(0,ms);var x=Math.floor(ms/1000);return Math.floor(x/60)+':'+pad2(x%60);}
 function durText(ms){var m=Math.round(ms/60000);return m<1?'أقل من دقيقة':countAr(m,MIN_F);}
@@ -1275,25 +1285,29 @@ function subW(){return subtabs([['weeks','الأسابيع','grid'],['months','�
 function subN(){return subtabs([['notes','القائمة','clip'],['calendar','التقويم','cal']],'طريقة عرض المواعيد');}
 function hasUserData(){return state.items.some(function(i){return !i.example;})||Object.keys(state.logs).length>0||state.weights.length>0||state.kicks.length>0||state.contr.length>0;}
 function nextAppt(today){return state.items.filter(function(it){return it.kind==='appt'&&isoToDay(it.date)>=today;}).sort(function(a,b){return (a.date+(a.time||'')).localeCompare(b.date+(b.time||''));})[0];}
+function focusIn(sel){var el=document.querySelector(sel);if(el)el.focus({preventScroll:true});}
 function focusId(id){var el=document.getElementById(id);if(el)el.focus({preventScroll:true});}
 function vibrate(){try{if(navigator.vibrate)navigator.vibrate(12);}catch(err){}}
 
 /* ---------- home: this week ---------- */
+function msTimelineHTML(c){
+  return '<ol class="timeline">'+milestones(c.ref).map(function(m){
+    var end=m.b!=null?m.b:m.a, stt=c.today>end?'done':(c.today>=m.a?'now':'up');
+    var when=stt==='done'?'تمّ':(stt==='now'?(m.b!=null?'الآن':'اليوم'):inDays(m.a-c.today));
+    var dates=m.b!=null?fmtRange(m.a,m.b):fmt(m.a,{wd:true});
+    return '<li class="tl '+stt+'"><span class="dot">'+(stt==='done'?ic('check','i-sm'):ic('flag','i-sm'))+'</span><div><p class="t">'+m.t+'</p><p class="d tnum">'+dates+'</p></div><span class="when">'+when+'</span></li>';
+  }).join('')+'</ol>';
+}
 function weekNowHTML(c){
   var li=[];
-  CHECKUPS.forEach(function(x){var a=weekRange(c.ref,x.a)[0],b=weekRange(c.ref,x.b)[1];
-    if(c.today>=a&&c.today<=b&&!state.checks[x.id])li.push('<li>'+ic('steth')+'<span class="tx">'+x.t+'<small class="tnum">'+checkupWhen(x)+'، حتى '+fmt(b,{wd:true,y:false})+'</small></span><a class="btn btn-text" href="#lists">القائمة</a></li>');});
   var nx=nextAppt(c.today);
-  if(nx){var nd=isoToDay(nx.date);li.push('<li>'+ic('clock')+'<span class="tx">'+esc(nx.title)+(nx.example?' <span class="chip example">مثال</span>':'')+'<small class="tnum">'+fmt(nd,{wd:true})+(nx.time?'، '+fmtTime(nx.time):'')+'، '+(nd===c.today?'اليوم':inDays(nd-c.today))+'</small></span><a class="btn btn-text" href="#notes">المواعيد</a></li>');}
-  else li.push('<li>'+ic('clock')+'<span class="tx">لا يوجد موعد قادم<small>أضيفي موعد المتابعة القادم ليظهر هنا.</small></span><a class="btn btn-text" href="#notes" data-action="go-add">إضافة</a></li>');
-  if(!state.logs[todayISO()])li.push('<li>'+ic('mood')+'<span class="tx">لم تسجّلي يومكِ بعد<small>الأعراض والمزاج في ضغطات قليلة.</small></span><button class="btn btn-text" data-action="go-tool" data-tool="log">سجّلي</button></li>');
-  if(hasUserData()&&(state.lastBackup==null||c.today-state.lastBackup>30))li.push('<li class="warn">'+ic('download')+'<span class="tx">'+(state.lastBackup==null?'لا توجد نسخة احتياطية لبياناتكِ':'آخر نسخة احتياطية قبل أكثر من شهر')+'<small>البيانات محفوظة في هذا المتصفح فقط.</small></span><a class="btn btn-text" href="#prefs">احفظي نسخة</a></li>');
-  var q='<a class="qbtn" href="#notes" data-action="go-add">'+ic('plus')+'إضافة موعد</a>';
-  if(c.week>=28)q+='<button class="qbtn" data-action="go-tool" data-tool="kicks">'+ic('heart')+'عدّ الحركة</button>';
-  if(c.week>=36)q+='<button class="qbtn" data-action="go-tool" data-tool="contr">'+ic('timer')+'مؤقت الطلق</button>';
-  q+='<button class="qbtn" data-action="go-tool" data-tool="weight">'+ic('weight')+'تسجيل الوزن</button>';
-  q+='<button class="qbtn" data-action="go-tool" data-tool="log">'+ic('mood')+'سجل اليوم</button>';
-  return '<section class="week-now" aria-labelledby="wnT"><h2 id="wnT" class="section-title">هذا الأسبوع</h2><ul class="todo">'+li.join('')+'</ul><div class="quick">'+q+'</div></section>';
+  if(nx){var nd=isoToDay(nx.date);li.push('<li>'+ic('clock')+'<span class="tx">'+esc(nx.title)+(nx.example?' <span class="chip example">مثال</span>':'')+'<small class="tnum">'+fmt(nd,{wd:true,y:false})+(nx.time?'، '+fmtTime(nx.time):'')+'، '+(nd===c.today?'اليوم':inDays(nd-c.today))+'</small></span></li>');}
+  else li.push('<li>'+ic('clock')+'<span class="tx">لا يوجد موعد قادم</span><a class="btn btn-text" href="#notes" data-action="go-add">إضافة</a></li>');
+  var due=CHECKUPS.filter(function(x){var a=weekRange(c.ref,x.a)[0],b=weekRange(c.ref,x.b)[1];return c.today>=a&&c.today<=b&&!state.checks[x.id];})[0];
+  if(due){var db=weekRange(c.ref,due.b)[1];li.push('<li>'+ic('steth')+'<span class="tx">'+due.t+'<small class="tnum">موعده الآن، حتى '+fmt(db,{wd:true,y:false})+'</small></span></li>');}
+  var nm=milestones(c.ref).filter(function(m){return (m.b!=null?m.b:m.a)>=c.today;})[0];
+  if(nm&&li.length<3){var now=c.today>=nm.a;li.push('<li>'+ic('flag')+'<span class="tx">'+nm.t+'<small class="tnum">'+(now?(nm.b!=null?'الآن، حتى '+fmt(nm.b,{wd:true,y:false}):'اليوم'):fmt(nm.a,{wd:true,y:false})+'، '+inDays(nm.a-c.today))+'</small></span></li>');}
+  return '<section class="week-now" aria-labelledby="wnT"><h2 id="wnT" class="section-title">القادم</h2><ul class="todo">'+li.join('')+'</ul></section>';
 }
 
 /* ---------- tools ---------- */
@@ -1308,10 +1322,10 @@ function curWeek(c){return c.ok&&c.status!=='before'?c.week:0;}
 function toolTab(c){var w=curWeek(c);return state.toolTab||(w>=36?'contr':(w>=28?'kicks':'log'));}
 function renderTools(c){
   var w=curWeek(c),tab=toolTab(c);
-  var pick='<div class="tool-pick" role="group" aria-label="اختاري الأداة">'+TOOLS.map(function(t){
-    return '<button class="tp" data-action="tool-tab" data-tool="'+t.id+'" aria-pressed="'+(t.id===tab)+'">'+ic(t.i)+'<span>'+t.t+'</span><small>'+(w&&w<t.from?t.later:t.d)+'</small></button>';}).join('')+'</div>';
+  var pick='<div class="tool-tabs" role="group" aria-label="اختاري الأداة">'+TOOLS.map(function(t){
+    return '<button class="tt" data-action="tool-tab" data-tool="'+t.id+'" aria-pressed="'+(t.id===tab)+'">'+ic(t.i)+'<span>'+t.t+'</span></button>';}).join('')+'</div>';
   var body=tab==='kicks'?kicksHTML(w):(tab==='contr'?contrHTML(w):(tab==='weight'?weightHTML(c):logHTML()));
-  return '<div class="view view-tools"><div class="view-head"><h1>الأدوات</h1><p>أدوات بسيطة للمتابعة اليومية. تُحفظ البيانات على هذا الجهاز فقط.</p></div>'+pick+
+  return '<div class="view view-tools"><div class="view-head"><h1>الأدوات</h1></div>'+pick+
     '<section class="tool" aria-label="'+toolById(tab).t+'">'+body+'</section></div>';
 }
 function startTick(){
@@ -1331,35 +1345,35 @@ function kicksHTML(w){
     h+='<button class="big-tap" id="kickBtn" data-action="kick-tap" aria-label="سجّلي حركة، العدد الحالي '+a.count+'"><b id="kickCount">'+a.count+'</b><span>اضغطي مع كل حركة</span></button>'+
       '<p class="muted tnum" style="text-align:center">مدة الجلسة <span id="kickTimer">'+mmss(Date.now()-a.start)+'</span></p><p class="sr" aria-live="polite" id="kickLive"></p>'+
       '<div class="form-actions" style="justify-content:center"><button class="btn btn-primary" data-action="kick-stop">'+ic('check','i-sm')+'إنهاء وحفظ</button><button class="btn btn-ghost" data-action="kick-cancel">إلغاء الجلسة</button></div>';
-  }else h+='<button class="big-tap" id="kickBtn" data-action="kick-start">'+ic('heart')+'<span>ابدئي العدّ</span></button>';
-  h+='<div class="banner" role="note">'+ic('alert')+'<span>إذا لاحظتِ قلة واضحة في الحركة أو تغيّرًا في نمطها فتواصلي مع طبيبتكِ أو الطوارئ فورًا، ولا تنتظري لليوم التالي. <a href="#urgent">علامات الطوارئ</a></span></div>';
-  h+='<div class="panel tool-guide"><h2 class="section-title">كيف أعدّ الحركة؟</h2>'+liList(['اختاري وقتًا يكون فيه جنينكِ نشطًا عادةً، مثل بعد الأكل أو في المساء.','استلقي على جانبكِ أو اجلسي بارتياح، وركّزي على الحركة.','اضغطي الزر مع كل حركة: ركلة أو تقلّب أو رفرفة.','يستخدم كثير من الأطباء الوصول إلى 10 حركات مرجعًا، والأهم أن تعرفي النمط المعتاد لجنينكِ.'])+'</div>';
-  var ks=state.kicks.slice().sort(function(x,y){return y.start-x.start;}).slice(0,10);
-  h+='<section><div class="sub-head"><h2>الجلسات السابقة</h2><span class="c tnum">'+state.kicks.length+'</span></div>'+(ks.length?'<ul class="hist">'+ks.map(function(k){
+  }else h+='<button class="big-tap" id="kickBtn" data-action="kick-start">'+ic('heart')+'<span>ابدئي العدّ</span></button><p class="tool-hint">اضغطي مع كل ركلة أو تقلّب أو رفرفة.</p>';
+  h+=noteBox('قلة واضحة في الحركة أو تغيّر في نمطها تستدعي التواصل مع طبيبتكِ فورًا. <a href="#urgent">علامات الطوارئ</a>','alert');
+  h+='<details class="fold"><summary>كيف أعدّ الحركة؟</summary>'+liList(['اختاري وقتًا يكون فيه جنينكِ نشطًا عادةً، مثل بعد الأكل أو في المساء.','استلقي على جانبكِ أو اجلسي بارتياح، وركّزي على الحركة.','يستخدم كثير من الأطباء الوصول إلى 10 حركات مرجعًا، والأهم أن تعرفي النمط المعتاد لجنينكِ.'])+'</details>';
+  var ks=state.kicks.slice().sort(function(x,y){return y.start-x.start;}).slice(0,5);
+  h+='<section><div class="sub-head"><h2>آخر الجلسات</h2><span class="c tnum">'+state.kicks.length+'</span></div>'+(ks.length?'<ul class="hist">'+ks.map(function(k){
     return '<li><span class="grow"><b class="tnum">'+countAr(k.count,MOV_F)+'</b> خلال '+durText(k.end-k.start)+'<br><span class="muted tnum">'+fmt(localDay(k.start),{wd:true,y:false})+'، '+clock(k.start)+'</span></span><button class="icon-btn" data-action="kick-del" data-id="'+k.id+'" aria-label="حذف الجلسة">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
-    :'<div class="empty"><b>لا توجد جلسات بعد</b><span>اضغطي «ابدئي العدّ» عندما تكونين مستعدة.</span></div>')+'</section>';
+    :'<p class="muted" style="font-size:var(--fs-sm)">لا توجد جلسات بعد.</p>')+'</section>';
   return h;
 }
 
 /* contractions */
 function contrHTML(w){
-  var a=state.contrActive,now=Date.now(),h='';
+  var a=state.contrActive,now=Date.now(),h='',list=state.contr.slice().sort(function(x,y){return x.s-y.s;});
   if(w&&w<36)h+=noteBox('يفيد المؤقت عادةً في الأسابيع الأخيرة. الانقباضات المنتظمة قبل الأسبوع 37 تستدعي التواصل مع الطبيبة فورًا.','alert');
   h+='<button class="big-tap'+(a?' on':'')+'" id="contrBtn" data-action="contr-toggle">'+(a?'<b id="contrTimer">'+mmss(now-a)+'</b><span>اضغطي عند انتهاء الانقباضة</span>':ic('timer')+'<span>بدأت الانقباضة</span>')+'</button>';
-  var list=state.contr.slice().sort(function(x,y){return x.s-y.s;});
+  if(!list.length&&!a){h+='<p class="tool-hint">اضغطي عند بداية كل انقباضة ثم عند انتهائها، وسيُحسب الفاصل والمدة تلقائيًا.</p>';}
   var hr=list.filter(function(x){return x.s>=now-3600000;});
   var avgD=hr.length?hr.reduce(function(t,x){return t+(x.e-x.s);},0)/hr.length:0, ints=[];
   for(var i=1;i<hr.length;i++)ints.push(hr[i].s-hr[i-1].s);
   var avgI=ints.length?ints.reduce(function(t,x){return t+x;},0)/ints.length:0;
-  h+='<div class="stat-row"><div class="stat"><b>'+hr.length+'</b><span>خلال آخر ساعة</span></div><div class="stat"><b>'+mmss(avgD)+'</b><span>متوسط المدة</span></div><div class="stat"><b>'+(ints.length?mmss(avgI):'0:00')+'</b><span>متوسط الفاصل</span></div></div>';
+  if(list.length)h+='<div class="stat-row"><div class="stat"><b>'+hr.length+'</b><span>خلال آخر ساعة</span></div><div class="stat"><b>'+mmss(avgD)+'</b><span>متوسط المدة</span></div><div class="stat"><b>'+(ints.length?mmss(avgI):'0:00')+'</b><span>متوسط الفاصل</span></div></div>';
   var span=hr.length>1?hr[hr.length-1].s-hr[0].s:0;
   if(hr.length>=6&&span>=45*60000&&avgI<=5.5*60000&&avgD>=45000)h+='<div class="banner" role="alert">'+ic('alert')+'<span>انقباضاتكِ منتظمة ومتقاربة منذ ساعة تقريبًا. تواصلي مع طبيبتكِ أو توجهي إلى المستشفى حسب تعليماتها.</span></div>';
-  h+='<div class="panel tool-guide"><h2 class="section-title">متى أتوجه إلى المستشفى؟</h2>'+liList(['اتبعي تعليمات طبيبتكِ أولًا، فهي تعرف حالتكِ.','قاعدة شائعة: انقباضات كل 5 دقائق أو أقل، تستمر كل منها نحو دقيقة، وبانتظام لمدة ساعة.','توجهي فورًا إذا نزل الماء، أو حدث نزيف، أو قلّت حركة الجنين.'])+'<p class="muted" style="font-size:var(--fs-sm)">اضغطي الزر عند بداية الانقباضة، ثم اضغطيه مرة أخرى عند انتهائها. الفاصل يُحسب من بداية الانقباضة إلى بداية التي تليها.</p></div>';
-  var rev=list.slice().reverse().slice(0,12);
+  h+='<details class="fold"><summary>متى أتوجه إلى المستشفى؟</summary>'+liList(['اتبعي تعليمات طبيبتكِ أولًا، فهي تعرف حالتكِ.','قاعدة شائعة: انقباضات كل 5 دقائق أو أقل، تستمر كل منها نحو دقيقة، وبانتظام لمدة ساعة.','توجهي فورًا إذا نزل الماء، أو حدث نزيف، أو قلّت حركة الجنين.','اضغطي الزر عند بداية الانقباضة، ثم مرة أخرى عند انتهائها.'])+'</details>';
+  var rev=list.slice().reverse().slice(0,8);
   h+='<section><div class="sub-head"><h2>السجل</h2>'+(list.length?'<button class="btn btn-text" data-action="contr-clear">'+ic('trash','i-sm')+'مسح السجل</button>':'')+'</div>'+(rev.length?'<ul class="hist">'+rev.map(function(x){
     var idx=list.indexOf(x),prev=idx>0?list[idx-1]:null;
     return '<li><span class="grow"><b class="tnum">'+clock(x.s)+'</b><br><span class="muted tnum">المدة '+mmss(x.e-x.s)+(prev?'، الفاصل '+mmss(x.s-prev.s):'، أول انقباضة')+'</span></span><button class="icon-btn" data-action="contr-del" data-id="'+x.id+'" aria-label="حذف الانقباضة">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
-    :'<div class="empty"><b>لا توجد انقباضات مسجّلة</b><span>ابدئي عند أول انقباضة، وسيُحسب المتوسط تلقائيًا.</span></div>')+'</section>';
+    :'<p class="muted" style="font-size:var(--fs-sm)">لا توجد انقباضات مسجّلة.</p>')+'</section>';
   return h;
 }
 
@@ -1369,22 +1383,20 @@ function diffTxt(v){var r=Math.round(v*10)/10;return '<bdi dir="ltr">'+(r>0?'+':
 function weightHTML(c){
   var ws=state.weights.slice().sort(function(x,y){return x.date.localeCompare(y.date);});
   var last=ws[ws.length-1], pre=state.preWeight!==''?parseFloat(state.preWeight):null;
-  var h='<form class="panel form" id="weightForm" novalidate><h2 class="section-title">تسجيل الوزن</h2><div class="row two">'+
-    '<div class="field"><label for="wDate">التاريخ</label><input class="input" type="date" id="wDate" value="'+todayISO()+'" aria-describedby="wDateEcho"><p class="help tnum" id="wDateEcho"></p></div>'+
-    '<div class="field"><label for="wKg">الوزن بالكيلوغرام</label><input class="input" id="wKg" type="number" inputmode="decimal" step="0.1" min="30" max="250" aria-describedby="eW"><p class="err" id="eW" aria-live="polite"></p></div></div>'+
-    '<div class="form-actions"><button class="btn btn-primary" type="submit">'+ic('check','i-sm')+'حفظ الوزن</button></div></form>';
+  var h='<form class="panel form" id="weightForm" novalidate><div class="inline-form"><div class="field"><label class="sr" for="wKg">الوزن بالكيلوغرام</label><input class="input" id="wKg" type="number" inputmode="decimal" step="0.1" min="30" max="250" placeholder="وزن اليوم بالكيلوغرام" aria-describedby="eW"></div><button class="btn btn-primary" type="submit" style="min-height:48px">'+ic('check','i-sm')+'حفظ</button></div>'+
+    '<p class="err" id="eW" aria-live="polite"></p>'+
+    '<details class="fold"><summary>تسجيل بتاريخ آخر</summary><div class="field"><label for="wDate">التاريخ</label><input class="input" type="date" id="wDate" value="'+todayISO()+'" style="max-width:240px" aria-describedby="wDateEcho"><p class="help tnum" id="wDateEcho"></p></div></details></form>';
   if(last){
     var base=pre!=null?pre:parseFloat(ws[0].kg), baseLbl=pre!=null?'منذ ما قبل الحمل':'منذ أول تسجيل';
-    h+='<div class="stat-row"><div class="stat"><b>'+kgTxt(parseFloat(last.kg))+'</b><span>آخر وزن</span></div><div class="stat"><b>'+diffTxt(parseFloat(last.kg)-base)+'</b><span>'+baseLbl+'</span></div><div class="stat"><b class="tnum">'+fmt(isoToDay(last.date),{y:false})+'</b><span>آخر تسجيل</span></div></div>';
+    h+='<div class="stat-row two"><div class="stat"><b>'+kgTxt(parseFloat(last.kg))+'</b><span>آخر وزن، '+fmt(isoToDay(last.date),{y:false})+'</span></div><div class="stat"><b>'+diffTxt(parseFloat(last.kg)-base)+'</b><span>'+baseLbl+'</span></div></div>';
   }
   h+='<figure class="chart-wrap" id="wChart"></figure>';
-  h+='<div class="field"><label for="wPre">وزنكِ قبل الحمل <span class="opt">(اختياري)</span></label><input class="input" id="wPre" type="number" inputmode="decimal" step="0.1" min="30" max="250" value="'+(pre!=null?pre:'')+'" style="max-width:220px" aria-describedby="hPre"><p class="help" id="hPre">يظهر خطًا مرجعيًا في الرسم، ويُحسب منه التغيّر.</p></div>';
-  var rev=ws.slice().reverse();
-  h+='<section><div class="sub-head"><h2>القراءات</h2><span class="c tnum">'+ws.length+'</span></div>'+(rev.length?'<ul class="hist">'+rev.map(function(x,i){
+  h+='<details class="fold"'+(pre==null&&ws.length?'':'')+'><summary>وزنكِ قبل الحمل'+(pre!=null?' ('+kgTxt(pre)+')':'')+'</summary><div class="field"><label for="wPre">الوزن قبل الحمل بالكيلوغرام</label><input class="input" id="wPre" type="number" inputmode="decimal" step="0.1" min="30" max="250" value="'+(pre!=null?pre:'')+'" style="max-width:220px" aria-describedby="hPre"><p class="help" id="hPre">يظهر خطًا مرجعيًا في الرسم. زيادة الوزن المناسبة تختلف حسب الوزن قبل الحمل، فاسألي طبيبتكِ عن المعدل المناسب لكِ.</p></div></details>';
+  var rev=ws.slice().reverse().slice(0,6);
+  h+='<section><div class="sub-head"><h2>آخر القراءات</h2><span class="c tnum">'+ws.length+'</span></div>'+(rev.length?'<ul class="hist">'+rev.map(function(x,i){
     var d=isoToDay(x.date),ga=c.ok?d-c.ref:null,prev=rev[i+1];
     return '<li><span class="grow"><b class="tnum">'+kgTxt(parseFloat(x.kg))+'</b>'+(prev?' <span class="muted">('+diffTxt(parseFloat(x.kg)-parseFloat(prev.kg))+')</span>':'')+'<br><span class="muted tnum">'+fmt(d,{wd:true})+(ga!=null&&ga>=0&&ga<=MAX_DAY?'، الأسبوع '+weekOfGA(ga):'')+'</span></span><button class="icon-btn" data-action="weight-del" data-date="'+x.date+'" aria-label="حذف قراءة '+fmt(d)+'">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
-    :'<div class="empty"><b>لا توجد قراءات بعد</b><span>سجّلي وزنكِ مرة في الأسبوع، في نفس الوقت تقريبًا، ليكون التغيّر أوضح.</span></div>')+'</section>';
-  h+=noteBox('زيادة الوزن المناسبة تختلف من امرأة إلى أخرى حسب وزنها قبل الحمل. اسألي طبيبتكِ عن المعدل المناسب لكِ.');
+    :'<p class="muted" style="font-size:var(--fs-sm)">سجّلي وزنكِ مرة في الأسبوع، في نفس الوقت تقريبًا.</p>')+'</section>';
   return h;
 }
 function drawWeightChart(){
@@ -1392,7 +1404,7 @@ function drawWeightChart(){
   var c=ctx(); if(!c.ok){box.innerHTML='';return;}
   var pts=state.weights.map(function(w){var d=isoToDay(w.date);return {d:d,x:(d-c.ref)/7,y:parseFloat(w.kg),date:w.date};})
     .filter(function(p){return p.d-c.ref>=0&&p.d-c.ref<=MAX_DAY;}).sort(function(a,b){return a.x-b.x;});
-  if(!pts.length){box.innerHTML='<div class="empty"><b>الرسم البياني فارغ</b><span>بعد أول تسجيل يظهر هنا خط يوضح تغيّر وزنكِ خلال أسابيع الحمل.</span></div>';return;}
+  if(!pts.length){box.innerHTML='';return;}
   var pre=state.preWeight!==''?parseFloat(state.preWeight):null;
   var W=Math.max(280,Math.round(box.clientWidth||320)),H=220,ml=10,mr=44,mt=18,mb=30,pw=W-ml-mr,ph=H-mt-mb;
   var ys=pts.map(function(p){return p.y;}); if(pre!=null)ys.push(pre);
@@ -1430,21 +1442,25 @@ function lbl(arr,k){for(var i=0;i<arr.length;i++)if(arr[i][0]===k)return arr[i][
 function curLogDate(){return (logDate&&isoToDay(logDate)!=null)?logDate:todayISO();}
 function setLog(d,patch){var e=Object.assign({},state.logs[d]||{},patch);if(!e.mood&&!(e.sym&&e.sym.length)&&!e.note)delete state.logs[d];else state.logs[d]=e;save();}
 function logHistHTML(){
-  var ds=Object.keys(state.logs).sort().reverse().slice(0,14);
-  if(!ds.length)return '<div class="empty"><b>لا توجد أيام مسجّلة بعد</b><span>اختاري مزاجكِ أو أعراضكِ أعلاه، ويُحفظ اليوم تلقائيًا.</span></div>';
+  var ds=Object.keys(state.logs).sort().reverse().slice(0,7);
+  if(!ds.length)return '<p class="muted" style="font-size:var(--fs-sm)">يُحفظ ما تختارينه تلقائيًا ويظهر هنا.</p>';
   return '<ul class="hist">'+ds.map(function(d){var e=state.logs[d],day=isoToDay(d);
     return '<li><span class="grow"><b class="tnum">'+fmt(day,{wd:true,y:false})+'</b>'+(e.mood?' <span class="chip accent">'+lbl(MOODS,e.mood)+'</span>':'')+'<br><span class="muted">'+((e.sym||[]).map(function(k){return lbl(SYMS,k);}).join('، ')||'بلا أعراض مسجّلة')+(e.note?'، '+esc(e.note.slice(0,60))+(e.note.length>60?'…':''):'')+'</span></span>'+
-      (d!==curLogDate()?'<button class="btn btn-text" data-action="log-open" data-date="'+d+'">فتح</button>':'<span class="chip">مفتوح</span>')+'</li>';}).join('')+'</ul>';
+      (d!==curLogDate()?'<button class="btn btn-text" data-action="log-open" data-date="'+d+'">فتح</button>':'')+'</li>';}).join('')+'</ul>';
 }
 function updateLogHist(){var el=document.getElementById('logHist');if(el)el.innerHTML=logHistHTML();}
 function logHTML(){
-  var d=curLogDate(),e=state.logs[d]||{},sym=e.sym||[];
-  var h='<div class="panel form"><div class="field"><label for="logDate">اليوم</label><input class="input" type="date" id="logDate" value="'+d+'" max="'+todayISO()+'" style="max-width:240px" aria-describedby="logDateEcho"><p class="help tnum" id="logDateEcho"></p></div>'+
+  var d=curLogDate(),e=state.logs[d]||{},sym=e.sym||[],isToday=d===todayISO();
+  var showAll=symMore||sym.some(function(k){for(var i=6;i<SYMS.length;i++)if(SYMS[i][0]===k)return true;return false;});
+  var list=showAll?SYMS:SYMS.slice(0,6);
+  var h='<div class="panel form">'+
+    '<div class="list-head"><h2 class="section-title tnum">'+(isToday?'اليوم، ':'')+fmt(isoToDay(d),{wd:true,y:false})+'</h2>'+(isToday?'':'<button class="btn btn-text" data-action="log-open" data-date="'+todayISO()+'">العودة لليوم</button>')+'</div>'+
     '<div class="field"><span class="lbl" id="moodLbl">كيف تشعرين؟</span><div class="chips-sel" role="radiogroup" aria-labelledby="moodLbl">'+MOODS.map(function(m){return '<label class="tog-r"><input type="radio" name="mood" value="'+m[0]+'"'+(e.mood===m[0]?' checked':'')+'><span>'+m[1]+'</span></label>';}).join('')+'</div></div>'+
-    '<div class="field"><span class="lbl" id="symLbl">الأعراض</span><div class="chips-sel" role="group" aria-labelledby="symLbl">'+SYMS.map(function(x){return '<button type="button" class="tog" data-action="sym" data-k="'+x[0]+'" aria-pressed="'+(sym.indexOf(x[0])>=0)+'">'+x[1]+'</button>';}).join('')+'</div>'+
-    '<p class="help">إذا كان العرض شديدًا أو مفاجئًا فراجعي <a href="#urgent">علامات الطوارئ</a>.</p></div>'+
-    '<div class="field"><label for="logNote">ملاحظة <span class="opt">(اختياري)</span></label><textarea class="input" id="logNote" maxlength="400" placeholder="أي شيء تودين تذكّره أو إخبار الطبيبة به">'+esc(e.note||'')+'</textarea></div>'+
-    '<p class="help" style="display:flex;align-items:center;gap:6px">'+ic('check','i-sm')+'يُحفظ تلقائيًا.</p></div>';
+    '<div class="field"><span class="lbl" id="symLbl">الأعراض</span><div class="chips-sel" role="group" aria-labelledby="symLbl">'+list.map(function(x){return '<button type="button" class="tog" data-action="sym" data-k="'+x[0]+'" aria-pressed="'+(sym.indexOf(x[0])>=0)+'">'+x[1]+'</button>';}).join('')+
+      (showAll?'':'<button type="button" class="btn btn-text" data-action="sym-more">أعراض أخرى</button>')+'</div></div>'+
+    '<details class="fold"'+(e.note?' open':'')+'><summary>ملاحظة</summary><label class="sr" for="logNote">ملاحظة اليوم</label><textarea class="input" id="logNote" maxlength="400" placeholder="أي شيء تودين تذكّره أو إخبار الطبيبة به">'+esc(e.note||'')+'</textarea></details>'+
+    '<details class="fold"><summary>تسجيل يوم آخر</summary><div class="field"><label for="logDate">التاريخ</label><input class="input" type="date" id="logDate" value="'+d+'" max="'+todayISO()+'" style="max-width:240px" aria-describedby="logDateEcho"><p class="help tnum" id="logDateEcho"></p></div></details>'+
+    '</div>';
   h+='<section><div class="sub-head"><h2>الأيام السابقة</h2><span class="c tnum">'+Object.keys(state.logs).length+'</span></div><div id="logHist">'+logHistHTML()+'</div></section>';
   return h;
 }
@@ -1473,8 +1489,8 @@ function parseQs(f,old){
 function qsHTML(it){
   if(it.kind!=='appt'||!it.qs||!it.qs.length)return '';
   var done=it.qs.filter(function(q){return q.done;}).length;
-  return '<div class="qs"><p class="qs-h tnum">أسئلة للطبيبة ('+done+' من '+it.qs.length+')</p>'+it.qs.map(function(q,i){
-    return '<label class="check sm"><input type="checkbox" id="q-'+esc(it.id)+'-'+i+'" data-q="'+esc(it.id)+'|'+i+'"'+(q.done?' checked':'')+'><span class="box">'+ic('check')+'</span><span class="lt"><span>'+esc(q.t)+'</span></span></label>';}).join('')+'</div>';
+  return '<details class="qs fold" id="qs-'+esc(it.id)+'"'+(qsOpen===it.id?' open':'')+'><summary class="tnum">أسئلة للطبيبة ('+done+' من '+it.qs.length+')</summary><div>'+it.qs.map(function(q,i){
+    return '<label class="check sm"><input type="checkbox" id="q-'+esc(it.id)+'-'+i+'" data-q="'+esc(it.id)+'|'+i+'"'+(q.done?' checked':'')+'><span class="box">'+ic('check')+'</span><span class="lt"><span>'+esc(q.t)+'</span></span></label>';}).join('')+'</div></details>';
 }
 function icsEsc(x){return String(x).replace(/\\/g,'\\\\').replace(/;/g,'\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n');}
 function evTimes(it){
@@ -1508,13 +1524,12 @@ function bagRows(gi){var k=BAGK[gi];
 /* ---------- backup ---------- */
 function backupPanel(){
   return '<section class="panel form" aria-labelledby="bkT"><h2 id="bkT" class="section-title">'+ic('download')+'النسخة الاحتياطية</h2>'+
-    '<p class="muted" style="font-size:var(--fs-sm)">بياناتكِ محفوظة في هذا المتصفح فقط. احفظي نسخة احتياطية من وقت لآخر، واستخدميها لنقل بياناتكِ إلى جهاز آخر.</p>'+
-    '<p class="help tnum">'+(state.lastBackup!=null?'آخر نسخة: '+fmt(state.lastBackup,{wd:true}):'لم تحفظي نسخة احتياطية بعد.')+'</p>'+
-    '<div class="form-actions"><button class="btn btn-primary" data-action="backup-download">'+ic('download','i-sm')+'حفظ ملف النسخة</button><button class="btn btn-ghost" data-action="backup-copy">'+ic('copy','i-sm')+'نسخ البيانات</button></div>'+
+    '<p class="help tnum">'+(state.lastBackup!=null?'آخر نسخة: '+fmt(state.lastBackup,{wd:true}):'بياناتكِ محفوظة في هذا المتصفح فقط، ولا توجد نسخة احتياطية بعد.')+'</p>'+
+    '<div class="form-actions"><button class="btn btn-primary" data-action="'+(FRAMED?'backup-copy':'backup-download')+'">'+ic(FRAMED?'copy':'download','i-sm')+(FRAMED?'نسخ البيانات':'حفظ نسخة')+'</button><button class="btn btn-ghost" data-action="backup-pick">'+ic('upload','i-sm')+'استرجاع</button><input type="file" id="bkFile" accept="application/json,.json,text/plain" hidden></div>'+
     '<textarea class="input" id="bkOut" readonly hidden aria-label="بيانات النسخة الاحتياطية"></textarea>'+
-    '<div class="form-actions"><button class="btn btn-ghost" data-action="backup-pick">'+ic('upload','i-sm')+'استرجاع من ملف</button><input type="file" id="bkFile" accept="application/json,.json,text/plain" hidden></div>'+
-    '<details class="paste"><summary>لصق نسخة منسوخة</summary><label class="sr" for="bkPaste">الصقي بيانات النسخة هنا</label><textarea class="input" id="bkPaste" placeholder="الصقي بيانات النسخة هنا"></textarea><button class="btn btn-ghost" style="align-self:flex-start" data-action="backup-paste">'+ic('upload','i-sm')+'استرجاع</button></details>'+
-    (FRAMED?'<p class="help">حفظ الملف لا يعمل داخل هذه المعاينة. استخدمي «نسخ البيانات»، أو افتحي التطبيق من رابط الموقع.</p>':'')+'</section>';
+    '<details class="fold paste"><summary>خيارات أخرى</summary>'+(FRAMED?'':'<button class="btn btn-ghost" style="align-self:flex-start" data-action="backup-copy">'+ic('copy','i-sm')+'نسخ البيانات كنص</button>')+
+      '<label class="lbl" for="bkPaste">استرجاع من نص منسوخ</label><textarea class="input" id="bkPaste" placeholder="الصقي بيانات النسخة هنا"></textarea><button class="btn btn-ghost" style="align-self:flex-start" data-action="backup-paste">'+ic('upload','i-sm')+'استرجاع من النص</button></details>'+
+    '</section>';
 }
 function backupJSON(){return JSON.stringify({app:'masar-alhaml',version:2,exported:new Date().toISOString(),state:state});}
 function confirmDlg(title,desc,okTxt,danger,fn){
@@ -1545,7 +1560,7 @@ function featureAction(act,a,e){
   var id=a.getAttribute('data-id');
   switch(act){
     case 'go-tool':state.toolTab=a.getAttribute('data-tool');save();if(cur==='tools'){render(false);}else location.hash='tools';break;
-    case 'tool-tab':state.toolTab=a.getAttribute('data-tool');save();render(false);var tb=document.querySelector('.tp[data-tool="'+state.toolTab+'"]');if(tb)tb.focus({preventScroll:true});break;
+    case 'tool-tab':state.toolTab=a.getAttribute('data-tool');save();render(false);var tb=document.querySelector('[data-action="tool-tab"][data-tool="'+state.toolTab+'"]');if(tb)tb.focus({preventScroll:true});break;
     case 'kick-start':state.kickActive={start:Date.now(),count:0};save();render(false);focusId('kickBtn');break;
     case 'kick-tap':{if(!state.kickActive)break;state.kickActive.count++;save();vibrate();
       var kc=document.getElementById('kickCount');if(kc)kc.textContent=state.kickActive.count;a.setAttribute('aria-label','سجّلي حركة، العدد الحالي '+state.kickActive.count);
@@ -1567,6 +1582,9 @@ function featureAction(act,a,e){
       if(ix>=0)sy.splice(ix,1);else sy.push(kk);a.setAttribute('aria-pressed',String(ix<0));setLog(d,{sym:sy});updateLogHist();break;}
     case 'log-open':logDate=a.getAttribute('data-date');render(false);var ld=document.getElementById('logDate');if(ld){ld.scrollIntoView({block:'center',behavior:reduceMotion?'auto':'smooth'});ld.focus({preventScroll:true});}break;
     case 'cal-export':exportOpen=exportOpen===id?null:id;render(false);var ce=document.querySelector('[data-action="cal-export"][data-id="'+id+'"]');if(ce)ce.focus({preventScroll:true});break;
+    case 'item-opts':actsOpen=actsOpen===id?null:id;if(actsOpen!==id)exportOpen=null;render(false);focusIn('[data-action="item-opts"][data-id="'+id+'"]');break;
+    case 'list-edit':listEdit=!listEdit;render(false);focusIn('[data-action="list-edit"]');break;
+    case 'sym-more':symMore=true;render(false);focusIn('.tog[data-k="'+SYMS[6][0]+'"]');break;
     case 'bag-remove':{var g=a.getAttribute('data-g'),arr=state.bagCustom[g]||[],bi=arr.findIndex(function(x){return x.id===id;}),name=a.getAttribute('aria-label');
       if(bi>=0){var bd=arr.splice(bi,1)[0];state.bagCustom[g]=arr;save();render(false);undoable('أُزيل «'+bd.t+'»',function(){(state.bagCustom[g]=state.bagCustom[g]||[]).splice(bi,0,bd);});}
       else{state.bagHidden[id]=true;save();render(false);undoable('أُزيل من القائمة',function(){delete state.bagHidden[id];});}
@@ -1613,7 +1631,7 @@ function featureChange(t){
   if(t.id==='wPre'){var v=t.value.trim(),n=parseFloat(v);if(v===''||(n>=30&&n<=250)){state.preWeight=v===''?'':Math.round(n*10)/10;save();render(false);}else toast('اكتبي الوزن بالكيلوغرام بين 30 و250.');return true;}
   if(t.getAttribute&&t.getAttribute('data-contact')){state.contacts[t.getAttribute('data-contact')]=t.value.trim();save();render(false);return true;}
   if(t.getAttribute&&t.getAttribute('data-q')){var pr=t.getAttribute('data-q').split('|'),it=state.items.find(function(x){return x.id===pr[0];});
-    if(it&&it.qs[+pr[1]]){it.qs[+pr[1]].done=t.checked;save();var keep=t.id;render(false);focusId(keep);}return true;}
+    if(it&&it.qs[+pr[1]]){it.qs[+pr[1]].done=t.checked;qsOpen=it.id;save();var keep=t.id;render(false);focusId(keep);}return true;}
   if(t.id==='bkFile'){var file=t.files&&t.files[0];if(!file)return true;var rdr=new FileReader();rdr.onload=function(){importText(String(rdr.result||''));};rdr.onerror=function(){toast('تعذّرت قراءة الملف.');};rdr.readAsText(file);t.value='';return true;}
   return false;
 }
@@ -1623,6 +1641,7 @@ function render(focus){
   var c=ctx();
   var t=document.getElementById('todayLine');
   t.innerHTML='<strong class="tnum">'+fmt(c.today,{wd:true})+'</strong>'+hijri(c.today);
+  t.hidden=cur!=='home';
   var html='';
   switch(cur){
     case 'weeks':html=renderWeeks(c);break;
