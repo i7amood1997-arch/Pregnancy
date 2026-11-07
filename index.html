@@ -16,7 +16,7 @@
 <title>مسار الحمل</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kufam:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap">
 <style>
 /* Layout: mobile-first app shell. Bottom tab bar under 960px, right-side rail (inline-start) above.
    Thesis element: the 280-day ring, split into three trimester arcs with 40 week ticks. */
@@ -35,8 +35,8 @@
   --shadow-lg:0 -10px 40px -12px rgb(15 27 31 / .28);
   --focus:#0B6F68; --fruit-bg:#FFFFFF;
 
-  --f-display:"Kufam","Tajawal","Noto Kufi Arabic",Tahoma,sans-serif;
-  --f-body:"Tajawal","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-display:"IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-body:"IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
 
   /* type scale, ratio 1.2 */
   --fs-xs:.75rem; --fs-sm:.875rem; --fs-md:1rem; --fs-lg:1.1875rem; --fs-xl:1.4375rem; --fs-2xl:1.75rem; --fs-3xl:2.125rem; --fs-4xl:3rem;
@@ -445,7 +445,7 @@ input[type="date"].input,input[type="time"].input{direction:rtl;text-align:right
 
 
 /* style B: flat filled cards, white elevated layers */
-.view-notes .sheet-wrap>*{max-width:820px}
+.view-notes{max-width:820px}
 .seg.full{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
 .seg.full label{display:flex}
 .seg.full span{justify-content:center;width:100%;padding:0 8px}
@@ -486,7 +486,7 @@ h1,h2,h3{font-weight:600}
 .urgent-link{display:flex;align-items:center;gap:var(--s3);min-height:56px;padding:var(--s2) var(--s4);border-radius:var(--r-surface);background:var(--danger-soft);color:var(--ink);text-decoration:none;font-weight:600}
 .urgent-link>.i{color:var(--danger)}
 .urgent-link .chev{margin-inline-start:auto;color:var(--ink-3)}
-.view-tools .sheet-wrap>*{max-width:820px}
+.view-tools{max-width:820px}
 .tool-pick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s2)}
 @media (max-width:560px){.tool-pick{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .tp{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:76px;padding:var(--s3);border-radius:var(--r-surface);border:1.5px solid transparent;background:var(--surface);color:var(--ink);font-weight:600;text-align:start;transition:border-color 160ms ease,background-color 160ms ease,transform 140ms var(--ease-out)}
@@ -503,7 +503,7 @@ h1,h2,h3{font-weight:600}
 .big-tap.on{background:var(--ink);color:var(--bg);box-shadow:none}
 .stat-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s2)}
 .stat{padding:var(--s3) var(--s2);border-radius:var(--r-control);background:var(--surface);text-align:center;min-width:0}
-.stat b{display:block;font-family:var(--f-display);font-size:var(--fs-xl);font-variant-numeric:tabular-nums;line-height:1.3}
+.stat b{display:block;font-size:var(--fs-xl);font-variant-numeric:tabular-nums;line-height:1.3}
 .stat span{font-size:var(--fs-xs);color:var(--ink-3)}
 .tool-guide{display:flex;flex-direction:column;gap:var(--s3)}
 .hist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
@@ -586,70 +586,6 @@ details.qs>summary{min-height:40px;color:var(--ink-2);font-size:var(--fs-xs);fon
 .wsize.size-row{flex-direction:row}
 .fruit-tile{flex:none;display:block}
 .fruit-tile img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 8px rgb(15 27 31 / .14))}
-
-/* ===== v6: colour of the week (palette set at runtime from the current week's fruit) ===== */
-:root{--gxl:max(16px,env(safe-area-inset-left,0px));--gxr:max(16px,env(safe-area-inset-right,0px));--field:#CFE6E1;--deep:#0B3F3A}
-@media (min-width:960px){:root{--gxl:32px;--gxr:32px}}
-main{padding-top:0!important}
-.view{gap:0!important}
-.band{background:var(--field);color:var(--deep);margin-left:calc(-1*var(--gxl));margin-right:calc(-1*var(--gxr));padding:0 var(--gxr) 46px var(--gxl);display:flex;flex-direction:column;gap:var(--s3);transition:background-color 300ms ease}
-.band .topbar{padding-top:var(--s4)}
-.band .brand,.band .today-line,.band .today-line strong,.band h1,.band .view-head p{color:var(--deep)}
-.band .brand-mark circle{stroke:color-mix(in srgb,var(--deep) 25%,transparent)}
-.band .brand-mark path{stroke:var(--deep)}
-.band .subtabs{background:color-mix(in srgb,var(--deep) 10%,transparent)}
-.band .subtabs a{color:var(--deep)}
-.band .subtabs a[aria-current="page"]{background:var(--bg);color:var(--deep)}
-.sheet-wrap{position:relative;background:var(--bg);margin-left:calc(-1*var(--gxl));margin-right:calc(-1*var(--gxr));margin-top:-28px;padding:var(--s5) var(--gxr) 0 var(--gxl);border-radius:28px 28px 0 0;display:flex;flex-direction:column;gap:var(--s6);min-height:40vh}
-@media (min-width:960px){.band{border-radius:0 0 28px 28px}.sheet-wrap{margin-top:var(--s5);border-radius:0;padding-top:0;min-height:0}}
-.hero-band{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px}
-.hero-band .fruit{width:156px;height:156px;object-fit:contain;filter:drop-shadow(0 16px 16px rgb(0 0 0 / .18));margin-bottom:var(--s1)}
-.hero-band .wkt{font-family:var(--f-display);font-weight:800;font-size:2.25rem;line-height:1.55;margin:0}
-.hero-band .mo{font-family:var(--f-display);font-weight:600;font-size:1.05rem}
-.hero-band .sz{font-size:.95rem;font-weight:500;opacity:.85}
-.prog{display:flex;flex-direction:column;gap:6px}
-.prog .bar{height:10px;border-radius:99px;background:var(--surface-2);overflow:hidden}
-.prog .bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
-.prog .pl{display:flex;justify-content:space-between;gap:var(--s2);font-size:var(--fs-sm);color:var(--ink-2)}
-.prog .pl #gaTitle{font-weight:700;color:var(--ink)}
-.facts2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin:0}
-.facts2 .f{background:var(--surface);border-radius:18px;padding:12px 14px;min-width:0}
-.facts2 dt{font-size:var(--fs-xs);color:var(--ink-3)}
-.facts2 dd{margin:0}
-.facts2 dd span{display:block;font-size:var(--fs-sm);font-weight:500}
-.facts2 dd b{display:block;font-family:var(--f-display);font-size:1.2rem;font-weight:700;line-height:1.5}
-.facts2 dd em{display:block;font-style:normal;font-size:var(--fs-xs);color:var(--ink-3)}
-.home-top{display:flex;flex-direction:column;gap:var(--s4)}
-.week-card{display:flex;flex-direction:column;gap:var(--s3);padding:var(--s5);border-radius:var(--r-surface);background:var(--surface)}
-.week-card .info-rows{border-top:0;padding-top:0}
-.surface-card{background:var(--surface)}
-.todo li{background:var(--surface)}
-/* floating pill tab bar */
-.tabbar{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:4px 6px!important;border-radius:999px;background:var(--accent);border:0;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 12px 30px -12px rgb(0 0 0 / .4)}
-.tabbar ul{padding:0}
-.tab{color:var(--accent-ink);opacity:.66;min-height:48px;font-size:var(--fs-sm);font-weight:500}
-.tab .pill{display:none}
-.tab[aria-current="page"]{color:var(--accent-ink);opacity:1;font-weight:700}
-.tab:focus-visible{outline-color:var(--accent-ink)}
-/* weeks grid with fruit */
-.wk{gap:0;min-height:76px;font-size:var(--fs-md)}
-.wk .wf{width:30px;height:30px;object-fit:contain;margin-bottom:2px}
-.wk.past{background:var(--wf);color:var(--wd);border-color:transparent}
-.wk.future{background:transparent;color:var(--ink-2)}
-.wk.future .wf{opacity:.4;filter:grayscale(.5)}
-.wk.current{background:var(--wd);color:var(--wbg);border-color:var(--wd);box-shadow:0 8px 20px -10px var(--wd)}
-.wk .st{inset-inline-end:5px;top:4px}
-/* calendar */
-.cd.pw{background:color-mix(in srgb,var(--cf) 70%,transparent)}
-/* week panel head in the viewed week's colour */
-#weekSheet .grab,#weekSheet .sheet-head{background:var(--field);color:var(--deep)}
-#weekSheet .sheet-head{border-bottom:0;align-items:center}
-#weekSheet .sheet-head .icon-btn{color:var(--deep);background:color-mix(in srgb,var(--bg) 45%,transparent)}
-#weekSheet .sheet-head h2{color:var(--deep)}
-#weekSheet .sheet-head .rng{color:var(--deep);opacity:.8}
-.ws-fruit img{display:block;width:84px;height:84px;object-fit:contain;filter:drop-shadow(0 10px 10px rgb(0 0 0 / .16))}
-.ws-mo{font-family:var(--f-display);font-weight:600;font-size:var(--fs-md)}
-.sheet{background:var(--bg)}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
@@ -738,8 +674,7 @@ main{padding-top:0!important}
 <section class="sheet side" id="weekSheet" role="dialog" aria-modal="true" aria-labelledby="wsTitle" tabindex="-1">
   <div class="grab" id="wsGrab" aria-hidden="true"><i></i></div>
   <div class="sheet-head">
-    <span class="ws-fruit" id="wsFruit"></span>
-    <div class="ttl"><h2 id="wsTitle"></h2><p class="ws-mo" id="wsMonth"></p><p class="rng tnum" id="wsRange"></p></div>
+    <div class="ttl"><h2 id="wsTitle"></h2><p class="rng tnum" id="wsRange"></p></div>
     <button class="icon-btn" data-action="close-sheet" aria-label="إغلاق"><svg class="i"><use href="#i-x"/></svg></button>
   </div>
   <div class="sheet-body" id="wsBody"></div>
@@ -1184,31 +1119,35 @@ function animateRing(target,animate){
 
 /* ---------- home ---------- */
 function renderHome(c){
-  var g=guardHTML(c); if(g)return '<div class="view view-home"><div class="view-head"></div>'+g+disclaimer()+'</div>';
+  var g=guardHTML(c); if(g)return '<div class="view">'+g+disclaimer()+'</div>';
   var wk=Math.min(c.week,40), W=WEEKS[wk], h='';
-  h+='<section class="hero-band" aria-labelledby="wkTitle">'+(FRUIT[wk]&&W[0]?'<img class="fruit" src="'+FRUIT[wk]+'" width="156" height="156" alt="رسم توضيحي: '+W[0]+'">':'')+
-    '<h1 id="wkTitle" class="wkt">الأسبوع '+c.week+'</h1><p class="mo">الشهر '+ORD_AR[c.month-1]+'، '+TRI_AR[c.tri-1]+'</p><p class="sz">'+(W[0]?'بحجم '+W[0]+' تقريبًا':'لم يتكوّن الجنين بعد')+'</p></section>';
-  var top='';
-  if(c.left===0)top+='<div class="banner" role="note" style="background:var(--surface)">'+ic('info')+'<span>اليوم هو موعد الولادة المتوقع. نتمنى لكِ ولادة ميسّرة، وتابعي مع طبيبتكِ.</span></div>';
-  if(c.status==='overdue'&&c.left<0)top+='<div class="banner" role="note">'+ic('info')+'<span>تجاوزتِ موعد الولادة المتوقع بمقدار '+countAr(-c.left,DAYS_F,true)+'. تواصلي مع طبيبتكِ لمتابعة الخطة المناسبة لكِ.</span></div>';
-  if(c.status==='beyond')top+='<div class="banner" role="note">'+ic('alert')+'<span>مضى أكثر من 42 أسبوعًا وفق البيانات المدخلة. إن وُلد طفلكِ فمبارك لكِ، وإن لم يحدث بعد فتواصلي مع طبيبتكِ اليوم. يمكنكِ تحديث البيانات من <a href="#prefs">الإعدادات</a>.</span></div>';
-  var leftTxt=c.left>0?countAr(c.left,DAYS_F):(c.left===0?'اليوم':'تجاوزتِ الموعد');
-  var leftSub=c.left>=7?('نحو '+countAr(Math.floor(c.left/7),WEEKS_F,true)+(c.left%7?' و'+countAr(c.left%7,DAYS_F,true):'')):(c.left>0?'أقل من أسبوع':'');
-  var ep=dayParts(c.edd), gd=Math.min(c.ga,TERM);
-  top+='<div class="prog"><div class="bar" role="progressbar" aria-label="تقدّم الحمل" aria-valuemin="0" aria-valuemax="280" aria-valuenow="'+gd+'"><i style="width:'+(gd/TERM*100).toFixed(1)+'%"></i></div>'+
-    '<div class="pl"><span id="gaTitle" class="tnum">'+gaText(c.ga)+'</span><span class="tnum">'+(c.ga<TERM?c.ga+' من 280 يومًا':'اكتملت 280 يومًا')+'</span></div></div>';
-  top+='<dl class="facts2"><div class="f"><dt>الولادة المتوقعة</dt><dd><span>'+DAY_AR[ep.wd]+'</span><b class="tnum">'+fmt(c.edd)+'</b><em class="tnum">'+hijri(c.edd)+'</em></dd></div>'+
-    '<div class="f"><dt>المتبقي</dt><dd><span>'+(leftSub||'&nbsp;')+'</span><b class="tnum">'+leftTxt+'</b></dd></div></dl>';
-  h+='<div class="home-top">'+top+'</div>';
+  if(c.left===0)h+='<div class="banner" role="note" style="background:var(--accent-soft)">'+ic('info')+'<span>اليوم هو موعد الولادة المتوقع. نتمنى لكِ ولادة ميسّرة، وتابعي مع طبيبتكِ.</span></div>';
+  if(c.status==='overdue'&&c.left<0)h+='<div class="banner" role="note">'+ic('info')+'<span>تجاوزتِ موعد الولادة المتوقع بمقدار '+countAr(-c.left,DAYS_F,true)+'. تواصلي مع طبيبتكِ لمتابعة الخطة المناسبة لكِ.</span></div>';
+  if(c.status==='beyond')h+='<div class="banner" role="note">'+ic('alert')+'<span>مضى أكثر من 42 أسبوعًا وفق البيانات المدخلة. إن وُلد طفلكِ فمبارك لكِ، وإن لم يحدث بعد فتواصلي مع طبيبتكِ اليوم. يمكنكِ تحديث البيانات من <a href="#prefs">الإعدادات</a>.</span></div>';
+  var tri=c.tri, gaLine=gaText(c.ga);
+  var leftTxt=c.left>0?countAr(c.left,DAYS_F):(c.left===0?'اليوم هو الموعد':'تجاوزتِ الموعد');
+  var leftSub=c.left>0?('نحو '+countAr(Math.floor(c.left/7),WEEKS_F,true)+(c.left%7?' و'+countAr(c.left%7,DAYS_F,true):'')):'';
+  if(c.left>0&&c.left<7)leftSub='';
+  h+='<section class="hero" aria-labelledby="gaTitle">'+
+    '<div class="ring-box">'+ringSVG(c)+'<div class="ring-center"><span class="lbl">الأسبوع</span><span class="big">'+c.week+'</span><span class="sub tnum">'+(c.ga<TERM?(c.ga+' من 280 يومًا'):'اكتملت 280 يومًا')+'</span></div></div>'+
+    '<div class="hero-text"><div><p class="muted" style="font-size:var(--fs-sm)">عمر حملكِ اليوم</p><h1 id="gaTitle" class="tnum">'+gaLine+'</h1></div>'+
+    '<p class="hero-meta">الأسبوع '+c.week+'، الشهر '+ORD_AR[c.month-1]+'، '+TRI_AR[tri-1]+'</p>'+
+    '<dl class="facts"><div><dt>موعد الولادة المتوقع</dt><dd class="tnum">'+fmt(c.edd,{wd:true})+'<span class="h">'+hijri(c.edd)+'</span></dd></div>'+
+    '<div><dt>المتبقي على الموعد</dt><dd><span class="big-n tnum">'+leftTxt+'</span>'+(leftSub?'<span class="h">'+leftSub+'</span>':'')+'</dd></div></dl></div></section>';
+
+  // one calm card: size + tip
+  var babyHTML='<section class="baby" aria-labelledby="bbT"><h2 id="bbT" class="section-title">جنينكِ هذا الأسبوع</h2>';
+  if(!W[0])babyHTML+='<p class="lead">لم يتكوّن الجنين بعد.</p><p class="meta-line">يُحسب الحمل من أول يوم في آخر دورة، ويبدأ الإخصاب عادةً قرب نهاية الأسبوع الثاني.</p>';
+  else babyHTML+='<div class="size-row">'+fruitTile(wk,92)+'<div><p class="lead">بحجم <em>'+W[0]+'</em> تقريبًا</p><p class="meta-line tnum">الطول '+W[1]+(W[2]?'، والوزن '+W[2]:'')+'</p></div></div>';
   var momShort=MOM[wk].slice(0,3).join('، ');
-  var card='<section class="week-card" aria-labelledby="bbT"><h2 id="bbT" class="section-title">هذا الأسبوع</h2><div class="info-rows">'+
+  babyHTML+='<div class="info-rows">'+
     '<p class="info-row dev">'+ic('heart','i-sm')+'<span><b>تطوّر جنينكِ</b>'+W[3][0]+'</span></p>'+
     '<p class="info-row mom">'+ic('mood','i-sm')+'<span><b>قد تشعرين بـ</b>'+momShort+'</span></p>'+
     '<p class="info-row tipr">'+ic('bulb','i-sm')+'<span><b>نصيحة الأسبوع</b>'+W[4][0]+'</span></p></div>'+
     '<button class="btn btn-ghost" style="align-self:flex-start" data-action="open-week" data-week="'+wk+'">تفاصيل الأسبوع '+wk+ic('chev','i-sm flip')+'</button></section>';
-  h+='<div class="home-grid calm">'+weekNowHTML(c)+card+'</div>';
+  h+='<div class="home-grid calm">'+weekNowHTML(c)+babyHTML+'</div>';
   h+='<div class="home-foot"><a class="urgent-link" href="#urgent">'+ic('aid')+'<span>متى أراجع الطبيبة فورًا؟</span>'+ic('chev','flip chev')+'</a>'+disclaimer()+'</div>';
-  return '<div class="view view-home">'+h+'</div>';
+  return '<div class="view">'+h+'</div>';
 }
 
 /* ---------- weeks ---------- */
@@ -1216,17 +1155,16 @@ function renderWeeks(c){
   var g=guardHTML(c);
   var head=subW()+'<div class="view-head"><h1>الأسابيع</h1></div>';
   if(g)return '<div class="view">'+head+g+'</div>';
-  var out=head+'<details class="fold"><summary>محطات الحمل</summary>'+msTimelineHTML(c)+'</details>';
+  var out=head+'<details class="fold"><summary>محطات الحمل</summary>'+msTimelineHTML(c)+'</details><div class="legend" aria-hidden="true"><span><i style="background:var(--t1-soft)"></i>مضى</span><span><i style="background:var(--accent);border-color:var(--accent)"></i>الأسبوع الحالي</span><span><i style="background:var(--surface)"></i>قادم</span></div>';
   TRIS.forEach(function(t,ti){
     var tr=triRange(c.ref,ti+1), cells='';
     for(var n=t[0];n<=t[1];n++){
       var stt=n<c.week?'past':(n===c.week?'current':'future'), rg=weekRange(c.ref,n);
       var lbl='الأسبوع '+n+'، '+(stt==='past'?'مضى':(stt==='current'?'الأسبوع الحالي':'قادم'))+'، '+fmtRange(rg[0],rg[1]);
-      var pw=palFor(n);
-      cells+='<button class="wk '+stt+'" style="--wf:'+pw.field+';--wd:'+pw.deep+';--wbg:'+pw.bg+'" data-action="open-week" data-week="'+n+'" aria-label="'+lbl+'"'+(stt==='current'?' aria-current="step"':'')+'>'+(FRUIT[n]&&WEEKS[n][0]?'<img class="wf" src="'+FRUIT[n]+'" width="30" height="30" alt="">':'')+
+      cells+='<button class="wk t'+(ti+1)+' '+stt+'" data-action="open-week" data-week="'+n+'" aria-label="'+lbl+'"'+(stt==='current'?' aria-current="step"':'')+'>'+
         (stt==='past'?'<span class="st">'+ic('check')+'</span>':'')+n+(stt==='current'?'<span class="now">الآن</span>':'')+'</button>';
     }
-    out+='<section class="tri-group" aria-labelledby="tri'+ti+'"><div class="tri-head"><h2 id="tri'+ti+'"><span class="sw" style="background:var(--deep)"></span>'+TRI_AR[ti]+'</h2><span class="r tnum">من الأسبوع '+t[0]+' إلى '+t[1]+'، '+fmtRange(tr[0],tr[1])+'</span></div><div class="week-grid">'+cells+'</div></section>';
+    out+='<section class="tri-group" aria-labelledby="tri'+ti+'"><div class="tri-head"><h2 id="tri'+ti+'"><span class="sw" style="background:var(--t'+(ti+1)+')"></span>'+TRI_AR[ti]+'</h2><span class="r tnum">من الأسبوع '+t[0]+' إلى '+t[1]+'، '+fmtRange(tr[0],tr[1])+'</span></div><div class="week-grid">'+cells+'</div></section>';
   });
   return '<div class="view">'+out+'</div>';
 }
@@ -1273,7 +1211,7 @@ function renderCalendar(c){
   for(var k=0;k<42;k++){
     var day=start+k, p=dayParts(day), ga=day-c.ref, cls='cd', inner='', lbl=fmt(day,{wd:true});
     if(p.m!==calView.m)cls+=' out';
-    var csty='';if(ga>=0&&ga<TERM){var tw=weekOfGA(ga);cls+=' pw';csty=' style="--cf:'+palFor(tw).field+'"';}
+    if(ga>=0&&ga<TERM){var tw=weekOfGA(ga);cls+=' p'+triOfWeek(tw);}
     if(day===c.ref+TERM)cls+=' edd';
     if(day===c.today)cls+=' today';
     if(day===calSel)cls+=' sel';
@@ -1286,7 +1224,7 @@ function renderCalendar(c){
     if(ev.length)lbl+='، '+ev.map(function(e){return e.t;}).join('، ');
     if(day===c.today)lbl+='، اليوم';
     inner+='<span class="marks">'+mk+'</span>';
-    grid+='<button class="'+cls+'"'+csty+' data-action="cal-day" data-day="'+day+'" aria-label="'+esc(lbl)+'"'+' aria-pressed="'+(day===calSel)+'"'+(day===c.today?' aria-current="date"':'')+' tabindex="'+(day===calSel?'0':'-1')+'">'+inner+'</button>';
+    grid+='<button class="'+cls+'" data-action="cal-day" data-day="'+day+'" aria-label="'+esc(lbl)+'"'+' aria-pressed="'+(day===calSel)+'"'+(day===c.today?' aria-current="date"':'')+' tabindex="'+(day===calSel?'0':'-1')+'">'+inner+'</button>';
   }
   var cal='<div class="cal"><div class="cal-head">'+
     '<button class="icon-btn" data-action="cal-prev" aria-label="الشهر السابق">'+ic('chev-back','flip')+'</button>'+
@@ -1294,7 +1232,7 @@ function renderCalendar(c){
     '<button class="icon-btn" data-action="cal-next" aria-label="الشهر التالي">'+ic('chev','flip')+'</button>'+
     '<button class="btn btn-ghost" data-action="cal-today" style="min-height:40px;padding:0 12px">اليوم</button></div>'+
     '<div class="cal-grid" role="group" aria-labelledby="calTitle" id="calGrid">'+grid+'</div>'+
-    '<div class="cal-legend" aria-hidden="true"><span>كل أسبوع بلون فاكهته</span><span><i class="sq" style="background:var(--accent)"></i>موعد الولادة</span><span><i class="mk ms"></i>محطة</span><span><i class="mk"></i>موعد</span></div></div>';
+    '<div class="cal-legend" aria-hidden="true"><span><i class="sq" style="background:var(--t1-soft)"></i>الثلث الأول</span><span><i class="sq" style="background:var(--t2-soft)"></i>الثلث الثاني</span><span><i class="sq" style="background:var(--t3-soft)"></i>الثلث الثالث</span><span><i class="sq" style="background:var(--accent)"></i>موعد الولادة</span><span><i class="mk ms"></i>محطة</span><span><i class="mk"></i>موعد</span></div></div>';
   return '<div class="view">'+head+'<div class="cal-wrap">'+cal+'<section class="panel day-detail" id="dayDetail" aria-live="polite">'+dayDetailHTML(c,calSel)+'</section></div></div>';
 }
 function dayDetailHTML(c,day){
@@ -1810,37 +1748,6 @@ function featureChange(t){
   return false;
 }
 
-
-/* ---------- colour of the week ---------- */
-/* per week: [field, deep, sheet, tint, line, dark field, dark deep, dark sheet, dark tint, dark line], derived from the fruit image */
-var PAL={3:["#E99BA1", "#431417", "#FBF7F7", "#F2DEDF", "#E5D2D3", "#412023", "#EEDDDE", "#1D1617", "#302123", "#413031"],4:["#A2BCE2", "#212A36", "#F8F8FA", "#DFE7F1", "#D7DBDF", "#232E3E", "#E2E5E9", "#16191D", "#26282C", "#35383C"],5:["#E8C89C", "#432F14", "#FBF9F7", "#F2EADE", "#E5DDD2", "#403321", "#EEE7DD", "#1D1A16", "#302A22", "#403930"],6:["#E2BCA2", "#402816", "#FAF8F7", "#F1E7DF", "#E3DAD4", "#3E2E23", "#ECE4DF", "#1D1916", "#2F2823", "#3F3731"],7:["#A2BCE2", "#1E2939", "#F8F8FA", "#DFE7F1", "#D6DAE0", "#232E3E", "#E1E5EA", "#16191D", "#25282D", "#34373D"],8:["#E89BA2", "#431417", "#FBF7F7", "#F2DEDF", "#E5D2D3", "#402123", "#EEDDDF", "#1D1617", "#302123", "#403031"],9:["#DEE3A0", "#3E4215", "#FAFAF7", "#EFF1DF", "#E2E4D3", "#3C3E23", "#ECEDDE", "#1C1D16", "#2E2F22", "#3E3F31"],10:["#EBBB98", "#432714", "#FBF8F6", "#F3E6DD", "#E6DAD1", "#422E1F", "#EFE4DC", "#1D1916", "#312721", "#41372F"],11:["#E2BCA2", "#37291F", "#FAF8F8", "#F1E7DF", "#E0DBD7", "#3E2E23", "#E9E5E2", "#1D1916", "#2C2825", "#3C3734"],12:["#D2E2A2", "#333A1C", "#F9FAF7", "#ECF1DF", "#DEE1D6", "#373E23", "#E8EAE1", "#1B1D16", "#2B2D25", "#3B3D33"],13:["#F2DA92", "#433714", "#FBFAF6", "#F4EEDC", "#E7E1CF", "#433A1E", "#F0EBDB", "#1D1B16", "#322D20", "#433D2E"],14:["#F1AA93", "#431F14", "#FBF7F6", "#F4E2DC", "#E7D5D0", "#43271E", "#F0E0DB", "#1D1816", "#322420", "#42332E"],15:["#E2A7A2", "#401A16", "#FAF7F7", "#F1E1DF", "#E3D5D4", "#3E2523", "#ECE0DF", "#1D1716", "#2F2423", "#3F3231"],16:["#C7E2A2", "#2D381F", "#F9FAF8", "#E9F1DF", "#DCE0D7", "#333E23", "#E6EAE1", "#1A1D16", "#292C25", "#393C34"],17:["#E2A2A7", "#411619", "#FAF7F7", "#F1DFE1", "#E3D3D5", "#3E2325", "#EDDEE0", "#1D1617", "#2F2324", "#3F3132"],18:["#E2A7A2", "#411916", "#FAF7F7", "#F1E1DF", "#E3D5D3", "#3E2523", "#ECE0DF", "#1D1716", "#2F2423", "#3F3231"],19:["#E2BCA2", "#3F2817", "#FAF8F7", "#F1E7DF", "#E3DAD4", "#3E2E23", "#ECE4DF", "#1D1916", "#2E2823", "#3F3732"],20:["#EDD797", "#433714", "#FBFAF6", "#F4EEDD", "#E6E1D1", "#42391F", "#EFEADC", "#1D1B16", "#312D21", "#413D2F"],21:["#EEBA96", "#432714", "#FBF8F6", "#F4E6DC", "#E6D9D0", "#432D1E", "#EFE4DC", "#1D1916", "#312720", "#42372F"],22:["#E3D2A1", "#413615", "#FAFAF7", "#F1ECDF", "#E3DFD3", "#3E3723", "#EDE9DE", "#1D1B16", "#2F2C23", "#3F3C31"],23:["#F2CA92", "#432F14", "#FBF9F6", "#F4EADC", "#E7DDCF", "#43341E", "#F0E7DB", "#1D1A16", "#322A20", "#433A2E"],24:["#E2D2A2", "#3B331B", "#FAF9F7", "#F1ECDF", "#E1DED5", "#3E3723", "#EBE8E0", "#1D1B16", "#2D2B24", "#3D3B33"],25:["#D2E2A2", "#32381E", "#F9FAF8", "#ECF1DF", "#DEE0D6", "#373E23", "#E8EAE1", "#1B1D16", "#2B2C25", "#3A3C34"],26:["#D2E2A2", "#353E18", "#F9FAF7", "#ECF1DF", "#DFE2D4", "#373E23", "#E9ECDF", "#1B1D16", "#2B2E23", "#3B3E32"],27:["#D2E2A2", "#333B1C", "#F9FAF7", "#ECF1DF", "#DEE1D5", "#373E23", "#E8EBE0", "#1B1D16", "#2B2D24", "#3B3D33"],28:["#DDA2E2", "#3A193D", "#FAF7FA", "#EFDFF1", "#E1D5E2", "#3C233E", "#EAE0EB", "#1C161D", "#2D242E", "#3D323E"],29:["#E7C89D", "#432F14", "#FBF9F7", "#F2EADE", "#E5DDD2", "#403321", "#EEE7DD", "#1D1A16", "#302A22", "#403930"],30:["#D2E2A2", "#333B1C", "#F9FAF7", "#ECF1DF", "#DEE1D5", "#373E23", "#E8EBE0", "#1B1D16", "#2B2D24", "#3B3D33"],31:["#E2BCA2", "#3C291B", "#FAF8F7", "#F1E7DF", "#E1DAD5", "#3E2E23", "#EBE5E0", "#1D1916", "#2D2824", "#3D3733"],32:["#F2DA92", "#433714", "#FBFAF6", "#F4EEDC", "#E7E1CF", "#433A1E", "#F0EBDB", "#1D1B16", "#322D20", "#433D2E"],33:["#E2C7A2", "#372D1F", "#FAF9F8", "#F1E9DF", "#E0DCD7", "#3E3323", "#E9E6E2", "#1D1A16", "#2C2925", "#3C3934"],34:["#E2C7A2", "#372D1F", "#FAF9F8", "#F1E9DF", "#E0DCD7", "#3E3323", "#E9E6E2", "#1D1A16", "#2C2925", "#3C3934"],35:["#DDE2A2", "#3C3F18", "#FAFAF7", "#EFF1DF", "#E1E3D4", "#3C3E23", "#EBECDF", "#1C1D16", "#2D2E23", "#3D3E32"],36:["#C7E2A2", "#2E3B1C", "#F9FAF7", "#E9F1DF", "#DCE1D6", "#333E23", "#E6EAE1", "#1A1D16", "#2A2D25", "#393D33"],37:["#C7E2A2", "#2E391E", "#F9FAF8", "#E9F1DF", "#DCE0D6", "#333E23", "#E6EAE1", "#1A1D16", "#292D25", "#393C34"],38:["#D2E2A2", "#333A1D", "#F9FAF7", "#ECF1DF", "#DEE1D6", "#373E23", "#E8EAE1", "#1B1D16", "#2B2D25", "#3A3D33"],39:["#C7E2A2", "#2D371F", "#F9FAF8", "#E9F1DF", "#DCE0D7", "#333E23", "#E6E9E2", "#1A1D16", "#292C25", "#393C34"],40:["#F1BA93", "#432714", "#FBF8F6", "#F4E6DC", "#E7D9D0", "#432D1E", "#F0E4DB", "#1D1916", "#322720", "#42362E"]};
-var PAL_KEYS=['--field','--deep','--bg','--surface','--surface-2','--line','--line-strong','--ink','--ink-2','--ink-3','--accent','--accent-ink','--accent-soft','--accent-hover','--focus'];
-function hexMix(a,b,t){var A=[1,3,5].map(function(i){return parseInt(a.substr(i,2),16);}),B=[1,3,5].map(function(i){return parseInt(b.substr(i,2),16);});
-  return '#'+A.map(function(x,i){return ('0'+Math.round(x*(1-t)+B[i]*t).toString(16)).slice(-2);}).join('');}
-function isDark(){if(state.theme==='dark')return true;if(state.theme==='light')return false;try{return window.matchMedia('(prefers-color-scheme: dark)').matches;}catch(err){return false;}}
-function palFor(w,dark){w=Math.max(3,Math.min(40,w||3));var p=PAL[w];if(dark==null)dark=isDark();
-  return dark?{field:p[5],deep:p[6],bg:p[7],tint:p[8],line:p[9]}:{field:p[0],deep:p[1],bg:p[2],tint:p[3],line:p[4]};}
-function applyVars(el,o){var v={'--field':o.field,'--deep':o.deep,'--bg':o.bg,'--surface':o.tint,'--surface-2':o.line,'--line':o.line,'--line-strong':hexMix(o.deep,o.bg,.66),
-  '--ink':o.deep,'--ink-2':hexMix(o.deep,o.bg,.12),'--ink-3':hexMix(o.deep,o.bg,.22),'--accent':o.deep,'--accent-ink':o.bg,'--accent-soft':o.tint,'--accent-hover':hexMix(o.deep,o.bg,.12),'--focus':o.deep};
-  Object.keys(v).forEach(function(k){el.style.setProperty(k,v[k]);});}
-function applyPalette(c){
-  var root=document.documentElement, w=(c&&c.ok&&c.status!=='before')?Math.min(c.week,40):null, field=null;
-  if(w==null)PAL_KEYS.forEach(function(k){root.style.removeProperty(k);});
-  else{var o=palFor(w);applyVars(root,o);field=o.field;}
-  document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){if(field)m.setAttribute('content',field);});
-}
-try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(state.theme==='system'){applyPalette(ctx());if(openLayer===ws)applyVars(ws,palFor(sheetWeek));if(cur==='weeks'||cur==='calendar')render(false);}});}catch(err){}
-var topbarEl=document.querySelector('.topbar'), mainEl=document.getElementById('main');
-function shapeView(){
-  var v=viewEl.firstElementChild; if(!v)return;
-  var kids=[].slice.call(v.children), idx=-1;
-  for(var i=0;i<kids.length;i++){if(kids[i].matches('.view-head,.notes-head,.hero-band')){idx=i;break;}}
-  var band=document.createElement('div');band.className='band';band.appendChild(topbarEl);
-  var sh=document.createElement('div');sh.className='sheet-wrap';
-  kids.forEach(function(k,i){(i<=idx?band:sh).appendChild(k);});
-  v.appendChild(band);v.appendChild(sh);
-}
-
 /* ---------- router ---------- */
 function render(focus){
   var c=ctx();
@@ -1859,10 +1766,7 @@ function render(focus){
     case 'urgent':html=renderUrgent();break;
     default:html=renderHome(c);
   }
-  mainEl.insertBefore(topbarEl,viewEl);
   viewEl.innerHTML=html;
-  shapeView();
-  applyPalette(c);
   markNav(cur);
   if(cur==='home'&&c.ok&&c.status!=='before')animateRing(c.ga,firstRender);
   if(cur==='prefs')updatePreview(false);
@@ -1896,13 +1800,11 @@ function fillWeek(n,dir){
   var stt=n<c.week?'past':(n===c.week?'current':'future');
   document.getElementById('wsTitle').textContent='الأسبوع '+n;
   document.getElementById('wsRange').textContent=fmtRange(rg[0],rg[1]);
-  document.getElementById('wsMonth').textContent='الشهر '+ORD_AR[mo-1]+'، '+TRI_AR[tri-1];
-  document.getElementById('wsFruit').innerHTML=(FRUIT[n]&&W[0])?'<img src="'+FRUIT[n]+'" width="84" height="84" alt="رسم توضيحي: '+W[0]+'">':'';
-  applyVars(ws,palFor(n));
-  var body='<div class="hero-chips">'+(stt==='current'?'<span class="chip accent">الأسبوع الحالي</span>':(stt==='past'?'<span class="chip">'+ic('check','i-sm')+'مضى</span>':'<span class="chip">قادم</span>'))+'</div>'+
+  var body='<div class="hero-chips">'+(stt==='current'?'<span class="chip accent">الأسبوع الحالي</span>':(stt==='past'?'<span class="chip">'+ic('check','i-sm')+'مضى</span>':'<span class="chip">قادم</span>'))+
+    '<span class="chip">الشهر '+ORD_AR[mo-1]+'</span><span class="chip t'+tri+'">'+TRI_AR[tri-1]+'</span></div>'+
     '<p class="muted tnum" style="font-size:var(--fs-sm);margin-top:calc(var(--s3) * -1)">'+hijri(rg[0])+' إلى '+hijri(rg[1])+'</p>';
   if(W[0]){
-    body+='<div class="wsize size-row"><div style="display:flex;flex-direction:column;gap:var(--s2);min-width:0"><p class="lead">بحجم '+W[0]+' تقريبًا</p><div class="measures"><span class="measure">'+ic('ruler','i-sm')+'الطول <b class="tnum">'+W[1]+'</b></span>'+(W[2]?'<span class="measure">'+ic('weight','i-sm')+'الوزن <b class="tnum">'+W[2]+'</b></span>':'')+'</div></div></div>';
+    body+='<div class="wsize size-row">'+fruitTile(n,112)+'<div style="display:flex;flex-direction:column;gap:var(--s2);min-width:0"><p class="lead">بحجم '+W[0]+' تقريبًا</p><div class="measures"><span class="measure">'+ic('ruler','i-sm')+'الطول <b class="tnum">'+W[1]+'</b></span>'+(W[2]?'<span class="measure">'+ic('weight','i-sm')+'الوزن <b class="tnum">'+W[2]+'</b></span>':'')+'</div></div></div>';
   }else body+='<div class="wsize"><p class="lead">لا يوجد جنين بعد</p><p class="muted" style="font-size:var(--fs-sm)">يُحسب هذا الأسبوع ضمن مدة الحمل وإن لم يحدث الإخصاب بعد.</p></div>';
   body+='<div class="blk"><h3>تطوّر الجنين</h3><ul class="blist">'+W[3].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>';
   body+='<div class="blk"><h3>ما قد تشعرين به</h3><ul class="blist mom">'+MOM[n].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><p class="help">تختلف الأعراض كثيرًا من امرأة إلى أخرى. إذا كان العرض شديدًا أو مفاجئًا فراجعي <a href="#urgent" data-action="close-sheet">علامات الطوارئ</a>.</p></div>';
@@ -2080,7 +1982,7 @@ document.addEventListener('change',function(e){
   if(featureChange(t))return;
   if(t.matches('[data-check]')){state.checks[t.getAttribute('data-check')]=t.checked;save();
     var keep=t.id;render(false);var el=document.getElementById(keep);if(el)el.focus({preventScroll:true});return;}
-  if(t.name==='theme'){state.theme=t.value;applyTheme(t.value);save();applyPalette(ctx());toast(t.value==='system'?'المظهر يتبع إعداد الجهاز':(t.value==='dark'?'تم تفعيل المظهر الداكن':'تم تفعيل المظهر الفاتح'));return;}
+  if(t.name==='theme'){state.theme=t.value;applyTheme(t.value);save();toast(t.value==='system'?'المظهر يتبع إعداد الجهاز':(t.value==='dark'?'تم تفعيل المظهر الداكن':'تم تفعيل المظهر الفاتح'));return;}
   if(t.name==='mode'){document.querySelectorAll('#prefsForm [data-mode]').forEach(function(d){d.hidden=d.getAttribute('data-mode')!==t.value;});
     if(t.value==='edd'&&!document.getElementById('pEdd').value){var rr=referenceDay(state.settings,null);if(rr.ok)document.getElementById('pEdd').value=dayToISO(rr.ref+TERM);}
     updatePreview(false);echoAll();}
