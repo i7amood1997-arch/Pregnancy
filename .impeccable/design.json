@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T12:00:00Z",
+  "title": "Design System: مسار الحمل",
+  "extensions": {
+    "colorMeta": {
+      "leaf": { "role": "primary", "displayName": "Leaf", "canonical": "#2F5D3A", "tonalRamp": ["#EAF1E8", "#9CC9A3", "#2F5D3A", "#244A2E"] },
+      "pomegranate": { "role": "secondary", "displayName": "Pomegranate", "canonical": "#9E3B3B", "tonalRamp": ["#F5E6E4", "#E58C8C", "#9E3B3B"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#FFFFFF", "tonalRamp": ["#FFFFFF", "#FBFCFA", "#F6F8F5", "#EDF1EC", "#E3E8E2", "#C2CEC0", "#A9BDA6"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#1F2A21", "tonalRamp": ["#5E625D", "#4A4A47", "#1F2A21"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Week headline", "purpose": "Amiri 700, the home week headline and section headings." },
+      "figure": { "displayName": "Figures", "purpose": "Amiri for due date and days-left values." },
+      "body": { "displayName": "Body", "purpose": "Zain for reading text, controls and labels." }
+    },
+    "shadows": [
+      { "name": "fruit-drop", "value": "drop-shadow(0 6px 6px rgb(0 0 0 / .12))", "purpose": "Only under fruit illustrations, to stand them on the plate." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(.23,1,.32,1)", "purpose": "Press feedback and entering elements." },
+      { "name": "ease-drawer", "value": "cubic-bezier(.32,.72,0,1)", "purpose": "Week panel and sheets." }
+    ],
+    "breakpoints": [
+      { "name": "rail", "value": "960px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action per screen.",
+      "html": "<button class=\"ds-btn\">تفاصيل الأسبوع 32</button>",
+      "css": ".ds-btn{width:100%;min-height:50px;border:0;border-radius:999px;background:#2F5D3A;color:#fff;font:700 1rem Zain,sans-serif}.ds-btn:active{transform:scale(.97)}"
+    },
+    {
+      "name": "Plate strip",
+      "kind": "custom",
+      "refersTo": "plate",
+      "description": "Five arched plates on one sage baseline; the current week enlarged.",
+      "html": "<div class=\"ds-strip\"><span class=\"ds-p\">31</span><span class=\"ds-p ds-cur\">الآن</span><span class=\"ds-p\">33</span></div>",
+      "css": ".ds-strip{display:flex;align-items:flex-end;gap:8px;border-bottom:1px solid #A9BDA6}.ds-p{flex:1;aspect-ratio:.46;border:1px solid #A9BDA6;border-bottom:0;border-radius:999px 999px 0 0;background:#FBFCFA;text-align:center;font:700 .75rem Zain,sans-serif;color:#5E625D;padding-top:20px}.ds-cur{flex-grow:1.7;aspect-ratio:.56;border:1.5px solid #2F5D3A;border-bottom:0;background:#F2F7F0;color:#9E3B3B}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The growth folio",
+    "overview": "Every week is a botanical plate in an arched frame at one scale; the current week stands enlarged among its neighbours. Calm paper white, leaf green for headings and the one action, a single pomegranate dot for now.",
+    "keyCharacteristics": ["Arched plates", "One green, one dot", "Hairlines instead of cards", "Amiri headings, Zain text"],
+    "rules": [
+      { "name": "The One Green Rule", "body": "Leaf green on headings, the current plate and at most one filled button per screen.", "section": "colors" },
+      { "name": "The Single Dot Rule", "body": "Pomegranate marks only now.", "section": "colors" },
+      { "name": "The Naskh Headline Rule", "body": "Amiri for headings and figures only.", "section": "typography" }
+    ],
+    "dos": ["Keep every fruit at the same scale", "Show month and trimester under the week"],
+    "donts": ["Don't flood screens with colour", "Don't bring back grey cards or a ring", "Don't use cream grounds"]
+  }
+}
