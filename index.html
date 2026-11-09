@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="متتبع حمل باللغة العربية: عمر الحمل، موعد الولادة، الأسابيع والأشهر، التقويم، المواعيد والقوائم.">
-<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0E1416" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1411" media="(prefers-color-scheme: dark)">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
@@ -16,59 +16,59 @@
 <title>مسار الحمل</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Zain:wght@300;400;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&display=swap">
 <style>
-/* Growth folio: every week is a botanical plate in an arched frame at one shared scale.
-   White ground, sage hairlines, leaf green for headings and the one primary action, a pomegranate dot for "now". */
+/* Soft: Alexandria in light weights on a sage-tinted ground; white surfaces lift gently; the fruit stands in an arch that fades into the ground.
+   Leaf green for the month line and the one action, a pomegranate dot for "now". */
 :root{
-  --bg:#FFFFFF; --surface:#F6F8F5; --surface-2:#EDF1EC; --line:#E3E8E2; --line-strong:#C2CEC0;
-  --ink:#1F2A21; --ink-2:#4A4A47; --ink-3:#5E625D;
-  --accent:#2F5D3A; --accent-ink:#FFFFFF; --accent-soft:#EAF1E8; --accent-hover:#244A2E;
-  --sage:#A9BDA6; --pom:#9E3B3B; --plate:#FBFCFA; --plate-cur:#F2F7F0;
+  --bg:#F3F6F2; --surface:#FFFFFF; --surface-2:#E9EFE7; --line:#E3E8E1; --line-strong:#C6D0C3;
+  --ink:#1D2A22; --ink-2:#3E4A42; --ink-3:#5C675F;
+  --accent:#3B6A4C; --accent-ink:#FFFFFF; --accent-soft:#E4EDE2; --accent-hover:#2F5A3F;
+  --sage:#A9BDA6; --pom:#B0524B; --plate:#FFFFFF; --plate-cur:#FFFFFF; --arch-top:#DCE7D8; --fruit-shadow:rgb(40 60 45 / .2);
   --t1:#3E6B57; --t1-soft:#E6EFE8; --t2:#7A5A1E; --t2-soft:#F3EEDF; --t3:#9E3B3B; --t3-soft:#F5E6E4;
   --danger:#B42318; --danger-soft:#FBE3E0; --warn:#7E4C00; --warn-soft:#F7ECD3; --ok:#256C43;
-  --scrim:rgb(20 30 22 / .42);
-  --shadow:0 1px 2px rgb(31 42 33 / .05), 0 10px 26px -14px rgb(31 42 33 / .18);
-  --shadow-lg:0 -10px 40px -14px rgb(31 42 33 / .28);
-  --focus:#2F5D3A; --fruit-bg:#FFFFFF;
-  --f-display:"Amiri","Noto Naskh Arabic",serif;
-  --f-body:"Zain","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
-  /* type scale, ratio 1.2 */
-  --fs-xs:.75rem; --fs-sm:.875rem; --fs-md:1rem; --fs-lg:1.1875rem; --fs-xl:1.4375rem; --fs-2xl:1.75rem; --fs-3xl:2.125rem; --fs-4xl:3rem;
+  --scrim:rgb(17 26 19 / .42);
+  --shadow:0 1px 1px rgb(29 42 34 / .03), 0 12px 28px -18px rgb(29 42 34 / .24);
+  --shadow-lg:0 -10px 40px -14px rgb(29 42 34 / .28);
+  --focus:#3B6A4C; --fruit-bg:#FFFFFF;
+  --f-display:"Alexandria","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-body:"Alexandria","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  /* type scale */
+  --fs-xs:.78rem; --fs-sm:.875rem; --fs-md:1rem; --fs-lg:1.125rem; --fs-xl:1.375rem; --fs-2xl:1.75rem; --fs-3xl:2.125rem; --fs-4xl:3rem;
   /* spacing, 4pt */
   --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px;
-  /* radius: arches for plates, 16 for sections, 12 for controls */
-  --r-surface:16px; --r-control:12px; --r-pill:999px;
+  /* radius: arches for fruit, 20 for surfaces, 14 for controls */
+  --r-surface:20px; --r-control:14px; --r-pill:999px;
   /* motion */
   --ease-out:cubic-bezier(.23,1,.32,1); --ease-drawer:cubic-bezier(.32,.72,0,1); --ease-exit:cubic-bezier(.4,0,1,1);
-  --tabbar-h:60px;
+  --tabbar-h:62px;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#111512; --surface:#171D18; --surface-2:#1F2720; --line:#29332B; --line-strong:#3D4B3F;
-    --ink:#E5ECE4; --ink-2:#B7C2B6; --ink-3:#9AA698;
-    --accent:#9CC9A3; --accent-ink:#0E1A11; --accent-soft:#1B2A1F; --accent-hover:#B6DABB;
-    --sage:#46594A; --pom:#E58C8C; --plate:#151B16; --plate-cur:#1A281E;
+    --bg:#0F1411; --surface:#171D19; --surface-2:#212923; --line:#28312B; --line-strong:#3A463D;
+    --ink:#E6EDE6; --ink-2:#C2CCC3; --ink-3:#9DA89F;
+    --accent:#9DCAA8; --accent-ink:#0F1A13; --accent-soft:#1F2E24; --accent-hover:#B8DCC0;
+    --sage:#4A5D4E; --pom:#E8908A; --plate:#171D19; --plate-cur:#171D19; --arch-top:#1F2C23; --fruit-shadow:rgb(0 0 0 / .45);
     --t1:#9CC9B0; --t1-soft:#1B2A22; --t2:#E2C489; --t2-soft:#2C2617; --t3:#EFA3A3; --t3-soft:#33201F;
     --danger:#F4877E; --danger-soft:#3A1A17; --warn:#EDBE63; --warn-soft:#332711; --ok:#7DD3A0;
     --scrim:rgb(0 0 0 / .6);
-    --shadow:0 1px 2px rgb(0 0 0 / .3), 0 10px 28px -12px rgb(0 0 0 / .5);
+    --shadow:0 1px 1px rgb(0 0 0 / .3), 0 12px 28px -16px rgb(0 0 0 / .6);
     --shadow-lg:0 -10px 40px -12px rgb(0 0 0 / .6);
-    --focus:#9CC9A3; --fruit-bg:#DDE5E7;
+    --focus:#9DCAA8; --fruit-bg:#DDE5E7;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#111512; --surface:#171D18; --surface-2:#1F2720; --line:#29332B; --line-strong:#3D4B3F;
-    --ink:#E5ECE4; --ink-2:#B7C2B6; --ink-3:#9AA698;
-    --accent:#9CC9A3; --accent-ink:#0E1A11; --accent-soft:#1B2A1F; --accent-hover:#B6DABB;
-    --sage:#46594A; --pom:#E58C8C; --plate:#151B16; --plate-cur:#1A281E;
+    --bg:#0F1411; --surface:#171D19; --surface-2:#212923; --line:#28312B; --line-strong:#3A463D;
+    --ink:#E6EDE6; --ink-2:#C2CCC3; --ink-3:#9DA89F;
+    --accent:#9DCAA8; --accent-ink:#0F1A13; --accent-soft:#1F2E24; --accent-hover:#B8DCC0;
+    --sage:#4A5D4E; --pom:#E8908A; --plate:#171D19; --plate-cur:#171D19; --arch-top:#1F2C23; --fruit-shadow:rgb(0 0 0 / .45);
     --t1:#9CC9B0; --t1-soft:#1B2A22; --t2:#E2C489; --t2-soft:#2C2617; --t3:#EFA3A3; --t3-soft:#33201F;
     --danger:#F4877E; --danger-soft:#3A1A17; --warn:#EDBE63; --warn-soft:#332711; --ok:#7DD3A0;
     --scrim:rgb(0 0 0 / .6);
-    --shadow:0 1px 2px rgb(0 0 0 / .3), 0 10px 28px -12px rgb(0 0 0 / .5);
+    --shadow:0 1px 1px rgb(0 0 0 / .3), 0 12px 28px -16px rgb(0 0 0 / .6);
     --shadow-lg:0 -10px 40px -12px rgb(0 0 0 / .6);
-    --focus:#9CC9A3; --fruit-bg:#DDE5E7;
+    --focus:#9DCAA8; --fruit-bg:#DDE5E7;
     color-scheme:dark;
 }
 
@@ -584,82 +584,156 @@ details.qs>summary{min-height:40px;color:var(--ink-2);font-size:var(--fs-xs);fon
 .fruit-tile{flex:none;display:block}
 .fruit-tile img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 8px rgb(15 27 31 / .14))}
 
-/* ===== Growth folio components (override earlier rules) ===== */
-html{font-size:106.25%}
-h1,h2,h3{font-family:var(--f-display);font-weight:700}
-.section-title{font-size:var(--fs-xl)}
-.panel,.baby,.mcard,.item,.cal,.state,.week-card{background:var(--bg);border:1px solid var(--line);box-shadow:none}
-.mcard.current{border:1.5px solid var(--accent);box-shadow:none}
-.chip{background:transparent;border:1px solid var(--line-strong);color:var(--ink-2)}
-.chip.accent{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
-.btn-ghost{border-color:var(--sage);color:var(--accent)}
-.todo li{background:transparent;border-radius:0;border-bottom:1px solid var(--line);padding:var(--s3) 0}
-.todo li:first-child{border-top:1px solid var(--line)}
-.tabbar{background:var(--bg);border-top:1px solid var(--line);backdrop-filter:none;-webkit-backdrop-filter:none}
-.tab{min-height:52px;font-size:var(--fs-sm);color:var(--ink-3);position:relative}
-.tab .pill{display:none}
-.tab[aria-current="page"]{color:var(--accent);font-weight:700}
-.tab[aria-current="page"]::before{content:"";position:absolute;top:3px;width:22px;height:2px;border-radius:2px;background:var(--accent)}
-.rail{background:var(--bg)}
-.urgent-link{background:transparent;border:1px solid var(--line);font-weight:500}
-.urgent-link>.i{color:var(--pom)}
-.tip{background:var(--accent-soft)}
+/* ===== Soft: one family (Alexandria) in light weights, a sage-tinted ground, white surfaces with soft depth ===== */
+html{font-size:100%}
+body{font-weight:400}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;letter-spacing:0}
+.view-head h1,.notes-head h1{font-weight:300;font-size:2rem;line-height:1.3;letter-spacing:-.01em}
+.section-title{font-size:var(--fs-lg);font-weight:500}
+.topbar{display:none}
+main{padding-top:max(var(--s4),env(safe-area-inset-top,0px))}
+.panel,.baby,.mcard,.item,.cal,.state,.week-card{background:var(--surface);border:0;border-radius:20px;box-shadow:var(--shadow)}
+.state .state-icon{border-radius:14px}
+.sheet,.dialog,.rail{background:var(--surface)}
+.tabbar{background:var(--surface);border-top:0;box-shadow:0 -1px 0 var(--line);backdrop-filter:none;-webkit-backdrop-filter:none}
+.input,.stepper{background:var(--surface)}
+.seg,.tool-tabs,.subtabs{background:var(--surface-2)}
+.seg input:checked+span,.subtabs a[aria-current="page"],.tt[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 2px rgb(0 0 0 / .08),0 2px 8px -4px rgb(0 0 0 / .12)}
+.chip{background:var(--surface-2);border:0;color:var(--ink-2)}
+.chip.accent{background:var(--accent-soft);color:var(--accent)}
+.btn{font-weight:500;border-radius:14px}
+.btn-ghost{border-color:var(--line-strong);color:var(--accent);background:var(--surface)}
+.btn-ghost:hover{background:var(--surface-2)}
+.icon-btn.round{border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink-3)}
+.icon-btn.round:hover{color:var(--ink)}
+.tab{min-height:54px;font-size:11px;font-weight:400;color:var(--ink-3);position:relative}
+.tab .pill{display:grid;width:52px;height:30px}
+.tab[aria-current="page"]{color:var(--accent);font-weight:500}
+.tab[aria-current="page"] .pill{background:var(--accent-soft)}
+.tab[aria-current="page"]::before{content:none}
+.note{font-weight:300}
+.fold>summary{font-weight:500}
+.hist-fold>summary{color:var(--ink-2);font-size:var(--fs-sm)}
+.hist-fold>summary .c{font-weight:300;color:var(--ink-3)}
+.blist li{font-weight:300;line-height:1.75}
+.blist li::before{width:6px;height:6px;margin-top:.75em;background:var(--accent)}
+.blist.red li::before{background:var(--danger)}
+.big-tap{box-shadow:0 18px 36px -18px var(--accent)}
+.stat{background:var(--surface);box-shadow:var(--shadow)}
+.stat b{font-weight:400}
+.datebox{border-radius:12px;background:var(--surface-2)}
+.datebox b{font-weight:400}
+
 /* home */
-.view-home{max-width:640px;margin-inline:auto;width:100%}
-.folio{display:flex;flex-direction:column;align-items:stretch}
-.strip{display:flex;align-items:flex-end;gap:8px;padding-top:var(--s3);border-bottom:1px solid var(--sage)}
-.plate{display:block;flex:1 1 0;min-width:0;padding:0;border:0;background:none;color:var(--ink-3);font:inherit;cursor:pointer;transition:transform 140ms var(--ease-out)}
-.plate:active{transform:scale(.97)}
-.plate .arch{display:flex;flex-direction:column;align-items:center;justify-content:space-between;width:100%;aspect-ratio:.46;padding:10% 6% 12%;border:1px solid var(--sage);border-bottom:0;border-radius:999px 999px 0 0;background:var(--plate)}
-.plate small{font-size:var(--fs-xs);font-weight:700;line-height:1;padding-top:30%}
-.plate img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;filter:drop-shadow(0 8px 8px rgb(0 0 0 / .13))}
-.plate .seed{width:9px;height:9px;border-radius:50%;background:var(--sage);margin-bottom:20%}
-.plate.cur{flex-grow:1.7}
-.plate.cur .arch{aspect-ratio:.56;border:1.5px solid var(--accent);border-bottom:0;background:var(--plate-cur)}
-.plate.cur small{color:var(--pom);padding-top:18%}
-.plate.cur img{width:100%}
-.folio-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;padding-top:var(--s5)}
-.folio-head h1{font-size:2.6rem;line-height:1.35;color:var(--accent)}
-.folio-head .rule{width:52px;height:2px;border-radius:2px;background:var(--accent);margin:12px 0 10px}
-.folio-head .mo{font-weight:700;font-size:var(--fs-lg);color:var(--accent)}
-.folio-head .sz{color:var(--ink-2)}
-.stages{display:grid;grid-template-columns:repeat(40,minmax(0,1fr));align-items:center;justify-items:center;margin-top:var(--s5)}
-.stages i{width:6px;height:6px;border-radius:50%;background:var(--line-strong);opacity:.7}
-.stages i.p{background:var(--sage);opacity:1}
-.stages i.c{width:10px;height:10px;background:var(--pom);opacity:1}
-.ga-line{display:flex;justify-content:center;gap:var(--s4);margin-top:var(--s2);font-size:var(--fs-sm);color:var(--ink-3)}
-.ga-line #gaTitle{color:var(--ink);font-weight:700}
-.duo{display:grid;grid-template-columns:1fr 1fr;margin:var(--s5) 0 0;border-block:1px solid var(--line)}
-.duo>div{padding:12px 8px;text-align:center;min-width:0}
-.duo>div+div{border-inline-start:1px solid var(--line)}
-.duo dt{font-size:var(--fs-xs);color:var(--ink-3)}
-.duo dd{margin:0}
-.duo b{display:block;font-family:var(--f-display);font-size:1.35rem;line-height:1.55;color:var(--ink)}
-.duo em{display:block;font-style:normal;font-size:var(--fs-xs);color:var(--ink-3)}
-.primary-wide{width:100%;min-height:50px;margin-top:var(--s5);border-radius:999px;font-size:var(--fs-md)}
-.week-rows{display:flex;flex-direction:column;gap:var(--s3)}
-.week-rows .info-rows{border-top:1px solid var(--line);padding-top:var(--s3)}
-.home-foot{gap:var(--s3)}
-/* weeks grid as arches */
-.week-grid{grid-template-columns:repeat(auto-fill,minmax(60px,1fr));gap:8px 6px}
-.wk{justify-content:space-between;gap:2px;min-height:86px;padding:7px 2px 7px;border:1px solid var(--sage);border-radius:30px 30px 6px 6px;background:var(--plate);color:var(--ink-3);font-family:var(--f-body);font-size:var(--fs-sm);font-weight:700}
-.wk .wf{width:36px;height:36px;object-fit:contain}
-.wk.past{background:var(--surface-2);border-color:transparent;color:var(--ink-2)}
-.wk.future .wf{opacity:.45;filter:grayscale(.4)}
-.wk.current{background:var(--plate-cur);border:1.5px solid var(--accent);color:var(--accent);box-shadow:none}
-.wk.current .now{color:var(--pom);font-size:10px}
-.wk .st{top:auto;bottom:6px;inset-inline-end:7px}
-.wk .st .i{color:var(--accent)}
-.tri-head h2 .sw{background:var(--accent)!important;border-radius:50% 50% 2px 2px;width:10px;height:13px}
-/* week panel: its own plate */
-.ws-plate{flex:none;display:flex;align-items:flex-end;justify-content:center;width:60px;height:82px;padding-bottom:6px;border:1.5px solid var(--accent);border-bottom-width:1px;border-radius:30px 30px 4px 4px;background:var(--plate-cur)}
+.view-home{max-width:560px;margin-inline:auto;width:100%;gap:0}
+.view-home>.banner{margin-bottom:var(--s4)}
+.home-top{display:flex;justify-content:space-between;align-items:center;gap:var(--s3)}
+.home-top .dt{display:flex;flex-direction:column;line-height:1.45}
+.home-top .dt b{font-weight:500;font-size:var(--fs-sm)}
+.home-top .dt span{font-weight:300;font-size:var(--fs-xs);color:var(--ink-3)}
+.view-home>.home-top+.state{margin-top:var(--s4)}
+.hero-s{display:flex;flex-direction:column;align-items:center;text-align:center}
+.arch{position:relative;display:flex;align-items:flex-end;justify-content:center;width:176px;height:196px;margin-top:var(--s1);padding:0 0 16px;border:0;border-radius:999px 999px 0 0;background:linear-gradient(180deg,var(--arch-top),var(--bg) 92%);transition:transform 160ms var(--ease-out)}
+.arch:active{transform:scale(.98)}
+.arch::after{content:"";position:absolute;bottom:12px;left:50%;width:96px;height:14px;margin-left:-48px;border-radius:50%;background:radial-gradient(closest-side,var(--fruit-shadow),transparent)}
+.arch img{position:relative;z-index:1;width:112px;height:112px;object-fit:contain;filter:drop-shadow(0 8px 10px rgb(30 50 35 / .1))}
+.arch .seed{width:12px;height:12px;border-radius:50%;background:var(--sage);margin-bottom:28px}
+.hero-s h1{font-weight:300;font-size:2.65rem;line-height:1.25;letter-spacing:-.01em;margin-top:14px;color:var(--ink)}
+.hero-s .mo{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:500;font-size:.95rem;color:var(--accent);margin-top:4px}
+.hero-s .mo i{width:3px;height:3px;border-radius:50%;background:currentColor}
+.hero-s .sz{font-weight:300;font-size:var(--fs-sm);color:var(--ink-3);margin-top:2px}
+.home-card{margin-top:22px;background:var(--surface);border-radius:24px;padding:18px 18px 4px;box-shadow:var(--shadow)}
+.tri-bar{display:flex;gap:4px}
+.tri-bar span{position:relative;display:block;height:5px;border-radius:5px;background:var(--surface-2)}
+.tri-bar i{position:absolute;inset-block:0;inset-inline-start:0;border-radius:5px;background:var(--accent)}
+.tri-bar .dot{position:absolute;top:50%;width:11px;height:11px;border-radius:50%;background:var(--pom);border:2px solid var(--surface);transform:translate(50%,-50%)}
+[dir="ltr"] .tri-bar .dot{transform:translate(-50%,-50%)}
+.left-line{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:2px 8px;margin-top:10px;font-size:var(--fs-xs);font-weight:300;color:var(--ink-3)}
+.left-line .l{font-size:var(--fs-sm);font-weight:400;color:var(--ink)}
+.left-line .l b{font-weight:500;font-size:1.4rem;letter-spacing:-.01em}
+.home-rows{list-style:none;margin:10px 0 0;padding:0}
+.home-rows li+li{border-top:1px solid var(--line)}
+.hrow{display:flex;align-items:center;gap:14px;width:100%;min-height:64px;padding:10px 0;border:0;background:none;color:inherit;text-decoration:none;text-align:start;font:inherit;border-radius:12px}
+.hrow .ic{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--accent-soft);color:var(--accent)}
+.hrow .tx{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.45}
+.hrow .tx b{font-weight:500;font-size:.95rem}
+.hrow .tx small{font-weight:300;font-size:var(--fs-xs);color:var(--ink-3)}
+.hrow .chev{color:var(--line-strong)}
+@media (hover:hover) and (pointer:fine){.hrow:hover .chev{color:var(--accent)}}
+
+/* week panel */
+.sheet-head{align-items:center;border-bottom:0;padding-bottom:0}
+.sheet-head h2{font-weight:300;font-size:1.85rem;line-height:1.25;letter-spacing:-.01em;color:var(--ink)}
+.sheet-head .icon-btn{border-radius:50%;background:var(--bg);align-self:flex-start}
+.sheet-head .rng{font-weight:300;font-size:var(--fs-xs);color:var(--ink-3)}
+.ws-plate{flex:none;display:flex;align-items:flex-end;justify-content:center;width:60px;height:72px;padding-bottom:6px;border-radius:999px 999px 0 0;background:linear-gradient(180deg,var(--arch-top),var(--surface) 95%)}
 .ws-plate:empty{display:none}
-.ws-plate img{width:46px;height:46px;object-fit:contain;filter:drop-shadow(0 6px 6px rgb(0 0 0 / .12))}
-.ws-mo{font-weight:700;color:var(--accent);font-size:var(--fs-md)}
-.sheet-head{align-items:center}
-.sheet-head h2{color:var(--accent)}
-.blist li::before{background:var(--accent)}
-.wsize{background:transparent;border:1px solid var(--line)}
+.ws-plate img{width:46px;height:46px;object-fit:contain}
+.ws-mo{font-weight:500;font-size:var(--fs-sm);color:var(--accent)}
+.sheet-body{gap:18px}
+.ws-size,.ws-age{font-weight:300;font-size:var(--fs-sm);color:var(--ink-3)}
+.ws-size b{font-weight:500;color:var(--ink)}
+.ws-size+.ws-age{margin-top:-14px}
+.wtabs,.seg-tabs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;padding:4px;border-radius:14px;background:var(--bg)}
+.seg-tabs{background:var(--surface-2)}
+.wtabs button,.seg-tabs button{display:flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:0 6px;border:0;border-radius:11px;background:transparent;font-size:var(--fs-sm);color:var(--ink-3);transition:background-color 160ms ease,color 160ms ease}
+.wtabs button[aria-pressed="true"],.seg-tabs button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:500;box-shadow:0 1px 2px rgb(0 0 0 / .08),0 2px 8px -4px rgb(0 0 0 / .12)}
+.seg-tabs .c{font-weight:300;font-size:.75rem;color:var(--ink-3)}
+.ws-note{font-weight:300;font-size:var(--fs-xs);color:var(--ink-3);margin-top:-6px}
+.ws-rows{list-style:none;margin:0;padding:14px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.ws-rows li{display:flex;gap:12px;align-items:flex-start;font-size:var(--fs-sm);line-height:1.5}
+.ws-rows li .i{color:var(--accent);margin-top:1px}
+.ws-rows small{display:block;font-weight:300;font-size:var(--fs-xs);color:var(--ink-3)}
+.sheet-foot .btn{border:0;background:var(--bg);color:var(--accent)}
+
+/* weeks, grouped by month */
+.view-weeks{max-width:560px}
+.tri-sec{display:flex;flex-direction:column;gap:18px}
+.tri-lbl{display:flex;align-items:center;gap:10px;font-size:var(--fs-xs);font-weight:500;color:var(--ink-3)}
+.tri-lbl::after{content:"";flex:1;height:1px;background:var(--line)}
+.mrow{display:flex;flex-direction:column;gap:8px;scroll-margin-top:16px}
+.mh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.mh h3{font-weight:500;font-size:var(--fs-md)}
+.mh span{font-weight:300;font-size:var(--fs-xs);color:var(--ink-3)}
+.mrow.cur .mh h3{color:var(--accent)}
+.mcells{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.wk{justify-content:flex-end;gap:2px;min-height:78px;padding:0 0 7px;border:0;border-radius:28px 28px 8px 8px;background:var(--surface);box-shadow:0 1px 2px rgb(29 42 34 / .06);color:var(--ink-3);font-family:var(--f-body);font-size:var(--fs-xs);font-weight:500}
+.wk .wf{width:38px;height:38px;object-fit:contain}
+.wk .seed{width:8px;height:8px;border-radius:50%;background:var(--sage);margin-bottom:14px}
+.wk.past{background:var(--surface-2);box-shadow:none}
+.wk.current{background:var(--surface);box-shadow:0 0 0 1.5px var(--accent);color:var(--accent)}
+.wk.current::after{content:"";position:absolute;top:9px;width:6px;height:6px;border-radius:50%;background:var(--pom)}
+@media (hover:hover) and (pointer:fine){.wk:hover{box-shadow:0 0 0 1px var(--line-strong)}.wk.current:hover{box-shadow:0 0 0 1.5px var(--accent)}}
+
+/* appointments */
+.view-notes{max-width:640px}
+.notes-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
+.head-acts{display:flex;gap:var(--s2);align-items:center}
+.btn-add{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);box-shadow:0 8px 18px -10px var(--accent);transition:transform 140ms var(--ease-out)}
+.btn-add:active{transform:scale(.94)}
+.btn-add[aria-expanded="true"] .i{transform:rotate(45deg)}
+.btn-add .i{transition:transform 200ms var(--ease-out)}
+.items{gap:0;background:var(--surface);border-radius:20px;box-shadow:var(--shadow);padding:0 16px}
+.item,.item.past,.item:not(.past){display:block;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.item+.item{border-top:1px solid var(--line)}
+.item-row{display:flex;align-items:center;gap:14px;width:100%;min-height:74px;padding:12px 0;border:0;background:none;color:inherit;text-align:start;font:inherit}
+.item-row .datebox{width:50px;min-height:54px}
+.item-row .datebox b{font-size:1.25rem}
+.item.past .datebox{background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
+.item-row .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:0;line-height:1.45}
+.item-row .title{font-weight:500;line-height:1.45;overflow-wrap:anywhere}
+.item-row .meta{font-weight:300;font-size:var(--fs-xs);color:var(--ink-3)}
+.item-row .chev{color:var(--line-strong);transition:transform 200ms var(--ease-out)}
+.item-row[aria-expanded="true"] .chev{transform:rotate(90deg)}
+[dir="rtl"] .item-row[aria-expanded="true"] .chev{transform:scaleX(-1) rotate(90deg)}
+.item-more{display:flex;flex-direction:column;gap:10px;padding:0 0 16px;padding-inline-start:64px}
+.item-more .txt{font-weight:300;font-size:var(--fs-sm);color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere}
+.item-more .item-acts{margin-top:0;gap:6px}
+.item-more .item-acts .btn{min-height:40px;padding:0 12px;font-size:var(--fs-xs)}
+.item-more .qs{background:var(--bg)}
+@media (max-width:420px){.item-more{padding-inline-start:0}}
+.ex-line{text-align:center;font-weight:300;font-size:var(--fs-xs);color:var(--ink-3);margin-top:calc(var(--s4) * -1)}
+.view-notes .empty{border:0;background:var(--surface);box-shadow:var(--shadow);border-radius:20px;font-weight:300}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
@@ -722,6 +796,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19.5 12.57 12 20l-7.5-7.43A5 5 0 1 1 12 6a5 5 0 1 1 7.5 6.57"/></symbol>
   <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M10 2h4"/></symbol>
   <symbol id="i-mood" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 0 0 5 0"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M6 18c0-7 4.5-11.5 12-12-.3 7.6-4.8 12-12 12zM6 18l6.5-6.5"/></symbol>
   <symbol id="i-reset" viewBox="0 0 24 24"><path d="M20 11A8.1 8.1 0 0 0 4.5 9M4 5v4h4M4 13a8.1 8.1 0 0 0 15.5 2M20 19v-4h-4"/></symbol>
 </svg>
 
@@ -1109,8 +1184,7 @@ applyTheme(state.theme);
 var VIEWS=[
   {id:'home',t:'الرئيسية',i:'home'},
   {id:'weeks',t:'الأسابيع',i:'grid'},
-  {id:'months',t:'الأشهر',i:'stack',parent:'weeks'},
-  {id:'notes',t:'المواعيد والملاحظات',short:'المواعيد',i:'clip'},
+  {id:'notes',t:'المواعيد',i:'clip'},
   {id:'calendar',t:'التقويم',i:'cal',parent:'notes'},
   {id:'tools',t:'الأدوات',i:'activity'},
   {id:'lists',t:'القوائم',i:'list'},
@@ -1201,76 +1275,71 @@ function animateRing(target,animate){
 }
 
 /* ---------- home ---------- */
+var TRI_DAYS=[[0,91],[91,189],[189,280]];
+function homeTop(c){
+  return '<div class="home-top"><p class="dt"><b class="tnum">'+fmt(c.today,{wd:true,y:false})+'</b><span class="tnum">'+hijri(c.today)+'</span></p>'+
+    '<a class="icon-btn round" href="#urgent" aria-label="علامات الطوارئ: متى أراجع الطبيبة فورًا؟">'+ic('aid')+'</a></div>';
+}
+function triBar(ga){
+  ga=Math.max(0,Math.min(ga,TERM));
+  return '<div class="tri-bar" role="img" aria-label="'+(ga<TERM?'مضى '+ga+' يومًا من 280 يومًا':'اكتملت 280 يومًا')+'">'+TRI_DAYS.map(function(s){
+    var f=Math.max(0,Math.min(ga,s[1])-s[0])/(s[1]-s[0])*100, here=ga>=s[0]&&ga<s[1];
+    return '<span style="flex:'+(s[1]-s[0])+'"><i style="width:'+f.toFixed(1)+'%"></i>'+(here?'<b class="dot" style="inset-inline-start:'+f.toFixed(1)+'%"></b>':'')+'</span>';}).join('')+'</div>';
+}
+function hrow(href,icon,title,sub,extra){
+  return '<a class="hrow" href="'+href+'"'+(extra||'')+'><span class="ic">'+ic(icon,'i-sm')+'</span><span class="tx"><b>'+title+'</b><small class="tnum">'+sub+'</small></span>'+ic('chev','i-sm flip chev')+'</a>';
+}
+function nextRow(c){
+  var nx=nextAppt(c.today);
+  if(nx){var nd=isoToDay(nx.date);
+    return hrow('#notes','clock',esc(nx.title),(nx.time?DAY_AR[dayParts(nd).wd]+'، '+fmtTime(nx.time):fmt(nd,{wd:true,y:false}))+' · '+(nd===c.today?'اليوم':inDays(nd-c.today)));}
+  var due=CHECKUPS.filter(function(x){var a=weekRange(c.ref,x.a)[0],b=weekRange(c.ref,x.b)[1];return c.today>=a&&c.today<=b&&!state.checks[x.id];})[0];
+  if(due){var db=weekRange(c.ref,due.b)[1];return hrow('#lists','steth',due.t,'فحص هذه الفترة، حتى '+fmt(db,{wd:true,y:false}));}
+  return hrow('#notes','plus','لا يوجد موعد قادم','أضيفي موعدكِ القادم مع الطبيبة',' data-action="go-add"');
+}
 function renderHome(c){
-  var g=guardHTML(c); if(g)return '<div class="view view-home">'+g+disclaimer()+'</div>';
+  var g=guardHTML(c); if(g)return '<div class="view view-home">'+homeTop(c)+g+'</div>';
   var wk=Math.min(c.week,40), W=WEEKS[wk], h='';
   if(c.left===0)h+='<div class="banner" role="note" style="background:var(--accent-soft)">'+ic('info')+'<span>اليوم هو موعد الولادة المتوقع. نتمنى لكِ ولادة ميسّرة، وتابعي مع طبيبتكِ.</span></div>';
   if(c.status==='overdue'&&c.left<0)h+='<div class="banner" role="note">'+ic('info')+'<span>تجاوزتِ موعد الولادة المتوقع بمقدار '+countAr(-c.left,DAYS_F,true)+'. تواصلي مع طبيبتكِ لمتابعة الخطة المناسبة لكِ.</span></div>';
   if(c.status==='beyond')h+='<div class="banner" role="note">'+ic('alert')+'<span>مضى أكثر من 42 أسبوعًا وفق البيانات المدخلة. إن وُلد طفلكِ فمبارك لكِ، وإن لم يحدث بعد فتواصلي مع طبيبتكِ اليوم. يمكنكِ تحديث البيانات من <a href="#prefs">الإعدادات</a>.</span></div>';
-  // five plates on one baseline, the current week in the middle (clamped at the ends of the 40 weeks)
-  var start=Math.max(1,Math.min(36,wk-2)), plates='';
-  for(var n=start;n<start+5;n++){var cu=n===wk, Wn=WEEKS[n];
-    plates+='<button class="plate'+(cu?' cur':'')+'" data-action="open-week" data-week="'+n+'" aria-label="الأسبوع '+n+(Wn[0]?'، بحجم '+Wn[0]:'')+(cu?'، الأسبوع الحالي':'')+'"><span class="arch"><small>'+(cu?'الآن':n)+'</small>'+
-      (FRUIT[n]&&Wn[0]?'<img src="'+FRUIT[n]+'" alt="" width="64" height="64">':'<i class="seed"></i>')+'</span></button>';}
-  var dots='';for(var i=1;i<=40;i++)dots+='<i class="'+(i<wk?'p':(i===wk?'c':''))+'"></i>';
-  var leftTxt=c.left>0?countAr(c.left,DAYS_F):(c.left===0?'اليوم':'تجاوزتِ الموعد');
-  var leftSub=c.left>=7?('نحو '+countAr(Math.floor(c.left/7),WEEKS_F,true)+(c.left%7?' و'+countAr(c.left%7,DAYS_F,true):'')):(c.left>0?'أقل من أسبوع':'');
-  var ep=dayParts(c.edd);
-  h+='<section class="folio" aria-labelledby="wkTitle">'+
-    '<div class="strip">'+plates+'</div>'+
-    '<header class="folio-head"><h1 id="wkTitle">الأسبوع '+c.week+'</h1><span class="rule" aria-hidden="true"></span><p class="mo">الشهر '+ORD_AR[c.month-1]+'، '+TRI_AR[c.tri-1]+'</p>'+
-      '<p class="sz">'+(W[0]?'بحجم '+W[0]+'، '+W[1]+(W[2]?' و'+W[2].replace(/^نحو /,''):''):'لم يتكوّن الجنين بعد')+'</p></header>'+
-    '<div class="stages" role="img" aria-label="الأسبوع '+wk+' من 40">'+dots+'</div>'+
-    '<p class="ga-line"><span id="gaTitle" class="tnum">'+gaText(c.ga)+'</span><span class="tnum">'+(c.ga<TERM?c.ga+' من 280 يومًا':'اكتملت 280 يومًا')+'</span></p>'+
-    '<dl class="duo"><div><dt>الولادة المتوقعة</dt><dd><b class="tnum">'+fmt(c.edd)+'</b><em class="tnum">'+DAY_AR[ep.wd]+'، '+hijri(c.edd)+'</em></dd></div>'+
-      '<div><dt>المتبقي</dt><dd><b class="tnum">'+leftTxt+'</b><em>'+(leftSub||'&nbsp;')+'</em></dd></div></dl>'+
-    '<button class="btn btn-primary primary-wide" data-action="open-week" data-week="'+wk+'">تفاصيل الأسبوع '+wk+'</button>'+
-  '</section>';
-  h+=weekNowHTML(c);
-  var momShort=MOM[wk].slice(0,3).join('، ');
-  h+='<section class="week-rows" aria-labelledby="bbT"><h2 id="bbT" class="section-title">هذا الأسبوع</h2><div class="info-rows">'+
-    '<p class="info-row dev">'+ic('heart','i-sm')+'<span><b>تطوّر جنينكِ</b>'+W[3][0]+'</span></p>'+
-    '<p class="info-row mom">'+ic('mood','i-sm')+'<span><b>قد تشعرين بـ</b>'+momShort+'</span></p>'+
-    '<p class="info-row tipr">'+ic('bulb','i-sm')+'<span><b>نصيحة الأسبوع</b>'+W[4][0]+'</span></p></div></section>';
-  h+='<div class="home-foot"><a class="urgent-link" href="#urgent">'+ic('aid')+'<span>متى أراجع الطبيبة فورًا؟</span>'+ic('chev','flip chev')+'</a>'+disclaimer()+'</div>';
+  var left=c.left>0?'باقي '+countAr(c.left,DAYS_F).replace(/^(\d+)/,'<b>$1</b>'):(c.left===0?'<b>اليوم</b> موعد الولادة':'بعد موعد الولادة');
+  h+=homeTop(c)+
+    '<section class="hero-s" aria-labelledby="wkTitle">'+
+      '<button class="arch" data-action="open-week" data-week="'+wk+'" aria-label="تفاصيل الأسبوع '+wk+(W[0]?'، بحجم '+W[0]:'')+'">'+(FRUIT[wk]&&W[0]?'<img src="'+FRUIT[wk]+'" alt="" width="112" height="112">':'<i class="seed"></i>')+'</button>'+
+      '<h1 id="wkTitle">الأسبوع '+c.week+'</h1>'+
+      '<p class="mo">الشهر '+ORD_AR[c.month-1]+'<i aria-hidden="true"></i>'+TRI_AR[c.tri-1]+'</p>'+
+      '<p class="sz">'+(W[0]?'بحجم '+W[0]+' تقريبًا':'لم يتكوّن الجنين بعد')+'</p>'+
+    '</section>'+
+    '<section class="home-card" aria-label="التقدّم والقادم">'+triBar(c.ga)+
+      '<p class="left-line"><span class="l tnum">'+left+'</span><span class="tnum">الولادة: '+fmt(c.edd,{wd:true,y:false})+'</span></p>'+
+      '<ul class="home-rows"><li>'+nextRow(c)+'</li>'+
+      '<li><button class="hrow" data-action="open-week" data-week="'+wk+'"><span class="ic">'+ic('leaf','i-sm')+'</span><span class="tx"><b>هذا الأسبوع</b><small>تطوّر جنينكِ وما قد تشعرين به</small></span>'+ic('chev','i-sm flip chev')+'</button></li></ul>'+
+    '</section>';
   return '<div class="view view-home">'+h+'</div>';
 }
 
-/* ---------- weeks ---------- */
+/* ---------- weeks, grouped by pregnancy month ---------- */
+function rangeAr(a,b,yr){var A=dayParts(a),B=dayParts(b),M=MONTH_AR;
+  if(A.y!==B.y)return A.d+' '+M[A.m]+(yr?' '+A.y:'')+' – '+B.d+' '+M[B.m]+(yr?' '+B.y:'');
+  return (A.m===B.m?A.d:A.d+' '+M[A.m])+' – '+B.d+' '+M[B.m]+(yr?' '+B.y:'');}
 function renderWeeks(c){
   var g=guardHTML(c);
-  var head=subW()+'<div class="view-head"><h1>الأسابيع</h1></div>';
-  if(g)return '<div class="view">'+head+g+'</div>';
-  var out=head+'<details class="fold"><summary>محطات الحمل</summary>'+msTimelineHTML(c)+'</details>';
-  TRIS.forEach(function(t,ti){
-    var tr=triRange(c.ref,ti+1), cells='';
-    for(var n=t[0];n<=t[1];n++){
-      var stt=n<c.week?'past':(n===c.week?'current':'future'), rg=weekRange(c.ref,n);
-      var lbl='الأسبوع '+n+'، '+(stt==='past'?'مضى':(stt==='current'?'الأسبوع الحالي':'قادم'))+'، '+fmtRange(rg[0],rg[1]);
-      cells+='<button class="wk '+stt+'" data-action="open-week" data-week="'+n+'" aria-label="'+lbl+'"'+(stt==='current'?' aria-current="step"':'')+'>'+(FRUIT[n]&&WEEKS[n][0]?'<img class="wf" src="'+FRUIT[n]+'" width="36" height="36" alt="">':'<span style="height:36px"></span>')+
-        (stt==='past'?'<span class="st">'+ic('check')+'</span>':'')+n+(stt==='current'?'<span class="now">الآن</span>':'')+'</button>';
-    }
-    out+='<section class="tri-group" aria-labelledby="tri'+ti+'"><div class="tri-head"><h2 id="tri'+ti+'"><span class="sw" style="background:var(--t'+(ti+1)+')"></span>'+TRI_AR[ti]+'</h2><span class="r tnum">من الأسبوع '+t[0]+' إلى '+t[1]+'، '+fmtRange(tr[0],tr[1])+'</span></div><div class="week-grid">'+cells+'</div></section>';
-  });
-  return '<div class="view">'+out+'</div>';
-}
-
-/* ---------- months ---------- */
-function renderMonths(c){
-  var g=guardHTML(c);
-  var head=subW()+'<div class="view-head"><h1>الأشهر</h1></div>';
-  if(g)return '<div class="view">'+head+g+'</div>';
-  var cards='';
+  var head='<div class="view-head"><h1>الأسابيع</h1></div>';
+  if(g)return '<div class="view view-weeks">'+head+g+'</div>';
+  var out=head;
   for(var i=1;i<=9;i++){
-    var m=MONTHS[i-1], rg=monthRange(c.ref,i), stt=c.today>rg[1]?'past':(c.today>=rg[0]?'current':'future');
-    var tri=triOfWeek(m[0]), triEnd=triOfWeek(m[1]);
-    var prog=stt==='current'?Math.round((c.today-rg[0]+1)/(rg[1]-rg[0]+1)*100):0;
-    cards+='<article class="mcard '+stt+'"'+(stt==='current'?' aria-current="step"':'')+'><div class="top"><h2>الشهر '+ORD_AR[i-1]+'</h2>'+
-      (stt==='current'?'<span class="chip accent">الشهر الحالي</span>':(stt==='past'?'<span class="chip">'+ic('check','i-sm')+'مضى</span>':'<span class="chip t'+tri+'">'+TRI_AR[tri-1]+'</span>'))+'</div>'+
-      '<p class="wr tnum">من الأسبوع '+m[0]+' إلى '+m[1]+'</p><p class="dr tnum">'+fmtRange(rg[0],rg[1])+'</p><p class="hj">'+hijri(rg[0])+' إلى '+hijri(rg[1])+'</p>'+
-      (stt==='current'?'<div class="mprog" role="progressbar" aria-label="التقدم في الشهر الحالي" aria-valuenow="'+prog+'" aria-valuemin="0" aria-valuemax="100"><i style="width:'+prog+'%"></i></div>':'')+'</article>';
+    var m=MONTHS[i-1], rg=monthRange(c.ref,i), here=c.week>=m[0]&&c.week<=m[1], cells='';
+    if(i===1||i===4||i===7)out+=(i>1?'</div>':'')+'<div class="tri-sec" role="group" aria-labelledby="tri'+i+'"><h2 class="tri-lbl" id="tri'+i+'">'+TRI_AR[(i-1)/3]+'</h2>';
+    for(var n=m[0];n<=m[1];n++){
+      var stt=n<c.week?'past':(n===c.week?'current':'future'), wr=weekRange(c.ref,n);
+      var lbl='الأسبوع '+n+'، '+(stt==='past'?'مضى':(stt==='current'?'الأسبوع الحالي':'قادم'))+'، '+fmtRange(wr[0],wr[1]);
+      cells+='<button class="wk '+stt+'" data-action="open-week" data-week="'+n+'" aria-label="'+lbl+'"'+(stt==='current'?' aria-current="step"':'')+'>'+
+        (FRUIT[n]&&WEEKS[n][0]?'<img class="wf" src="'+FRUIT[n]+'" width="38" height="38" alt="">':'<i class="seed"></i>')+'<span class="tnum">'+n+'</span></button>';
+    }
+    out+='<section class="mrow'+(here?' cur':'')+'" aria-labelledby="mh'+i+'"><div class="mh"><h3 id="mh'+i+'">الشهر '+ORD_AR[i-1]+'</h3><span class="tnum">'+rangeAr(rg[0],rg[1],false)+'</span></div><div class="mcells">'+cells+'</div></section>';
   }
-  return '<div class="view">'+head+'<div class="month-grid">'+cards+'</div></div>';
+  return '<div class="view view-weeks">'+out+'</div></div>';
 }
 
 /* ---------- calendar ---------- */
@@ -1287,7 +1356,7 @@ function dayEvents(c,day){
   return ev;
 }
 function renderCalendar(c){
-  var head=subN()+'<div class="view-head"><h1>التقويم</h1></div>';
+  var head='<div class="notes-head"><h1>التقويم</h1><div class="head-acts"><a class="icon-btn round" href="#notes" aria-label="عرض قائمة المواعيد">'+ic('clip')+'</a></div></div>';
   if(!c.ok)return '<div class="view">'+head+guardHTML(c)+'</div>';
   if(!calView){var tp=dayParts(c.today);calView={y:tp.y,m:tp.m};}
   if(calSel==null)calSel=c.today;
@@ -1344,34 +1413,39 @@ function dayDetailHTML(c,day){
 
 /* ---------- notes ---------- */
 var editing=null, formOpen=false, formPrefill=null, lastDeleted=null;
+var notesTab='up';
 function renderNotes(c){
-  var today=c.today, ref=c.ok?c.ref:null;
+  var today=c.today, ref=c.ok?c.ref:null, ty=dayParts(today).y;
   var appts=state.items.filter(function(i){return i.kind==='appt';}), notes=state.items.filter(function(i){return i.kind==='note';});
   function key(i){return (i.date||'')+(i.time||'');}
   var up=appts.filter(function(i){return isoToDay(i.date)>=today;}).sort(function(a,b){return key(a).localeCompare(key(b));});
   var past=appts.filter(function(i){return isoToDay(i.date)<today;}).sort(function(a,b){return key(b).localeCompare(key(a));});
   notes.sort(function(a,b){return key(b).localeCompare(key(a));});
+  function meta(it,d,isPast){var parts=[];
+    if(d!=null){var dp=dayParts(d);parts.push(DAY_AR[dp.wd]+(dp.y!==ty?' '+dp.y:''));}
+    if(it.time)parts.push(fmtTime(it.time));
+    if(it.kind==='appt'&&!isPast&&d!=null)parts.push(d===today?'اليوم':inDays(d-today));
+    else{var ga=(d!=null&&ref!=null)?d-ref:null;if(ga!=null&&ga>=0&&ga<=MAX_DAY)parts.push('الأسبوع '+weekOfGA(ga));}
+    return parts.join(' · ');}
   function row(it,isPast){
-    var d=isoToDay(it.date), p=d!=null?dayParts(d):null, ga=(d!=null&&ref!=null)?d-ref:null;
-    return '<li class="item'+(isPast?' past':'')+'">'+(p?'<div class="datebox"><b>'+p.d+'</b><span>'+MONTH_AR[p.m]+'</span></div>':'')+
-      '<div class="body"><p class="title">'+esc(it.title)+(it.example?' <span class="chip example">مثال</span>':'')+'</p>'+
-      '<p class="meta">'+(d!=null?'<span class="tnum">'+fmt(d,{wd:true})+'</span>':'')+(it.time?'<span class="tnum">'+ic('clock','i-sm')+fmtTime(it.time)+'</span>':'')+
-      (ga!=null&&ga>=0&&ga<=MAX_DAY?'<span>الأسبوع '+weekOfGA(ga)+'</span>':'')+'</p>'+(it.body?'<p class="txt">'+esc(it.body)+'</p>':'')+qsHTML(it)+
-      (actsOpen===it.id?'<div class="item-acts">'+(it.kind==='appt'&&!isPast?'<button class="btn btn-ghost" data-action="cal-export" data-id="'+esc(it.id)+'" aria-expanded="'+(exportOpen===it.id)+'">'+ic('cal-plus','i-sm')+'إضافة للتقويم</button>':'')+
-        '<button class="btn btn-ghost" data-action="edit-item" data-id="'+esc(it.id)+'">'+ic('edit','i-sm')+'تعديل</button><button class="btn btn-ghost" style="color:var(--danger)" data-action="delete-item" data-id="'+esc(it.id)+'">'+ic('trash','i-sm')+'حذف</button></div>':'')+
-      exportHTML(it,isPast)+'</div>'+
-      '<div class="acts"><button class="icon-btn" data-action="item-opts" data-id="'+esc(it.id)+'" aria-expanded="'+(actsOpen===it.id)+'" aria-label="خيارات '+esc(it.title)+'">'+ic('dots')+'</button></div></li>';
+    var d=isoToDay(it.date), p=d!=null?dayParts(d):null, open=actsOpen===it.id;
+    return '<li class="item'+(isPast?' past':'')+'"><button class="item-row" data-action="item-opts" data-id="'+esc(it.id)+'" aria-expanded="'+open+'">'+
+      (p?'<span class="datebox"><b>'+p.d+'</b><span>'+MONTH_AR[p.m]+'</span></span>':'')+
+      '<span class="body"><span class="title">'+esc(it.title)+'</span><span class="meta tnum">'+meta(it,d,isPast)+'</span></span>'+ic('chev','i-sm flip chev')+'</button>'+
+      (open?'<div class="item-more">'+(it.body?'<p class="txt">'+esc(it.body)+'</p>':'')+qsHTML(it)+
+        '<div class="item-acts">'+(it.kind==='appt'&&!isPast?'<button class="btn btn-ghost" data-action="cal-export" data-id="'+esc(it.id)+'" aria-expanded="'+(exportOpen===it.id)+'">'+ic('cal-plus','i-sm')+'إضافة للتقويم</button>':'')+
+        '<button class="btn btn-ghost" data-action="edit-item" data-id="'+esc(it.id)+'">'+ic('edit','i-sm')+'تعديل</button><button class="btn btn-ghost" style="color:var(--danger)" data-action="delete-item" data-id="'+esc(it.id)+'">'+ic('trash','i-sm')+'حذف</button></div>'+
+        exportHTML(it,isPast)+'</div>':'')+'</li>';
   }
-  function list(arr,isPast,emptyB,emptyT){
-    return arr.length?'<ul class="items">'+arr.map(function(i){return row(i,isPast);}).join('')+'</ul>':'<div class="empty"><b>'+emptyB+'</b><span>'+emptyT+'</span></div>';
-  }
-  var hasEx=state.items.some(function(i){return i.example;});
-  var h=subN()+'<div class="notes-head"><div class="view-head"><h1>المواعيد والملاحظات</h1></div>'+
-    '<button class="btn btn-primary" data-action="add-item" id="addBtn" aria-expanded="'+formOpen+'" aria-controls="itemForm">'+ic('plus','i-sm')+'إضافة</button></div>';
+  var lists={up:up,nt:notes,past:past}, tab=lists[notesTab]?notesTab:'up', arr=lists[tab];
+  var E={up:['لا توجد مواعيد قادمة','اضغطي زر الإضافة لتسجيل موعدكِ القادم مع الطبيبة.'],nt:['لا توجد ملاحظات بعد','سجّلي أول ركلة، أو سؤالًا تودين طرحه في الموعد القادم.'],past:['لا توجد مواعيد سابقة','تظهر هنا المواعيد بعد مرور تاريخها.']};
+  var h='<div class="notes-head"><h1>المواعيد</h1><div class="head-acts"><a class="icon-btn round" href="#calendar" aria-label="عرض التقويم">'+ic('cal')+'</a>'+
+    '<button class="btn-add" data-action="add-item" id="addBtn" aria-expanded="'+formOpen+'" aria-controls="itemForm" aria-label="إضافة موعد أو ملاحظة">'+ic('plus')+'</button></div></div>';
   h+=formHTML();
-  h+='<section><div class="sub-head"><h2>المواعيد القادمة</h2><span class="c tnum">'+up.length+'</span></div>'+list(up,false,'لا توجد مواعيد قادمة','اضغطي «إضافة» لتسجيل موعدكِ القادم مع الطبيبة.')+'</section>';
-  h+='<section><div class="sub-head"><h2>الملاحظات</h2><span class="c tnum">'+notes.length+'</span></div>'+list(notes,false,'لا توجد ملاحظات بعد','سجّلي أول ركلة، أو سؤالًا تودين طرحه في الموعد القادم.')+'</section>';
-  if(past.length)h+='<section><div class="sub-head"><h2>مواعيد سابقة</h2><span class="c tnum">'+past.length+'</span></div>'+list(past,true,'','')+'</section>';
+  h+='<div class="seg-tabs" role="group" aria-label="عرض القائمة">'+[['up','القادمة'],['nt','الملاحظات'],['past','السابقة']].map(function(t){
+    return '<button type="button" data-action="notes-tab" data-k="'+t[0]+'" aria-pressed="'+(t[0]===tab)+'">'+t[1]+'<span class="c tnum">'+lists[t[0]].length+'</span></button>';}).join('')+'</div>';
+  h+=arr.length?'<ul class="items">'+arr.map(function(i){return row(i,tab==='past');}).join('')+'</ul>':'<div class="empty"><b>'+E[tab][0]+'</b><span>'+E[tab][1]+'</span></div>';
+  if(arr.some(function(i){return i.example;}))h+='<p class="ex-line">هذه أمثلة توضيحية، ويمكنكِ تعديلها أو حذفها.</p>';
   return '<div class="view view-notes">'+h+'</div>';
 }
 function formHTML(){
@@ -1437,7 +1511,7 @@ function renderPrefs(){
   backupPanel()+
   '<button class="btn btn-text danger-link" data-action="reset-open" id="resetBtn">'+ic('reset','i-sm')+'مسح كل البيانات</button>'+
   '</div></div>';
-  return '<div class="view">'+h+'</div>';
+  return '<div class="view">'+h+disclaimer()+'</div>';
 }
 function readPrefsForm(){
   var f=function(id){var e=document.getElementById(id);return e?e.value:'';};
@@ -1479,8 +1553,6 @@ function todayISO(){return dayToISO(todayDay());}
 function noteBox(t,icon){return '<p class="note">'+ic(icon||'info','i-sm')+'<span>'+t+'</span></p>';}
 function liList(arr,cls){return '<ul class="blist'+(cls?' '+cls:'')+'">'+arr.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
 function subtabs(list,label){return '<nav class="subtabs" aria-label="'+label+'">'+list.map(function(x){return '<a href="#'+x[0]+'"'+(x[0]===cur?' aria-current="page"':'')+'>'+ic(x[2],'i-sm')+x[1]+'</a>';}).join('')+'</nav>';}
-function subW(){return subtabs([['weeks','الأسابيع','grid'],['months','الأشهر','stack']],'طريقة عرض الأسابيع');}
-function subN(){return subtabs([['notes','القائمة','clip'],['calendar','التقويم','cal']],'طريقة عرض المواعيد');}
 function hasUserData(){return state.items.some(function(i){return !i.example;})||Object.keys(state.logs).length>0||state.weights.length>0||state.kicks.length>0||state.contr.length>0;}
 function nextAppt(today){return state.items.filter(function(it){return it.kind==='appt'&&isoToDay(it.date)>=today;}).sort(function(a,b){return (a.date+(a.time||'')).localeCompare(b.date+(b.time||''));})[0];}
 function focusIn(sel){var el=document.querySelector(sel);if(el)el.focus({preventScroll:true});}
@@ -1488,26 +1560,6 @@ function focusId(id){var el=document.getElementById(id);if(el)el.focus({preventS
 function vibrate(){try{if(navigator.vibrate)navigator.vibrate(12);}catch(err){}}
 
 /* ---------- home: this week ---------- */
-function msTimelineHTML(c){
-  return '<ol class="timeline">'+milestones(c.ref).map(function(m){
-    var end=m.b!=null?m.b:m.a, stt=c.today>end?'done':(c.today>=m.a?'now':'up');
-    var when=stt==='done'?'تمّ':(stt==='now'?(m.b!=null?'الآن':'اليوم'):inDays(m.a-c.today));
-    var dates=m.b!=null?fmtRange(m.a,m.b):fmt(m.a,{wd:true});
-    return '<li class="tl '+stt+'"><span class="dot">'+(stt==='done'?ic('check','i-sm'):ic('flag','i-sm'))+'</span><div><p class="t">'+m.t+'</p><p class="d tnum">'+dates+'</p></div><span class="when">'+when+'</span></li>';
-  }).join('')+'</ol>';
-}
-function weekNowHTML(c){
-  var li=[];
-  var nx=nextAppt(c.today);
-  if(nx){var nd=isoToDay(nx.date);li.push('<li>'+ic('clock')+'<span class="tx">'+esc(nx.title)+(nx.example?' <span class="chip example">مثال</span>':'')+'<small class="tnum">'+fmt(nd,{wd:true,y:false})+(nx.time?'، '+fmtTime(nx.time):'')+'، '+(nd===c.today?'اليوم':inDays(nd-c.today))+'</small></span></li>');}
-  else li.push('<li>'+ic('clock')+'<span class="tx">لا يوجد موعد قادم</span><a class="btn btn-text" href="#notes" data-action="go-add">إضافة</a></li>');
-  var due=CHECKUPS.filter(function(x){var a=weekRange(c.ref,x.a)[0],b=weekRange(c.ref,x.b)[1];return c.today>=a&&c.today<=b&&!state.checks[x.id];})[0];
-  if(due){var db=weekRange(c.ref,due.b)[1];li.push('<li>'+ic('steth')+'<span class="tx">'+due.t+'<small class="tnum">موعده الآن، حتى '+fmt(db,{wd:true,y:false})+'</small></span></li>');}
-  var nm=milestones(c.ref).filter(function(m){return (m.b!=null?m.b:m.a)>=c.today;})[0];
-  if(nm&&li.length<3){var now=c.today>=nm.a;li.push('<li>'+ic('flag')+'<span class="tx">'+nm.t+'<small class="tnum">'+(now?(nm.b!=null?'الآن، حتى '+fmt(nm.b,{wd:true,y:false}):'اليوم'):fmt(nm.a,{wd:true,y:false})+'، '+inDays(nm.a-c.today))+'</small></span></li>');}
-  return '<section class="week-now" aria-labelledby="wnT"><h2 id="wnT" class="section-title">القادم</h2><ul class="todo">'+li.join('')+'</ul></section>';
-}
-
 /* ---------- tools ---------- */
 var TOOLS=[
   {id:'kicks',t:'حركة الجنين',i:'heart',from:28,d:'عدّ الركلات',later:'من الأسبوع 28'},
@@ -1547,9 +1599,9 @@ function kicksHTML(w){
   h+=noteBox('قلة واضحة في الحركة أو تغيّر في نمطها تستدعي التواصل مع طبيبتكِ فورًا. <a href="#urgent">علامات الطوارئ</a>','alert');
   h+='<details class="fold"><summary>كيف أعدّ الحركة؟</summary>'+liList(['اختاري وقتًا يكون فيه جنينكِ نشطًا عادةً، مثل بعد الأكل أو في المساء.','استلقي على جانبكِ أو اجلسي بارتياح، وركّزي على الحركة.','يستخدم كثير من الأطباء الوصول إلى 10 حركات مرجعًا، والأهم أن تعرفي النمط المعتاد لجنينكِ.'])+'</details>';
   var ks=state.kicks.slice().sort(function(x,y){return y.start-x.start;}).slice(0,5);
-  h+='<section><div class="sub-head"><h2>آخر الجلسات</h2><span class="c tnum">'+state.kicks.length+'</span></div>'+(ks.length?'<ul class="hist">'+ks.map(function(k){
+  h+=(ks.length?'<details class="fold hist-fold"><summary>آخر الجلسات <span class="c tnum">'+state.kicks.length+'</span></summary>':'<section>')+(ks.length?'<ul class="hist">'+ks.map(function(k){
     return '<li><span class="grow"><b class="tnum">'+countAr(k.count,MOV_F)+'</b> خلال '+durText(k.end-k.start)+'<br><span class="muted tnum">'+fmt(localDay(k.start),{wd:true,y:false})+'، '+clock(k.start)+'</span></span><button class="icon-btn" data-action="kick-del" data-id="'+k.id+'" aria-label="حذف الجلسة">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
-    :'<p class="muted" style="font-size:var(--fs-sm)">لا توجد جلسات بعد.</p>')+'</section>';
+    :'<p class="muted" style="font-size:var(--fs-sm)">لا توجد جلسات بعد.</p>')+(ks.length?'</details>':'</section>');
   return h;
 }
 
@@ -1568,10 +1620,10 @@ function contrHTML(w){
   if(hr.length>=6&&span>=45*60000&&avgI<=5.5*60000&&avgD>=45000)h+='<div class="banner" role="alert">'+ic('alert')+'<span>انقباضاتكِ منتظمة ومتقاربة منذ ساعة تقريبًا. تواصلي مع طبيبتكِ أو توجهي إلى المستشفى حسب تعليماتها.</span></div>';
   h+='<details class="fold"><summary>متى أتوجه إلى المستشفى؟</summary>'+liList(['اتبعي تعليمات طبيبتكِ أولًا، فهي تعرف حالتكِ.','قاعدة شائعة: انقباضات كل 5 دقائق أو أقل، تستمر كل منها نحو دقيقة، وبانتظام لمدة ساعة.','توجهي فورًا إذا نزل الماء، أو حدث نزيف، أو قلّت حركة الجنين.','اضغطي الزر عند بداية الانقباضة، ثم مرة أخرى عند انتهائها.'])+'</details>';
   var rev=list.slice().reverse().slice(0,8);
-  h+='<section><div class="sub-head"><h2>السجل</h2>'+(list.length?'<button class="btn btn-text" data-action="contr-clear">'+ic('trash','i-sm')+'مسح السجل</button>':'')+'</div>'+(rev.length?'<ul class="hist">'+rev.map(function(x){
+  h+=(rev.length?'<details class="fold hist-fold"><summary>السجل <span class="c tnum">'+list.length+'</span></summary><button class="btn btn-text danger-link" data-action="contr-clear">'+ic('trash','i-sm')+'مسح السجل</button>':'<section>')+(rev.length?'<ul class="hist">'+rev.map(function(x){
     var idx=list.indexOf(x),prev=idx>0?list[idx-1]:null;
     return '<li><span class="grow"><b class="tnum">'+clock(x.s)+'</b><br><span class="muted tnum">المدة '+mmss(x.e-x.s)+(prev?'، الفاصل '+mmss(x.s-prev.s):'، أول انقباضة')+'</span></span><button class="icon-btn" data-action="contr-del" data-id="'+x.id+'" aria-label="حذف الانقباضة">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
-    :'<p class="muted" style="font-size:var(--fs-sm)">لا توجد انقباضات مسجّلة.</p>')+'</section>';
+    :'<p class="muted" style="font-size:var(--fs-sm)">لا توجد انقباضات مسجّلة.</p>')+(rev.length?'</details>':'</section>');
   return h;
 }
 
@@ -1591,10 +1643,10 @@ function weightHTML(c){
   h+='<figure class="chart-wrap" id="wChart"></figure>';
   h+='<details class="fold"'+(pre==null&&ws.length?'':'')+'><summary>وزنكِ قبل الحمل'+(pre!=null?' ('+kgTxt(pre)+')':'')+'</summary><div class="field"><label for="wPre">الوزن قبل الحمل بالكيلوغرام</label><input class="input" id="wPre" type="number" inputmode="decimal" step="0.1" min="30" max="250" value="'+(pre!=null?pre:'')+'" style="max-width:220px" aria-describedby="hPre"><p class="help" id="hPre">يظهر خطًا مرجعيًا في الرسم. زيادة الوزن المناسبة تختلف حسب الوزن قبل الحمل، فاسألي طبيبتكِ عن المعدل المناسب لكِ.</p></div></details>';
   var rev=ws.slice().reverse().slice(0,6);
-  h+='<section><div class="sub-head"><h2>آخر القراءات</h2><span class="c tnum">'+ws.length+'</span></div>'+(rev.length?'<ul class="hist">'+rev.map(function(x,i){
+  h+=(rev.length?'<details class="fold hist-fold"><summary>آخر القراءات <span class="c tnum">'+ws.length+'</span></summary>':'<section>')+(rev.length?'<ul class="hist">'+rev.map(function(x,i){
     var d=isoToDay(x.date),ga=c.ok?d-c.ref:null,prev=rev[i+1];
     return '<li><span class="grow"><b class="tnum">'+kgTxt(parseFloat(x.kg))+'</b>'+(prev?' <span class="muted">('+diffTxt(parseFloat(x.kg)-parseFloat(prev.kg))+')</span>':'')+'<br><span class="muted tnum">'+fmt(d,{wd:true})+(ga!=null&&ga>=0&&ga<=MAX_DAY?'، الأسبوع '+weekOfGA(ga):'')+'</span></span><button class="icon-btn" data-action="weight-del" data-date="'+x.date+'" aria-label="حذف قراءة '+fmt(d)+'">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
-    :'<p class="muted" style="font-size:var(--fs-sm)">سجّلي وزنكِ مرة في الأسبوع، في نفس الوقت تقريبًا.</p>')+'</section>';
+    :'<p class="muted" style="font-size:var(--fs-sm)">سجّلي وزنكِ مرة في الأسبوع، في نفس الوقت تقريبًا.</p>')+(rev.length?'</details>':'</section>');
   return h;
 }
 function drawWeightChart(){
@@ -1646,7 +1698,7 @@ function logHistHTML(){
     return '<li><span class="grow"><b class="tnum">'+fmt(day,{wd:true,y:false})+'</b>'+(e.mood?' <span class="chip accent">'+lbl(MOODS,e.mood)+'</span>':'')+'<br><span class="muted">'+((e.sym||[]).map(function(k){return lbl(SYMS,k);}).join('، ')||'بلا أعراض مسجّلة')+(e.note?'، '+esc(e.note.slice(0,60))+(e.note.length>60?'…':''):'')+'</span></span>'+
       (d!==curLogDate()?'<button class="btn btn-text" data-action="log-open" data-date="'+d+'">فتح</button>':'')+'</li>';}).join('')+'</ul>';
 }
-function updateLogHist(){var el=document.getElementById('logHist');if(el)el.innerHTML=logHistHTML();}
+function updateLogHist(){var el=document.getElementById('logHist');if(el)el.innerHTML=logHistHTML();var lc=document.getElementById('logCount');if(lc)lc.textContent=Object.keys(state.logs).length;}
 function logHTML(){
   var d=curLogDate(),e=state.logs[d]||{},sym=e.sym||[],isToday=d===todayISO();
   var showAll=symMore||sym.some(function(k){for(var i=6;i<SYMS.length;i++)if(SYMS[i][0]===k)return true;return false;});
@@ -1659,7 +1711,7 @@ function logHTML(){
     '<details class="fold"'+(e.note?' open':'')+'><summary>ملاحظة</summary><label class="sr" for="logNote">ملاحظة اليوم</label><textarea class="input" id="logNote" maxlength="400" placeholder="أي شيء تودين تذكّره أو إخبار الطبيبة به">'+esc(e.note||'')+'</textarea></details>'+
     '<details class="fold"><summary>تسجيل يوم آخر</summary><div class="field"><label for="logDate">التاريخ</label><input class="input" type="date" id="logDate" value="'+d+'" max="'+todayISO()+'" style="max-width:240px" aria-describedby="logDateEcho"><p class="help tnum" id="logDateEcho"></p></div></details>'+
     '</div>';
-  h+='<section><div class="sub-head"><h2>الأيام السابقة</h2><span class="c tnum">'+Object.keys(state.logs).length+'</span></div><div id="logHist">'+logHistHTML()+'</div></section>';
+  h+='<details class="fold hist-fold"><summary>الأيام السابقة <span class="c tnum" id="logCount">'+Object.keys(state.logs).length+'</span></summary><div id="logHist">'+logHistHTML()+'</div></details>';
   return h;
 }
 
@@ -1843,7 +1895,6 @@ function render(focus){
   var html='';
   switch(cur){
     case 'weeks':html=renderWeeks(c);break;
-    case 'months':html=renderMonths(c);break;
     case 'calendar':html=renderCalendar(c);break;
     case 'notes':html=renderNotes(c);break;
     case 'lists':html=renderLists(c);break;
@@ -1854,9 +1905,9 @@ function render(focus){
   }
   viewEl.innerHTML=html;
   markNav(cur);
-  if(cur==='home'&&c.ok&&c.status!=='before')animateRing(c.ga,firstRender);
   if(cur==='prefs')updatePreview(false);
   if(focus){var h1=viewEl.querySelector('h1');if(h1){h1.setAttribute('tabindex','-1');h1.focus({preventScroll:true});}window.scrollTo(0,0);}
+  if(focus&&cur==='weeks'){var cm=viewEl.querySelector('.mrow.cur');if(cm&&cm.getBoundingClientRect().top>window.innerHeight*0.55)cm.scrollIntoView({block:'start'});}
   if(cur==='notes'&&pendingFocus&&formOpen){pendingFocus=false;focusForm();}
   echoAll();
   var vv=viewById(cur);document.title=(cur==='home'?'':vv.t+' - ')+'مسار الحمل';
@@ -1867,7 +1918,9 @@ function render(focus){
 }
 function route(){
   var id=(location.hash||'').replace('#','');
+  if(id==='months')id='weeks';
   if(!viewById(id))id='home';
+  if(id==='notes'&&cur!=='notes'){notesTab='up';actsOpen=null;exportOpen=null;}
   if(openLayer)closeLayer(true);
   if(cur==='notes'&&id!=='notes'){formOpen=false;editing=null;formPrefill=null;}
   var changed=id!==cur; cur=id;
@@ -1879,33 +1932,33 @@ function route(){
    ========================================================= */
 var sheetWeek=1, lastFocus=null, openLayer=null;
 var scrim=document.getElementById('scrim'), ws=document.getElementById('weekSheet'), ms=document.getElementById('moreSheet'), rd=document.getElementById('resetDialog');
+var wsTab='dev';
 function fillWeek(n,dir){
   var c=ctx(); if(!c.ok)return;
   sheetWeek=n;
   var W=WEEKS[n], rg=weekRange(c.ref,n), tri=triOfWeek(n), mo=monthOfWeek(n);
   var stt=n<c.week?'past':(n===c.week?'current':'future');
   document.getElementById('wsTitle').textContent='الأسبوع '+n;
-  document.getElementById('wsRange').textContent=fmtRange(rg[0],rg[1]);
-  document.getElementById('wsMonth').textContent='الشهر '+ORD_AR[mo-1]+'، '+TRI_AR[tri-1];
+  document.getElementById('wsRange').textContent=rangeAr(rg[0],rg[1],true)+(stt==='current'?' · الأسبوع الحالي':'');
+  document.getElementById('wsMonth').textContent='الشهر '+ORD_AR[mo-1]+' · '+TRI_AR[tri-1];
   document.getElementById('wsFruit').innerHTML=(FRUIT[n]&&W[0])?'<img src="'+FRUIT[n]+'" width="46" height="46" alt="رسم توضيحي: '+W[0]+'">':'';
-  var body='<div class="hero-chips">'+(stt==='current'?'<span class="chip accent">الأسبوع الحالي</span>':(stt==='past'?'<span class="chip">'+ic('check','i-sm')+'مضى</span>':'<span class="chip">قادم</span>'))+'</div>'+
-    '<p class="muted tnum" style="font-size:var(--fs-sm);margin-top:calc(var(--s3) * -1)">'+hijri(rg[0])+' إلى '+hijri(rg[1])+'</p>';
-  if(W[0]){
-    body+='<div class="wsize size-row"><div style="display:flex;flex-direction:column;gap:var(--s2);min-width:0"><p class="lead">بحجم '+W[0]+' تقريبًا</p><div class="measures"><span class="measure">'+ic('ruler','i-sm')+'الطول <b class="tnum">'+W[1]+'</b></span>'+(W[2]?'<span class="measure">'+ic('weight','i-sm')+'الوزن <b class="tnum">'+W[2]+'</b></span>':'')+'</div></div></div>';
-  }else body+='<div class="wsize"><p class="lead">لا يوجد جنين بعد</p><p class="muted" style="font-size:var(--fs-sm)">يُحسب هذا الأسبوع ضمن مدة الحمل وإن لم يحدث الإخصاب بعد.</p></div>';
-  body+='<div class="blk"><h3>تطوّر الجنين</h3><ul class="blist">'+W[3].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>';
-  body+='<div class="blk"><h3>ما قد تشعرين به</h3><ul class="blist mom">'+MOM[n].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><p class="help">تختلف الأعراض كثيرًا من امرأة إلى أخرى. إذا كان العرض شديدًا أو مفاجئًا فراجعي <a href="#urgent" data-action="close-sheet">علامات الطوارئ</a>.</p></div>';
-  body+='<div class="blk"><h3>نصائح لكِ</h3><ul class="blist tips">'+W[4].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>';
+  var body='<p class="ws-size">'+(W[0]?'بحجم <b>'+W[0]+'</b>، '+W[1]+(W[2]?' و'+W[2].replace(/^نحو /,''):''):'لم يتكوّن الجنين بعد، ويُحسب هذا الأسبوع ضمن مدة الحمل.')+'</p>';
+  if(stt==='current'){var gw=Math.floor(c.ga/7),gd=c.ga%7;
+    body+='<p class="ws-age tnum" id="wsAge">'+(c.ga===0?'اليوم أول يوم في حساب الحمل':'عمر حملكِ اليوم '+(gw?countAr(gw,WEEKS_F):'')+(gw&&gd?' و':'')+(gd?countAr(gd,DAYS_F):''))+'</p>';}
+  var tabs=[['dev','الجنين','تطوّر الجنين'],['mom','أعراضكِ','ما قد تشعرين به'],['tip','نصائح','نصائح لكِ']];
+  body+='<div class="wtabs" role="group" aria-label="أقسام الأسبوع">'+tabs.map(function(t){return '<button type="button" data-action="ws-tab" data-k="'+t[0]+'" aria-pressed="'+(t[0]===wsTab)+'">'+t[1]+'</button>';}).join('')+'</div>';
+  var arr=wsTab==='dev'?W[3]:(wsTab==='mom'?MOM[n]:W[4]), tl=tabs.filter(function(t){return t[0]===wsTab;})[0][2];
+  body+='<ul class="blist" id="wsList" aria-label="'+tl+'">'+arr.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
+  if(wsTab==='mom')body+='<p class="ws-note">تختلف الأعراض كثيرًا من امرأة إلى أخرى. إذا كان العرض شديدًا أو مفاجئًا فراجعي <a href="#urgent" data-action="close-sheet">علامات الطوارئ</a>.</p>';
   var cks=CHECKUPS.filter(function(x){return n>=x.a&&n<=x.b;});
   var mss=milestones(c.ref).filter(function(m){var e=m.b!=null?m.b:m.a;return !(e<rg[0]||m.a>rg[1]);});
   if(cks.length||mss.length){
-    body+='<div class="blk"><h3>فحوصات ومحطات</h3><ul class="chk-list">'+
-      cks.map(function(x){return '<li>'+ic('steth')+'<span>'+x.t+'<small>'+checkupWhen(x)+'</small></span></li>';}).join('')+
-      mss.map(function(m){return '<li>'+ic('flag')+'<span>'+m.t+'<small class="tnum">'+(m.b!=null?fmtRange(m.a,m.b):fmt(m.a,{wd:true}))+'</small></span></li>';}).join('')+'</ul></div>';
+    body+='<ul class="ws-rows" aria-label="فحوصات ومحطات">'+
+      cks.map(function(x){return '<li>'+ic('steth','i-sm')+'<span>'+x.t+'<small>'+checkupWhen(x)+'</small></span></li>';}).join('')+
+      mss.map(function(m){return '<li>'+ic('flag','i-sm')+'<span>'+m.t+'<small class="tnum">'+(m.b!=null?fmtRange(m.a,m.b):fmt(m.a,{wd:true}))+'</small></span></li>';}).join('')+'</ul>';
   }
-  body+=disclaimer();
   var b=document.getElementById('wsBody');
-  b.innerHTML=body; b.scrollTop=0;
+  b.innerHTML=body; if(dir)b.scrollTop=0;
   b.classList.remove('swap');
   if(dir&&!reduceMotion){b.style.setProperty('--swap-x',(dir>0?'-16px':'16px'));void b.offsetWidth;b.classList.add('swap');}
   var pv=document.getElementById('wsPrev'),nx=document.getElementById('wsNext');
@@ -1933,7 +1986,7 @@ function closeLayer(noFocus){
   if(cell)cell.focus({preventScroll:true});
   else if(lastFocus&&document.contains(lastFocus))lastFocus.focus({preventScroll:true});
 }
-function openWeek(n){fillWeek(n,0);openLayerEl(ws);}
+function openWeek(n){wsTab='dev';fillWeek(n,0);document.getElementById('wsBody').scrollTop=0;openLayerEl(ws);}
 function stepWeek(d,animate){var n=sheetWeek+d;if(n<1||n>40)return;fillWeek(n,animate?d:0);}
 
 // swipe between weeks (RTL: finger moves right reveals the next week) and drag-down to close on the handle
@@ -1991,6 +2044,8 @@ document.addEventListener('click',function(e){
     case 'open-week':e.preventDefault();openWeek(+a.getAttribute('data-week'));break;
     case 'close-sheet':closeLayer();break;
     case 'week-prev':stepWeek(-1,false);break;
+    case 'ws-tab':wsTab=a.getAttribute('data-k');fillWeek(sheetWeek,0);focusIn('[data-action="ws-tab"][data-k="'+wsTab+'"]');break;
+    case 'notes-tab':notesTab=a.getAttribute('data-k');actsOpen=null;exportOpen=null;render(false);focusIn('[data-action="notes-tab"][data-k="'+notesTab+'"]');break;
     case 'week-next':stepWeek(1,false);break;
     case 'open-more':fillMore();openLayerEl(ms);break;
     case 'more-go':closeLayer();break;
@@ -2041,6 +2096,7 @@ document.addEventListener('submit',function(e){
     if(!ok){first.focus();return;}
     if(editing){var it=state.items.find(function(i){return i.id===editing;});if(it){it.kind=kind;it.title=title;it.date=date;it.time=time;it.body=body;it.qs=kind==='appt'?parseQs(f,it.qs):[];delete it.example;}}
     else state.items.push({id:uid(),kind:kind,title:title,date:date,time:time,body:body,qs:kind==='appt'?parseQs(f,[]):[]});
+    notesTab=kind==='note'?'nt':(isoToDay(date)<todayDay()?'past':'up');
     var wasEdit=!!editing; editing=null;formOpen=false;formPrefill=null;save();render(false);
     var ab=document.getElementById('addBtn');if(ab)ab.focus();
     toast(wasEdit?'تم حفظ التعديلات':(kind==='appt'?'تمت إضافة الموعد':'تمت إضافة الملاحظة'));

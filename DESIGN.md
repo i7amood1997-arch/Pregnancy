@@ -1,57 +1,54 @@
 ---
 name: مسار الحمل
-description: A calm Arabic pregnancy companion where every week is a botanical plate in an arched frame.
+description: A calm Arabic pregnancy companion with one soft type family, a sage-tinted ground and the week's fruit standing in an arch.
 colors:
-  paper: "#FFFFFF"
-  surface-mist: "#F6F8F5"
-  surface-fern: "#EDF1EC"
-  hairline: "#E3E8E2"
-  hairline-strong: "#C2CEC0"
-  sage-arch: "#A9BDA6"
-  plate: "#FBFCFA"
-  plate-current: "#F2F7F0"
-  leaf: "#2F5D3A"
-  leaf-deep: "#244A2E"
-  leaf-soft: "#EAF1E8"
-  pomegranate: "#9E3B3B"
-  ink: "#1F2A21"
-  graphite: "#4A4A47"
-  graphite-soft: "#5E625D"
-  night-paper: "#111512"
-  night-surface: "#171D18"
-  night-leaf: "#9CC9A3"
-  night-ink: "#E5ECE4"
-  night-pomegranate: "#E58C8C"
+  ground: "#F3F6F2"
+  surface: "#FFFFFF"
+  surface-quiet: "#E9EFE7"
+  hairline: "#E3E8E1"
+  hairline-strong: "#C6D0C3"
+  arch-top: "#DCE7D8"
+  leaf: "#3B6A4C"
+  leaf-soft: "#E4EDE2"
+  pomegranate: "#B0524B"
+  ink: "#1D2A22"
+  ink-2: "#3E4A42"
+  ink-3: "#5C675F"
+  night-ground: "#0F1411"
+  night-surface: "#171D19"
+  night-leaf: "#9DCAA8"
+  night-ink: "#E6EDE6"
 typography:
   display:
-    fontFamily: "Amiri, Noto Naskh Arabic, serif"
-    fontSize: "2.6rem"
-    fontWeight: 700
-    lineHeight: 1.35
-    letterSpacing: "normal"
-  heading:
-    fontFamily: "Amiri, Noto Naskh Arabic, serif"
-    fontSize: "1.4375rem"
-    fontWeight: 700
+    fontFamily: "Alexandria, Noto Sans Arabic, sans-serif"
+    fontSize: "2.65rem"
+    fontWeight: 300
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
+  title:
+    fontFamily: "Alexandria, Noto Sans Arabic, sans-serif"
+    fontSize: "2rem"
+    fontWeight: 300
     lineHeight: 1.3
-  figure:
-    fontFamily: "Amiri, Noto Naskh Arabic, serif"
-    fontSize: "1.35rem"
-    fontWeight: 700
-    lineHeight: 1.55
   body:
-    fontFamily: "Zain, Noto Sans Arabic, Segoe UI, Tahoma, sans-serif"
+    fontFamily: "Alexandria, Noto Sans Arabic, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.7
+  reading:
+    fontFamily: "Alexandria, Noto Sans Arabic, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 300
+    lineHeight: 1.75
   label:
-    fontFamily: "Zain, Noto Sans Arabic, Segoe UI, Tahoma, sans-serif"
-    fontSize: "0.75rem"
-    fontWeight: 700
-    lineHeight: 1.5
+    fontFamily: "Alexandria, Noto Sans Arabic, sans-serif"
+    fontSize: "0.78rem"
+    fontWeight: 300
+    lineHeight: 1.45
 rounded:
-  control: "12px"
-  section: "16px"
+  control: "14px"
+  surface: "20px"
+  home-card: "24px"
   pill: "999px"
   arch: "999px 999px 0 0"
 spacing:
@@ -61,115 +58,43 @@ spacing:
   lg: "16px"
   xl: "24px"
   2xl: "32px"
-components:
-  button-primary:
-    backgroundColor: "{colors.leaf}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.pill}"
-    height: "50px"
-  button-primary-hover:
-    backgroundColor: "{colors.leaf-deep}"
-  button-ghost:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.leaf}"
-    rounded: "{rounded.control}"
-    height: "44px"
-  plate:
-    backgroundColor: "{colors.plate}"
-    rounded: "{rounded.arch}"
-  plate-current:
-    backgroundColor: "{colors.plate-current}"
-    rounded: "{rounded.arch}"
-  week-cell:
-    backgroundColor: "{colors.plate}"
-    textColor: "{colors.graphite-soft}"
-    rounded: "30px 30px 6px 6px"
-    height: "86px"
-  chip-accent:
-    backgroundColor: "{colors.leaf-soft}"
-    textColor: "{colors.leaf}"
-    rounded: "{rounded.pill}"
 ---
 
 # Design System: مسار الحمل
 
 ## Overview
 
-**North star: the growth folio.** The app reads like a botanical folio that follows one fruit after another through 40 weeks. Every week is a plate: a fruit illustration standing in an arched frame, always at the same scale, so growth is something she can see in sequence rather than a number she has to interpret. The current week stands enlarged among its neighbours.
+**North star: soft and quiet.** One type family, Alexandria, carries the whole app through weight alone: light 300 for the week headline and screen titles, 400 for text, 500 for titles of rows and the month line. The ground is a pale sage tint; content that belongs together sits on white surfaces with a soft, low shadow. The week's fruit stands in an arch that fades into the ground, with a small contact shadow under it.
 
-The world is calm and white. Colour is rare and meaningful: leaf green carries headings, the current plate and the one primary action; a single pomegranate dot marks "now"; everything else is ink, graphite and sage hairlines on paper white. Sections separate with hairlines, not filled cards. Arabic typography carries the personality: Amiri (classical naskh) for headings and figures, Zain for reading and labels.
+## Layout rules (approved by the user)
 
-Built for one pregnant woman checking her phone, often in the evening, so the dark theme is a full peer: deep green-black paper, light leaf for action, the same arches and hairlines.
+- One job per screen. Home answers one question: where is she today.
+- Details live one tap away (week panel, expanded appointment, folded history), never stacked on the screen.
+- Each piece of information has one home; nothing is repeated across screens.
+- Home, in order: date and Hijri date with the emergency icon, the fruit arch, «الأسبوع N», month and trimester, size, then one white card with the trimester bar, days left and due date, the next appointment (or the checkup due now) and the «هذا الأسبوع» row. It fits one phone screen.
+- Week panel: header (arch thumbnail, week, month and trimester, dates), one size line, pregnancy age for the current week, three toggles (الجنين، أعراضكِ، نصائح) showing one list at a time, then checkups and milestones for that week.
+- Weeks: one screen grouped by pregnancy month (one row of 4 or 5 weeks per month) under three trimester labels.
+- Appointments: three toggles (القادمة، الملاحظات، السابقة) show one list; each row expands for notes, questions and actions. Calendar is an icon in the header.
+- Tools: one tool at a time; history folded underneath.
 
 ## Colors
 
-### Primary
-- **Leaf** (`#2F5D3A`, dark `#9CC9A3`): headings, the week headline, the current plate outline, the primary button, active navigation. Never decoration.
-
-### Secondary
-- **Pomegranate** (`#9E3B3B`, dark `#E58C8C`): only the "now" marker: the current dot in the 40-dot strip and the «الآن» label in the current plate.
-
-### Neutral
-- **Paper** `#FFFFFF` ground; **Mist** `#F6F8F5` and **Fern** `#EDF1EC` for the rare quiet fills (past week cells, inputs); **Plate** `#FBFCFA` and **Plate current** `#F2F7F0` inside arches.
-- **Sage arch** `#A9BDA6`: arch outlines and the plate baseline. **Hairline** `#E3E8E2` between sections and rows.
-- **Ink** `#1F2A21`, **Graphite** `#4A4A47`, **Graphite soft** `#5E625D` for text (all at least 6:1 on paper).
-
-### Named Rules
-**The One Green Rule.** Leaf green appears on headings, the current plate and at most one filled button per screen.
-**The Single Dot Rule.** Pomegranate marks only "now"; it is never used for alerts (alerts use the separate danger and warn tokens).
-
-## Typography
-
-**Display and headings:** Amiri 700. **Body and labels:** Zain 400/700. Base size is 17px (`html{font-size:106.25%}`) because Zain sets small.
-
-### Hierarchy
-- Week headline (home): Amiri 2.6rem, leaf, centred, with a 52px leaf rule under it.
-- Section headings: Amiri 1.4375rem.
-- Figures in the facts row (due date, days left): Amiri 1.35rem.
-- Body: Zain 1rem, line height 1.7. Labels and captions: Zain 0.75rem bold.
-
-### Named Rules
-**The Naskh Headline Rule.** Headings and big figures are Amiri; never set running text or controls in it.
-
-## Layout
-
-Mobile-first single column; home is capped at 640px and centred on desktop, with a right-side rail (RTL inline-start) from 960px. The home first viewport is fixed in this order: top bar (name, Gregorian and Hijri date) → five arched plates on one sage baseline (previous two, current, next two; clamped at weeks 1 and 40) → week headline → month and trimester line → size line → 40-dot strip → pregnancy age → two facts split by a hairline → full-width primary button. Spacing follows the 4px scale; more space above a heading than below it.
-
-## Elevation & Depth
-
-Flat. The only shadow in the world is a soft drop shadow under fruit illustrations (`drop-shadow(0 6px 6px rgb(0 0 0 / .12))`). Sheets and dialogs use the shared overlay shadow.
-
-## Shapes
-
-- **Arch:** full semicircle top, flat bottom (`border-radius:999px 999px 0 0`) for home plates; 30px top radius with 6px bottom for week cells; the week panel plate uses 30px/4px.
-- **Pill:** the primary button and small tags.
-- **12px:** secondary controls and inputs. **16px:** the few framed sections.
+- **Leaf** `#3B6A4C` (dark `#9DCAA8`): the month line, active navigation, the add button, filled progress, icons in rows.
+- **Pomegranate** `#B0524B` (dark `#E8908A`): only the "now" dot on the trimester bar and the current week cell.
+- Neutrals: ground `#F3F6F2`, white surfaces, quiet fill `#E9EFE7` for tracks, past weeks and inactive toggles; hairlines `#E3E8E1`.
+- The user rejected strong or per-week colour. Keep colour rare.
 
 ## Components
 
-### Buttons
-Primary: leaf fill, white text, pill, 50px tall, full width on home. Ghost: paper with a sage border and leaf text, 12px radius. Press feedback scales to 0.97.
-
-### Chips
-Outline chips in hairline-strong; the accent chip is leaf-soft with leaf text.
-
-### Cards / Containers
-No filled cards. Panels, items, months and the week panel's size box are paper with a 1px hairline; lists separate rows with hairlines.
-
-### Navigation
-Bottom bar: paper with a top hairline, five text labels, the active one leaf and bold with a 22×2px leaf bar above it. Desktop rail: short labels, active row on leaf-soft.
-
-### Plate strip (signature)
-Five buttons, each an arch with the week number at the top and the fruit at the bottom; the current plate is about 1.7× wider, outlined 1.5px leaf, filled plate-current, labelled «الآن» in pomegranate. All plates open the week panel.
+- **Arch:** full semicircle top, gradient from `arch-top` to the ground, no outline; the fruit at the bottom with a soft elliptical shadow.
+- **Trimester bar:** three segments sized by days (91, 98, 91), 5px tall, 4px gaps; leaf fill; pomegranate dot with a white ring at today.
+- **Home card / surfaces:** white, 24px (home card) or 20px radius, `0 12px 28px -18px` shadow.
+- **Toggles:** a quiet track with the active option on white with a small shadow.
+- **Week cells:** white arch-topped tiles (28px top radius); past weeks on the quiet fill; the current week outlined in leaf with a pomegranate dot.
 
 ## Do's and Don'ts
 
-### Do:
-- Keep every fruit at the same scale inside its arch.
-- Keep colour to leaf, the single pomegranate dot, and neutrals.
-- Show the pregnancy month and trimester right under the week.
-
-### Don't:
-- Don't flood screens with colour or change the palette per week (tried and rejected by the user as loud).
-- Don't bring back filled grey cards or a progress ring.
-- Don't use cream or parchment grounds; the world is paper white.
+- Do keep every fruit at the same scale and keep the month next to the week everywhere.
+- Do keep each screen to one job; move detail into a tap.
+- Don't add colour floods, per-week colours, rings around the fruit or circles behind it.
+- Don't stack sections that could be one tap away.
