@@ -600,6 +600,10 @@ main{padding-top:max(var(--s4),env(safe-area-inset-top,0px))}
 .note{font-weight:300}
 .fold>summary{font-weight:500}
 .hist-fold>summary{color:var(--ink-2);font-size:var(--fs-sm)}
+.kday{display:flex;flex-direction:column;margin-top:var(--s3)}
+.kday-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:8px 12px;border-radius:12px;background:var(--surface-2);font-size:var(--fs-sm)}
+.kday-h span{font-weight:300;color:var(--ink-2)}
+.kday .hist{padding-inline:4px}
 .hist-fold>summary .c{font-weight:300;color:var(--ink-3)}
 .blist li{font-weight:300;line-height:1.75}
 .blist li::before{width:6px;height:6px;margin-top:.75em;background:var(--accent)}
@@ -1526,6 +1530,9 @@ function updatePreview(showErrors){
 var FRAMED=(function(){try{return window.self!==window.top;}catch(err){return true;}})();
 var MIN_F=['دقيقة واحدة','دقيقتان','دقائق','دقيقة','دقيقة','دقيقتين'];
 var MOV_F=['حركة واحدة','حركتان','حركات','حركة','حركة','حركتين'];
+var SESS_F=['جلسة واحدة','جلستان','جلسات','جلسة','جلسة','جلستين'];
+var kickHistOpen=false;
+document.addEventListener('toggle',function(e){if(e.target&&e.target.id==='kickHist')kickHistOpen=e.target.open;},true);
 var BAGK=['mom','baby','docs'];
 var actsOpen=null, qsOpen=null, listEdit=false, symMore=false, exportOpen=null, logDate=null, noteTimer=null, tick=null, dlgFn=null;
 function pad2(n){return String(n).padStart(2,'0');}
@@ -1582,10 +1589,15 @@ function kicksHTML(w){
   }else h+='<button class="big-tap" id="kickBtn" data-action="kick-start">'+ic('heart')+'<span>ابدئي العدّ</span></button><p class="tool-hint">اضغطي مع كل ركلة أو تقلّب أو رفرفة.</p>';
   h+=noteBox('قلة واضحة في الحركة أو تغيّر في نمطها تستدعي التواصل مع طبيبتكِ فورًا. <a href="#urgent">علامات الطوارئ</a>','alert');
   h+='<details class="fold"><summary>كيف أعدّ الحركة؟</summary>'+liList(['اختاري وقتًا يكون فيه جنينكِ نشطًا عادةً، مثل بعد الأكل أو في المساء.','استلقي على جانبكِ أو اجلسي بارتياح، وركّزي على الحركة.','يستخدم كثير من الأطباء الوصول إلى 10 حركات مرجعًا، والأهم أن تعرفي النمط المعتاد لجنينكِ.'])+'</details>';
-  var ks=state.kicks.slice().sort(function(x,y){return y.start-x.start;}).slice(0,5);
-  h+=(ks.length?'<details class="fold hist-fold"><summary>آخر الجلسات <span class="c tnum">'+state.kicks.length+'</span></summary>':'<section>')+(ks.length?'<ul class="hist">'+ks.map(function(k){
-    return '<li><span class="grow"><b class="tnum">'+countAr(k.count,MOV_F)+'</b> خلال '+durText(k.end-k.start)+'<br><span class="muted tnum">'+fmt(localDay(k.start),{wd:true,y:false})+'، '+clock(k.start)+'</span></span><button class="icon-btn" data-action="kick-del" data-id="'+k.id+'" aria-label="حذف الجلسة">'+ic('trash')+'</button></li>';}).join('')+'</ul>'
-    :'<p class="muted" style="font-size:var(--fs-sm)">لا توجد جلسات بعد.</p>')+(ks.length?'</details>':'</section>');
+  var ks=state.kicks.slice().sort(function(x,y){return y.start-x.start;}), days=[], byDay={}, td=todayDay();
+  ks.forEach(function(k){var d=localDay(k.start);if(!byDay[d]){byDay[d]=[];days.push(d);}byDay[d].push(k);});
+  function dayName(d){return d===td?'اليوم':(d===td-1?'أمس':fmt(d,{wd:true,y:dayParts(d).y!==dayParts(td).y}));}
+  h+=ks.length?'<details class="fold hist-fold" id="kickHist"'+(kickHistOpen?' open':'')+'><summary>الجلسات <span class="c tnum">'+ks.length+'</span></summary>'+days.map(function(d){
+      var list=byDay[d], tot=list.reduce(function(t,k){return t+k.count;},0);
+      return '<section class="kday" aria-label="'+dayName(d)+'"><div class="kday-h"><b class="tnum">'+dayName(d)+'</b><span class="tnum">'+countAr(list.length,SESS_F)+' · '+countAr(tot,MOV_F)+'</span></div><ul class="hist">'+list.map(function(k){
+        return '<li><span class="grow"><b class="tnum">'+countAr(k.count,MOV_F)+'</b> <span class="muted tnum">خلال '+durText(k.end-k.start)+'، '+clock(k.start)+'</span></span><button class="icon-btn" data-action="kick-del" data-id="'+k.id+'" aria-label="حذف جلسة '+clock(k.start)+'">'+ic('trash')+'</button></li>';}).join('')+'</ul></section>';
+    }).join('')+'</details>'
+    :'<p class="muted" style="font-size:var(--fs-sm)">لا توجد جلسات بعد.</p>';
   return h;
 }
 
