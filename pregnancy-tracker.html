@@ -631,6 +631,7 @@ main{padding-top:max(var(--s4),env(safe-area-inset-top,0px))}
 .hero-s h1{font-weight:300;font-size:2.65rem;line-height:1.25;letter-spacing:-.01em;margin-top:14px;color:var(--ink)}
 .hero-s .mo{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:500;font-size:.95rem;color:var(--accent);margin-top:4px}
 .hero-s .mo i{width:3px;height:3px;border-radius:50%;background:currentColor}
+.hero-s .ga{font-weight:400;font-size:var(--fs-sm);color:var(--ink);margin-top:2px}
 .hero-s .sz{font-weight:300;font-size:var(--fs-sm);color:var(--ink-3);margin-top:2px}
 .home-card{margin-top:22px;background:var(--surface);border-radius:24px;padding:18px 18px 4px;box-shadow:var(--shadow)}
 .tri-bar{display:flex;gap:4px}
@@ -1285,6 +1286,7 @@ function nextRow(c){
   if(due){var db=weekRange(c.ref,due.b)[1];return hrow('#lists','steth',due.t,'فحص هذه الفترة، حتى '+fmt(db,{wd:true,y:false}));}
   return hrow('#notes','plus','لا يوجد موعد قادم','أضيفي موعدكِ القادم مع الطبيبة',' data-action="go-add"');
 }
+function gaPhrase(ga){var w=Math.floor(ga/7),d=ga%7;if(ga===0)return 'أول يوم في الحمل';return (w?countAr(w,WEEKS_F):'')+(w&&d?' و':'')+(d?countAr(d,DAYS_F):'')+(w&&!d?' بالضبط':'');}
 function renderHome(c){
   var g=guardHTML(c); if(g)return '<div class="view view-home">'+homeTop(c)+g+'</div>';
   var wk=Math.min(c.week,40), W=WEEKS[wk], h='';
@@ -1297,6 +1299,7 @@ function renderHome(c){
       '<button class="arch" data-action="open-week" data-week="'+wk+'" aria-label="تفاصيل الأسبوع '+wk+(W[0]?'، بحجم '+W[0]:'')+'">'+(FRUIT[wk]&&W[0]?'<img src="'+FRUIT[wk]+'" alt="" width="112" height="112">':'<i class="seed"></i>')+'</button>'+
       '<h1 id="wkTitle">الأسبوع '+c.week+'</h1>'+
       '<p class="mo">الشهر '+ORD_AR[c.month-1]+'<i aria-hidden="true"></i>'+TRI_AR[c.tri-1]+'</p>'+
+      '<p class="ga tnum" id="gaLine">'+(c.ga===0?'اليوم أول يوم في الحمل':'عمر الحمل '+gaPhrase(c.ga))+'</p>'+
       '<p class="sz">'+(W[0]?'بحجم '+W[0]+' تقريبًا':'لم يتكوّن الجنين بعد')+'</p>'+
     '</section>'+
     '<section class="home-card" aria-label="التقدّم والقادم">'+triBar(c.ga)+
@@ -1940,7 +1943,7 @@ function fillWeek(n,dir){
   document.getElementById('wsFruit').innerHTML=(FRUIT[n]&&W[0])?'<img src="'+FRUIT[n]+'" width="46" height="46" alt="رسم توضيحي: '+W[0]+'">':'';
   var body='<p class="ws-size">'+(W[0]?'بحجم <b>'+W[0]+'</b>، '+W[1]+(W[2]?' و'+W[2].replace(/^نحو /,''):''):'لم يتكوّن الجنين بعد، ويُحسب هذا الأسبوع ضمن مدة الحمل.')+'</p>';
   if(stt==='current'){var gw=Math.floor(c.ga/7),gd=c.ga%7;
-    body+='<p class="ws-age tnum" id="wsAge">'+(c.ga===0?'اليوم أول يوم في حساب الحمل':'عمر حملكِ اليوم '+(gw?countAr(gw,WEEKS_F):'')+(gw&&gd?' و':'')+(gd?countAr(gd,DAYS_F):''))+'</p>';}
+    body+='<p class="ws-age tnum" id="wsAge">'+(c.ga===0?'اليوم أول يوم في الحمل':'عمر حملكِ اليوم '+gaPhrase(c.ga))+'</p>';}
   var tabs=[['dev','الجنين','تطوّر الجنين'],['mom','أعراضكِ','ما قد تشعرين به'],['tip','نصائح','نصائح لكِ']];
   body+='<div class="wtabs" role="group" aria-label="أقسام الأسبوع">'+tabs.map(function(t){return '<button type="button" data-action="ws-tab" data-k="'+t[0]+'" aria-pressed="'+(t[0]===wsTab)+'">'+t[1]+'</button>';}).join('')+'</div>';
   var arr=wsTab==='dev'?W[3]:(wsTab==='mom'?MOM[n]:W[4]), tl=tabs.filter(function(t){return t[0]===wsTab;})[0][2];
