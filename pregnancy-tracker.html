@@ -600,6 +600,15 @@ main{padding-top:max(var(--s4),env(safe-area-inset-top,0px))}
 .note{font-weight:300}
 .fold>summary{font-weight:500}
 .hist-fold>summary{color:var(--ink-2);font-size:var(--fs-sm)}
+.top-acts{display:flex;gap:8px}
+.cal-jump{display:flex;align-items:center;gap:10px;margin-bottom:var(--s3);font-size:var(--fs-sm);color:var(--ink-3)}
+.cal-jump .input{min-height:42px;max-width:200px;padding:6px 12px}
+.dd-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin:0}
+.dd-facts div{min-width:0}
+.dd-facts .wide{grid-column:1/-1}
+.dd-facts dt{font-size:var(--fs-xs);font-weight:300;color:var(--ink-3)}
+.dd-facts dd{margin:0;font-weight:500}
+.dd-facts .wide dd{font-size:1.2rem;font-weight:400;color:var(--accent)}
 .kday{display:flex;flex-direction:column;margin-top:var(--s3)}
 .kday-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:8px 12px;border-radius:12px;background:var(--surface-2);font-size:var(--fs-sm)}
 .kday-h span{font-weight:300;color:var(--ink-2)}
@@ -1174,14 +1183,14 @@ var VIEWS=[
   {id:'home',t:'الرئيسية',i:'home'},
   {id:'weeks',t:'الأسابيع',i:'grid'},
   {id:'notes',t:'المواعيد',i:'clip'},
-  {id:'calendar',t:'التقويم',i:'cal',parent:'notes'},
+  {id:'calendar',t:'التقويم',i:'cal'},
   {id:'tools',t:'الأدوات',i:'activity'},
   {id:'lists',t:'القوائم',i:'list'},
   {id:'urgent',t:'علامات الطوارئ',i:'aid'},
   {id:'prefs',t:'الإعدادات',i:'sliders'}
 ];
 var TAB_IDS=['home','weeks','notes','tools'];
-var MORE_IDS=['lists','urgent','prefs'];
+var MORE_IDS=['calendar','lists','urgent','prefs'];
 function viewById(id){for(var i=0;i<VIEWS.length;i++)if(VIEWS[i].id===id)return VIEWS[i];return null;}
 function buildNav(){
   document.getElementById('railLinks').innerHTML=VIEWS.filter(function(v){return !v.parent;}).map(function(v){
@@ -1267,7 +1276,7 @@ function animateRing(target,animate){
 var TRI_DAYS=[[0,91],[91,189],[189,280]];
 function homeTop(c){
   return '<div class="home-top"><p class="dt"><b class="tnum">'+fmt(c.today,{wd:true,y:false})+'</b><span class="tnum">'+hijri(c.today)+'</span></p>'+
-    '<a class="icon-btn round" href="#urgent" aria-label="علامات الطوارئ: متى أراجع الطبيبة فورًا؟">'+ic('aid')+'</a></div>';
+    '<span class="top-acts"><a class="icon-btn round" href="#calendar" aria-label="التقويم">'+ic('cal')+'</a><a class="icon-btn round" href="#urgent" aria-label="علامات الطوارئ: متى أراجع الطبيبة فورًا؟">'+ic('aid')+'</a></span></div>';
 }
 function triBar(ga){
   ga=Math.max(0,Math.min(ga,TERM));
@@ -1377,17 +1386,25 @@ function renderCalendar(c){
     '<h2 id="calTitle" class="tnum" aria-live="polite">'+MONTH_AR[calView.m]+' '+calView.y+'</h2>'+
     '<button class="icon-btn" data-action="cal-next" aria-label="الشهر التالي">'+ic('chev','flip')+'</button>'+
     '<button class="btn btn-ghost" data-action="cal-today" style="min-height:40px;padding:0 12px">اليوم</button></div>'+
+    '<div class="cal-jump"><label for="calJump">اذهبي إلى تاريخ</label><input class="input" type="date" id="calJump" value="'+dayToISO(calSel)+'"></div>'+
     '<div class="cal-grid" role="group" aria-labelledby="calTitle" id="calGrid">'+grid+'</div>'+
     '<div class="cal-legend" aria-hidden="true"><span><i class="sq" style="background:var(--t1-soft)"></i>الثلث الأول</span><span><i class="sq" style="background:var(--t2-soft)"></i>الثلث الثاني</span><span><i class="sq" style="background:var(--t3-soft)"></i>الثلث الثالث</span><span><i class="sq" style="background:var(--accent)"></i>موعد الولادة</span><span><i class="mk ms"></i>محطة</span><span><i class="mk"></i>موعد</span></div></div>';
   return '<div class="view">'+head+'<div class="cal-wrap">'+cal+'<section class="panel day-detail" id="dayDetail" aria-live="polite">'+dayDetailHTML(c,calSel)+'</section></div></div>';
 }
 function dayDetailHTML(c,day){
-  var ga=day-c.ref, h='<div><h2 class="tnum">'+fmt(day,{wd:true})+'</h2><p class="hj">'+hijri(day)+'</p></div>';
+  var ga=day-c.ref, rel=day-c.today;
+  var h='<div><h2 class="tnum">'+fmt(day,{wd:true})+'</h2><p class="hj">'+hijri(day)+(rel===0?' · اليوم':(rel>0?' · '+inDays(rel):' · قبل '+countAr(-rel,DAYS_F,true)))+'</p></div>';
   if(ga<0)h+='<p class="muted">قبل بداية الحمل وفق البيانات المدخلة.</p>';
   else if(ga>MAX_DAY)h+='<p class="muted">بعد نهاية الأسبوع 42.</p>';
   else{
-    var w=weekOfGA(ga);
-    h+='<div class="hero-chips"><span class="chip accent tnum">'+gaText(ga)+'</span><span class="chip">الأسبوع '+w+'</span>'+(w<=40?'<span class="chip t'+triOfWeek(w)+'">'+TRI_AR[triOfWeek(w)-1]+'</span>':'')+'</div>';
+    var w=weekOfGA(ga), mo=monthOfWeek(w), left=TERM-ga;
+    h+='<dl class="dd-facts">'+
+      '<div class="wide"><dt>عمر الحمل</dt><dd class="tnum">'+(ga===0?'أول يوم في الحمل':gaPhrase(ga))+'</dd></div>'+
+      '<div><dt>الأسبوع</dt><dd class="tnum">الأسبوع '+w+'، يومه '+ORD_DAY[ga%7]+'</dd></div>'+
+      '<div><dt>الشهر</dt><dd>الشهر '+ORD_AR[Math.min(mo,9)-1]+(w<=40?'، '+TRI_AR[triOfWeek(w)-1]:'')+'</dd></div>'+
+      '<div><dt>يوم الحمل</dt><dd class="tnum">'+(ga+1)+(ga<TERM?' من 280':'')+'</dd></div>'+
+      '<div><dt>موعد الولادة</dt><dd class="tnum">'+(left>0?'بعد '+countAr(left,DAYS_F,true):(left===0?'في هذا اليوم':'بعده بـ '+countAr(-left,DAYS_F,true)))+'</dd></div>'+
+    '</dl>';
   }
   var ev=dayEvents(c,day);
   if(ev.length){
@@ -1881,6 +1898,7 @@ function featureChange(t){
   if(t.getAttribute&&t.getAttribute('data-contact')){state.contacts[t.getAttribute('data-contact')]=t.value.trim();save();render(false);return true;}
   if(t.getAttribute&&t.getAttribute('data-q')){var pr=t.getAttribute('data-q').split('|'),it=state.items.find(function(x){return x.id===pr[0];});
     if(it&&it.qs[+pr[1]]){it.qs[+pr[1]].done=t.checked;qsOpen=it.id;save();var keep=t.id;render(false);focusId(keep);}return true;}
+  if(t.id==='calJump'){var jd=isoToDay(t.value);if(jd!=null){var jp=dayParts(jd);calSel=jd;calView={y:jp.y,m:jp.m};render(false);focusId('calJump');}return true;}
   if(t.id==='bkFile'){var file=t.files&&t.files[0];if(!file)return true;var rdr=new FileReader();rdr.onload=function(){importText(String(rdr.result||''));};rdr.onerror=function(){toast('تعذّرت قراءة الملف.');};rdr.readAsText(file);t.value='';return true;}
   return false;
 }
@@ -2081,6 +2099,7 @@ document.addEventListener('click',function(e){
 });
 scrim.addEventListener('click',closeLayer);
 function fillMore(){markNav(cur);}
+var ORD_DAY=['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع'];
 function focusCalSel(){var el=document.querySelector('.cd.sel');if(el)el.focus({preventScroll:true});}
 
 document.addEventListener('submit',function(e){
